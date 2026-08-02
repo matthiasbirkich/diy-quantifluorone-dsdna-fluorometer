@@ -213,10 +213,10 @@ Complete references, original licenses, modification notes, and attribution info
 
 ## Contact
 
-**Project lead:** [Matthias Birkicht]  
+**Project lead:** Matthias Birkicht
 
-**Institution:** [Leibniz Centre for Marine Tropical Research]  
+**Institution:** Leibniz Centre for Marine Tropical Research
 
 **Project:** [Project name]  
 
-**Contact:** [LZMT, Fahrenheitstraße 6, D-28359 Bremen, Germany]
+**Contact:** LZMT, Fahrenheitstraße 6, D-28359 Bremen, Germany
