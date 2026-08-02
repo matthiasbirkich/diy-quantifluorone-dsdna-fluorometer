@@ -119,11 +119,11 @@ Detailed component specifications and revision-controlled hardware information a
 
 ## Optical architecture
 
-The QuantiFluorONE-Fluorometer uses one TSL2591 fluorescence sensor positioned at 90° to the excitation axis. A Neemoo Ex470BP-40 excitation filter and a Neemoo Em532BP-40 emission filter are installed, and measurements use Promega E4941 thin-walled 0.5 mL PCR tubes. Calibration is based on the blank-corrected 90° fluorescence response.
+The QuantiFluorONE-Fluorometer uses one TSL2591 fluorescence sensor positioned at 90° to the excitation axis. A Neemoo Ex470BP-40 excitation filter and a Neemoo Em532BP-40 emission filter are installed, and measurements use Promega E4941 thin-walled 0.5 mL PCR tubes.
 
 Fluorescence emitted by the stained dsDNA sample passes through the emission filter and is detected by the TSL2591 sensor.
 
-Calibration is based on the blank-corrected fluorescence signal:
+Calibration is based on the blank-corrected 90° fluorescence response:
 
 \[
 S_{\mathrm{corrected}} = S_{\mathrm{sample}} - S_{\mathrm{blank}}
