@@ -1,0 +1,8 @@
+_book/
+.quarto/
+*.aux
+*.log
+*.out
+*.toc
+.DS_Store
+Thumbs.db

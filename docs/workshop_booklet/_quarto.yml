@@ -1,0 +1,54 @@
+project:
+  type: book
+  output-dir: ../pdf/build
+
+book:
+  title: "DIY-QuantiFluorONE-dsDNA-Fluorometer Workshop Booklet"
+  subtitle: "Assembly, Installation, Calibration, and dsDNA Measurement"
+  author: "[To be confirmed]"
+  date: "2026-08-02"
+  chapters:
+    - index.qmd
+    - chapters/01_introduction.qmd
+    - chapters/02_safety.qmd
+    - chapters/03_system_overview.qmd
+    - chapters/04_measurement_principle.qmd
+    - chapters/05_hardware.qmd
+    - chapters/06_assembly_overview.qmd
+    - chapters/07_software_installation.qmd
+    - chapters/08_user_interface.qmd
+    - chapters/09_button_layout.qmd
+    - chapters/10_standards_and_reagents.qmd
+    - chapters/11_two_point_calibration.qmd
+    - chapters/12_multipoint_calibration.qmd
+    - chapters/13_calibration_suite.qmd
+    - chapters/14_json_transfer.qmd
+    - chapters/15_sample_measurement.qmd
+    - chapters/16_results.qmd
+    - chapters/17_lod_loq.qmd
+    - chapters/18_quality_control.qmd
+    - chapters/19_troubleshooting.qmd
+    - chapters/20_validation.qmd
+    - chapters/21_performance_comparison.qmd
+    - chapters/22_workshop_exercises.qmd
+    - chapters/23_checklists.qmd
+    - chapters/24_references.qmd
+    - chapters/25_appendices.qmd
+
+bibliography: ../references/references.bib
+
+format:
+  pdf:
+    documentclass: scrbook
+    toc: true
+    number-sections: true
+    papersize: a4
+    geometry:
+      - top=22mm
+      - bottom=22mm
+      - left=22mm
+      - right=22mm
+    keep-tex: true
+  html:
+    toc: true
+    number-sections: true

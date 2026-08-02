@@ -1,0 +1,13 @@
+---
+title: "DIY-QuantiFluorONE-dsDNA-Fluorometer Workshop Booklet"
+subtitle: "Assembly, Installation, Calibration, and dsDNA Measurement"
+author: "[To be confirmed]"
+date: "2026-08-02"
+version: "0.1.2-draft.1"
+status: "Draft"
+---
+
+This booklet is the self-contained workshop manual for DIY-QuantiFluorONE-dsDNA-Fluorometer.
+
+> [!WARNING]
+> This draft has not yet completed analytical validation and must not be represented as a validated measurement method.

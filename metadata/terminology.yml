@@ -1,0 +1,42 @@
+preferred_terms:
+  - term: DIY-QuantiFluorONE-dsDNA-Fluorometer
+    abbreviation: DIY-QFO
+    definition: "The independently developed DIY fluorometer instrument, firmware, calibration workflow, and documentation system described in this repository."
+    usage_note: "Use the complete project name in titles and at first mention. Do not use QuantiFluorONE alone as the project name."
+  - term: QuantiFluor® ONE dsDNA System
+    abbreviation: QF ONE
+    definition: "The Promega reagent system used for dsDNA quantification."
+    usage_note: "Preserve the official Promega product name and distinguish it from the DIY instrument."
+  - term: Quantus™ Fluorometer
+    abbreviation: null
+    definition: "The Promega commercial fluorometer used as a reference instrument where applicable."
+  - term: two-point calibration
+    abbreviation: 2PT
+    definition: "Calibration using two concentration levels according to the defined project procedure."
+  - term: multipoint calibration
+    abbreviation: MP
+    definition: "Calibration using more than two concentration levels."
+  - term: limit of detection
+    abbreviation: LOD
+    definition: "A method-dependent detection limit calculated using the documented statistical procedure."
+  - term: limit of quantification
+    abbreviation: LOQ
+    definition: "A method-dependent quantification limit calculated using the documented statistical procedure."
+  - term: double-stranded DNA
+    abbreviation: dsDNA
+    definition: "Double-stranded deoxyribonucleic acid."
+  - term: lambda DNA
+    abbreviation: λ-DNA
+    definition: "DNA standard material derived from bacteriophage lambda."
+  - term: relative fluorescence unit
+    abbreviation: RFU
+    definition: "A relative signal value. Use only when the reported value is not an absolute radiometric quantity."
+  - term: reagent blank
+    abbreviation: blank
+    definition: "Assay reagent prepared without dsDNA sample or standard."
+  - term: fluorescence channel
+    abbreviation: "90° channel"
+    definition: "The single TSL2591 detector channel positioned approximately perpendicular to the excitation beam to measure emitted fluorescence."
+  - term: blank-corrected fluorescence response
+    abbreviation: "ΔS"
+    definition: "The 90° sample signal minus the corresponding 90° reagent-blank signal: ΔS = S_sample - S_blank."

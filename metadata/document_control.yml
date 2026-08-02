@@ -1,0 +1,23 @@
+document_status_values:
+  - draft
+  - review
+  - approved
+  - final
+software_status_values:
+  - experimental
+  - preliminary
+  - stable
+  - deprecated
+validation_status_values:
+  - not_validated
+  - preliminary_validation
+  - partially_validated
+  - validated
+data_status_values:
+  - synthetic
+  - example
+  - preliminary
+  - quality_controlled
+  - final
+  - archived
+rule: "Stable software or documentation must never be described as analytically validated unless validation_status is validated."
