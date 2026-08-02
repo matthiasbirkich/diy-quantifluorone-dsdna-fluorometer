@@ -18,7 +18,7 @@ The instrument is designed for use with the **Promega QuantiFluor® ONE dsDNA Sy
 
 - a modified 3D-printed sample holder derived from the open-source **DIYNAFLUOR** project.
 
-The instrument is intended for use during the **[XXXY\YY project name]** in Malaysia in cooperation with members of the **Leibniz Centre for Tropical Marine Research (ZMT)** and **[partner institution or organisation]**.
+The instrument is intended for use during the **[project name]** in Malaysia in cooperation with members of the **Leibniz Centre for Tropical Marine Research (ZMT)** and **[partner institution or organisation]**.
 
 ## Important status statement
 
@@ -118,16 +118,16 @@ Detailed component specifications and revision-controlled hardware information a
 
 ## Optical architecture
 
-The instrument uses **one TSL2591 fluorescence sensor** positioned approximately at 90° to the excitation beam.
+## Optical architecture
 
-The DIY-QFO does **not** contain a 180° reference sensor, transmission sensor, or second optical measurement channel.
+The instrument uses one TSL2591 light sensor positioned at 90° to the excitation beam.
 
-Calibration is based on the blank-corrected fluorescence response of the 90° sensor:
+Fluorescence emitted by the stained dsDNA sample passes through the emission filter and is detected by the TSL2591 sensor.
+
+Calibration is based on the blank-corrected fluorescence signal:
 
 \[
-
 S_{\mathrm{corrected}} = S_{\mathrm{sample}} - S_{\mathrm{blank}}
-
 \]
 
 The corrected fluorescence signal is related to dsDNA concentration using either a two-point calibration (**2PT**) or a multipoint calibration (**MP**), depending on the selected procedure.
