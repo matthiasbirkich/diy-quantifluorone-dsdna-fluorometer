@@ -8,7 +8,8 @@
 
 > **Documentation language:** English
 
-The **DIY-QuantiFluorONE-dsDNA-Fluorometer**, abbreviated **DIY-QFO**, is an independently developed, portable, repairable fluorometer project for the fluorometric quantification of double-stranded DNA (**dsDNA**).
+The **DIY-QuantiFluorONE-dsDNA-Fluorometer**, abbreviated **DIY-QFO**, is an independently developed, portable, and modular fluorometer project for the fluorometric quantification of double-stranded DNA (**dsDNA**).
+Its modular optical design allows excitation LED boards, kuvette holders and optical filters to be exchanged. This makes it possible to adapt the instrument to other dsDNA fluorescence assays and, after appropriate hardware configuration, calibration, and validation, to additional fluorescence-based analytical applications.
 
 The instrument is designed for use with the **Promega QuantiFluor® ONE dsDNA System**. It integrates:
 
