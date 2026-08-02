@@ -1,5 +1,0 @@
---- a/README.md
-+++ b/README.md
-@@
--> **Optical architecture:** QuantiFluorONE uses one TSL2591 fluorescence sensor positioned approximately 90° to the excitation beam. It does not include a 180° reference or transmission sensor. Calibration is based on the blank-corrected 90° fluorescence response.
-+> **Optical architecture:** QuantiFluorONE uses one TSL2591 fluorescence sensor positioned at 90° to the excitation axis. A Neemoo Ex470BP-40 excitation filter and a Neemoo Em532BP-40 emission filter are installed, and measurements use Promega E4941 thin-walled 0.5 mL PCR tubes. Calibration is based on the blank-corrected 90° fluorescence response.
