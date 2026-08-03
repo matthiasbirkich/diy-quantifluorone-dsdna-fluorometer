@@ -1,0 +1,1 @@
+48cc941c12578308e4cb6ec68f8119962941370f60ce40eff16f0564134e97d1  QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip
