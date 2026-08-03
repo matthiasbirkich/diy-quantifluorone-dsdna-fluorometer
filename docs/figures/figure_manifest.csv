@@ -1,0 +1,11 @@
+Figure_ID,Relative_path_from_docs_figures,Caption,Status,Source,Notes
+fig-ch04-01,photos/ch04/assembled_instrument_front.jpg,"Assembled prototype, front view",Included,Project photograph supplied 2026-08-03,Displayed reading is not analytical validation data
+fig-ch04-02,cad/ch04/pybadge_enclosure_cad.jpeg,PyBadge enclosure CAD overview,Included,Project CAD screenshot,
+fig-ch04-03,cad/ch04/optical_module_overview_cad.jpeg,Optical module mounted on base,Included,Project CAD screenshot,
+fig-ch04-04,cad/ch04/optical_module_closeup_cad.jpeg,Optical holder close-up,Included,Project CAD screenshot,
+fig-ch04-05,cad/ch04/light_shield_part_cad.jpeg,Light-shield part CAD view,Included,Project CAD screenshot,
+fig-ch04-06,source/ch04/qfo_optical_geometry.svg,90-degree optical geometry,Generated in package,Project diagram,Confirm dimensions from final holder STEP
+fig-ch04-07,source/ch04/qfo_electronics_overview.svg,Electronics and I2C overview,Generated in package,Project diagram,Channel allocation remains marked pending
+fig-ch04-08,photos/ch04/open_instrument_wiring.jpg,Open instrument with complete wiring,Missing,,Required final photograph
+fig-ch04-09,photos/ch04/excitation_side_led_filter.jpg,LED and Ex470BP-40 installation,Missing,,Required final photograph
+fig-ch04-10,photos/ch04/detection_side_filter_sensor.jpg,Em532BP-40 and one TSL2591 installation,Missing,,Required final photograph

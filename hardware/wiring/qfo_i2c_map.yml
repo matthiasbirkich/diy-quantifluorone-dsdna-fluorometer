@@ -1,0 +1,24 @@
+controller:
+  name: Adafruit PyBadge
+  product_id: 4200
+  firmware_baseline: CircuitPython 9.1.1
+  upstream_connection: PyBadge I2C connector -> SparkFun PRT-15109 -> PCA9546
+
+devices:
+  - name: PCA9546 four-channel I2C multiplexer
+    product_id: 5664
+    address: "0x70"
+    location: upstream bus
+    channel_map: TBD
+
+  - name: TSL2591 STEMMA QT light sensor
+    product_id: 1980
+    address: "0x29"
+    quantity: 1
+    multiplexer_channel: TBD
+
+  - name: ioRodeo fixed-current radial LED board
+    board_variant: radial_16mA
+    revision: ver_0p1_rev_3
+    address: none
+    note: SDA and SCL are pass-through conductors; the board is not expected in an I2C scan.
