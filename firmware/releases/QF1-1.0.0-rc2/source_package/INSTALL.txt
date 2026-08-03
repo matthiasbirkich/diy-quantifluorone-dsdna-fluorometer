@@ -1,0 +1,12 @@
+QuantiFluorONE QF1-1.0.0-rc1
+
+1. Start from open_colorimeter_plus_firmware_v0.1.1.
+2. Keep /src/constants.py, /lib, splashscreen.bmp, images and assets.
+3. Copy boot.py, code.py, quantifluorone_app.py, quantifluorone_config.json and quantifluorone_multipoint.json to the root of CIRCUITPY.
+4. Delete quantifluorone_math.py if present.
+5. Disconnect the USB data host and power the PyBadge from a charger or power bank.
+6. Select SELECT > LOAD MP CAL.
+7. Measure a fresh reagent blank with START.
+8. Measure samples with A.
+
+The included calibration is PROVISIONAL and intended only for software verification.

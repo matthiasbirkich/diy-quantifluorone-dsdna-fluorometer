@@ -1,0 +1,128 @@
+{
+  "schema_name": "Open Fluorometer Calibration Suite export",
+  "schema_version": "1.0",
+  "calibration_id": "QF1-PROVISIONAL-20260731",
+  "calibration_mode": "multipoint",
+  "calibration_model": "OLS",
+  "calibration_status": "PROVISIONAL",
+  "dataset_purpose": "software_verification",
+  "independent_reference_values": false,
+  "validated_against_reference_instrument": false,
+  "reference_instrument": "not yet measured",
+  "assay": "Promega QuantiFluor ONE dsDNA",
+  "sample_volume_uL": 1.0,
+  "reagent_volume_uL": 200.0,
+  "total_volume_uL": 201.0,
+  "dilution_factor": 201.0,
+  "concentration_basis": "original_sample",
+  "alpha": 0.05,
+  "r_squared": 0.9998611266804975,
+  "residual_sd_signal": 173.06294723066816,
+  "lod_x": 7.874316356263547,
+  "loq_x": 23.86156471595014,
+  "lod_in_assay_ng_uL": 0.03917570326499277,
+  "loq_in_assay_ng_uL": 0.11871425231815991,
+  "lod_method": "10 blank-cycle means; 3.3 sigma / slope",
+  "loq_method": "10 blank-cycle means; 10 sigma / slope",
+  "range_min_ng_uL": 0.0,
+  "range_max_ng_uL": 670.0,
+  "blank_reference_mean_vis": 9557.563,
+  "blank_reference_sd_vis": 126.5136353696488,
+  "blank_measurements_vis": [
+    9212.66,
+    9594.33,
+    9561.0,
+    9637.66,
+    9594.0,
+    9584.66,
+    9660.0,
+    9534.33,
+    9577.66,
+    9619.33
+  ],
+  "multipoint": {
+    "intercept_signal": 332.5952021224462,
+    "slope_signal_per_x": 53.01984043195684,
+    "n_replicates": 7,
+    "mean_concentration": 197.92857142857142,
+    "sxx_concentration2": 383550.21428571426,
+    "t_factor_two_sided": 2.5705818356363146
+  },
+  "calibration_points": [
+    {
+      "level_id": "Blank_mean_v060",
+      "concentration_ng_uL": 0.0,
+      "vis_mean": 9557.563,
+      "n_cycles": 10
+    },
+    {
+      "level_id": "Sample_125",
+      "concentration_ng_uL": 5.5,
+      "vis_first": 10275.3,
+      "vis_second": 10258.7,
+      "vis_mean": 10267.0,
+      "n_cycles": 2,
+      "note": "Apparent concentration derived from prior two-point calibration; second exposure may be affected by photobleaching."
+    },
+    {
+      "level_id": "sample_25",
+      "concentration_ng_uL": 10.0,
+      "vis_first": 10494.3,
+      "vis_second": 10518.7,
+      "vis_mean": 10506.5,
+      "n_cycles": 2,
+      "note": "Apparent concentration derived from prior two-point calibration; second exposure may be affected by photobleaching."
+    },
+    {
+      "level_id": "Sample_50",
+      "concentration_ng_uL": 75.0,
+      "vis_first": 14148.7,
+      "vis_second": 13813.7,
+      "vis_mean": 13981.2,
+      "n_cycles": 2,
+      "note": "Apparent concentration derived from prior two-point calibration; second exposure may be affected by photobleaching."
+    },
+    {
+      "level_id": "Sample_200",
+      "concentration_ng_uL": 250.0,
+      "vis_first": 23722.3,
+      "vis_second": 22749.6666666667,
+      "vis_mean": 23235.98333333335,
+      "n_cycles": 2,
+      "note": "Apparent concentration derived from prior two-point calibration; second exposure may be affected by photobleaching."
+    },
+    {
+      "level_id": "control_400",
+      "concentration_ng_uL": 375.0,
+      "vis_first": 29911.7,
+      "vis_second": 29654.0,
+      "vis_mean": 29782.85,
+      "n_cycles": 2,
+      "note": "Apparent concentration derived from prior two-point calibration; second exposure may be affected by photobleaching."
+    },
+    {
+      "level_id": "Control_400-2",
+      "concentration_ng_uL": 670.0,
+      "vis_first": 45606.3,
+      "vis_second": 45111.7,
+      "vis_mean": 45359.0,
+      "n_cycles": 2,
+      "note": "Apparent concentration derived from prior two-point calibration; second exposure may be affected by photobleaching."
+    }
+  ],
+  "excluded_data": [
+    {
+      "level_id": "Sample_100",
+      "assigned_concentration_ng_uL": 0.0,
+      "reason": "Zero-like aged standard below the current blank distribution; retained as diagnostic only."
+    }
+  ],
+  "limitations": [
+    "Concentrations were derived from the same earlier two-point calibration and are not independent reference values.",
+    "Standards were more than one week old at the time of measurement.",
+    "Five of six positive levels showed lower signal on the second measurement, consistent with photobleaching/time drift.",
+    "The pipette and tips used to prepare the standards were later found to be unreliable.",
+    "The excitation LED was not yet mechanically rigid.",
+    "This file is intended only to test firmware import, prediction, prediction intervals, range flags, LOD/LOQ display and CSV output."
+  ]
+}

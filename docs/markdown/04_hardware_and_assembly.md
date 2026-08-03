@@ -1,6 +1,6 @@
 # DIY-QuantiFluorONE-dsDNA-Fluorometer — Hardware and Assembly
 
-> **Document status:** Workshop draft. The assembled-instrument photograph, PyBadge enclosure STEP files, PyBadge PCB sources, and ioRodeo LED-board manufacturing files are included. The final 0.5 mL PCR-tube optical-holder files, separate light-shield files, exact PCA9546 channel map, cable lengths, and detailed internal photographs are still pending.
+> **Document status:** workshop draft with confirmed core hardware. The assembled-instrument photograph, PyBadge enclosure STEP files, PyBadge PCB sources, and ioRodeo LED-board manufacturing files are included. The final 0.5 mL PCR-tube optical-holder files, separate light-shield files, exact PCA9546 channel map, cable lengths, and detailed internal photographs are still pending.
 
 ## 1. Purpose and workshop outcome
 
@@ -31,8 +31,8 @@ The machine-readable bill of materials is stored in `bom/master_bom.csv`. The co
 | Detector | Adafruit TSL2591 STEMMA QT | Product ID 1980; address `0x29` | 1 |
 | LED driver | ioRodeo fixed-current radial LED board | `radial_16mA`, `ver_0p1_rev_3` | 1 |
 | Excitation source | 5 mm Ice Blue/Cyan radial LED | 485 nm; 30°; 12,000 mcd; 3.2 V; article 1030055 | 1 |
-| Excitation filter | Neemoo Ex470BP-40 | installed | 1 |
-| Emission filter | Neemoo Em532BP-40 | installed | 1 |
+| Excitation filter | Neemoo Ex470BP-40 | **8 x 8 x 1 mm**, installed | 1 |
+| Emission filter | Neemoo Em532BP-40 | **8 x 8 x 1 mm**, installed | 1 |
 | Sample vessel | Promega E4941 thin-walled 0.5 mL PCR tube | workshop sample tube | as required |
 | Cabling | STEMMA QT / Qwiic JST SH four-pin cables | final lengths pending | as required |
 | Adapter | SparkFun Qwiic-to-Grove adapter cable | PRT-15109 | 1 |
@@ -42,7 +42,12 @@ The machine-readable bill of materials is stored in `bom/master_bom.csv`. The co
 | Programming and power | USB Micro cable | programming, power, and charging | 1 |
 | Portable power | 3.7 V LiPo battery | 400 mAh; status optional until confirmed | 0 or 1 |
 
-Fasteners, spacers, cable clips, and filter-retention parts are listed separately in `bom/assembly_hardware_tbd.csv` because their final dimensions have not yet been documented.
+The confirmed mounting fasteners are:
+
+- four M2.5 x 20 screws with matching M2.5 nuts for fastening the PyBadge cover to the enclosure;
+- four M3 x 20 screws with matching M3 nuts for fastening the PCR-tube holder to the enclosure.
+
+Cable clips and the final filter-retention details remain listed in `bom/assembly_hardware_tbd.csv` until the optical-holder archive is added.
 
 ## 3. Function of the components
 
@@ -60,9 +65,9 @@ Fasteners, spacers, cable clips, and filter-retention parts are listed separatel
 
 **485 nm LED.** The LED provides excitation light. Its radial package must be installed with the correct polarity and must be seated without bending the leads against the printed holder.
 
-**Ex470BP-40 excitation filter.** This filter is positioned between the LED and sample tube. It limits the excitation spectrum before the light reaches the sample.
+**Ex470BP-40 excitation filter.** This **8 x 8 x 1 mm** filter is positioned between the LED and sample tube. It limits the excitation spectrum before the light reaches the sample.
 
-**Em532BP-40 emission filter.** This filter is positioned between the sample tube and TSL2591. It reduces direct excitation light and passes the fluorescence region used by the detector.
+**Em532BP-40 emission filter.** This **8 x 8 x 1 mm** filter is positioned between the sample tube and TSL2591. It reduces direct excitation light and passes the fluorescence region used by the detector.
 
 **Promega E4941 tube.** The thin-walled 0.5 mL PCR tube defines the sample container used by the mechanical holder. The tube must reach the mechanical stop reproducibly and must not be forced into the holder.
 
@@ -77,9 +82,9 @@ The printed parts perform four critical tasks:
 
 The holder establishes the 90° geometry mechanically. The correct wording is therefore **“at 90°”**, not “approximately at 90°”.
 
-![CAD overview of the PyBadge enclosure and instrument base.](../figures/cad/ch04/pybadge_enclosure_cad.jpeg)
+![CAD overview of the PyBadge enclosure and instrument base.](../figures/cad/ch04/qfo_pybadge_enclosure_cad_overview.jpg)
 
-![CAD overview of the optical module mounted on the instrument base.](../figures/cad/ch04/optical_module_overview_cad.jpeg)
+![CAD overview of the optical module mounted on the instrument base.](../figures/cad/ch04/qfo_optical_module_cad_overview.jpg)
 
 ## 4. Preparation and inspection of the 3D-printed parts
 
@@ -90,7 +95,7 @@ Before installing electronics or filters:
 3. Check that no loose strands, curled edges, or partially detached layers can enter the optical path.
 4. Inspect the tube bore for ridges that could scratch or jam an E4941 tube.
 5. Insert an empty tube gently and confirm that it reaches the stop without excessive force.
-6. Check filter pockets with a non-optical test piece of the same thickness where possible.
+6. Check the filter pockets with a clean **8 x 8 x 1 mm** test piece where possible.
 7. Check that the LED board and TSL2591 can be inserted without bending the PCBs.
 8. Hold the empty printed assembly against a bright lamp and mark any visible light leaks.
 9. Clean all printed debris before bringing the optical filters near the holder.
@@ -105,7 +110,7 @@ Do not enlarge filter pockets with a power tool while the filters or electronics
 4. Confirm that the LED body is straight and that its optical axis points through the excitation opening.
 5. Solder only after checking orientation. Avoid prolonged heating of the LED leads.
 6. Trim leads so that they cannot touch the enclosure or another conductor.
-7. Handle the Ex470BP-40 by its edges. Do not touch the clear aperture.
+7. Handle the **8 x 8 x 1 mm** Ex470BP-40 by its edges. Do not touch the clear aperture.
 8. Insert the filter into the excitation-filter pocket without twisting or forcing it.
 9. Confirm that the filter fully covers the optical opening and cannot rattle into the tube chamber.
 10. Install the intended clip, cover, or retention part. The final retention method is to be documented when the optical-holder archive is supplied.
@@ -125,7 +130,7 @@ The final holder archive is pending. The assembly procedure will be finalized fr
 
 ## 7. Installation of the emission filter and single TSL2591 sensor
 
-1. Handle the Em532BP-40 only by its edges.
+1. Handle the **8 x 8 x 1 mm** Em532BP-40 only by its edges.
 2. Insert it into the detection-side filter pocket.
 3. Confirm that it fully covers the detection opening.
 4. Identify the active optical area of the TSL2591 board.
@@ -209,7 +214,7 @@ The final light shield must be fitted before blank stability and low-signal perf
 
 1. Print and inspect all mechanical parts.
 2. Test the E4941 tube fit using an empty tube.
-3. Test filter-pocket fit without touching the optical apertures.
+3. Test filter-pocket fit using a **8 x 8 x 1 mm** test piece without touching the optical apertures.
 4. Install the 485 nm LED on the ioRodeo revision-3 board.
 5. Install the Ex470BP-40 excitation filter.
 6. Install the E4941 sample-tube holder.
@@ -327,7 +332,7 @@ Still required for the final hardware release:
 - excitation-side photograph showing LED and Ex470BP-40;
 - detection-side photograph showing Em532BP-40 and the single TSL2591;
 - confirmed PCA9546 channel allocation and cable lengths;
-- confirmed fastener list and LiPo status;
+- final cable-retention details and LiPo status;
 - print settings and printable STL/3MF files where applicable.
 
 The third-party source locations and licenses are recorded in `THIRD_PARTY_NOTICES.md` and the `SOURCE.md` files beside the upstream hardware data.

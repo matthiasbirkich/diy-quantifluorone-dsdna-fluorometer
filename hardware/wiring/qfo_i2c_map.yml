@@ -1,24 +1,23 @@
+system: DIY-QuantiFluorONE-dsDNA-Fluorometer
 controller:
-  name: Adafruit PyBadge
+  component: Adafruit PyBadge
   product_id: 4200
-  firmware_baseline: CircuitPython 9.1.1
-  upstream_connection: PyBadge I2C connector -> SparkFun PRT-15109 -> PCA9546
-
-devices:
-  - name: PCA9546 four-channel I2C multiplexer
+  firmware_runtime: CircuitPython 9.1.1
+bus:
+  multiplexer:
+    component: Adafruit PCA9546
     product_id: 5664
-    address: "0x70"
-    location: upstream bus
-    channel_map: TBD
-
-  - name: TSL2591 STEMMA QT light sensor
+    address_hex: "0x70"
+  detector:
+    component: Adafruit TSL2591 STEMMA QT
     product_id: 1980
-    address: "0x29"
+    address_hex: "0x29"
     quantity: 1
-    multiplexer_channel: TBD
-
-  - name: ioRodeo fixed-current radial LED board
-    board_variant: radial_16mA
+    multiplexer_channel: TBC
+  excitation_board:
+    component: ioRodeo fixed-current radial LED board
     revision: ver_0p1_rev_3
-    address: none
-    note: SDA and SCL are pass-through conductors; the board is not expected in an I2C scan.
+    led_current_mA: 16
+    i2c_address: null
+    note: "The board is not an addressed I2C peripheral; SDA and SCL are pass-through nets."
+    multiplexer_branch: TBC

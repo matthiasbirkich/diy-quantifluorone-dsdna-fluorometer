@@ -1,0 +1,1246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Fluorometer/Photometer Calibration Suite v7.2 Stable</title>
+<style>
+:root {
+  --navy: #18324a;
+  --blue: #2f5f87;
+  --muted: #66717c;
+  --line: #d7dee5;
+  --soft: #eef3f6;
+  --bg: #f4f6f8;
+  --good: #28724b;
+  --bad: #a44242;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: #1d2732;
+  line-height: 1.45;
+}
+.wrap { max-width: 1280px; margin: auto; padding: clamp(12px, 2vw, 24px); }
+h1 { font-size: clamp(24px, 3vw, 32px); margin: 0; color: var(--navy); }
+h2 { font-size: 18px; margin: 0 0 10px; color: var(--navy); }
+.subtitle { color: var(--muted); margin: 3px 0; }
+.badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 9px;
+  border: 1px solid #bfcbd5;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+}
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 14px 0;
+  box-shadow: 0 2px 8px #18324a10;
+}
+.grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 860px) { .grid.two { grid-template-columns: 1fr 1fr; } }
+label { display: block; font-weight: 700; font-size: 13px; margin-top: 10px; margin-bottom: 4px; }
+textarea, input, select, button {
+  font: inherit;
+  border: 1px solid #b9c5cf;
+  border-radius: 8px;
+  padding: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2066717c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
+textarea { width: 100%; min-height: 220px; font-family: Consolas, "Courier New", monospace; }
+input, select { width: 100%; }
+button {
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+  cursor: pointer;
+  margin: 7px 6px 0 0;
+  min-height: 42px;
+}
+.secondary { background: var(--soft); color: var(--navy); border-color: #cbd5dd; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+.small { font-size: 13px; color: var(--muted); }
+.ok { color: var(--good); font-weight: 700; }
+.bad { color: var(--bad); font-weight: 700; }
+.mono, pre { font-family: Consolas, "Courier New", monospace; }
+pre { background: #f1f4f6; border: 1px solid var(--line); border-radius: 8px; padding: 11px; overflow: auto; white-space: pre-wrap; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 8px; border-bottom: 1px solid #dce2e8; text-align: right; white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { background: #eef2f5; position: sticky; top: 0; color: var(--navy); }
+.scroll { overflow: auto; max-height: 440px; }
+.pill { display: inline-block; background: var(--soft); color: var(--navy); border-radius: 999px; padding: 5px 10px; margin: 3px; border: 1px solid #d5dfe6; }
+.selected-row { background: #eef5f9; }
+canvas { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 9px; background: #fff; display: block; }
+.legend { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 10px; display: grid; gap: 8px; }
+.legend-row { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 9px; }
+.swatch { height: 12px; position: relative; }
+.swatch.point:before { content: ""; position: absolute; left: 12px; top: 2px; width: 8px; height: 8px; border-radius: 50%; background: var(--navy); }
+.swatch.line:before, .swatch.band:before, .swatch.zero:before, .swatch.limit:before { content: ""; position: absolute; left: 3px; right: 3px; top: 5px; border-top: 3px solid var(--blue); }
+.swatch.band:before { border-top: 2px dashed var(--good); }
+.swatch.zero:before { border-top: 2px solid #6f7881; }
+.swatch.limit:before { border-top: 2px dotted var(--bad); }
+.info { width: 30px; height: 30px; min-height: 30px; padding: 0; margin: 0; border-radius: 50%; background: #fff; color: var(--blue); border: 1px solid #b8c6d1; font-weight: 700; }
+.help { display: none; grid-column: 2/4; background: #f4f7f9; border-left: 3px solid #5f86a5; padding: 9px 11px; border-radius: 6px; color: var(--muted); font-size: 13px; }
+.help.open { display: block; }
+.statusbar { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 18px 0 4px; padding: 13px; border: 1px solid var(--line); border-radius: 10px; background: #e9eef2; }
+@media (min-width: 700px) { .statusbar { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1050px) { .statusbar { grid-template-columns: repeat(7, 1fr); } }
+.sl { display: block; font-size: 11px; text-transform: uppercase; color: var(--muted); }
+.sv { display: block; font-size: 13px; color: var(--navy); font-weight: 700; overflow-wrap: anywhere; }
+.coming { display: inline-block; padding: 4px 8px; border-radius: 999px; background: #e7f4eb; color: #1f6b43; font-size: 12px; font-weight: 700; }
+.resultbox { margin-top: 12px; padding: 12px; border: 1px solid #a9d8b7; border-radius: 8px; background: #eef9f1; color: #174d31; }
+.tpgrid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 700px) { .tpgrid { grid-template-columns: repeat(3, 1fr); } }
+.statgrid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 900px) { .statgrid { grid-template-columns: repeat(3, 1fr); } }
+.statbox { border: 1px solid var(--line); border-radius: 9px; padding: 12px; background: #fafcfd; }
+.statbox h3 { font-size: 15px; color: var(--navy); margin: 0 0 8px; }
+.warn { color: #8a5b12; font-weight: 700; }
+.pass { color: var(--good); font-weight: 700; }
+.fail { color: var(--bad); font-weight: 700; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.toolbar button { margin: 0; }
+.report-note { border-left: 4px solid var(--blue); background: #f1f6fa; padding: 10px; border-radius: 7px; }
+.testtable td:nth-child(2) { font-family: Consolas, "Courier New", monospace; }
+@media print {
+  body { background: #fff; color: #000; }
+  .wrap { max-width: none; padding: 0; }
+  .card { box-shadow: none; break-inside: avoid; margin: 8px 0; border: 1px solid #ccc; }
+  .no-print, button, input[type=file], textarea { display: none !important; }
+  header { margin-bottom: 8px; }
+  .statusbar { display: none; }
+  .grid.two { grid-template-columns: 1fr 1fr; }
+  canvas { width: 100% !important; height: auto !important; max-height: 330px; }
+  .print-title { display: block !important; }
+  h1 { font-size: 23px; }
+  h2 { font-size: 15px; }
+}
+.print-title { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="print-title"><h1>Open Fluorometer Calibration Report</h1></div>
+    <h1>Open Fluorometer Calibration Suite</h1>
+    <p class="subtitle">Responsive, offline calibration and model-comparison tool for modern browsers.</p>
+    <span class="badge" id="version-badge">v7.2 Stable · stable release</span>
+    <div class="toolbar no-print" style="margin-top:10px">
+      <button id="print-report" type="button">Print / save calibration report as PDF</button>
+      <button id="selftest" type="button" class="secondary">Run openDIN regression self-test</button>
+    </div>
+  </header>
+  
+  <div id="compat-status" class="card" style="display:none;border-left:4px solid var(--bad)" role="alert"></div>
+  
+  <div class="toolbar no-print" style="position:sticky;top:0;z-index:20;background:var(--bg);padding:8px 0">
+    <button id="top-calc" type="button">Calculate selected model</button>
+    <button id="top-download" type="button" class="secondary">Save / download JSON</button>
+  </div>
+  
+  <div class="grid two">
+    <section class="card">
+      <h2>1. Import and settings</h2>
+      <label for="file">Calibration CSV</label>
+      <input id="file" type="file" accept=".csv,text/csv">
+      <button id="example" type="button" class="secondary">Load embedded replicate example</button>
+      
+      <label for="vs">Sample volume [µL]</label>
+      <input id="vs" type="number" value="1" min="0.000001" step="any">
+      
+      <label for="basis">Reference values represent</label>
+      <select id="basis">
+        <option value="sample">Original sample concentration [ng/µL]</option>
+        <option value="mass">DNA mass in assay tube [ng]</option>
+      </select>
+      
+      <div class="tpgrid">
+        <div>
+          <label for="xunit">x-axis unit (concentration / amount)</label>
+          <select id="xunit">
+            <option value="ng/µL">ng/µL</option>
+            <option value="mg/L">mg/L</option>
+            <option value="µM">µM</option>
+            <option value="custom">Editable…</option>
+          </select>
+          <input id="xunit-custom" type="text" placeholder="Enter x unit" style="display:none;margin-top:6px">
+        </div>
+        <div>
+          <label for="yunit">y-axis unit (analytical signal)</label>
+          <select id="yunit">
+            <option value="RFU">RFU</option>
+            <option value="Abs">Abs</option>
+            <option value="area">area</option>
+            <option value="custom">Editable…</option>
+          </select>
+          <input id="yunit-custom" type="text" placeholder="Enter y unit" style="display:none;margin-top:6px">
+        </div>
+      </div>
+      
+      <label for="model">Calibration model</label>
+      <select id="model">
+        <option value="OLS">OLS</option>
+        <option value="1/c">WLS 1/c</option>
+        <option value="1/c2">WLS 1/c²</option>
+        <option value="1/s2">WLS 1/s²</option>
+      </select>
+      
+      <div class="tpgrid">
+        <div>
+          <label for="alpha">Significance level α / confidence interval</label>
+          <select id="alpha">
+            <option value="0.05">α = 0.05 (95 % CI)</option>
+            <option value="0.01">α = 0.01 (99 % CI)</option>
+          </select>
+        </div>
+        <div>
+          <label for="kfactor">Quantification-limit factor k</label>
+          <input id="kfactor" type="number" value="3" min="1" step="0.1">
+        </div>
+        <div>
+          <label for="nfuture">Replicate determinations n (DIN limits)</label>
+          <input id="nfuture" type="number" value="1" min="1" step="1">
+        </div>
+      </div>
+      
+      <label for="cid">Calibration ID</label>
+      <input id="cid" value="CAL-2026-07-24-A">
+      <label for="cdate">Calibration date</label>
+      <input id="cdate" type="date" value="2026-07-24">
+      
+      <button id="calc" type="button">Calculate selected model</button>
+      <button id="compare" type="button" class="secondary">Compare all models</button>
+    </section>
+    
+    <section class="card">
+      <h2>2. Accepted columns</h2>
+      <p class="small">Required: an analytical signal column (for example RFU, Abs, area or signal) plus a reference concentration or amount. Optional: level ID, replicate, VIS, blank VIS and sample volume.</p>
+      <pre>level_id;replicate;reference_ng_uL;sample_volume_uL;VIS;blank_VIS;RFU
+Blank;1;0;1;647;645;2
+Std45;1;45;1;1208;645;563</pre>
+    </section>
+  </div>
+  
+  <section class="card">
+    <h2>3. Imported calibration data</h2>
+    <textarea id="data" aria-label="Imported CSV calibration data"></textarea>
+    <p id="status"></p>
+  </section>
+  
+  <div class="grid two">
+    <section class="card">
+      <h2>4. Statistics (selected model)</h2>
+      <div id="stats"></div>
+    </section>
+    <section class="card">
+      <h2>5. Firmware JSON</h2>
+      <pre id="json" tabindex="0"></pre>
+      <button id="copy" type="button">Copy scientific JSON</button>
+      <button id="download" type="button" class="secondary">Save scientific JSON</button>
+      <hr style="margin:18px 0;border:0;border-top:1px solid var(--line)">
+      <h3 style="margin-bottom:6px">Update firmware configuration.json</h3>
+      <p class="small">Load the existing firmware configuration. The suite preserves all other settings and replaces only the DIYNAFLUOR calibration values.</p>
+      <label for="config-file">Existing configuration.json</label>
+      <input id="config-file" type="file" accept=".json,application/json,text/json">
+      <button id="update-config" type="button" disabled>Update and download configuration.json</button>
+      <div id="config-status" class="resultbox" aria-live="polite">No configuration.json loaded yet.</div>
+    </section>
+  </div>
+  
+  <section class="card">
+    <h2>6. Model comparison</h2>
+    <div id="models" class="scroll"></div>
+  </section>
+  
+  <div class="grid two">
+    <section class="card">
+      <h2>7. Calibration curve</h2>
+      <canvas id="plot" width="760" height="420"></canvas>
+      <div class="legend">
+        <div class="legend-row"><span class="swatch point"></span><strong>Calibration points</strong><button type="button" class="info" data-help="hp" aria-label="Info">i</button><div id="hp" class="help">Individual replicate measurements. Every imported replicate is retained.</div></div>
+        <div class="legend-row"><span class="swatch line"></span><strong>Regression model</strong><button type="button" class="info" data-help="hl" aria-label="Info">i</button><div id="hl" class="help">The solid blue line is the currently selected regression model.</div></div>
+        <div class="legend-row"><span class="swatch band"></span><strong id="ci-label">95% confidence band</strong><button type="button" class="info" data-help="hb" aria-label="Info">i</button><div id="hb" class="help">The two green dashed lines are calculated symmetrically above and below the selected regression and describe uncertainty of the fitted mean response.</div></div>
+        <div class="legend-row"><span class="swatch limit"></span><strong id="pi-label">95% prediction band</strong><button type="button" class="info" data-help="hpb" aria-label="Info">i</button><div id="hpb" class="help">The red dotted lines show the wider expected range for a future individual measurement.</div></div>
+      </div>
+    </section>
+    
+    <section class="card">
+      <h2>8. Residuals</h2>
+      <canvas id="resid" width="760" height="420"></canvas>
+      <div class="legend">
+        <div class="legend-row"><span class="swatch point"></span><strong>Residuals</strong><button type="button" class="info" data-help="hr" aria-label="Info">i</button><div id="hr" class="help">Residual = measured analytical signal minus the signal predicted by the selected calibration model.</div></div>
+        <div class="legend-row"><span class="swatch zero"></span><strong>Zero line</strong><button type="button" class="info" data-help="hz" aria-label="Info">i</button><div id="hz" class="help">A residual of zero means that prediction and reference are equal.</div></div>
+        <div class="legend-row"><span class="swatch limit"></span><strong>±2 residual SD</strong><button type="button" class="info" data-help="hlim" aria-label="Info">i</button><div id="hlim" class="help">Red dashed guide lines help identify unusually large residuals.</div></div>
+      </div>
+    </section>
+  </div>
+  
+  <section class="card">
+    <h2>9. Calibration levels and repeatability</h2>
+    <div id="levels" class="scroll"></div>
+  </section>
+  
+  <section class="card">
+    <h2>10. Replicate back-calculation</h2>
+    <div id="rows" class="scroll"></div>
+  </section>
+  
+  <section class="card">
+    <h2>11. Statistical validation</h2>
+    <p class="small">Focused checks only: one Grubbs test per replicate level, a residual normality check, the classical Mandel fitting test, and point-to-point slope diagnostics. Suspected outliers are flagged, never removed automatically.</p>
+    <div class="statgrid">
+      <div class="statbox">
+        <h3>Grubbs outlier screening (α = 0.05)</h3>
+        <div id="grubbs"></div>
+      </div>
+      <div class="statbox">
+        <h3>Shapiro–Wilk residual normality</h3>
+        <div id="shapiro"></div>
+        <p class="small">Browser implementation uses a Royston-style approximation and must still be verified against the DIN reference workflow.</p>
+      </div>
+      <div class="statbox">
+        <h3>Linearity: classical Mandel fitting test</h3>
+        <div id="mandel"></div>
+        <p class="small">Compares the residual variance of a straight line with that of a quadratic calibration function. This legacy diagnostic is included for comparison with older analytical workflows.</p>
+      </div>
+      <div class="statbox">
+        <div class="toolbar" style="justify-content:space-between">
+          <h3 style="margin:0">Point-to-point slopes</h3>
+          <button id="pts-toggle" class="secondary" type="button" aria-expanded="false">Show</button>
+        </div>
+        <div id="pts-content" style="display:none;margin-top:10px">
+          <label for="pts-threshold" style="margin-top:0">Warning threshold: deviation from overall slope [%]</label>
+          <input id="pts-threshold" type="number" min="0" step="any" value="10">
+          <div id="ptslope" style="margin-top:10px"></div>
+          <p class="small">Local slopes are calculated between adjacent concentration levels using their mean analytical signal values. The percentage criterion is a user-defined diagnostic, not a universal acceptance limit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>12. Statistical summary and calibration report</h2>
+    <div id="summary" class="report-note"></div>
+    <div id="selftest-result" style="margin-top:12px"></div>
+    <p class="small no-print">The report button opens the browser print dialog. Choose “Save as PDF” to download a PDF without adding an external library.</p>
+  </section>
+
+  <section class="card">
+    <h2>13. Two-point calibration <span class="coming">Active</span></h2>
+    <p class="small">Enter the RFU of the blank, the RFU of one known standard and its concentration. The two-point calibration uses RFU = intercept + slope × concentration.</p>
+    <div class="tpgrid">
+      <div>
+        <label for="tp-blank">Repeated blank signal values</label>
+        <textarea id="tp-blank" style="min-height:90px">120;118;121</textarea>
+      </div>
+      <div>
+        <label for="tp-standard">Repeated standard signal values</label>
+        <textarea id="tp-standard" style="min-height:90px">1580;1574;1587</textarea>
+      </div>
+      <div>
+        <label for="tp-conc">Standard concentration [ng/µL]</label>
+        <input id="tp-conc" type="number" step="any" min="0.000001" value="20">
+        <p class="small">LOD = 3σ/b and LOQ = 10σ/b from repeated blank measurements.</p>
+      </div>
+    </div>
+    <button id="tp-calc" type="button">Calculate two-point calibration</button>
+    <button id="tp-download" class="secondary" type="button" disabled>Export two-point JSON</button>
+    <div id="tp-result" class="resultbox" aria-live="polite">No two-point calibration calculated yet.</div>
+    <h2 style="margin-top:20px">14. Two-point validation</h2>
+    <div class="grid two">
+      <div>
+        <label for="tp-sample-rfu">Measured sample signal</label>
+        <input id="tp-sample-rfu" type="number" step="any" value="2500">
+      </div>
+      <div>
+        <label for="tp-predicted">Predicted concentration [ng/µL]</label>
+        <input id="tp-predicted" readonly>
+      </div>
+    </div>
+    <button id="tp-predict" class="secondary" type="button" disabled>Predict concentration</button>
+  </section>
+
+  <div class="statusbar">
+    <div><span class="sl">Suite</span><span class="sv">Open Fluorometer</span></div>
+    <div><span class="sl">Version</span><span id="sb-version" class="sv">7.1 Stable</span></div>
+    <div><span class="sl">Model</span><span id="sb-model" class="sv">—</span></div>
+    <div><span class="sl">Measurements</span><span id="sb-n" class="sv">0</span></div>
+    <div><span class="sl">Levels</span><span id="sb-levels" class="sv">0</span></div>
+    <div><span class="sl">Calibration ID</span><span id="sb-id" class="sv">—</span></div>
+    <div><span class="sl">Firmware target</span><span class="sv">v8.2+</span></div>
+  </div>
+</div>
+
+<script>
+(()=>{
+'use strict';
+const VERSION = '7.2 Stable';
+const VERSION_LABEL = '7.2 Stable';
+const $ = id => document.getElementById(id);
+let state = { rows: [], groups: [], fits: [], selected: null };
+let loadedConfiguration = null;
+let loadedConfigurationName = 'configuration.json';
+
+function showFatal(message) {
+  const box = $('compat-status');
+  if (box) {
+    box.style.display = 'block';
+    box.innerHTML = '<strong>Compatibility error</strong><br><span class="small">' + String(message) + '</span>';
+  }
+  console.error(message);
+}
+
+window.addEventListener('error', function(e) {
+  showFatal(e.message || 'Unexpected JavaScript error.');
+});
+window.addEventListener('unhandledrejection', function(e) {
+  showFatal((e.reason && e.reason.message) || e.reason || 'Unhandled promise rejection.');
+});
+
+function units() {
+  const xu = $('xunit').value === 'custom' ? ($('xunit-custom').value.trim() || 'x-unit') : $('xunit').value;
+  const yu = $('yunit').value === 'custom' ? ($('yunit-custom').value.trim() || 'signal') : $('yunit').value;
+  return { x: xu, y: yu };
+}
+
+function safeName(s) {
+  return String(s || 'calibration').replace(/[^a-zA-Z0-9._-]+/g, '_').replace(/^_+|_+$/g, '') || 'calibration';
+}
+
+const embedded = `level_id;replicate;reference_ng_uL;sample_volume_uL;VIS;blank_VIS;RFU
+Blank;1;0;1;647;645;2
+Blank;2;0;1;630;645;-15
+Blank;3;0;1;648;645;3
+Blank;4;0;1;655;645;10
+Std45;1;45;1;1208;645;563
+Std45;2;45;1;1203;645;558
+Std102;1;102;1;2017;645;1372
+Std102;2;102;1;2005;645;1360
+Std208;1;208;1;3388.33;645;2743.33
+Std208;2;208;1;3240;645;2595
+Std279;1;279;1;4302;645;3657
+Std279;2;279;1;4284;645;3639`;
+
+function norm(s) {
+  return String(s).trim().toLowerCase().replace(/µ/g, 'u').replace(/[()\[\]]/g, '').replace(/[\s\/.-]+/g, '_');
+}
+
+function delimiter(line) {
+  return [[';', (line.match(/;/g) || []).length], ['\t', (line.match(/\t/g) || []).length], [',', (line.match(/,/g) || []).length]].sort((a, b) => b[1] - a[1])[0][0];
+}
+
+function num(s, d) {
+  if (s == null) return NaN;
+  s = String(s).trim().replace(/^"|"$/g, '');
+  if (d !== ',') s = s.replace(',', '.');
+  return Number(s);
+}
+
+const mean = a => a.reduce((s, x) => s + x, 0) / a.length;
+
+function sd(a) {
+  if (a.length < 2) return 0;
+  const m = mean(a);
+  return Math.sqrt(a.reduce((s, x) => s + (x - m) ** 2, 0) / (a.length - 1));
+}
+
+function criticalT(df, alpha, twoSided = true) {
+  return invTCDF(twoSided ? 1 - alpha / 2 : 1 - alpha, df);
+}
+
+function fmt(x, n = 7) {
+  return Number.isFinite(x) ? Number(x.toPrecision(n)).toString() : '-';
+}
+
+function parse() {
+  const lines = $('data').value.split(/\r\n|\r|\n/).map(x => x.trim()).filter(x => x && !x.startsWith('#'));
+  if (lines.length < 4) throw Error('A header and at least three usable rows are required.');
+  const d = delimiter(lines[0]), h = lines[0].split(d).map(norm), idx = names => h.findIndex(x => names.some(n => x === n || x.includes(n)));
+  const ix = idx(['rfu', 'signal', 'response', 'analytical_signal', 'absorbance', 'abs', 'area', 'peak_area', 'measurement_value']),
+        iy = idx(['reference_ng_ul', 'sample_ng_ul', 'concentration', 'reference', 'amount', 'dna_mass_ng', 'mass_ng']),
+        il = idx(['level_id', 'sample_id', 'level']),
+        ir = idx(['replicate', 'rep']),
+        iv = idx(['sample_volume_ul']),
+        ivis = idx(['vis']);
+  if (ix < 0 || iy < 0) throw Error('Analytical signal and reference concentration/amount columns were not found.');
+  const gvs = Number($('vs').value);
+  if (!(gvs > 0)) throw Error('Sample volume must be positive.');
+  const rows = lines.slice(1).map((line, k) => {
+    const p = line.split(d), x = num(p[ix], d), raw = num(p[iy], d),
+          vs = iv >= 0 && Number.isFinite(num(p[iv], d)) ? num(p[iv], d) : gvs,
+          y = $('basis').value === 'mass' ? raw : raw * vs;
+    return { level: il >= 0 ? p[il] : String(raw), rep: ir >= 0 ? p[ir] : String(k + 1), x, y, vis: ivis >= 0 ? num(p[ivis], d) : NaN };
+  }).filter(r => Number.isFinite(r.x) && Number.isFinite(r.y));
+  if (rows.length < 3) throw Error('Too few usable calibration rows.');
+  return rows;
+}
+
+function groupRows(rows) {
+  const m = new Map();
+  rows.forEach(r => {
+    const k = r.level + '|' + r.y;
+    if (!m.has(k)) m.set(k, []);
+    m.get(k).push(r);
+  });
+  return [...m.values()].map(v => ({ level: v[0].level, y: v[0].y, n: v.length, mx: mean(v.map(r => r.x)), sx: sd(v.map(r => r.x)), rows: v })).sort((a, b) => a.y - b.y);
+}
+
+function fit(rows, mode, groups) {
+  const alpha = Number($('alpha').value) || .05, k = Number($('kfactor').value) || 3, nfuture = Math.max(1, Math.round(Number($('nfuture').value) || 1));
+  const positives = rows.filter(r => r.y > 0).map(r => r.y), cmin = positives.length ? Math.min(...positives) : 1,
+        positiveS = groups.filter(g => g.sx > 0).map(g => g.sx), smin = positiveS.length ? Math.min(...positiveS) : 1,
+        sMap = new Map(groups.map(g => [g.level + '|' + g.y, g.sx || smin]));
+  const weights = rows.map(r => mode === 'OLS' ? 1 : mode === '1/c' ? 1 / (r.y > 0 ? r.y : cmin) : mode === '1/c2' ? 1 / ((r.y > 0 ? r.y : cmin) ** 2) : 1 / ((sMap.get(r.level + '|' + r.y) || smin) ** 2));
+  let S = 0, Sx = 0, Sy = 0, Sxx = 0, Sxy = 0;
+  rows.forEach((r, i) => { const w = weights[i], x = r.y, Y = r.x; S += w; Sx += w * x; Sy += w * Y; Sxx += w * x * x; Sxy += w * x * Y; });
+  const den = S * Sxx - Sx * Sx, b = (S * Sxy - Sx * Sy) / den, a = (Sy - b * Sx) / S;
+  let sse = 0, wsse = 0, sst = 0;
+  const my = mean(rows.map(r => r.x));
+  const calc = rows.map((r, i) => {
+    const pred = a + b * r.y, res = r.x - pred;
+    sse += res * res; wsse += weights[i] * res * res; sst += (r.x - my) ** 2;
+    return { ...r, pred, res, weight: weights[i] };
+  }), n = rows.length, df = n - 2, residual = Math.sqrt(sse / df), rmse = Math.sqrt(sse / n), r2 = 1 - sse / sst, adjr2 = 1 - (1 - r2) * (n - 1) / df,
+  aic = n * Math.log(Math.max(sse / n, 1e-30)) + 4, bic = n * Math.log(Math.max(sse / n, 1e-30)) + 2 * Math.log(n),
+  mx = mean(rows.map(r => r.y)), sxxRaw = rows.reduce((z, r) => z + (r.y - mx) ** 2, 0);
+  const tTwo = criticalT(df, alpha, true), tOne = criticalT(df, alpha, false), sx0 = residual / Math.abs(b), base = 1 / n + 1 / nfuture, lod = tOne * sx0 * Math.sqrt(base + mx * mx / (sxxRaw || 1));
+  let loq = Math.max(k * lod, Number.EPSILON);
+  for (let i = 0; i < 200; i++) {
+    const next = k * tTwo * sx0 * Math.sqrt(base + (loq - mx) ** 2 / (sxxRaw || 1));
+    if (Math.abs(next - loq) < 1e-12 * Math.max(1, next)) { loq = next; break; }
+    loq = next;
+  }
+  return { mode, a, b, n, df, residual, rmse, r2, adjr2, aic, bic, wsse, mx, sxxRaw, t: tTwo, tOne, alpha, k, nfuture, sx0, lod, loq, rows: calc };
+}
+
+const label = m => m === 'OLS' ? 'OLS' : m === '1/c' ? 'WLS 1/c' : m === '1/c2' ? 'WLS 1/c²' : 'WLS 1/s²';
+
+function logGamma(z) {
+  const c = [676.5203681218851, -1259.1392167224028, 771.3234287776531, -176.6150291621406, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
+  if (z < .5) return Math.log(Math.PI) - Math.log(Math.sin(Math.PI * z)) - logGamma(1 - z);
+  z -= 1; let x = .99999999999980993;
+  for (let i = 0; i < c.length; i++) x += c[i] / (z + i + 1);
+  const t = z + c.length - .5;
+  return .5 * Math.log(2 * Math.PI) + (z + .5) * Math.log(t) - t + Math.log(x);
+}
+
+function betacf(a, b, x) {
+  const MAX = 200, EPS = 3e-12, FPMIN = 1e-300;
+  let qab = a + b, qap = a + 1, qam = a - 1, c = 1, d = 1 - qab * x / qap;
+  if (Math.abs(d) < FPMIN) d = FPMIN; d = 1 / d; let h = d;
+  for (let m = 1; m <= MAX; m++) {
+    let m2 = 2 * m, aa = m * (b - m) * x / ((qam + m2) * (a + m2));
+    d = 1 + aa * d; if (Math.abs(d) < FPMIN) d = FPMIN;
+    c = 1 + aa / c; if (Math.abs(c) < FPMIN) c = FPMIN;
+    d = 1 / d; h *= d * c;
+    aa = -(a + m) * (qab + m) * x / ((a + m2) * (qap + m2));
+    d = 1 + aa * d; if (Math.abs(d) < FPMIN) d = FPMIN;
+    c = 1 + aa / c; if (Math.abs(c) < FPMIN) c = FPMIN;
+    d = 1 / d; const del = d * c; h *= del;
+    if (Math.abs(del - 1) < EPS) break;
+  }
+  return h;
+}
+
+function regBeta(x, a, b) {
+  if (x <= 0) return 0; if (x >= 1) return 1;
+  const bt = Math.exp(logGamma(a + b) - logGamma(a) - logGamma(b) + a * Math.log(x) + b * Math.log(1 - x));
+  return x < (a + 1) / (a + b + 2) ? bt * betacf(a, b, x) / a : 1 - bt * betacf(b, a, 1 - x) / b;
+}
+
+function tCDF(t, df) {
+  const x = df / (df + t * t), ib = regBeta(x, df / 2, .5);
+  return t >= 0 ? 1 - .5 * ib : .5 * ib;
+}
+
+function fCDF(f, d1, d2) {
+  if (!(f >= 0)) return NaN;
+  return regBeta((d1 * f) / (d1 * f + d2), d1 / 2, d2 / 2);
+}
+
+function invTCDF(p, df) {
+  let lo = -100, hi = 100;
+  for (let i = 0; i < 100; i++) {
+    const mid = (lo + hi) / 2;
+    if (tCDF(mid, df) < p) lo = mid; else hi = mid;
+  }
+  return (lo + hi) / 2;
+}
+
+function normInv(p) {
+  if (p <= 0 || p >= 1) return NaN;
+  const a = [-39.6968302866538, 220.946098424521, -275.928510446969, 138.357751867269, -30.6647980661472, 2.50662827745924],
+        b = [-54.4760987982241, 161.585836858041, -155.698979859887, 66.8013118877197, -13.2806815528857],
+        c = [-.00778489400243029, -.322396458041136, -2.40075827716184, -2.54973253934373, 4.37466414146497, 2.93816398269878],
+        d = [.00778469570904146, .32246712907004, 2.445134137143, 3.75440866190742],
+        pl = .02425, ph = 1 - pl;
+  let q, r;
+  if (p < pl) {
+    q = Math.sqrt(-2 * Math.log(p));
+    return (((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) / (((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1));
+  }
+  if (p > ph) {
+    q = Math.sqrt(-2 * Math.log(1 - p));
+    return -(((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) / (((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1));
+  }
+  q = p - .5; r = q * q;
+  return (((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) * q / (((((b[0] * r + b[1]) * r + b[2]) * r + b[3]) * r + b[4]) * r + 1);
+}
+
+function normalCDF(z) { return .5 * (1 + erf(z / Math.sqrt(2))); }
+function erf(x) {
+  const s = x < 0 ? -1 : 1, ax = Math.abs(x), t = 1 / (1 + .3275911 * ax),
+        y = 1 - (((((1.061405429 * t - 1.453152027) * t + 1.421413741) * t - .284496736) * t + .254829592) * t) * Math.exp(-ax * ax);
+  return s * y;
+}
+
+function grubbsTest(vals) {
+  const n = vals.length; if (n < 3) return { ok: false, n };
+  const m = mean(vals), ss = sd(vals);
+  if (!(ss > 0)) return { ok: true, n, G: 0, Gcrit: Infinity, index: 0, value: vals[0], outlier: false };
+  let idx = 0, G = -1;
+  vals.forEach((v, i) => { const g = Math.abs(v - m) / ss; if (g > G) { G = g; idx = i; } });
+  const alpha = Number($('alpha').value) || .05, t = invTCDF(1 - alpha / (2 * n), n - 2),
+        Gcrit = ((n - 1) / Math.sqrt(n)) * Math.sqrt(t * t / (n - 2 + t * t));
+  return { ok: true, n, G, Gcrit, index: idx, value: vals[idx], outlier: G > Gcrit };
+}
+
+function shapiroApprox(vals) {
+  const x = [...vals].sort((a, b) => a - b), n = x.length;
+  if (n < 3 || n > 5000) return { ok: false, n };
+  const xm = mean(x), den = x.reduce((s, v) => s + (v - xm) ** 2, 0);
+  if (!(den > 0)) return { ok: false, n };
+  let m = []; for (let i = 1; i <= n; i++) m.push(normInv((i - .375) / (n + .25)));
+  const mn = Math.sqrt(m.reduce((s, v) => s + v * v, 0));
+  m = m.map(v => v / mn); let num = 0;
+  for (let i = 0; i < n; i++) num += m[i] * x[i];
+  const W = Math.min(.999999, Math.max(.000001, num * num / den));
+  let z, p;
+  if (n === 3) {
+    p = Math.max(0, Math.min(1, (6 / Math.PI) * (Math.asin(Math.sqrt(W)) - .9553166181245093))); z = NaN;
+  } else if (n <= 11) {
+    const gamma = -2.273 + .459 * n;
+    if (gamma - Math.log(1 - W) <= 0) p = 0;
+    else {
+      const y = -Math.log(gamma - Math.log(1 - W)), mu = .5440 - .39978 * n + .025054 * n * n - .0006714 * n * n * n,
+            sigma = Math.exp(1.3822 - .77857 * n + .062767 * n * n - .0020322 * n * n * n);
+      z = (y - mu) / sigma; p = 1 - normalCDF(z);
+    }
+  } else {
+    const l = Math.log(n), mu = -1.5861 - .31082 * l - .083751 * l * l + .0038915 * l * l * l,
+          sigma = Math.exp(-.4803 - .082676 * l + .0030302 * l * l), y = Math.log(1 - W);
+    z = (y - mu) / sigma; p = 1 - normalCDF(z);
+  }
+  return { ok: true, n, W, p: Math.max(0, Math.min(1, p)) };
+}
+
+function solve3(A, b) {
+  const M = A.map((r, i) => [...r, b[i]]);
+  for (let k = 0; k < 3; k++) {
+    let pivot = k;
+    for (let i = k + 1; i < 3; i++) if (Math.abs(M[i][k]) > Math.abs(M[pivot][k])) pivot = i;
+    if (Math.abs(M[pivot][k]) < 1e-20) return null;
+    [M[k], M[pivot]] = [M[pivot], M[k]];
+    const d = M[k][k]; for (let j = k; j < 4; j++) M[k][j] /= d;
+    for (let i = 0; i < 3; i++) if (i !== k) { const q = M[i][k]; for (let j = k; j < 4; j++) M[i][j] -= q * M[k][j]; }
+  }
+  return [M[0][3], M[1][3], M[2][3]];
+}
+
+function mandelTest(rows) {
+  const X = rows.map(r => r.y), Y = rows.map(r => r.x), n = rows.length;
+  if (n < 4) return { ok: false, reason: 'At least four calibration measurements are required.' };
+  const mx = mean(X), my = mean(Y), qxx = X.reduce((z, x) => z + (x - mx) ** 2, 0);
+  if (!(qxx > 0)) return { ok: false, reason: 'At least three distinct reference values are required.' };
+  const b1 = X.reduce((z, x, i) => z + (x - mx) * (Y[i] - my), 0) / qxx, a1 = my - b1 * mx;
+  const rss1 = Y.reduce((z, y, i) => z + (y - (a1 + b1 * X[i])) ** 2, 0);
+  let sx = 0, sx2 = 0, sx3 = 0, sx4 = 0, sy = 0, sxy = 0, sx2y = 0;
+  for (let i = 0; i < n; i++) { const x = X[i], y = Y[i]; sx += x; sx2 += x * x; sx3 += x * x * x; sx4 += x * x * x * x; sy += y; sxy += x * y; sx2y += x * x * y; }
+  const q = solve3([[n, sx, sx2], [sx, sx2, sx3], [sx2, sx3, sx4]], [sy, sxy, sx2y]);
+  if (!q) return { ok: false, reason: 'Quadratic regression could not be calculated.' };
+  const [a2, b2, c2] = q, rss2 = Y.reduce((z, y, i) => z + (y - (a2 + b2 * X[i] + c2 * X[i] * X[i])) ** 2, 0), df2 = n - 3;
+  if (df2 <= 0 || rss2 <= 0) return { ok: false, reason: 'Insufficient residual degrees of freedom.' };
+  const delta = Math.max(0, rss1 - rss2), F = delta / (rss2 / df2), p = 1 - fCDF(F, 1, df2);
+  return { ok: true, n, a1, b1, rss1, a2, b2, c2, rss2, F, p, df1: 1, df2, linearSufficient: p >= (Number($('alpha').value) || .05) };
+}
+
+function pointSlopes(groups, threshold) {
+  const g = [...groups].sort((a, b) => a.y - b.y), rows = [];
+  if (g.length < 2) return { ok: false, reason: 'At least two distinct calibration levels are required.' };
+  const gx = g.map(z => z.y), gy = g.map(z => z.mx), mx = mean(gx), my = mean(gy), den = gx.reduce((s, x) => s + (x - mx) ** 2, 0);
+  if (!(den > 0)) return { ok: false, reason: 'Distinct reference values are required.' };
+  const overall = gx.reduce((s, x, i) => s + (x - mx) * (gy[i] - my), 0) / den;
+  for (let i = 0; i < g.length - 1; i++) {
+    const dx = g[i + 1].y - g[i].y, dy = g[i + 1].mx - g[i].mx, local = dx !== 0 ? dy / dx : NaN;
+    const deviation = overall !== 0 ? 100 * (local - overall) / overall : NaN;
+    rows.push({ from: g[i], to: g[i + 1], dx, dy, local, deviation, warning: Number.isFinite(deviation) && Math.abs(deviation) > threshold });
+  }
+  return { ok: true, overall, threshold, rows, warnings: rows.filter(r => r.warning).length };
+}
+
+function statisticalValidation() {
+  const f = state.selected, g = state.groups, alpha = f.alpha, ci = Math.round((1 - alpha) * 100);
+  let gh = '<table class="testtable"><tr><th>Level</th><th>G</th><th>Gcrit</th><th>Result</th></tr>', flags = 0;
+  g.forEach(gr => {
+    const z = grubbsTest(gr.rows.map(r => r.x));
+    if (!z.ok) { gh += `<tr><td>${gr.level}</td><td colspan="3">n &lt; 3: not tested</td></tr>`; return; }
+    if (z.outlier) flags++;
+    gh += `<tr><td>${gr.level}</td><td>${fmt(z.G, 6)}</td><td>${fmt(z.Gcrit, 6)}</td><td class="${z.outlier ? 'fail' : 'pass'}">${z.outlier ? 'suspect ' + fmt(z.value, 7) : 'none'}</td></tr>`;
+  });
+  $('grubbs').innerHTML = gh + '</table>';
+  const sw = shapiroApprox(f.rows.map(r => r.res));
+  $('shapiro').innerHTML = sw.ok ? `W = <span class="mono">${fmt(sw.W, 7)}</span><br>p ≈ <span class="mono">${fmt(sw.p, 7)}</span><br><span class="${sw.p >= alpha ? 'pass' : 'warn'}">${sw.p >= alpha ? 'No significant deviation detected' : 'Normality warning'}</span>` : 'Not available.';
+  const mt = mandelTest(state.rows);
+  $('mandel').innerHTML = mt.ok ? `Linear RSS = <span class="mono">${fmt(mt.rss1, 8)}</span><br>Quadratic RSS = <span class="mono">${fmt(mt.rss2, 8)}</span><br>F(${mt.df1}, ${mt.df2}) = <span class="mono">${fmt(mt.F, 8)}</span><br>p = <span class="mono">${fmt(mt.p, 8)}</span><br><span class="${mt.linearSufficient ? 'pass' : 'fail'}">${mt.linearSufficient ? 'Linear calibration function is sufficient' : 'Quadratic function gives a significantly better fit'} at α = ${alpha}</span><br><span class="small mono">Quadratic ${units().y} = ${fmt(mt.a2, 8)} + ${fmt(mt.b2, 8)}·x + ${fmt(mt.c2, 8)}·x²</span>` : `<span class="warn">Not available</span><br><span class="small">${mt.reason}</span>`;
+  const u = units();
+  const threshold = Math.max(0, Number($('pts-threshold').value) || 0), pt = pointSlopes(g, threshold);
+  if (pt.ok) {
+    let ph = `<p>Overall slope (level means): <span class="mono">${fmt(pt.overall, 9)} ${u.y}/${u.x}</span></p><table class="testtable"><tr><th>Interval (${u.x})</th><th>Local slope (${u.y}/${u.x})</th><th>Deviation</th><th>Result</th></tr>`;
+    pt.rows.forEach(r => ph += `<tr><td>${fmt(r.from.y, 6)} → ${fmt(r.to.y, 6)}</td><td>${fmt(r.local, 9)}</td><td>${fmt(r.deviation, 6)} %</td><td class="${r.warning ? 'warn' : 'pass'}">${r.warning ? 'outside ±' + fmt(threshold, 5) + ' %' : 'within ±' + fmt(threshold, 5) + ' %'}</td></tr>`);
+    $('ptslope').innerHTML = ph + '</table>';
+  } else $('ptslope').innerHTML = `<span class="warn">Not available</span><br><span class="small">${pt.reason}</span>`;
+  const recoveries = g.filter(z => z.y > 0).map(z => 100 * ((z.mx - f.a) / f.b) / z.y), recovery = recoveries.length ? mean(recoveries) : NaN,
+        accepted = flags === 0 && (!sw.ok || sw.p >= alpha) && (!mt.ok || mt.linearSufficient);
+  $('summary').innerHTML = `<strong>Calibration ID:</strong> ${$('cid').value || '—'} &nbsp; <strong>Model:</strong> ${label(f.mode)}<br><strong>Equation:</strong> ${u.y} = ${fmt(f.b, 10)} · x + ${fmt(f.a, 10)}<br><strong>R²:</strong> ${fmt(f.r2, 9)} &nbsp; <strong>Adjusted R²:</strong> ${fmt(f.adjr2, 9)} &nbsp; <strong>RMSE:</strong> ${fmt(f.rmse, 7)} ${u.y}<br><strong>Residual SD (sᵧₓ):</strong> ${fmt(f.residual, 7)} ${u.y} &nbsp; <strong>Method SD (sₓ₀):</strong> ${fmt(f.sx0, 7)} ${u.x} &nbsp; <strong>Relative method SD:</strong> ${fmt(f.sx0 / Math.abs(f.mx) * 100, 7)} %<br><strong>DIN 32645 / CLB1:</strong> LOD ${fmt(f.lod, 7)}, LOQ ${fmt(f.loq, 7)} (α=${alpha}, ${ci}% CI, k=${fmt(f.k, 4)})<br><strong>Recovery (mean):</strong> ${fmt(recovery, 7)} %<br><strong>Mandel:</strong> <span class="${!mt.ok ? 'warn' : mt.linearSufficient ? 'pass' : 'fail'}">${!mt.ok ? 'not available' : mt.linearSufficient ? 'linear function sufficient' : 'quadratic fit significantly better'}</span><br><strong>Validation:</strong> <span class="${accepted ? 'pass' : 'warn'}">${accepted ? 'No formal statistical warning detected' : 'Review statistical warnings before accepting calibration'}</span>`;
+  state.validation = { grubbsFlags: flags, shapiro: sw, mandel: mt, pointSlopes: pt, recovery, accepted };
+}
+
+function runSelfTest() {
+  const x = [.05, .10, .15, .20, .25, .30, .35, .40, .45, .50], y = [3060, 3522, 3707, 4280, 5058, 5510, 5703, 6205, 7156, 7178],
+        mx = mean(x), my = mean(y), b = x.reduce((s, v, i) => s + (v - mx) * (y[i] - my), 0) / x.reduce((s, v) => s + (v - mx) ** 2, 0), a = my - b * mx,
+        sse = y.reduce((s, v, i) => s + (v - (a + b * x[i])) ** 2, 0), sst = y.reduce((s, v) => s + (v - my) ** 2, 0), r2 = 1 - sse / sst, syx = Math.sqrt(sse / (x.length - 2)),
+        qx = x.reduce((s, v) => s + (v - mx) ** 2, 0);
+  const exp = { b: 9661.939, a: 2480.867, r2: .9849, syx: 192.2939, qx: .2063 },
+        checks = [['Slope', b, exp.b, .02], ['Intercept', a, exp.a, .02], ['R²', r2, exp.r2, .0002], ['Residual SD', syx, exp.syx, .02], ['Qx', qx, exp.qx, .0002]];
+  let h = '<h3>openDIN TOC regression self-test</h3><table><tr><th>Metric</th><th>Calculated</th><th>Reference</th><th>Status</th></tr>', all = true;
+  checks.forEach(c => { const ok = Math.abs(c[1] - c[2]) <= c[3]; all = all && ok; h += `<tr><td>${c[0]}</td><td>${fmt(c[1], 10)}</td><td>${fmt(c[2], 10)}</td><td class="${ok ? 'pass' : 'fail'}">${ok ? 'PASS' : 'FAIL'}</td></tr>`; });
+  $('selftest-result').innerHTML = h + '</table><p class="' + (all ? 'pass' : 'fail') + '">Overall: ' + (all ? 'PASS' : 'FAIL') + '</p><p class="small">Reference values transcribed from the supplied openDIN documentation; this is an embedded software regression check against the supplied openDIN reference values.</p>';
+}
+
+/* High-DPI Cross-Platform Canvas Renderer */
+function draw(canvas, residual = false) {
+  const dpr = window.devicePixelRatio || 1;
+  const baseW = 760, baseH = 460;
+
+  if (canvas.width !== baseW * dpr || canvas.height !== baseH * dpr) {
+    canvas.width = baseW * dpr;
+    canvas.height = baseH * dpr;
+  }
+
+  const c = canvas.getContext('2d');
+  c.save();
+  c.scale(dpr, dpr);
+
+  const W = baseW, H = baseH;
+  const margin = { left: 92, right: 28, top: 66, bottom: 76 };
+  const f = state.selected, rows = f.rows, u = units();
+  const xs = rows.map(r => r.y), xmin0 = Math.min(...xs), xmax0 = Math.max(...xs);
+  const xrange0 = (xmax0 - xmin0) || 1;
+  const xmin = xmin0 - 0.03 * xrange0, xmax = xmax0 + 0.03 * xrange0;
+  const xrange = xmax - xmin;
+  let ys = residual ? rows.map(r => r.res) : rows.map(r => r.x);
+
+  if (residual) {
+    ys.push(-2 * f.residual, 2 * f.residual, 0);
+  } else {
+    for (let i = 0; i < 80; i++) {
+      const x = xmin0 + (xmax0 - xmin0 || 1) * i / 79, fitY = f.a + f.b * x,
+            seMean = f.residual * Math.sqrt(1 / f.n + (x - f.mx) ** 2 / (f.sxxRaw || 1)),
+            sePred = f.residual * Math.sqrt(1 + 1 / f.n + (x - f.mx) ** 2 / (f.sxxRaw || 1));
+      ys.push(fitY - f.t * seMean, fitY + f.t * seMean, fitY - f.t * sePred, fitY + f.t * sePred);
+    }
+  }
+
+  let ymin = Math.min(...ys), ymax = Math.max(...ys), ypad = (ymax - ymin || 1) * .10;
+  ymin -= ypad; ymax += ypad;
+  const plotW = W - margin.left - margin.right;
+  const plotH = H - margin.top - margin.bottom;
+  const X = x => margin.left + (x - xmin) / xrange * plotW;
+  const Y = y => margin.top + plotH - (y - ymin) / (ymax - ymin || 1) * plotH;
+
+  c.clearRect(0, 0, W, H);
+  c.fillStyle = '#ffffff';
+  c.fillRect(0, 0, W, H);
+
+  // Title and subtitle identify the analytical view directly in exported images.
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillStyle = '#18324a';
+  c.font = 'bold 17px Arial, sans-serif';
+  c.fillText(residual ? 'Residual Analysis' : 'Calibration Curve', W / 2, 22);
+  c.font = '12px Arial, sans-serif';
+  c.fillStyle = '#516171';
+  c.fillText(residual ? `${label(f.mode)} model · residual signal diagnostics` : `${label(f.mode)} regression · ${Math.round((1 - f.alpha) * 100)}% confidence and prediction bands`, W / 2, 43);
+
+  // Grid, ticks and numeric tick labels.
+  const nTicks = 5;
+  c.font = '11px Arial, sans-serif';
+  c.lineWidth = 1;
+  for (let i = 0; i <= nTicks; i++) {
+    const xv = xmin + xrange * i / nTicks;
+    const xp = X(xv);
+    c.strokeStyle = '#e4e9ed';
+    c.beginPath(); c.moveTo(xp, margin.top); c.lineTo(xp, margin.top + plotH); c.stroke();
+    c.fillStyle = '#425466'; c.textAlign = 'center'; c.textBaseline = 'top';
+    c.fillText(fmt(xv, 5), xp, margin.top + plotH + 8);
+
+    const yv = ymin + (ymax - ymin) * i / nTicks;
+    const yp = Y(yv);
+    c.strokeStyle = '#e4e9ed';
+    c.beginPath(); c.moveTo(margin.left, yp); c.lineTo(margin.left + plotW, yp); c.stroke();
+    c.fillStyle = '#425466'; c.textAlign = 'right'; c.textBaseline = 'middle';
+    c.fillText(fmt(yv, 5), margin.left - 9, yp);
+  }
+
+  c.strokeStyle = '#75808a'; c.lineWidth = 1.2; c.setLineDash([]);
+  c.strokeRect(margin.left, margin.top, plotW, plotH);
+
+  if (residual) {
+    c.strokeStyle = '#6f7881'; c.lineWidth = 1.5;
+    c.beginPath(); c.moveTo(margin.left, Y(0)); c.lineTo(margin.left + plotW, Y(0)); c.stroke();
+    c.strokeStyle = '#a44242'; c.setLineDash([7, 5]);
+    [-2 * f.residual, 2 * f.residual].forEach(v => {
+      c.beginPath(); c.moveTo(margin.left, Y(v)); c.lineTo(margin.left + plotW, Y(v)); c.stroke();
+    });
+    c.setLineDash([]);
+  } else {
+    c.strokeStyle = '#a44242'; c.lineWidth = 1.4; c.setLineDash([3, 5]);
+    [-1, 1].forEach(sign => {
+      c.beginPath();
+      for (let i = 0; i < 90; i++) {
+        const x = xmin0 + (xmax0 - xmin0 || 1) * i / 89, fitY = f.a + f.b * x,
+              sePred = f.residual * Math.sqrt(1 + 1 / f.n + (x - f.mx) ** 2 / (f.sxxRaw || 1)), yy = fitY + sign * f.t * sePred;
+        i ? c.lineTo(X(x), Y(yy)) : c.moveTo(X(x), Y(yy));
+      }
+      c.stroke();
+    });
+    c.strokeStyle = '#28724b'; c.lineWidth = 1.8; c.setLineDash([7, 5]);
+    [-1, 1].forEach(sign => {
+      c.beginPath();
+      for (let i = 0; i < 90; i++) {
+        const x = xmin0 + (xmax0 - xmin0 || 1) * i / 89, fitY = f.a + f.b * x,
+              seMean = f.residual * Math.sqrt(1 / f.n + (x - f.mx) ** 2 / (f.sxxRaw || 1)), yy = fitY + sign * f.t * seMean;
+        i ? c.lineTo(X(x), Y(yy)) : c.moveTo(X(x), Y(yy));
+      }
+      c.stroke();
+    });
+    c.setLineDash([]);
+    c.strokeStyle = '#2f5f87'; c.lineWidth = 3;
+    c.beginPath(); c.moveTo(X(xmin0), Y(f.a + f.b * xmin0)); c.lineTo(X(xmax0), Y(f.a + f.b * xmax0)); c.stroke();
+  }
+
+  c.fillStyle = '#18324a';
+  rows.forEach(r => { c.beginPath(); c.arc(X(r.y), Y(residual ? r.res : r.x), 4, 0, Math.PI * 2); c.fill(); });
+
+  // Dynamic axis labels.
+  c.fillStyle = '#18324a';
+  c.font = 'bold 14px Arial, sans-serif';
+  c.textAlign = 'center'; c.textBaseline = 'middle';
+  c.fillText(`Reference concentration (${u.x})`, margin.left + plotW / 2, H - 24);
+  c.save();
+  c.translate(24, margin.top + plotH / 2);
+  c.rotate(-Math.PI / 2);
+  c.fillText(residual ? `Residual signal (${u.y})` : `Analytical signal (${u.y})`, 0, 0);
+  c.restore();
+
+  // Compact model annotation inside the calibration plot.
+  if (!residual) {
+    const eq = `${u.y} = ${fmt(f.a, 6)} + ${fmt(f.b, 6)} × ${u.x}`;
+    const info = `${eq}    R² = ${fmt(f.r2, 6)}`;
+    c.font = '11px Arial, sans-serif';
+    const boxW = Math.min(plotW - 18, c.measureText(info).width + 18);
+    const boxX = margin.left + plotW - boxW - 8, boxY = margin.top + 8;
+    c.fillStyle = 'rgba(255,255,255,0.90)'; c.fillRect(boxX, boxY, boxW, 25);
+    c.strokeStyle = '#c9d2d9'; c.strokeRect(boxX, boxY, boxW, 25);
+    c.fillStyle = '#18324a'; c.textAlign = 'center'; c.textBaseline = 'middle';
+    c.fillText(info, boxX + boxW / 2, boxY + 12.5);
+  }
+
+  c.restore();
+}
+
+function render() {
+  const f = state.selected, g = state.groups, u = units(), ci = Math.round((1 - f.alpha) * 100),
+        rsdMethod = Math.abs(f.mx) > 0 ? 100 * f.sx0 / Math.abs(f.mx) : NaN,
+        recoveries = g.filter(z => z.y > 0).map(z => 100 * ((z.mx - f.a) / f.b) / z.y), recovery = recoveries.length ? mean(recoveries) : NaN;
+  
+  $('ci-label').textContent = ci + '% confidence band';
+  $('pi-label').textContent = ci + '% prediction band';
+  
+  let st = '<table><tr><th>Metric</th><th>Value</th></tr>' + [
+    ['Model', label(f.mode)], ['Equation', `${u.y} = ${fmt(f.b, 10)} • x + ${fmt(f.a, 10)}`],
+    ['Slope (b)', `${fmt(f.b, 10)} ${u.y} / ${u.x}`], ['Intercept (a)', `${fmt(f.a, 10)} ${u.y}`],
+    ['R²', fmt(f.r2, 10)], ['Adjusted R²', fmt(f.adjr2, 10)], ['RMSE', `${fmt(f.rmse, 8)} ${u.y}`],
+    ['Residual SD (sᵧₓ)', `${fmt(f.residual, 8)} ${u.y}`], ['Method standard deviation (sₓ₀)', `${fmt(f.sx0, 8)} ${u.x}`],
+    ['Relative method standard deviation', `${fmt(rsdMethod, 8)} %`], [`LOD (DIN 32645 / CLB1, α=${f.alpha})`, `${fmt(f.lod, 8)} ${u.x}`],
+    [`LOQ (DIN 32645 / CLB1, k=${fmt(f.k, 4)})`, `${fmt(f.loq, 8)} ${u.x}`], ['Recovery (mean)', `${fmt(recovery, 8)} %`],
+    ['Number of levels', g.length], ['Total replicates', f.n], ['Confidence interval', `${ci} %`]
+  ].map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('') + '</table>';
+  
+  $('stats').innerHTML = st;
+  
+  const obj = {
+    calibration_mode: 'multipoint', calibration_model: label(f.mode), calibration_id: $('cid').value,
+    calibration_date: $('cdate').value, suite_version: VERSION, alpha: f.alpha, confidence_interval_percent: ci,
+    k_factor: f.k, r_squared: f.r2, adjusted_r_squared: f.adjr2, x_unit: u.x, y_unit: u.y, rmse_signal: f.rmse,
+    residual_sd_signal: f.residual, method_standard_deviation_x: f.sx0, relative_method_standard_deviation_percent: rsdMethod,
+    lod_x: f.lod, loq_x: f.loq, recovery_mean_percent: recovery,
+    multipoint: {
+      intercept_signal: f.a, slope_signal_per_x: f.b, n_levels: g.length, n_replicates: f.n, mean_concentration: f.mx,
+      sxx_concentration2: f.sxxRaw, t_factor_two_sided: f.t, t_factor_one_sided: f.tOne,
+      calculation: 'DIN 32645 indirect calibration-curve method as summarized in CLB1; LOQ solved iteratively with k'
+    }
+  };
+  $('json').textContent = JSON.stringify(obj, null, 2);
+  
+  let h = '<table><tr><th>Model</th><th>Intercept RFU</th><th>Slope</th><th>R²</th><th>RMSE RFU</th><th>AIC</th><th>BIC</th></tr>';
+  state.fits.forEach(x => h += `<tr class="${x === f ? 'selected-row' : ''}"><td>${label(x.mode)}</td><td>${fmt(x.a)}</td><td>${fmt(x.b)}</td><td>${fmt(x.r2)}</td><td>${fmt(x.rmse)}</td><td>${fmt(x.aic)}</td><td>${fmt(x.bic)}</td></tr>`);
+  $('models').innerHTML = h + '</table>';
+  
+  h = '<table><tr><th>Level</th><th>Reference</th><th>n</th><th>Mean signal</th><th>SD signal</th><th>Predicted C</th><th>Recovery %</th></tr>';
+  g.forEach(x => { const pred = (x.mx - f.a) / f.b; h += `<tr><td>${x.level}</td><td>${fmt(x.y)}</td><td>${x.n}</td><td>${fmt(x.mx)}</td><td>${fmt(x.sx)}</td><td>${fmt(pred)}</td><td>${x.y ? fmt(100 * pred / x.y) : '-'}</td></tr>`; });
+  $('levels').innerHTML = h + '</table>';
+  
+  h = '<table><tr><th>Level</th><th>Rep</th><th>Reference C</th><th>Signal</th><th>VIS</th><th>Predicted signal</th><th>Residual signal</th><th>Weight</th></tr>';
+  f.rows.forEach(r => h += `<tr><td>${r.level}</td><td>${r.rep}</td><td>${fmt(r.y)}</td><td>${fmt(r.x)}</td><td>${fmt(r.vis)}</td><td>${fmt(r.pred)}</td><td>${fmt(r.res)}</td><td>${fmt(r.weight)}</td></tr>`);
+  $('rows').innerHTML = h + '</table>';
+  
+  $('sb-model').textContent = label(f.mode);
+  $('sb-n').textContent = f.n;
+  $('sb-levels').textContent = g.length;
+  $('sb-id').textContent = $('cid').value || '—';
+  
+  draw($('plot'));
+  draw($('resid'), true);
+  statisticalValidation();
+}
+
+function calculate() {
+  try {
+    const rows = parse(), groups = groupRows(rows);
+    state.rows = rows; state.groups = groups;
+    state.fits = ['OLS', '1/c', '1/c2', '1/s2'].map(m => fit(rows, m, groups));
+    state.selected = state.fits.find(f => f.mode === $('model').value) || state.fits[0];
+    $('status').innerHTML = `<span class="ok">${rows.length} replicate rows imported. Selected model: ${label(state.selected.mode)}.</span>`;
+    if ($('update-config')) $('update-config').disabled = !loadedConfiguration;
+    render();
+  } catch (e) {
+    console.error(e);
+    $('status').innerHTML = '<span class="bad">' + e.message + '</span>';
+  }
+}
+
+async function copyText(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch (e) {}
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus(); ta.select(); ta.setSelectionRange(0, ta.value.length);
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+  return ok;
+}
+
+
+function firmwareCalibrationFromFit() {
+  const f = state.selected;
+  if (!f) throw new Error('Calculate a calibration model first.');
+  if (!Number.isFinite(f.b) || Math.abs(f.b) < 1e-15) throw new Error('The calibration slope is zero or invalid.');
+
+  const slopeNgPerRfu = 1 / f.b;
+  const interceptNg = -f.a / f.b;
+  const meanRfu = f.a + f.b * f.mx;
+  const sxxRfu2 = (f.b * f.b) * f.sxxRaw;
+
+  return {
+    calibration_mode: 'multipoint',
+    multipoint: {
+      intercept_ng: interceptNg,
+      slope_ng_per_rfu: slopeNgPerRfu,
+      residual_sd_ng: f.residual / Math.abs(f.b),
+      n_points: f.n,
+      mean_rfu: meanRfu,
+      sxx_rfu2: sxxRfu2,
+      t_factor_95: f.t
+    },
+    calibration_id: $('cid').value || 'UNSET',
+    calibration_date: $('cdate').value || 'YYYY-MM-DD',
+    calibration_type: 'multipoint_' + label(f.mode).replace(/\s+/g, '_'),
+    r_squared: f.r2,
+    adjusted_r_squared: f.adjr2,
+    rmse_ng: f.rmse / Math.abs(f.b),
+    lod_ng_uL: f.lod,
+    loq_ng_uL: f.loq,
+    suite_version: VERSION
+  };
+}
+
+function updateConfigurationObject(sourceConfig) {
+  if (!sourceConfig || typeof sourceConfig !== 'object' || Array.isArray(sourceConfig)) {
+    throw new Error('The selected file is not a valid configuration JSON object.');
+  }
+  if (!sourceConfig.diynafluor || typeof sourceConfig.diynafluor !== 'object' || Array.isArray(sourceConfig.diynafluor)) {
+    throw new Error('The file does not contain a valid "diynafluor" section.');
+  }
+
+  const updated = JSON.parse(JSON.stringify(sourceConfig));
+  const fw = firmwareCalibrationFromFit();
+  const diy = updated.diynafluor;
+
+  diy.calibration_mode = fw.calibration_mode;
+  diy.multipoint = fw.multipoint;
+  diy.calibration_id = fw.calibration_id;
+  diy.calibration_date = fw.calibration_date;
+  diy.calibration_type = fw.calibration_type;
+  diy.r_squared = fw.r_squared;
+  diy.adjusted_r_squared = fw.adjusted_r_squared;
+  diy.rmse_ng = fw.rmse_ng;
+  diy.lod_ng_uL = fw.lod_ng_uL;
+  diy.loq_ng_uL = fw.loq_ng_uL;
+  diy.suite_version = fw.suite_version;
+
+  return updated;
+}
+
+async function updateAndDownloadConfiguration() {
+  try {
+    if (!loadedConfiguration) throw new Error('Load the existing configuration.json first.');
+    const updated = updateConfigurationObject(loadedConfiguration);
+    const text = JSON.stringify(updated, null, 2) + '\n';
+    const result = await saveJSON(text, 'configuration.json');
+    if (result !== 'cancelled') {
+      $('config-status').innerHTML = '<span class="ok">configuration.json updated. All non-calibration settings were preserved.</span>';
+      $('status').innerHTML = '<span class="ok">Firmware configuration updated and ' + (result === 'saved' ? 'saved' : 'sent to the browser downloads folder') + '.</span>';
+    }
+  } catch (e) {
+    console.error(e);
+    $('config-status').innerHTML = '<span class="bad">' + e.message + '</span>';
+  }
+}
+
+async function saveJSON(text, filename) {
+  const blob = new Blob([text], { type: 'application/json;charset=utf-8' });
+  if (typeof window.showSaveFilePicker === 'function' && window.isSecureContext) {
+    try {
+      const handle = await window.showSaveFilePicker({ suggestedName: filename, types: [{ description: 'JSON calibration file', accept: { 'application/json': ['.json'] } }] });
+      const writable = await handle.createWritable();
+      await writable.write(blob);
+      await writable.close();
+      return 'saved';
+    } catch (e) {
+      if (e && e.name === 'AbortError') return 'cancelled';
+    }
+  }
+  const u = URL.createObjectURL(blob), a = document.createElement('a');
+  a.href = u; a.download = filename; a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(u), 1500);
+  return 'downloaded';
+}
+
+async function downloadMainJSON() {
+  try {
+    const text = $('json').textContent;
+    if (!text || !text.trim()) calculate();
+    const result = await saveJSON($('json').textContent, safeName($('cid').value) + '_calibration_v' + VERSION + '.json');
+    if (result !== 'cancelled') $('status').innerHTML = '<span class="ok">JSON ' + (result === 'saved' ? 'saved' : 'sent to browser downloads folder') + '.</span>';
+  } catch (e) { showFatal(e.message || e); }
+}
+
+let twoPoint = null;
+function parseRepValues(text) { return String(text).split(/[;,\s]+/).map(Number).filter(Number.isFinite); }
+
+function calculateTwoPoint() {
+  const u = units(), blanks = parseRepValues($('tp-blank').value), standards = parseRepValues($('tp-standard').value), conc = Number($('tp-conc').value);
+  if (blanks.length < 2 || standards.length < 1 || !(conc > 0)) {
+    $('tp-result').innerHTML = '<span class="bad">Enter at least two repeated blank signal values, at least one standard signal value, and a positive standard concentration.</span>';
+    return;
+  }
+  const blank = mean(blanks), standard = mean(standards), sblank = sd(blanks), slope = (standard - blank) / conc;
+  if (!(slope > 0)) {
+    $('tp-result').innerHTML = '<span class="bad">Mean standard signal must exceed mean blank signal.</span>';
+    return;
+  }
+  const lod = 3 * sblank / slope, loq = 10 * sblank / slope;
+  twoPoint = {
+    calibration_mode: 'two_point', calibration_id: $('cid').value, calibration_date: $('cdate').value,
+    suite_version: VERSION, x_unit: u.x, y_unit: u.y, intercept_signal: blank, slope_signal_per_x: slope,
+    blank_mean_signal: blank, blank_sd_signal: sblank, blank_replicates: blanks.length,
+    standard_mean_signal: standard, standard_replicates: standards.length, standard_concentration: conc,
+    lod_x: lod, loq_x: loq, limit_method: '3 sigma / 10 sigma from repeated blank measurements'
+  };
+  $('tp-result').innerHTML = `<strong>Two-point calibration calculated</strong><br>Mean blank: <span class="mono">${fmt(blank, 9)} ${u.y}</span> (SD ${fmt(sblank, 9)}, n=${blanks.length})<br>Mean standard: <span class="mono">${fmt(standard, 9)} ${u.y}</span> (n=${standards.length})<br>Slope: <span class="mono">${fmt(slope, 9)} ${u.y}/${u.x}</span><br>Equation: <span class="mono">${u.y} = ${fmt(blank, 9)} + ${fmt(slope, 9)} × x</span><br>LOD (3σ): <span class="mono">${fmt(lod, 9)} ${u.x}</span><br>LOQ (10σ): <span class="mono">${fmt(loq, 9)} ${u.x}</span>`;
+  $('tp-download').disabled = false;
+  $('tp-predict').disabled = false;
+}
+
+function predictTwoPoint() {
+  if (!twoPoint) return;
+  const rfu = Number($('tp-sample-rfu').value);
+  if (!Number.isFinite(rfu)) { $('tp-predicted').value = ''; return; }
+  const c = (rfu - twoPoint.intercept_signal) / twoPoint.slope_signal_per_x;
+  $('tp-predicted').value = fmt(c, 9);
+}
+
+function updateUnitEditors() {
+  const xc = $('xunit').value === 'custom', yc = $('yunit').value === 'custom';
+  $('xunit-custom').style.display = xc ? 'block' : 'none';
+  $('yunit-custom').style.display = yc ? 'block' : 'none';
+  if (state.selected) render();
+}
+
+function setupEventListeners() {
+  $('model').addEventListener('change', () => {
+    if (!state.fits.length) return;
+    state.selected = state.fits.find(f => f.mode === $('model').value) || state.fits[0];
+    render();
+  });
+  $('alpha').addEventListener('change', calculate);
+  $('kfactor').addEventListener('input', calculate);
+  $('nfuture').addEventListener('input', calculate);
+  $('basis').addEventListener('change', calculate);
+  $('vs').addEventListener('input', calculate);
+  $('cid').addEventListener('input', () => { $('sb-id').textContent = $('cid').value || '—'; });
+  
+  $('file').addEventListener('change', e => {
+    const f = e.target.files[0]; if (!f) return;
+    const r = new FileReader();
+    r.onload = () => { $('data').value = r.result; calculate(); };
+    r.readAsText(f);
+  });
+
+  $('config-file').addEventListener('change', e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const parsed = JSON.parse(String(reader.result).replace(/^﻿/, ''));
+        if (!parsed.diynafluor || typeof parsed.diynafluor !== 'object') {
+          throw new Error('No valid "diynafluor" section was found.');
+        }
+        loadedConfiguration = parsed;
+        loadedConfigurationName = file.name || 'configuration.json';
+        $('update-config').disabled = !state.selected;
+        $('config-status').innerHTML = '<span class="ok">Loaded: ' + loadedConfigurationName + '. Ready to update after calibration.</span>';
+      } catch (err) {
+        loadedConfiguration = null;
+        $('update-config').disabled = true;
+        $('config-status').innerHTML = '<span class="bad">Could not read configuration: ' + err.message + '</span>';
+      }
+    };
+    reader.onerror = () => {
+      loadedConfiguration = null;
+      $('update-config').disabled = true;
+      $('config-status').innerHTML = '<span class="bad">The configuration file could not be read.</span>';
+    };
+    reader.readAsText(file);
+  });
+
+  $('update-config').addEventListener('click', updateAndDownloadConfiguration);
+  
+  $('example').addEventListener('click', () => { $('data').value = embedded; calculate(); });
+  $('calc').addEventListener('click', calculate);
+  $('compare').addEventListener('click', calculate);
+  $('top-calc').addEventListener('click', calculate);
+  
+  $('copy').addEventListener('click', async () => {
+    const ok = await copyText($('json').textContent);
+    $('status').innerHTML = ok ? '<span class="ok">JSON copied to clipboard.</span>' : '<span class="bad">Automatic clipboard access unavailable in this browser context.</span>';
+  });
+  
+  $('download').addEventListener('click', downloadMainJSON);
+  $('top-download').addEventListener('click', downloadMainJSON);
+  
+  $('tp-calc').addEventListener('click', calculateTwoPoint);
+  $('tp-predict').addEventListener('click', predictTwoPoint);
+  $('tp-download').addEventListener('click', async () => {
+    if (!twoPoint) return;
+    await saveJSON(JSON.stringify(twoPoint, null, 2), safeName($('cid').value) + '_two_point_calibration_v' + VERSION + '.json');
+  });
+  
+  document.querySelectorAll('.info').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = $(btn.dataset.help); if (!target) return;
+      const open = target.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? '×' : 'i';
+    });
+  });
+  
+  $('xunit').addEventListener('change', updateUnitEditors);
+  $('yunit').addEventListener('change', updateUnitEditors);
+  $('xunit-custom').addEventListener('input', () => { if (state.selected) render(); });
+  $('yunit-custom').addEventListener('input', () => { if (state.selected) render(); });
+  
+  $('pts-toggle').addEventListener('click', () => {
+    const c = $('pts-content'), show = c.style.display === 'none';
+    c.style.display = show ? 'block' : 'none';
+    $('pts-toggle').textContent = show ? 'Hide' : 'Show';
+    $('pts-toggle').setAttribute('aria-expanded', String(show));
+  });
+  
+  $('print-report').addEventListener('click', () => window.print());
+  $('selftest').addEventListener('click', runSelfTest);
+  $('pts-threshold').addEventListener('input', () => { if (state.selected) statisticalValidation(); });
+  
+  window.addEventListener('resize', () => {
+    if (state.selected) {
+      draw($('plot'));
+      draw($('resid'), true);
+    }
+  });
+}
+
+function init() {
+  try {
+    document.title = 'Open Fluorometer Calibration Suite v' + VERSION_LABEL;
+    if ($('version-badge')) $('version-badge').textContent = 'v' + VERSION_LABEL + ' · stable release';
+    if ($('sb-version')) $('sb-version').textContent = VERSION_LABEL;
+    $('data').value = embedded;
+    setupEventListeners();
+    calculate();
+  } catch (e) {
+    showFatal(e.message || e);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init, { once: true });
+} else {
+  init();
+}
+})();
+</script>
+</body>
+</html>

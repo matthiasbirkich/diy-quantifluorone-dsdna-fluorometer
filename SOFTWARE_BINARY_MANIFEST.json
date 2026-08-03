@@ -1,0 +1,27 @@
+[
+  {
+    "path": "firmware/releases/archives/QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip",
+    "size_bytes": 199657,
+    "sha256": "48cc941c12578308e4cb6ec68f8119962941370f60ce40eff16f0564134e97d1"
+  },
+  {
+    "path": "firmware/device_install/QuantiFluorONE_QF1-1.0.0-rc2_CIRCUITPY.zip",
+    "size_bytes": 139369,
+    "sha256": "856c752e9bfc188e7d29f529821060ba8f396ede1b446936374db8bb1102df84"
+  },
+  {
+    "path": "software/circuitpython/9.1.1/adafruit-circuitpython-pybadge-en_US-9.1.1.uf2",
+    "size_bytes": 982016,
+    "sha256": "32028fb728a3de9e0a08c5f383870406a25b894951b34fedf98b5cf0b758471a"
+  },
+  {
+    "path": "software/bootloader/3.15.0/update-bootloader-arcade_pybadge-v3.15.0.uf2",
+    "size_bytes": 37888,
+    "sha256": "40992b5493defaec3ac06dc293b18c480150f53bd017bdb74ef3f54c7b5af13a"
+  },
+  {
+    "path": "software/bootloader/3.15.0/bootloader-arcade_pybadge-v3.15.0.bin",
+    "size_bytes": 16384,
+    "sha256": "4de77ac17217f700ee3e6cde4ff4235ccd7d93d0ca4af5a46af4ba16a0bb6e80"
+  }
+]

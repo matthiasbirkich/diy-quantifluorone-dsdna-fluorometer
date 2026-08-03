@@ -1,4 +1,5 @@
-Connection_ID,Cable,From,To,Length_mm,Status_or_note
-W-001,SparkFun PRT-15109,PyBadge 4-pin I2C/Grove-compatible connector,PCA9546 upstream connector,,Confirmed topology; exact connector orientation to document from internal photo
-W-002,STEMMA QT / Qwiic 4-pin,PCA9546 channel TBD,TSL2591 STEMMA QT connector,,TSL2591 address 0x29
-W-003,STEMMA QT / Qwiic 4-pin,PCA9546 channel or daisy-chain position TBD,ioRodeo radial_16mA board J1/J2,,LED board has no I2C address; cable order pending
+Connection,From,To,Cable,Status/notes
+1,PyBadge I2C/STEMMA interface,SparkFun PRT-15109 adapter,Qwiic/Grove adaptation,Confirmed topology; exact connector orientation to be photographed
+2,PRT-15109 adapter,PCA9546 upstream port,Four-conductor I2C/power cable,Exact length TBC
+3,PCA9546 downstream channel TBC,TSL2591,STEMMA QT / Qwiic cable,Single detector; channel TBC
+4,PCA9546 branch or pass-through point TBC,ioRodeo radial_16mA board,STEMMA QT / Qwiic cable,No I2C address; exact branch and length TBC
