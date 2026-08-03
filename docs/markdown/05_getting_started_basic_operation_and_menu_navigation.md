@@ -1,0 +1,102 @@
+# DIY-QuantiFluorONE-dsDNA-Fluorometer — Getting Started: Basic Operation and Menu Navigation
+
+> **Firmware basis:** QuantiFluorONE `QF1-1.0.0-rc2`, display version `v1.0 RC2`.
+
+## 1. Front-panel controls
+
+![Front-panel controls of the DIY-QuantiFluorONE-dsDNA-Fluorometer for firmware QF1-1.0.0-rc2. The inset shows the PyBadge reset button on the underside of the enclosure.](../figures/photos/ch05/qfo_getting_started_menu_navigation.jpeg)
+
+The figure above shows the current control layout used with the workshop firmware. The circular reset-access location is identified on the front view, but the actual PyBadge reset switch is mounted on the underside of the board and can only be operated from below through the dedicated underside opening.
+
+The firmware defines the controls as follows:
+
+| Physical control | Firmware name | Main measurement-screen function | Menu or dialog function |
+|---|---|---|---|
+| Upper-left button | `SELECT` | Open the SELECT menu | Open, confirm, load, or save the highlighted action |
+| Upper-right button | `START` | Measure and store the reagent blank | Measure a calibration blank or the next blank in the ten-blank study |
+| A button | `A` | Measure the selected sample; one cycle contains three sensor readings | Measure the selected high standard during two-point calibration |
+| B button | `B` | Cycle Live → Details → RAW → Live | Back or cancel |
+| D-pad UP/DOWN | `UP/DOWN` | Select the sample ID | Select a menu item or standard concentration |
+| D-pad RIGHT | `RIGHT` | Open or leave the RAW screen | Not used for menu selection |
+| D-pad LEFT | `LEFT` | Change RAW page | Change calibration-result or calibration-status page |
+| On/Off switch | power | Turn the instrument on or off | — |
+| Reset access opening / underside reset button | `RESET` | Restart the PyBadge. The actual switch is on the underside and must be pressed from below through the dedicated opening. | Normal reset, slow-double-click safe mode, or fast-double-click UF2 bootloader mode |
+| USB Micro port | USB | Power, charging, programming, and file access | — |
+
+The last line of the display shows context-sensitive button hints. These hints take priority whenever a calibration or confirmation dialog is open.
+
+## 2. Normal measurement workflow
+
+1. Switch the instrument on and wait for `QuantiFluorONE v1.0 RC2`.
+2. Use D-pad UP or DOWN to select the required sample ID.
+3. Insert a fresh reagent blank and close the light shield.
+4. Press START. The instrument performs three TSL2591 readings and stores the blank mean and standard deviation.
+5. Replace the blank with the prepared sample and close the light shield.
+6. Press A. The instrument performs one sample cycle of three sensor readings.
+7. Read concentration, prediction interval, VIS, standard deviation, blank, and RFU from the live screen.
+8. Press B for the details screen or RIGHT for raw readings.
+
+## 3. SELECT menu
+
+Press SELECT from the live screen to open:
+
+```text
+SELECT MENU
+>2-PT CAL
+ 10-BLANK L/Q
+ LOAD MP CAL
+ CAL STATUS
+ CLEAR CAL
+```
+
+Use UP/DOWN to move the selection, SELECT to open or confirm, and B to return or cancel.
+
+## 4. Display views
+
+### Live
+
+The live screen displays the sample ID, concentration or calibration status, prediction interval or LOD/LOQ, VIS mean and SD, blank, and RFU.
+
+### Details
+
+Press B from Live. The details screen shows FULL, IR, VIS, RFU, concentration, sensor channel, gain, and integration time.
+
+### RAW
+
+Press B again, or press RIGHT from Live/Details. LEFT changes between the two raw-data pages. RIGHT returns to Live.
+
+## 5. Multipoint calibration import
+
+1. Place the compatible `quantifluorone_multipoint.json` file in the root of `CIRCUITPY`.
+2. Disconnect the USB data host and power the device from a charger or power bank so the firmware can write its state files.
+3. Press SELECT.
+4. Choose `LOAD MP CAL`.
+5. Confirm with SELECT.
+6. Measure a fresh reagent blank with START before measuring samples.
+
+The calibration included with RC2 is marked `PROVISIONAL` and is intended for software and hardware testing, not final analytical validation.
+
+## 6. Managing CSV and JSON files: use the slow double-click
+
+> **Important — slow double-click required:** Before copying, replacing, deleting, or downloading CSV, JSON, or firmware files, enter CircuitPython **safe mode** with a slow double-click of the underside Reset button. Turn the instrument over and press the button from below through the dedicated access opening. Press Reset once, then press it again during the approximately one-second startup window. The display reports that code has stopped and will not run the saved application.
+
+In safe mode:
+
+- `CIRCUITPY` remains available to the computer;
+- the QuantiFluorONE application does not run;
+- automatic reload is disabled;
+- files can be copied, downloaded, replaced, or deleted without the firmware actively using them.
+
+A **fast** double-click is different: it opens `PYBADGEBOOT` or `BADGEBOOT` and is used only for UF2 installation.
+
+## 7. Files produced or used by RC2
+
+| File | Purpose |
+|---|---|
+| `quantifluorone_log_v100rc2.csv` | Measurement log |
+| `quantifluorone_state.json` | Blank and interface state |
+| `quantifluorone_calibration.json` | Active saved calibration |
+| `quantifluorone_multipoint.json` | Multipoint model imported through `LOAD MP CAL` |
+| `quantifluorone_config.json` | Hardware, measurement, sample, assay, and calibration settings |
+
+Always back up required data and safely eject the drive before resetting, switching off, or disconnecting USB.
