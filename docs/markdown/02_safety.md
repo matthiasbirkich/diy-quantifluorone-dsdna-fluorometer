@@ -1,8 +1,4 @@
----
-title: "Safety and Laboratory Requirements"
-document-status: "Draft"
-validation-status: "Not yet validated"
----
+# Safety and Laboratory Requirements
 
 > **Chapter status:** final workshop risk assessment and local waste-disposal rules remain to be added.
 

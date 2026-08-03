@@ -1,9 +1,4 @@
----
-title: "QuantiFluorONE – PyBadge Firmware Installation"
-number-sections: true
-toc: true
-fig-cap-location: bottom
----
+# Software Installation
 
 > **Current supported software set:** PyBadge UF2 bootloader 3.15.0, Adafruit CircuitPython 9.1.1, and the unchanged `QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip` release.
 >
@@ -57,7 +52,7 @@ Use a computer with a USB port and a known-good USB Micro **data cable**. A char
 
 Use a short **non-conductive** tool to reach the reset switch through the underside opening. The eraser end of a pencil or a suitable plastic rod is preferable to a metal tool.
 
-![The reset switch is mounted on the underside of the PyBadge and is reached from below through the enclosure opening.](../../figures/photos/ch07/reset_button_underside.png)
+![The reset switch is mounted on the underside of the PyBadge and is reached from below through the enclosure opening.](../../figures/photos/ch07/reset_button_access.png)
 
 ## 3. One supported QuantiFluorONE firmware
 
@@ -111,7 +106,7 @@ Safe mode prevents the QuantiFluorONE application from running while files are c
 
 Press the underside reset button twice in quick succession. The PyBadge display changes to the UF2 bootloader screen, and the computer mounts `PYBADGEBOOT` or `BADGEBOOT`.
 
-![PyBadge UF2 bootloader screen.](../../figures/photos/ch07/pybadge_uf2_bootloader_screen.jpeg)
+![PyBadge UF2 bootloader screen.](../../figures/photos/ch07/pybadge_bootloader_screen.jpeg)
 
 ![Typical contents of the PyBadge UF2 boot drive.](../../figures/photos/ch07/pybadgeboot_drive.png)
 
@@ -259,7 +254,7 @@ Do not merge a new installation with residual files from an older device state.
 
 The following screen indicates CircuitPython automatic reload or a soft reboot, not UF2 bootloader mode:
 
-![CircuitPython soft-reboot and automatic-reload screen.](../../figures/photos/ch07/circuitpython_soft_reboot_screen.jpeg)
+![CircuitPython soft-reboot and automatic-reload screen.](../../figures/photos/ch07/circuitpython_safe_mode_screen.jpeg)
 
 ## 13. References
 

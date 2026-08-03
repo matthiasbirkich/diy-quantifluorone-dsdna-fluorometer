@@ -1,0 +1,11 @@
+# Workshop Exercises and Checklists
+
+## Planned scope
+
+This chapter will contain the participant exercises and short checklists required during the workshop:
+
+- pre-use instrument check;
+- blank, standards, control, and sample sequence;
+- calibration-file and sample-record checklist;
+- end-of-session cleaning and data-backup checklist; and
+- brief questions for interpretation of calibration and measurement results.

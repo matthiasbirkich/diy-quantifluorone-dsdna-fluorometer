@@ -2,17 +2,14 @@
 title: "DIY-QuantiFluorONE-dsDNA-Fluorometer Workshop Booklet"
 ---
 
-# Welcome
+## About this booklet
 
-This booklet collects the workshop-oriented chapters for the
-DIY-QuantiFluorONE-dsDNA-Fluorometer project.
+This English-language booklet supports the practical workshop use of the DIY-QuantiFluorONE-dsDNA-Fluorometer. It is intentionally compact and assumes that participants already have basic laboratory experience.
 
-The current draft includes:
+The active structure contains 13 chapters and one appendix section. Detailed topics from the former 25-chapter scaffold have been consolidated to avoid repetition and an unnecessarily fragmented workflow.
 
-- Hardware and Assembly
-- Getting Started: Basic Operation and Menu Navigation
-- Calibration Suite Web App
-- Installing CircuitPython, the Bootloader, and Firmware
+## Current content status
 
-Additional theory, software-installation, calibration, and analytical chapters
-can be added incrementally to the same booklet structure.
+Chapters 3–8 contain the current developed material. Chapters 1–2 and 9–13 are concise, intentional draft or planning pages that define the remaining scope without duplicating the old scaffold.
+
+> **Validation notice:** software stability, documentation maturity, hardware maturity, and analytical validation are controlled separately. The complete analytical procedure is not yet finally validated.

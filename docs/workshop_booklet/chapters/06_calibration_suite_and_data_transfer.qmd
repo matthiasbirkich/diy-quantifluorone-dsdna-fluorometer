@@ -1,10 +1,10 @@
 ---
-title: "Calibration Suite Web App"
+title: "Calibration Suite and Data Transfer"
 ---
 
 ## 1. Purpose
 
-The repository includes the current browser-based calibration utility as a local web app. The tool is stored in the repository so that workshop participants and project partners can use the same calibration environment without depending on an external server.
+The repository includes the current browser-based Calibration Suite as a local web app. This chapter covers the calibration workflow and the safe transfer of compatible calibration files to the QuantiFluorONE firmware.
 
 ## 2. Repository location
 
@@ -28,10 +28,13 @@ The current files are stored in:
 - store example calibration data separately from the app itself;
 - treat the web app as a reproducibility tool, not merely as a convenience file.
 
-## 5. Booklet integration
+## 5. Calibration-file transfer
 
-This chapter can be included as an appendix in the workshop booklet or replaced later by a more detailed software and calibration chapter.
-
+1. Export and retain the complete calibration report and source data.
+2. Transfer only a file that is explicitly compatible with QuantiFluorONE `QF1-1.0.0-rc2`.
+3. Enter CircuitPython safe mode with the slow double-click before replacing JSON files on `CIRCUITPY`.
+4. Back up the existing JSON file before replacement.
+5. Safely eject `CIRCUITPY`, restart normally, and confirm the calibration status on the instrument.
 
 ## 6. Compatibility note for QF1-1.0.0-rc2
 

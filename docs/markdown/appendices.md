@@ -1,0 +1,5 @@
+# Appendices
+
+## Planned contents
+
+The appendices are reserved for material that supports the workshop without interrupting the main procedure, such as file maps, field forms, extended tables, firmware screen references, and supplementary calibration examples.

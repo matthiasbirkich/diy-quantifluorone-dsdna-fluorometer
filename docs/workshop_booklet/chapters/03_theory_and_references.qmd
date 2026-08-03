@@ -1,12 +1,12 @@
 ---
-title: "DIY-QuantiFluorONE-dsDNA-Fluorometer – Theory and References"
+title: "Theory and References"
 document-status: "Draft"
 validation-status: "Not yet validated"
 date: "2026-08-02"
 bibliography: "../../references/references.bib"
 ---
 
-# Purpose and practical scope
+## Purpose and practical scope
 
 This chapter provides the minimum theory needed to understand, calibrate, and use the DIY-QuantiFluorONE-dsDNA-Fluorometer in a workshop. It is not intended to be a complete textbook on fluorescence spectroscopy or analytical-method validation.
 
@@ -14,7 +14,7 @@ The instrument uses off-the-shelf optical and electronic components, one fluores
 
 > **Workshop objective:** Prepare a reagent blank, standards, and unknown samples; measure the blank-corrected fluorescence response; apply a two-point or multipoint calibration; and interpret the result within the calibrated working range.
 
-# Fluorescence in brief
+## Fluorescence in brief
 
 A fluorophore absorbs excitation light and reaches an electronically excited state. Part of the absorbed energy is then emitted as fluorescence at a longer wavelength. The separation between the excitation and emission maxima is the **Stokes shift**.
 
@@ -31,7 +31,7 @@ Important practical effects are:
 
 These effects are controlled primarily by using a matching reagent blank, identical tubes and geometry, consistent incubation and reading times, and calibration standards prepared in a suitable matrix.
 
-# Optical architecture
+## Optical architecture
 
 The optical path is fixed by the 3D-printed holder:
 
@@ -51,7 +51,7 @@ one Adafruit TSL2591 fluorescence sensor
 
 The TSL2591 sensor axis is positioned **at 90°** to the excitation axis. This geometry reduces direct illumination of the sensor by the excitation beam. The geometry, tube position, filters, LED current, gain, and integration time are part of the calibration and must remain unchanged during a measurement series.
 
-## Installed optical and electronic components
+### Installed optical and electronic components
 
 | Component | Installed configuration | Practical role |
 |---|---|---|
@@ -67,7 +67,7 @@ The TSL2591 sensor axis is positioned **at 90°** to the excitation axis. This g
 
 The PyBadge-based firmware and hardware arrangement build on the open ioRodeo Open Colorimeter Plus ecosystem [@iorodeo_ocp_firmware; @iorodeo_led_board]. Component identities and connections are documented by the corresponding Adafruit and SparkFun sources [@adafruit_tsl2591; @adafruit_pca9546; @adafruit_pybadge; @sparkfun_prt15109].
 
-## Filter verification
+### Filter verification
 
 The supplier provides the nominal filter designation and percentage-transmittance information [@neemoo_filters]. The actual installed filter specimens were additionally checked with the project’s DIY spectrometer based on Leslie Wright’s PySpectrometer2 project [@wright_pyspectrometer2].
 
@@ -82,7 +82,7 @@ The measurements confirm the intended spectral separation but are not used as an
 
 ![Spectral verification of the installed Neemoo Em532BP-40 emission filter. The project measurement was normalized to its maximum; the approximate half-maximum interval was 518–555 nm.](../../figures/source/qfo_em532bp40_spectral_verification.jpeg){#fig-em532 width=85%}
 
-# Signal formation and blank correction
+## Signal formation and blank correction
 
 The TSL2591 provides a full-spectrum channel and an infrared channel. The firmware calculates a project-defined visible signal for each reading:
 
@@ -106,7 +106,7 @@ RFU means **relative fluorescence unit**. It is an instrument-dependent response
 
 A new blank should be measured when the reagent lot, tube type, optical arrangement, sensor settings, temperature conditions, or measurement session changes.
 
-# dsDNA quantification with QuantiFluor® ONE
+## dsDNA quantification with QuantiFluor® ONE
 
 The QuantiFluor® ONE dsDNA System is an add-and-read fluorescent assay for purified dsDNA. Promega specifies 504 nm excitation, 531 nm emission, and a nominal range of 0.2–400 ng dsDNA input. The kit includes QuantiFluor® ONE Lambda DNA at 400 µg/mL as a calibration material [@promega_tm405].
 
@@ -119,13 +119,13 @@ The project uses:
 
 Promega recommends thin-walled 0.5 mL PCR tubes, thorough mixing without bubbles, five minutes of incubation at room temperature protected from light, and careful pipetting of the small sample volume [@promega_tm405].
 
-## λ-DNA standards
+### λ-DNA standards
 
 λ-DNA is double-stranded DNA from bacteriophage lambda and is suitable for preparing calibration standards. Record the supplier, product, lot, stock concentration, dilution medium, preparation date, and storage conditions. Use fresh low-concentration dilutions where practical, and mix carefully without introducing bubbles.
 
 Promega notes that a standard with a molecular size similar to the unknown DNA may improve comparability. Therefore λ-DNA is a practical workshop standard, but matrix and fragment-size differences remain possible sources of bias [@promega_tm405].
 
-# Calibration
+## Calibration
 
 Calibration links the blank-corrected fluorescence response to an assigned dsDNA concentration or DNA mass. The linear model used by the project is:
 
@@ -141,7 +141,7 @@ $$
 
 The calibration basis and unit must be stored with the calibration. The firmware normally reports the original-sample concentration in ng/µL and also records the corresponding in-assay concentration.
 
-## Two-point calibration
+### Two-point calibration
 
 The two-point workflow uses a reagent blank and one known standard. After blank correction, the working intercept is zero:
 
@@ -155,7 +155,7 @@ $$
 
 Two-point calibration is fast and suitable for a workshop routine when the assay response is known to be linear in the selected range. It does not by itself test linearity or provide a residual-based assessment across the range.
 
-## Multipoint calibration
+### Multipoint calibration
 
 Multipoint calibration uses several concentration levels and replicate measurements. Calibration Suite 7.2 Stable can calculate ordinary least squares (OLS) and compare it with weighted models (`1/c`, `1/c²`, and `1/s²`). It also displays residuals, confidence bands, prediction bands, recovery, and model-comparison statistics.
 
@@ -165,11 +165,11 @@ DIN 38402-51:2017-05 is used as a reference for linear calibration concepts. The
 
 > **Practical rule:** Do not report a sample quantitatively outside the calibrated range. Dilute or re-prepare the sample and measure it again.
 
-# LOD and LOQ
+## LOD and LOQ
 
 The limit of detection (LOD) and limit of quantification (LOQ) depend on the selected procedure, calibration, blank variability, and dataset. They are not fixed properties of the dye or sensor alone.
 
-## Two-point firmware estimate
+### Two-point firmware estimate
 
 For an active two-point calibration, the firmware can measure ten independently prepared reagent blanks. Each blank is measured as one complete three-reading cycle. The sample standard deviation of the ten blank-cycle means is used:
 
@@ -183,7 +183,7 @@ $$
 
 These are transparent blank-based estimates for workshop and instrument evaluation. They are not presented as a complete implementation of every procedure in DIN 32645.
 
-## Multipoint calculation in Calibration Suite 7.2 Stable
+### Multipoint calculation in Calibration Suite 7.2 Stable
 
 For multipoint calibration, Calibration Suite 7.2 Stable implements the indirect calibration-curve calculation documented in the software as the DIN 32645 method summarized in CLB1. The calculation uses the residual standard deviation, slope, Student-$t$ factors, calibration design, significance level, the selected quantification factor $k$, and the number of future determinations. The LOQ is solved iteratively.
 
@@ -191,7 +191,7 @@ DIN 32645:2008-11 is cited as the relevant standard for decision, detection, and
 
 Always report LOD and LOQ together with the calibration ID, method, unit, significance level, $k$ factor, number of calibration levels and replicates, and software version.
 
-# Reference projects and commercial comparison
+## Reference projects and commercial comparison
 
 | System | Relevant role in this project | Main distinction |
 |---|---|---|
@@ -204,7 +204,7 @@ DIYNAFLUOR demonstrates that a practical nucleic-acid fluorometer can be constru
 
 Promega specifies the Quantus™ blue channel with a 470 nm excitation peak, excitation wavelengths up to 495 nm, and an emission range of 510–580 nm [@promega_tm396]. These ranges are compatible with the QuantiFluor® ONE assay and provide a useful commercial reference. Direct statements about bias, precision, or agreement require measurements of the same standards on both instruments.
 
-# Practical validity conditions and limitations
+## Practical validity conditions and limitations
 
 A calibration remains valid only while the measurement configuration remains unchanged. Recalibrate or verify the calibration after changing any of the following:
 
@@ -228,7 +228,7 @@ During workshop measurements:
 
 The method is intended for research, teaching, and workshop use. It is not a clinical diagnostic method. The supplier’s nominal assay range is not automatically the validated working range of the assembled DIY instrument.
 
-# Workshop take-away
+## Workshop take-away
 
 The practical measurement chain is:
 
@@ -242,7 +242,7 @@ Prepare blank and standards
 → save the raw and calculated data
 ```
 
-# References {.unnumbered}
+## References {.unnumbered}
 
 ::: {#refs}
 :::

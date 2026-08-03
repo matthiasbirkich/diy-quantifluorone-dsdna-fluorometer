@@ -1,5 +1,8 @@
 project:
   type: book
+  output-dir: _book
+
+lang: en
 
 book:
   title: "DIY-QuantiFluorONE-dsDNA-Fluorometer Workshop Booklet"
@@ -7,10 +10,21 @@ book:
   date: today
   chapters:
     - index.qmd
+    - chapters/01_introduction.qmd
+    - chapters/02_safety.qmd
+    - chapters/03_theory_and_references.qmd
     - chapters/04_hardware_and_assembly.qmd
     - chapters/05_getting_started_basic_operation_and_menu_navigation.qmd
-    - chapters/06_calibration_suite_webapp.qmd
-    - chapters/07_installing_circuitpython_bootloader_and_firmware.qmd
+    - chapters/06_calibration_suite_and_data_transfer.qmd
+    - chapters/07_software_installation.qmd
+    - chapters/08_measurement_protocol.qmd
+    - chapters/09_calibration_results_and_quality_control.qmd
+    - chapters/10_validation_and_performance.qmd
+    - chapters/11_troubleshooting.qmd
+    - chapters/12_workshop_exercises_and_checklists.qmd
+    - chapters/13_references.qmd
+  appendices:
+    - appendices/appendices.qmd
 
 format:
   html:

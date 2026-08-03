@@ -1,26 +1,12 @@
 {
-  "package_name": "DIY-QuantiFluorONE-dsDNA-Fluorometer_hardware_assembly_push_package",
+  "package_name": "DIY-QuantiFluorONE-dsDNA-Fluorometer_booklet_structure_cleanup",
   "generated": "2026-08-03",
-  "status": "draft repository overlay",
-  "confirmed_led_board_revision": "ver_0p1_rev_3",
-  "confirmed_tsl2591_quantity": 1,
-  "firmware_baseline": "CircuitPython 9.1.1",
-  "included_input_files": [
-    "A847EBC5-3B69-4FC2-A408-0F89F3CAE1E9.jpeg",
-    "pybadge_cover_v1r4.step",
-    "colorimeter_enclosure_v1r4.step",
-    "8C7BD3D3-E615-4704-9A3C-0688E5DD664B.jpeg",
-    "38A4A354-92DC-4524-B354-5EBE75810DED.jpeg",
-    "209D0B34-AB9D-4B1E-8AD6-E68BB3A087EF.jpeg",
-    "5DA9F90A-16B3-45B0-A3C4-8BE999337967.jpeg",
-    "Adafruit-PyBadge-PCB-master 2.zip",
-    "i_control_led_radial_16mA_v0p1_r3.zip",
-    "BOM_JLCPCB_radial_16mA.xlsx",
-    "CPL_JLCPCB_radial_16mA.xlsx",
-    "radial_16mA-all.pos.txt",
-    "radial_16mA.kicad_pcb",
-    "radial_16mA.kicad_sch",
-    "iorodeo_i_control_led_LICENSE.txt"
-  ],
-  "pending_primary_input": "0.5 mL PCR-tube holder including optics and light shield archive"
+  "status": "draft repository working copy for review and push",
+  "source_archive": "Archive_20260803.zip",
+  "measurement_protocol_source": "08_measurement_protocol(1).qmd",
+  "active_booklet_chapters": 13,
+  "appendix_files": 1,
+  "legacy_scaffold_location": "docs/workshop_booklet/archive/legacy_25_chapter_scaffold",
+  "qmd_source_of_truth": true,
+  "markdown_mirror": "docs/markdown"
 }

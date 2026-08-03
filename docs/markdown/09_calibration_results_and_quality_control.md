@@ -1,0 +1,15 @@
+# Calibration, Results, and Quality Control
+
+> **Chapter status:** reserved for the concise operational treatment of calibration and result acceptance.
+
+## Planned scope
+
+This chapter will consolidate:
+
+- two-point and multipoint calibration procedures;
+- calibration-range and model-selection checks;
+- interpretation of concentration, uncertainty, LOD, and LOQ;
+- replicate measurements and quality-control samples; and
+- acceptance, repetition, dilution, and rejection criteria.
+
+The theoretical basis is already provided in Chapter 3. This chapter will contain only the practical decision workflow needed at the bench.

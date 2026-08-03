@@ -1,8 +1,4 @@
----
-title: "Introduction and Learning Objectives"
-document-status: "Draft"
-validation-status: "Not yet validated"
----
+# Introduction and Learning Objectives
 
 > **Chapter status:** concise workshop introduction; final project and partner names remain to be inserted.
 

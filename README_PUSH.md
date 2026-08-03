@@ -1,27 +1,22 @@
-# Chapter 04 push package
+# Booklet-structure cleanup push package
 
-This archive is a repository overlay for the English-language chapter:
+This repository state is prepared for review in Working Copy.
 
-`DIY-QuantiFluorONE-dsDNA-Fluorometer — Hardware and Assembly`
+## What changed
 
-Copy the contents of this directory into the root of the private project repository, review `OPEN_ITEMS.md`, and commit the files together.
+The old 25-chapter placeholder scaffold has been archived, while the active Quarto project now contains 13 chapters plus appendices. Developed content was retained, canonical filenames were assigned, and Chapter 08 was added from the supplied Measurement Protocol.
 
-## Included now
+## Before committing
 
-- Markdown and Quarto chapter drafts;
-- assembled-instrument photograph;
-- four CAD screenshots;
-- PyBadge enclosure STEP files;
-- ioRodeo radial 16 mA revision-3 KiCad and manufacturing files;
-- Adafruit PyBadge EagleCAD sources;
-- BOM, wiring, I2C, figure, reference, license, and manifest files.
+1. Review `docs/workshop_booklet/STRUCTURE.md`.
+2. Open `docs/workshop_booklet/_quarto.yml` and confirm the chapter order.
+3. Confirm that `docs/workshop_booklet/chapters/` contains no duplicate active chapter numbers.
+4. Confirm that the legacy files are present only under `docs/workshop_booklet/archive/legacy_25_chapter_scaffold/`.
+5. Review Chapter 08 and the synchronized `docs/markdown/08_measurement_protocol.md`.
+6. Commit the complete change as one conceptual documentation update.
 
-## Intentionally pending
-
-The 0.5 mL PCR-tube optical-holder files are expected later. Exact wiring-channel assignments, cable lengths, detailed internal photographs, fasteners, and final LiPo status are not guessed in this package.
-
-Suggested commit message after review:
+Suggested commit message:
 
 ```text
-docs(hardware): add draft hardware and assembly chapter with open-hardware sources
+docs(booklet): consolidate structure and add measurement protocol
 ```

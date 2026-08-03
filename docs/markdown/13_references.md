@@ -1,0 +1,9 @@
+# References
+
+## Reference management
+
+The machine-readable bibliography is maintained in:
+
+`docs/references/references.bib`
+
+Source provenance, hardware links, standards, and supplier information are maintained in the remaining files under `docs/references/`. The final booklet reference list will be generated from the cited entries after the remaining chapters have been completed.

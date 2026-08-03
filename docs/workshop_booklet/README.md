@@ -1,29 +1,45 @@
 # Workshop booklet and PDF generation
 
-This directory contains a **Quarto book project**.
+This directory contains the canonical **Quarto book project** for the workshop booklet.
 
-## Contents
+## Source-of-truth rule
 
-- `_quarto.yml` — booklet configuration
-- `index.qmd` — booklet landing page
-- `chapters/` — individual chapters in Quarto Markdown format
+- Files under `docs/workshop_booklet/` are the editable source of truth.
+- Files under `docs/markdown/` are synchronized Markdown reading copies.
+- Do not edit the Markdown copy independently and then expect the QMD source to update.
+- Only files listed in `_quarto.yml` are part of the active booklet.
 
-## Prerequisites
+## Active structure
 
-1. Install **Quarto**
-2. Install a PDF engine
-   - easiest option: **TinyTeX**
-   - alternatives: TeX Live or MiKTeX
+1. Introduction and Learning Objectives
+2. Safety and Laboratory Requirements
+3. Theory and References
+4. Hardware and Assembly
+5. Getting Started: Basic Operation and Menu Navigation
+6. Calibration Suite and Data Transfer
+7. Software Installation
+8. Measurement Protocol
+9. Calibration, Results, and Quality Control
+10. Validation and Performance
+11. Troubleshooting
+12. Workshop Exercises and Checklists
+13. References
+
+Appendices are stored under `appendices/`.
+
+The former 25-chapter placeholder scaffold is preserved under:
+
+`archive/legacy_25_chapter_scaffold/`
+
+It is retained for traceability and is not rendered.
 
 ## Render commands
 
-From this directory run:
+From `docs/workshop_booklet/` run:
 
 ```bash
 quarto render
 ```
-
-This renders both HTML and PDF outputs as configured in `_quarto.yml`.
 
 To render only HTML:
 
@@ -37,23 +53,14 @@ To render only PDF:
 quarto render --to pdf
 ```
 
-## Expected output
+Quarto writes the output to `_book/`.
 
-Quarto creates an output directory such as `_book/` that contains the rendered
-booklet files.
+## Editing workflow
 
-## Suggested workflow
-
-1. update or add chapter `.qmd` files;
-2. place referenced figures in `docs/figures/`;
-3. run `quarto render`;
-4. review the HTML output first;
-5. review and adjust the PDF output;
-6. commit both source files and, if desired, the generated PDF.
-
-
-## Software-installation chapter
-
-Chapter 07 distinguishes normal restart, **slow-double-click safe mode**, and
-fast-double-click UF2 bootloader mode. This distinction is essential when
-managing firmware, CSV, and JSON files on the QuantiFluorONE PyBadge.
+1. Edit the relevant `.qmd` file.
+2. Keep the chapter title in YAML front matter; do not add a duplicate numbered H1 heading.
+3. Use `##` for main sections and `###` for subsections.
+4. Add or remove active chapters only by editing `_quarto.yml` at the same time.
+5. Regenerate the corresponding Markdown copy under `docs/markdown/`.
+6. Render and review HTML before PDF.
+7. Commit source, synchronized Markdown, and configuration changes together.

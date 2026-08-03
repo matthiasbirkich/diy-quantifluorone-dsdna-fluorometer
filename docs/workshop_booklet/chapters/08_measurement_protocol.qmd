@@ -1,4 +1,9 @@
-# Measurement Protocol
+---
+title: "Measurement Protocol"
+document-status: "Draft"
+validation-status: "Not yet validated"
+date: "2026-08-03"
+---
 
 This short protocol is intended for participants with previous laboratory experience. All reagents required for the dsDNA assay are supplied with the Promega QuantiFluor® ONE dsDNA System. No reagent preparation is required.
 

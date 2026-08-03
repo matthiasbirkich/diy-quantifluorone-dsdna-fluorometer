@@ -1,34 +1,26 @@
-# DIY-QuantiFluorONE-dsDNA-Fluorometer — push overlay v5
+# DIY-QuantiFluorONE-dsDNA-Fluorometer — push overlay v6
 
-Merge this overlay into the repository root. The ZIP contains repository paths
-directly and has no additional outer wrapper directory.
+This update resolves the conflict between the developed booklet chapters and the former 25-chapter placeholder scaffold.
 
-## Main additions carried forward
+## Canonical result
 
-- firmware release `QF1-1.0.0-rc2` and curated device installer
-- CircuitPython 9.1.1 UF2
-- exact firmware-derived control map and annotated real-device figure
-- software installation chapter in Markdown and Quarto form
-- slow-double-click safe-mode procedure for firmware, CSV, and JSON file management
-- confirmed M2.5 x 20 and M3 x 20 fasteners and matching nuts
-- Quarto booklet structure and installation chapter
+- one active Quarto booklet;
+- 13 numbered chapters plus appendices;
+- no duplicate active chapter numbers;
+- QMD files as the editorial source of truth;
+- synchronized Markdown reading copies;
+- the complete old placeholder scaffold retained in an archive directory for traceability.
 
-## New in v5
+## Main files to review
 
-The correct drag-and-drop PyBadge bootloader updater is now included:
+- `docs/workshop_booklet/_quarto.yml`
+- `docs/workshop_booklet/STRUCTURE.md`
+- `docs/workshop_booklet/chapters/08_measurement_protocol.qmd`
+- `docs/workshop_booklet/archive/legacy_25_chapter_scaffold/README.md`
+- `docs/markdown/index.md`
 
-`software/bootloader/3.15.0/update-bootloader-arcade_pybadge-v3.15.0.uf2`
+Suggested commit message:
 
-The raw `.bin` file remains available for archiving and technical recovery, but
-must not be copied to the UF2 boot drive during the normal workshop procedure.
-
-## Important reset distinction
-
-- slow double-click: CircuitPython safe mode; use for firmware, CSV, and JSON file operations
-- fast double-click: UF2 bootloader drive; use for the bootloader-updater UF2 or CircuitPython UF2
-
-## Still pending
-
-- final PCR-tube-holder and light-shield CAD archive
-- final internal wiring photographs and channel/cable map
-- final cable-retention details and LiPo BOM status
+```text
+docs(booklet): consolidate workshop booklet structure and add measurement protocol
+```

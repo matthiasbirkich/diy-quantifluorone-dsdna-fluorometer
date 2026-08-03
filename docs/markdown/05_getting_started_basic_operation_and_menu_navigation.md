@@ -1,12 +1,10 @@
-# DIY-QuantiFluorONE-dsDNA-Fluorometer — Getting Started: Basic Operation and Menu Navigation
+# Getting Started: Basic Operation and Menu Navigation
 
 > **Firmware basis:** QuantiFluorONE `QF1-1.0.0-rc2`, display version `v1.0 RC2`.
 
 ## 1. Front-panel controls
 
-![Front-panel controls of the DIY-QuantiFluorONE-dsDNA-Fluorometer for firmware QF1-1.0.0-rc2. The inset shows the PyBadge reset button on the underside of the enclosure.](../figures/photos/ch05/qfo_getting_started_menu_navigation.jpeg)
-
-The figure above shows the current control layout used with the workshop firmware. The circular reset-access location is identified on the front view, but the actual PyBadge reset switch is mounted on the underside of the board and can only be operated from below through the dedicated underside opening.
+![QuantiFluorONE front-panel controls for firmware QF1-1.0.0-rc2.](../../figures/photos/ch05/qfo_getting_started_menu_navigation.jpeg)
 
 The firmware defines the controls as follows:
 
@@ -20,7 +18,7 @@ The firmware defines the controls as follows:
 | D-pad RIGHT | `RIGHT` | Open or leave the RAW screen | Not used for menu selection |
 | D-pad LEFT | `LEFT` | Change RAW page | Change calibration-result or calibration-status page |
 | On/Off switch | power | Turn the instrument on or off | — |
-| Reset access opening / underside reset button | `RESET` | Restart the PyBadge. The actual switch is on the underside and must be pressed from below through the dedicated opening. | Normal reset, slow-double-click safe mode, or fast-double-click UF2 bootloader mode |
+| Reset access opening | reset | Restart the PyBadge | Used for normal reset, slow-double-click safe mode, or fast-double-click UF2 bootloader mode |
 | USB Micro port | USB | Power, charging, programming, and file access | — |
 
 The last line of the display shows context-sensitive button hints. These hints take priority whenever a calibration or confirmation dialog is open.
@@ -78,7 +76,7 @@ The calibration included with RC2 is marked `PROVISIONAL` and is intended for so
 
 ## 6. Managing CSV and JSON files: use the slow double-click
 
-> **Important — slow double-click required:** Before copying, replacing, deleting, or downloading CSV, JSON, or firmware files, enter CircuitPython **safe mode** with a slow double-click of the underside Reset button. Turn the instrument over and press the button from below through the dedicated access opening. Press Reset once, then press it again during the approximately one-second startup window. The display reports that code has stopped and will not run the saved application.
+> **Important — slow double-click required:** Before copying, replacing, deleting, or downloading CSV, JSON, or firmware files, enter CircuitPython **safe mode** with a slow double-click of the Reset button. Press Reset once, then press it again during the approximately one-second startup window. The display reports that code has stopped and will not run the saved application.
 
 In safe mode:
 

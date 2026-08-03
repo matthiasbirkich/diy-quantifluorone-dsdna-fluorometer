@@ -1,4 +1,4 @@
-# DIY-QuantiFluorONE-dsDNA-Fluorometer — Hardware and Assembly
+# Hardware and Assembly
 
 > **Document status:** workshop draft with confirmed core hardware. The assembled-instrument photograph, PyBadge enclosure STEP files, PyBadge PCB sources, and ioRodeo LED-board manufacturing files are included. The final 0.5 mL PCR-tube optical-holder files, separate light-shield files, exact PCA9546 channel map, cable lengths, and detailed internal photographs are still pending.
 
@@ -18,7 +18,7 @@ At the end of the workshop, the participant should be able to:
 
 The instrument uses **one TSL2591 sensor only**. It does not use a second reference or transmission sensor.
 
-![Assembled DIY-QuantiFluorONE prototype during a firmware and display check. The displayed measurement is not presented as analytical validation data.](../figures/photos/ch04/assembled_instrument_front.jpg)
+![Assembled DIY-QuantiFluorONE prototype during a firmware and display check. The displayed measurement is not presented as analytical validation data.](../../figures/photos/ch04/assembled_instrument_front.jpg)
 
 ## 2. Complete component overview and bill of materials
 
@@ -53,7 +53,7 @@ Cable clips and the final filter-retention details remain listed in `bom/assembl
 
 ### 3.1 Electronic components
 
-**Adafruit PyBadge.** The PyBadge is the controller and user interface. It provides the display, buttons, reset switch, on/off switch, USB Micro connection, LiPo connector, battery charging circuit, and the I²C interface used by the external modules. The reset switch is mounted on the underside of the PyBadge and is operated from below through the dedicated underside access opening in the enclosure. The documented software baseline for this project is CircuitPython 9.1.1.
+**Adafruit PyBadge.** The PyBadge is the controller and user interface. It provides the display, buttons, reset switch, on/off switch, USB Micro connection, LiPo connector, battery charging circuit, and the I²C interface used by the external modules. The documented software baseline for this project is CircuitPython 9.1.1.
 
 **PCA9546 multiplexer.** The multiplexer divides the upstream I²C connection into four selectable downstream branches. Its address is `0x70`. The final channel allocation must be copied from the assembled instrument and entered in `hardware/wiring/qfo_cable_map.csv` before the hardware release is tagged.
 
@@ -82,9 +82,9 @@ The printed parts perform four critical tasks:
 
 The holder establishes the 90° geometry mechanically. The correct wording is therefore **“at 90°”**, not “approximately at 90°”.
 
-![CAD overview of the PyBadge enclosure and instrument base.](../figures/cad/ch04/qfo_pybadge_enclosure_cad_overview.jpg)
+![CAD overview of the PyBadge enclosure and instrument base.](../../figures/cad/ch04/qfo_pybadge_enclosure_cad_overview.jpg)
 
-![CAD overview of the optical module mounted on the instrument base.](../figures/cad/ch04/qfo_optical_module_cad_overview.jpg)
+![CAD overview of the optical module mounted on the instrument base.](../../figures/cad/ch04/qfo_optical_module_cad_overview.jpg)
 
 ## 4. Preparation and inspection of the 3D-printed parts
 
@@ -144,7 +144,7 @@ The final holder archive is pending. The assembly procedure will be finalized fr
 
 ## 8. Correct 90° optical geometry
 
-![Optical geometry of the instrument.](../figures/source/ch04/qfo_optical_geometry.svg)
+![Optical geometry of the instrument.](../../figures/source/ch04/qfo_optical_geometry.svg)
 
 The excitation axis passes from the LED through the Ex470BP-40 to the sample. The detection axis passes from the sample through the Em532BP-40 to the single TSL2591. The printed holder fixes these axes at 90°.
 
@@ -162,7 +162,7 @@ Do not compensate for poor printed fit by angling the sensor board or LED. Corre
 ## 9. Installation of the PyBadge, multiplexer, and LED board
 
 1. Place the PyBadge in the enclosure without connecting a battery.
-2. Confirm access to the on/off switch, USB Micro port, and LiPo connector. Turn the enclosure over and verify that the underside reset-access opening aligns with the PyBadge reset switch; the reset button is operated from below, not from the front panel.
+2. Confirm access to the reset button, on/off switch, USB Micro port, and LiPo connector.
 3. Fit the cover and check that no button is held down by the printed part.
 4. Install the PCA9546 in its intended mounting position.
 5. Install the ioRodeo `radial_16mA` board near the optical module without allowing its solder joints to touch the enclosure hardware.
@@ -172,7 +172,7 @@ Do not compensate for poor printed fit by angling the sensor board or LED. Corre
 
 ## 10. STEMMA QT / Qwiic wiring and I²C addresses
 
-![Electronics overview. Dashed branches indicate that the exact PCA9546 channel allocation is still to be recorded.](../figures/source/ch04/qfo_electronics_overview.svg)
+![Electronics overview. Dashed branches indicate that the exact PCA9546 channel allocation is still to be recorded.](../../figures/source/ch04/qfo_electronics_overview.svg)
 
 The confirmed address map is:
 
@@ -203,7 +203,7 @@ When inserting JST-SH connectors:
 3. Provide a service loop near each detachable board.
 4. Add strain relief close to the PyBadge adapter and optical module, not directly at the JST-SH socket.
 5. Avoid sharp folds in Qwiic cables.
-6. Keep cables clear of the underside reset switch and its access opening, the power switch, and the USB connector.
+6. Keep cables clear of the reset button, power switch, and USB connector.
 7. Close unused optical and cable openings with the intended printed cover or opaque material.
 8. Inspect the closed enclosure in a dark room while illuminating its exterior from several directions.
 9. Pay particular attention to the tube opening, filter pockets, cable pass-throughs, display edge, and the joint between the optical module and base.
@@ -246,7 +246,7 @@ Do not power the instrument until every item below is checked.
 - [ ] PCA9546 orientation and upstream connection are correct.
 - [ ] All JST-SH plugs are fully seated and correctly aligned.
 - [ ] No cable is pinched by the cover.
-- [ ] The PyBadge reset button can be reached from the underside through the dedicated access opening, and the power switch moves freely.
+- [ ] Reset and power controls move freely.
 - [ ] USB Micro connector is accessible without forcing the cable.
 - [ ] Tube can be inserted and removed without contacting electronics.
 - [ ] Light shield and enclosure close without pressure on the boards.
