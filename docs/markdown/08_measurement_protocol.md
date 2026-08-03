@@ -105,7 +105,7 @@ Record the following information:
 1. Put on fresh gloves and label the tubes\.
 2. Add **200 µL reagent** to each tube\.
 3. Add **1 µL blank, standard, control, or sample**\.
-4. Mix gently and incubate protected from light\.
-5. Blank the fluorometer and load the correct calibration\.
+4. Mix gently and incubate protected from light for five minutes\.
+5. Blank the fluorometer, when necessary and load the correct calibration\.
 6. Measure standards, controls, and samples\.
 7. Record concentration, error, LOD, LOQ, and any dilution\.
