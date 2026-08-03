@@ -1,4 +1,0 @@
-Adafruit CircuitPython 9.1.1 on 2024-07-22; Adafruit Pybadge with samd51j19
-Board ID:pybadge
-UID:69797C6E43394C53202020462D2102FF
-boot.py output:

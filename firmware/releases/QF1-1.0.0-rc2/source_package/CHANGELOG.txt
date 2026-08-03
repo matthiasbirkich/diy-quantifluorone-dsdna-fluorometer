@@ -1,7 +1,0 @@
-QF1-0.6.0-alpha
-- Added ten-independent-blank 3sigma/10sigma LOD/LOQ estimates for active two-point calibration.
-- Added import of Calibration Suite OLS multipoint JSON.
-- Added inverse concentration prediction and two-sided prediction interval for one analytical determination.
-- Added calibration type, model, intercept, PI, LOD and LOQ to the display and CSV log.
-- Multipoint routine blank updates the RFU baseline without deleting the regression.
-- New CSV file: quantifluorone_log_v060.csv.
