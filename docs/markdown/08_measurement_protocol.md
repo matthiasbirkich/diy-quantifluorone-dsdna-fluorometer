@@ -15,10 +15,11 @@
 |Pipette tips        |Sterile, DNA-free tips suitable for each pipette                           |
 |Assay kit           |Promega QuantiFluor® ONE dsDNA System, 100 assays                          |
 |Sample vessels      |Thin-walled Promega E4941 0.5 mL PCR tubes                                 |
-|Laboratory equipment|Tube rack, timer, drawer or another dark place for incubation              |
+|Laboratory equipment|Tube rack, drawer or another dark place for incubation                     |
 |Instrument          |DIY-QuantiFluorONE-dsDNA-Fluorometer                                       |
 |Digital access      |Smart device with access to the GitHub repository and the Calibration Suite|
-|Documentation       |Notebook and pencil                                                        |
+|Documentation       |Notebook, pencil and permanent marker                                      |
+|Incubation (dark)   |Timer                                                                      |
 
 ## 2\. Clean working conditions
 
@@ -37,7 +38,8 @@
 3. Pipette **200 µL QuantiFluor® ONE reagent** into each tube\.
 4. Add **1 µL** of blank solution, standard, quality\-control sample, or unknown sample\.
 5. Close each tube and mix gently without creating bubbles\.
-6. Keep all prepared tubes protected from direct light\.
+6. Keep all prepared tubes protected from direct light for 5 minutes\.
+7. Measure inthe fluorometer with cap\.
 
 ### Assay volume
 
