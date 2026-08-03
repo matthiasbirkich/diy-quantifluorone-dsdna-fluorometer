@@ -16,13 +16,15 @@ Use a known-good USB Micro **data** cable. Back up the complete `CIRCUITPY` driv
 | **Slow double-click** | CircuitPython safe mode | `CIRCUITPY` | copy, replace, download, or delete firmware, CSV, and JSON files |
 | Fast double-click | UF2 bootloader mode | `PYBADGEBOOT` or `BADGEBOOT` | install CircuitPython or a bootloader-updater UF2 |
 
+The actual reset switch is mounted on the underside of the PyBadge. For every reset action, turn the instrument over and press the button from below through the dedicated underside access opening; it is not operated from the front-panel side.
+
 The slow double-click means: press Reset once, wait for startup to begin, and press it again during the approximately one-second safe-mode window. It is intentionally slower than the rapid double-click used for UF2 bootloader mode.
 
-![Reset button access through the enclosure. Use a short non-conductive tool.](../../figures/photos/ch07/reset_button_access.png)
+![Underside access to the PyBadge reset button. Use a short non-conductive tool and press the switch from below through the dedicated opening.](../../figures/photos/ch07/reset_button_access.png)
 
 ## 3. Bootloader mode
 
-Connect USB, switch the device on, and fast-double-click Reset. The display changes to the PyBadge UF2 bootloader screen and the computer mounts `PYBADGEBOOT` or `BADGEBOOT`.
+Connect USB, switch the device on, turn the instrument over, and fast-double-click the underside Reset button. The display changes to the PyBadge UF2 bootloader screen and the computer mounts `PYBADGEBOOT` or `BADGEBOOT`.
 
 ![PyBadge UF2 bootloader screen.](../../figures/photos/ch07/pybadge_bootloader_screen.jpeg)
 
@@ -60,7 +62,7 @@ For this project, use the **slow double-click** before copying firmware, replaci
 
 ![CircuitPython safe-mode screen. The saved application is not running and automatic reload is disabled.](../../figures/photos/ch07/circuitpython_safe_mode_screen.jpeg)
 
-Safe mode prevents the QuantiFluorONE application from running while the computer modifies the filesystem. Press Reset once after safely ejecting the drive to return to normal operation.
+Safe mode prevents the QuantiFluorONE application from running while the computer modifies the filesystem. After safely ejecting the drive, turn the instrument over and press the underside Reset button once to return to normal operation.
 
 ## 6. Install QuantiFluorONE QF1-1.0.0-rc2
 
@@ -116,3 +118,4 @@ This chapter is adapted for QuantiFluorONE from the IO Rodeo Open Colorimeter in
 - IO Rodeo: `https://blog.iorodeo.com/installing-upgrading-the-firmware/`
 - Adafruit: `https://learn.adafruit.com/adafruit-pybadge/installing-circuitpython`
 - Adafruit: `https://learn.adafruit.com/adafruit-pybadge/updating-the-bootloader`
+
