@@ -18,7 +18,7 @@ At the end of the workshop, the participant should be able to:
 
 The instrument uses **one TSL2591 sensor only**. It does not use a second reference or transmission sensor.
 
-![Assembled DIY-QuantiFluorONE prototype during a firmware and display check. The displayed measurement is not presented as analytical validation data.](../../figures/photos/ch04/assembled_instrument_front.jpg)
+![Assembled DIY-QuantiFluorONE prototype during a firmware and display check. The displayed measurement is not presented as analytical validation data.](../figures/photos/ch04/assembled_instrument_front.jpg)
 
 ## 2. Complete component overview and bill of materials
 
