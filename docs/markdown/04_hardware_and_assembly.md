@@ -172,7 +172,7 @@ Do not compensate for poor printed fit by angling the sensor board or LED. Corre
 
 ## 10. STEMMA QT / Qwiic wiring and I²C addresses
 
-![Electronics overview. Dashed branches indicate that the exact PCA9546 channel allocation is still to be recorded.](../../figures/source/ch04/qfo_electronics_overview.svg)
+![Electronics overview. Dashed branches indicate that the exact PCA9546 channel allocation is still to be recorded.](../figures/source/ch04/qfo_electronics_overview.svg)
 
 The confirmed address map is:
 
