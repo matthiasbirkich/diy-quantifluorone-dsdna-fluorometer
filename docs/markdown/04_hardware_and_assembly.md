@@ -144,7 +144,7 @@ The final holder archive is pending. The assembly procedure will be finalized fr
 
 ## 8. Correct 90° optical geometry
 
-![Optical geometry of the instrument.](../../figures/source/ch04/qfo_optical_geometry.svg)
+![Optical geometry of the instrument.](../figures/source/ch04/qfo_optical_geometry.svg)
 
 The excitation axis passes from the LED through the Ex470BP-40 to the sample. The detection axis passes from the sample through the Em532BP-40 to the single TSL2591. The printed holder fixes these axes at 90°.
 
