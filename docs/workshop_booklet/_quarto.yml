@@ -19,7 +19,7 @@ book:
     - chapters/07_software_installation.qmd
     - chapters/08_measurement_protocol.qmd
     - chapters/09_calibration_results_and_quality_control.qmd
-    - chapters/10_validation_and_performance.qmd
+    - chapters/10_validation_and_analytical_performance.qmd
     - chapters/11_troubleshooting.qmd
     - chapters/12_workshop_exercises_and_checklists.qmd
     - chapters/13_references.qmd
