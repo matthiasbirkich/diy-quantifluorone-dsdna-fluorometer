@@ -1,6 +1,0 @@
-Item_ID,Item,Quantity,Size_or_type,Material,Open_action
-F-001,PyBadge enclosure screws,TBD,TBD,TBD,Confirm from actual assembly
-F-002,Optical module mounting screws,TBD,TBD,TBD,Confirm from actual assembly
-F-003,PCB spacers or standoffs,TBD,TBD,TBD,Confirm material and height
-F-004,Filter retention hardware,TBD,TBD,TBD,"Confirm whether printed clip, tape, or adhesive is used"
-F-005,Cable strain relief,TBD,TBD,TBD,"Confirm clips, ties, or printed channels"
