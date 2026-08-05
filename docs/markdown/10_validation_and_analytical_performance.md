@@ -53,14 +53,8 @@ A formal curvature assessment such as a Mandel fitting test would be more defens
 
 For transparency, including the upper calibration anchor gives:
 
-\[
-c_{\mathrm{DIY}}
-=
-1.0067\,c_{\mathrm{Quantus}}
--1.9467,
-\qquad
-R^2=0.999415
-\]
+$$c_{\mathrm{DIY}}=1.0067\*c_{\mathrm{Quantus}} - 1.9467$$
+$$R^2=0.999415$$
 
 ## 5. Agreement with the Quantus
 
@@ -86,16 +80,10 @@ The Bland–Altman plot is therefore useful and appropriate here, but as a compl
 
 A plot of RFU versus the concentration calculated from the same two-point equation is useful as an **internal arithmetic-consistency check**. In the present device log, the corresponding relationship for rows 11–24 is:
 
-\[
-RFU = 102.672895\,c
--0.002265
-\]
+$$RFU = 102.672895\*c - 0.002265$$
 
 with:
-
-\[
-R^2 = 0.999999999995
-\]
+$$R^2 = 0.999999999995$$
 
 This near-perfect linearity is expected because the concentration values are mathematically derived from the same RFU values and the same two-point calibration equation.
 
@@ -139,9 +127,7 @@ These values demonstrate very good short-term sensor repeatability. They do not 
 
 The analytical signal is calculated as:
 
-\[
-VIS = FULL - IR
-\]
+$$VIS = FULL - IR$$
 
 The IR channel is therefore included in every blank, RFU, and concentration calculation. In the evaluated blank data, IR subtraction slightly reduced rather than increased overall signal variability; the IR channel was not the dominant observed source of variation.
 
