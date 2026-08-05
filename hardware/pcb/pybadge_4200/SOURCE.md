@@ -1,4 +1,5 @@
 # Upstream source record — Adafruit PyBadge
+![Adafruit PyBadge](4200.jpg)
 
 - Product: Adafruit PyBadge
 - Product ID: 4200
