@@ -13,7 +13,7 @@ The canonical editable sources are the Quarto files under `docs/workshop_booklet
 7. [Software Installation](07_software_installation.md)
 8. [Measurement Protocol](08_measurement_protocol.md)
 9. [Calibration, Results, and Quality Control](09_calibration_results_and_quality_control.md)
-10. [Validation and Performance](10_validation_and_performance.md)
+10. [Validation and Analytical Performance](10_validation_and_analytical_performance.md)
 11. [Troubleshooting](11_troubleshooting.md)
 12. [Workshop Exercises and Checklists](12_workshop_exercises_and_checklists.md)
 13. [References](13_references.md)
