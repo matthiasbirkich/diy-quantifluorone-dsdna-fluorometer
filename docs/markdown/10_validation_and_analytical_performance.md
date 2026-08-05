@@ -40,16 +40,16 @@ The most direct practical linearity check is the comparison of the concentration
 
 For the 14 independent results:
 
-\[
+$$
 c_{\mathrm{DIY}}
 =
 1.0030\,c_{\mathrm{Quantus}}
 -1.6373
-\]
+$$
 
-\[
+$$
 R^2=0.999387
-\]
+$$
 
 The slope was close to 1, the intercept was close to 0, and no systematic curvature was evident over the tested interval.
 
