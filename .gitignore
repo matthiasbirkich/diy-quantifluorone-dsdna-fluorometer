@@ -6,3 +6,7 @@ _book/
 *.toc
 .DS_Store
 Thumbs.db
+
+# Python cache files
+__pycache__/
+*.pyc
