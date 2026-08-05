@@ -40,7 +40,7 @@ The most direct practical linearity check is the comparison of the concentration
 
 For the 14 independent results:
 
-$$c_{\mathrm{DIY}} = 1.0030\,c_{\mathrm{Quantus}} - 1.6373$$
+$$c_{\mathrm{DIY}} = 1.0030\*c_{\mathrm{Quantus}} - 1.6373$$
 
 $$R^2 = 0.999387$$
 
