@@ -13,7 +13,7 @@ The active Quarto book is defined exclusively by `_quarto.yml`.
 | 7 | `chapters/07_software_installation.qmd` | `../markdown/07_software_installation.md` |
 | 8 | `chapters/08_measurement_protocol.qmd` | `../markdown/08_measurement_protocol.md` |
 | 9 | `chapters/09_calibration_results_and_quality_control.qmd` | `../markdown/09_calibration_results_and_quality_control.md` |
-| 10 | `chapters/10_validation_and_performance.qmd` | `../markdown/10_validation_and_performance.md` |
+| 10 | `chapters/10_validation_and_analytical_performance.qmd` | `../markdown/10_validation_and_analytical_performance.md` |
 | 11 | `chapters/11_troubleshooting.qmd` | `../markdown/11_troubleshooting.md` |
 | 12 | `chapters/12_workshop_exercises_and_checklists.qmd` | `../markdown/12_workshop_exercises_and_checklists.md` |
 | 13 | `chapters/13_references.qmd` | `../markdown/13_references.md` |
