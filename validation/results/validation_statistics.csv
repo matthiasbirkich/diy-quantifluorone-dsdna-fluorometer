@@ -1,0 +1,23 @@
+section;statistic;value;unit;notes
+independent_linearity;n;14;;Calibration anchor excluded
+independent_linearity;slope;1.002955034;;DIY versus Quantus
+independent_linearity;intercept;-1.637307933;ng/uL;
+independent_linearity;R_squared;0.999386664;;
+independent_linearity;regression_standard_error;3.682007870;ng/uL;
+independent_linearity;t_critical_95pct_df12;2.178812830;;Used for regression confidence band
+agreement;mean_bias;-1.155000;ng/uL;DIY minus Quantus
+agreement;median_bias;-0.790000;ng/uL;
+agreement;MAE;2.712143;ng/uL;
+agreement;RMSE;3.621993;ng/uL;
+agreement;lower_95_percent_limit;-8.137480;ng/uL;Bland-Altman
+agreement;upper_95_percent_limit;5.827480;ng/uL;Bland-Altman
+quantitative_subset;MARD;3.793440;%;Quantus >= primary LOQ
+technical_triplicate;t_critical_df2_95CI;4.302652730;;Used for CI of technical triplicates
+technical_triplicate;median_SD_triplicate_concentration;0.092055665;ng/uL;All paired results incl. blank/anchor
+all_pairs_including_anchor;slope;1.006727654;;
+all_pairs_including_anchor;intercept;-1.946683224;ng/uL;
+all_pairs_including_anchor;R_squared;0.999414790;;
+blank_primary;LOD;7.902;ng/uL;10 independent blank tubes
+blank_primary;LOQ;23.946;ng/uL;10 independent blank tubes
+blank_confirmatory;LOD;7.027;ng/uL;2 blanks, 11 cycles each
+blank_confirmatory;LOQ;21.294;ng/uL;2 blanks, 11 cycles each

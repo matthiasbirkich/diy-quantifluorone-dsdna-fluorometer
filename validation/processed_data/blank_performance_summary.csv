@@ -1,0 +1,3 @@
+study;independent_blank_preparations;measurement_cycles;blank_mean_VIS;blank_SD_VIS;LOD_original_sample_ng_uL;LOQ_original_sample_ng_uL;interpretation
+primary_10_independent_blank_tubes;10;10;9557.563;126.514;7.902;23.946;Primary reported blank-based estimates
+confirmatory_2_blanks_11_cycles_each;2;22;;218.636;7.027;21.294;"Confirmatory repeated-cycle study; not 22 independent blanks"
