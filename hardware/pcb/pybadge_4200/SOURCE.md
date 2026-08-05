@@ -1,5 +1,5 @@
 # Upstream source record — Adafruit PyBadge
-![Adafruit PyBadge](/hardware/pcb/adafruit_pybadge_4200/4200.jpg)
+![Adafruit PyBadge](./hardware/pcb/adafruit_pybadge_4200/4200.jpg)
 
 - Product: Adafruit PyBadge
 - Product ID: 4200
