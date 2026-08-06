@@ -27,12 +27,6 @@ This directory contains the canonical **Quarto book project** for the workshop b
 
 Appendices are stored under `appendices/`.
 
-The former 25-chapter placeholder scaffold is preserved under:
-
-`archive/legacy_25_chapter_scaffold/`
-
-It is retained for traceability and is not rendered.
-
 ## Render commands
 
 From `docs/workshop_booklet/` run:
