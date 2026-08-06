@@ -117,6 +117,10 @@ Do not enlarge filter pockets with a power tool while the filters or electronics
 
 > **Check:** Looking from the LED side, the sequence must be LED → Ex470BP-40 → sample tube.
 
+![Excitation side of the optical module showing the installed 485 nm LED and Ex470BP-40 excitation filter.](../figures/photos/ch04/excitation_side_led_filter.jpg)
+
+**Figure 4.1** Excitation side of the optical module showing the modified ioRodeo fixed-current LED board with the rear-mounted 485 nm LED and the installed Ex470BP-40 excitation filter.
+
 ## 6. Installation of the Promega E4941 sample-tube holder
 
 The final holder archive is pending. The assembly procedure will be finalized from the supplied STEP/STL files. The following checks already apply:
@@ -141,6 +145,10 @@ The final holder archive is pending. The assembly procedure will be finalized fr
 9. Confirm once more that only one TSL2591 is present.
 
 > **Check:** Looking from the detector side, the sequence must be sample tube → Em532BP-40 → TSL2591.
+
+![Detection side of the optical module showing the Em532BP-40 emission filter and TSL2591 sensor.](../figures/photos/ch04/detection_side_filter_sensor.jpg)
+
+**Figure 4.2.** Detection side of the optical module showing the Em532BP-40 emission filter together with the single TSL2591 light sensor mounted in the optical holder.
 
 ## 8. Correct 90° optical geometry
 
@@ -169,6 +177,10 @@ Do not compensate for poor printed fit by angling the sensor board or LED. Corre
 6. Ensure that the LED board revision is `ver_0p1_rev_3`.
 7. Keep all boards mechanically supported. Qwiic cables must not be used as structural restraints.
 8. Leave enough service loop to disconnect a board without pulling directly on the wire bundle.
+
+![Open instrument showing the internal wiring.](../figures/photos/ch04/open_instrument_wiring.jpg)
+
+**Figure 4.x.** Interior view of the assembled instrument showing the PyBadge, PCA9546 I²C multiplexer, modified ioRodeo LED board, TSL2591 sensor and internal wiring. 
 
 ## 10. STEMMA QT / Qwiic wiring and I²C addresses
 
@@ -229,6 +241,14 @@ The final light shield must be fitted before blank stability and low-signal perf
 15. Perform the pre-power inspection.
 16. Carry out first power-up using USB before adding an optional LiPo battery.
 17. Record the actual channel map, cable lengths, and any assembly deviations.
+
+## Complete Measurement Setup
+
+The photograph below shows the complete laboratory configuration used throughout this documentation and during the workshop.
+
+![Complete measurement setup.](../figures/photos/ch04/measuring_setup.jpg)
+
+**Figure 4.3** Complete measurement setup including the DIY-QuantiFluorONE-dsDNA-Fluorometer, Promega QuantiFluor® ONE dsDNA System, pipettes, PCR tubes and the supporting laboratory equipment used for routine measurements. 
 
 ## 13. Pre-power inspection
 
@@ -324,16 +344,6 @@ This package includes:
 - the current assembled-instrument photograph;
 - BOM, wiring, I²C, figure, and open-item manifests.
 
-Still required for the final hardware release:
-
-- final 0.5 mL PCR-tube optical-holder archive;
-- final separate light-shield CAD/print files if not contained in that archive;
-- open-instrument wiring photograph;
-- excitation-side photograph showing LED and Ex470BP-40;
-- detection-side photograph showing Em532BP-40 and the single TSL2591;
-- confirmed PCA9546 channel allocation and cable lengths;
-- final cable-retention details and LiPo status;
-- print settings and printable STL/3MF files where applicable.
 
 The third-party source locations and licenses are recorded in `THIRD_PARTY_NOTICES.md` and the `SOURCE.md` files beside the upstream hardware data.
 

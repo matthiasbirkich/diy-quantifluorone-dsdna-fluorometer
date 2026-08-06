@@ -7,7 +7,7 @@ fig-ch04-04,cad/ch04/optical_module_closeup_cad.jpeg,Optical holder close-up,Inc
 fig-ch04-05,cad/ch04/light_shield_part_cad.jpeg,Light-shield part CAD view,Included,Project CAD screenshot,
 fig-ch04-06,source/ch04/qfo_optical_geometry.svg,90-degree optical geometry,Generated in package,Project diagram,
 fig-ch04-07,source/ch04/qfo_electronics_overview.svg,Electronics and I2C overview,Generated in package,Project diagram,
-fig-ch04-08,photos/ch04/open_instrument_wiring.jpg,Open instrument with complete wiring,Missing,,Required final photograph
-fig-ch04-09,photos/ch04/excitation_side_led_filter.jpg,LED and Ex470BP-40 installation,Missing,,Required final photograph
-fig-ch04-10,photos/ch04/detection_side_filter_sensor.jpg,Em532BP-40 and one TSL2591 installation,Missing,,Required final photograph
-
+fig-ch04-08,photos/ch04/open_instrument_wiring.jpg,Open instrument with complete wiring,Included,Project photograph,
+fig-ch04-09,photos/ch04/excitation_side_led_filter.jpg,LED and Ex470BP-40 installation,Included,Project photograph,
+fig-ch04-10,photos/ch04/detection_side_filter_sensor.jpg,Em532BP-40 and one TSL2591 installation,Included,Project photograph,
+fig-ch04-11,photos/ch04/measuring_setup.jpg,Complete measurement setup used throughout the workshop with electronic shield,Included,Project photograph,
