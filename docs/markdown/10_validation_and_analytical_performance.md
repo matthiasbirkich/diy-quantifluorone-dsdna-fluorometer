@@ -40,7 +40,9 @@ The most direct practical linearity check is the comparison of the concentration
 
 For the 14 independent results:
 
-$$c_{\mathrm{DIY}} = 1.0030\*c_{\mathrm{Quantus}} - 1.6373$$ 
+$$
+c_{\mathrm{DIY}} = 1.3648\,c_{\mathrm{Quantus}} - 4.4847
+$$ 
 $$R^2 = 0.999387$$
 
 The slope was close to 1, the intercept was close to 0, and no systematic curvature was evident over the tested interval.
@@ -53,7 +55,9 @@ A formal curvature assessment such as a Mandel fitting test would be more defens
 
 For transparency, including the upper calibration anchor gives:
 
-$$c_{\mathrm{DIY}}=1.0067\*c_{\mathrm{Quantus}} - 1.9467$$
+$$
+c_{\mathrm{DIY}}=1.0067\,c_{\mathrm{Quantus}} - 1.9467
+$$
 $$R^2=0.999415$$
 
 ## 5. Agreement with the Quantus
@@ -80,7 +84,9 @@ The Bland–Altman plot is therefore useful and appropriate here, but as a compl
 
 A plot of RFU versus the concentration calculated from the same two-point equation is useful as an **internal arithmetic-consistency check**. In the present device log, the corresponding relationship for rows 11–24 is:
 
-$$RFU = 102.672895\*c - 0.002265$$
+$$
+RFU = 102.672895\,c - 0.002265
+$$
 
 with:
 $$R^2 = 0.999999999995$$
