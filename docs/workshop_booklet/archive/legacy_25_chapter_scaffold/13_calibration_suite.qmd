@@ -1,5 +1,0 @@
-# Calibration Suite 7.2 Stable
-
-> **Status:** Draft
-
-Content to be developed and reviewed.

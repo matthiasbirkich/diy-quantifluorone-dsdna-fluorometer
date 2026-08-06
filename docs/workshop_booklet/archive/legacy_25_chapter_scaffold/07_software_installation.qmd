@@ -1,5 +1,0 @@
-# PyBadge Software Installation
-
-> **Status:** Draft
-
-Content to be developed and reviewed.

@@ -1,5 +1,0 @@
-# Performance Comparison
-
-> **Status:** Draft
-
-Content to be developed and reviewed.
