@@ -35,3 +35,4 @@ format:
     toc: true
     number-sections: true
     colorlinks: true
+    use-rsvg-convert: false
