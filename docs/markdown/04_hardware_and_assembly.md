@@ -152,7 +152,7 @@ The final holder archive is pending. The assembly procedure will be finalized fr
 
 ## 8. Correct 90° optical geometry
 
-![Optical geometry of the instrument.](../figures/source/ch04/qfo_optical_geometry.svg)
+![Optical geometry of the instrument.](../figures/source/ch04/qfo_optical_geometry.png)
 
 The excitation axis passes from the LED through the Ex470BP-40 to the sample. The detection axis passes from the sample through the Em532BP-40 to the single TSL2591. The printed holder fixes these axes at 90°.
 
@@ -184,7 +184,7 @@ Do not compensate for poor printed fit by angling the sensor board or LED. Corre
 
 ## 10. STEMMA QT / Qwiic wiring and I²C addresses
 
-![Electronics overview. Dashed branches indicate that the exact PCA9546 channel allocation is still to be recorded.](../figures/source/ch04/qfo_electronics_overview.svg)
+![Electronics overview. Dashed branches indicate that the exact PCA9546 channel allocation is still to be recorded.](../figures/source/ch04/qfo_electronics_overview.png)
 
 The confirmed address map is:
 
