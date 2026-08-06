@@ -72,9 +72,9 @@ The project measurements were normalized to the maximum of each curve and were u
 
 The measurements confirm the intended spectral separation but are not used as an absolute calibration of filter transmittance.
 
-![Spectral verification of the installed Neemoo Ex470BP-40 excitation filter. The project measurement was normalized to its maximum; the approximate half-maximum interval was 450–490 nm.](../../figures/source/qfo_ex470bp40_spectral_verification.jpeg){#fig-ex470 width=85%}
+![Spectral verification of the installed Neemoo Ex470BP-40 excitation filter. The project measurement was normalized to its maximum; the approximate half-maximum interval was 450–490 nm.](../figures/source/qfo_ex470bp40_spectral_verification.jpeg){#fig-ex470 width=85%}
 
-![Spectral verification of the installed Neemoo Em532BP-40 emission filter. The project measurement was normalized to its maximum; the approximate half-maximum interval was 518–555 nm.](../../figures/source/qfo_em532bp40_spectral_verification.jpeg){#fig-em532 width=85%}
+![Spectral verification of the installed Neemoo Em532BP-40 emission filter. The project measurement was normalized to its maximum; the approximate half-maximum interval was 518–555 nm.](../figures/source/qfo_em532bp40_spectral_verification.jpeg){#fig-em532 width=85%}
 
 ## Signal formation and blank correction
 
