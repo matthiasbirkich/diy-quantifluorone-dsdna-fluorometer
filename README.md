@@ -1,10 +1,12 @@
 # DIY-QuantiFluorONE-dsDNA-Fluorometer
 
-> **Repository status:** Draft  
+> **Date:** 2026-08-06
 
-> **Release:** v0.1.2-draft.1  
+> **Repository status:** Final
 
-> **Validation status:** Not yet validated  
+> **Release:** v1.0.0  
+
+> **Validation status:** validated  
 
 > **Documentation language:** English
 
@@ -215,8 +217,8 @@ Complete references, original licenses, modification notes, and attribution info
 
 **Project lead:** Matthias Birkicht
 
-**Institution:** Leibniz Centre for Marine Tropical Research
+**Institution:** Leibniz Centre for Marine Tropical Research (LZMT)
 
-**Project:** [Project name]  
+**Project:**  LZMT collaborates with Universiti Malaysia Terengganu (UMT) through the EU-ASEAN STABLE Project (2025–2027), which features joint summer schools focused on the Sustainable Blue Economy hosted within the international academic cluster
 
 **Contact:** LZMT, Fahrenheitstraße 6, D-28359 Bremen, Germany
