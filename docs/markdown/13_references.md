@@ -59,7 +59,7 @@ The optical module is based on the open-source DIYNAFLUOR concept and was extens
 
 The mechanical modifications, optimisation of the optical module and integration into the PyBadge enclosure were jointly developed by
 
-- Matthias …
+- Dipl.-Ing. Matthias Birkicht 
 - Florian Bock
   3D-Haven
   27570 Bremerhaven
