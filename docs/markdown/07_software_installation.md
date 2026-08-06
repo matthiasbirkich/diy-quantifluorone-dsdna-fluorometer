@@ -52,7 +52,7 @@ Use a computer with a USB port and a known-good USB Micro **data cable**. A char
 
 Use a short **non-conductive** tool to reach the reset switch through the underside opening. The eraser end of a pencil or a suitable plastic rod is preferable to a metal tool.
 
-![The reset switch is mounted on the underside of the PyBadge and is reached from below through the enclosure opening.](../../figures/photos/ch07/reset_button_access.png)
+![The reset switch is mounted on the underside of the PyBadge and is reached from below through the enclosure opening.](../figures/photos/ch07/reset_button_access.png)
 
 ## 3. One supported QuantiFluorONE firmware
 
