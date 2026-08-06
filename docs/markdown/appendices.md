@@ -131,3 +131,9 @@ The repository is organised into five principal components:
 - **docs/** – project documentation, figures and workshop booklet
 
 This organisation separates hardware, software and documentation while maintaining complete traceability of all project components.
+
+---
+
+⬅️ Previous Chapter: [References and Acknowledgements](13_references.md)
+
+📖 [Documentation Summary](SUMMARY.md)

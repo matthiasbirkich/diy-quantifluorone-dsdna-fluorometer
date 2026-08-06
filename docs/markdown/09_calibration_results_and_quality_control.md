@@ -453,3 +453,11 @@ Before reporting a quantitative result, confirm:
 • No unresolved technical fault?
 
 Only when all applicable checks pass may the result be accepted as quantitative.
+
+---
+
+⬅️ Previous Chapter: [Measurement Protocol](08_measurement_protocol.md)
+
+📖 [Documentation Summary](SUMMARY.md)
+
+➡️ Next Chapter: [Validation and Analytical Performance](10_validation_and_analytical_performance.md)

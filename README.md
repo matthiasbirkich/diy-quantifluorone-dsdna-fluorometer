@@ -10,6 +10,18 @@
 
 > **Documentation language:** English
 
+## 📖 Documentation
+
+The complete documentation can either be read as:
+
+- GitHub documentation (`docs/markdown/`)
+- Quarto workshop booklet (HTML/PDF)
+- Individual chapter files
+
+For sequential reading start here:
+
+➡️ **[Documentation Summary](docs/markdown/SUMMARY.md)**
+
 The **DIY-QuantiFluorONE-dsDNA-Fluorometer**, abbreviated **DIY-QFO**, is an independently developed, portable, and modular fluorometer project for the fluorometric quantification of double-stranded DNA (**dsDNA**).
 Its modular optical design allows excitation LED boards, kuvette holders and optical filters to be exchanged. This makes it possible to adapt the instrument to other dsDNA fluorescence assays and, after appropriate hardware configuration, calibration, and validation, Add draft hardware and assembly documentation additional fluorescence-based analytical applications.
 

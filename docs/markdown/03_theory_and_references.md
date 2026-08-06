@@ -254,3 +254,11 @@ Prepare blank and standards
 
 ::: {#refs}
 :::
+
+---
+
+⬅️ Previous Chapter: [Safety](02_safety.md)
+
+📖 [Documentation Summary](SUMMARY.md)
+
+➡️ Next Chapter: [Hardware and Assembly](04_hardware_and_assembly.md)

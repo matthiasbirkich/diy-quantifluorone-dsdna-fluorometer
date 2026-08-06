@@ -98,3 +98,11 @@ These records should be updated whenever a source, component revision, software 
 The project gratefully acknowledges the developers and contributors of ioRodeo Open Colorimeter, DIYNAFLUOR, Adafruit CircuitPython and PySpectrometer2, as well as the manufacturers and standards organisations whose documentation supported the development and validation of the instrument.
 
 Special thanks are extended to Florian Bock of 3D-Haven for the collaborative development and adaptation of the mechanical parts.
+
+---
+
+⬅️ Previous Chapter: [Workshop Review, Quality Check and Further Applications](12_workshop_exercises_and_checklists.md)
+
+📖 [Documentation Summary](SUMMARY.md)
+
+➡️ Next Chapter: [Appendices](appendices.md)

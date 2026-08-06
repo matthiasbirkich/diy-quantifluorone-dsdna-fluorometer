@@ -98,3 +98,11 @@ A **fast** double-click is different: it opens `PYBADGEBOOT` or `BADGEBOOT` and 
 | `quantifluorone_config.json` | Hardware, measurement, sample, assay, and calibration settings |
 
 Always back up required data and safely eject the drive before resetting, switching off, or disconnecting USB.
+
+---
+
+⬅️ Previous Chapter: [Software Installation](05_software_installation.md)
+
+📖 [Documentation Summary](SUMMARY.md)
+
+➡️ Next Chapter: [Calibration Suite and Data Transfer](07_calibration_suite_and_data_transfer.md)

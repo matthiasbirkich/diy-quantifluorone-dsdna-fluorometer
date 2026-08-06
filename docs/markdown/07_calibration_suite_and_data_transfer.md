@@ -42,3 +42,11 @@ The supplied Calibration Suite v7.2 Stable displays a firmware target of `v8.2+`
 - `quantifluorone_multipoint.json` for the model imported through `SELECT → LOAD MP CAL`.
 
 Therefore, do **not** replace the RC2 configuration with a suite-generated `configuration.json`. A dedicated RC2 export adapter or a compatible `quantifluorone_multipoint.json` export is required before direct transfer from the suite to RC2.
+
+---
+
+⬅️ Previous Chapter: [Getting Started – Basic Operation and Menu Navigation](06_getting_started_basic_operation_and_menu_navigation.md)
+
+📖 [Documentation Summary](SUMMARY.md)
+
+➡️ Next Chapter: [Measurement Protocol](08_measurement_protocol.md)

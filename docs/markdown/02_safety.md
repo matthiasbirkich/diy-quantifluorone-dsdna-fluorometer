@@ -13,3 +13,11 @@ Keep liquids away from the PyBadge, USB connector, battery, and internal electro
 ## Workshop responsibility
 
 The local workshop organiser must provide the applicable risk assessment, safety data sheets, emergency information, and waste stream before practical work begins.
+
+---
+
+⬅️ Previous Chapter: [Introduction](01_introduction.md)
+
+📖 [Documentation Summary](SUMMARY.md)
+
+➡️ Next Chapter: [Theory and References](03_theory_and_references.md)

@@ -78,3 +78,11 @@ Participants should now be able to:
 - understand how the same modular platform can be adapted to many other fluorescence-based analytical methods.
 
 We encourage participants to further develop the platform, evaluate additional fluorescence assays and contribute improvements to the open-source project.
+
+---
+
+⬅️ Previous Chapter: [Troubleshooting](11_troubleshooting.md)
+
+📖 [Documentation Summary](SUMMARY.md)
+
+➡️ Next Chapter: [References and Acknowledgements](13_references.md)

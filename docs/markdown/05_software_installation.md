@@ -266,3 +266,11 @@ The following screen indicates CircuitPython automatic reload or a soft reboot, 
 - CircuitPython.org. *PyBadge downloads.* https://circuitpython.org/board/pybadge/
 
 This chapter adapts the general IO Rodeo and Adafruit procedures to the current QuantiFluorONE hardware, enclosure, software versions, and the tested clean-installation workflow used for this instrument.
+
+---
+
+⬅️ Previous Chapter: [Hardware and Assembly](04_hardware_and_assembly.md)
+
+📖 [Documentation Summary](SUMMARY.md)
+
+➡️ Next Chapter: [Getting Started – Basic Operation and Menu Navigation](06_getting_started_basic_operation_and_menu_navigation.md)

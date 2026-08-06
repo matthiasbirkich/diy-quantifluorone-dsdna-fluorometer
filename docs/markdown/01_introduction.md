@@ -19,3 +19,11 @@ After the workshop, participants should be able to:
 ## Intended use
 
 The instrument is a research, teaching, and development device. It is not a medical or clinical diagnostic device.
+
+---
+
+⬅️ Home
+
+📖 [Documentation Summary](SUMMARY.md)
+
+➡️ Next Chapter: [Safety](02_safety.md)

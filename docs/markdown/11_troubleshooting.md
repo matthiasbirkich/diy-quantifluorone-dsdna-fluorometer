@@ -83,3 +83,11 @@ To ensure reproducible analytical performance:
 | Calibration rejected | Calibration |
 | Unexpected measurement results | Measurement |
 | CSV or JSON problems | Calibration Suite |
+
+---
+
+⬅️ Previous Chapter: [Validation and Analytical Performance](10_validation_and_analytical_performance.md)
+
+📖 [Documentation Summary](SUMMARY.md)
+
+➡️ Next Chapter: [Workshop Review, Quality Check and Further Applications](12_workshop_exercises_and_checklists.md)

@@ -336,3 +336,11 @@ Still required for the final hardware release:
 - print settings and printable STL/3MF files where applicable.
 
 The third-party source locations and licenses are recorded in `THIRD_PARTY_NOTICES.md` and the `SOURCE.md` files beside the upstream hardware data.
+
+---
+
+⬅️ Previous Chapter: [Theory and References](03_theory_and_references.md)
+
+📖 [Documentation Summary](SUMMARY.md)
+
+➡️ Next Chapter: [Software Installation](05_software_installation.md)

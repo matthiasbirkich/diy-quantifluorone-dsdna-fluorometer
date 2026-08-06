@@ -90,3 +90,11 @@ Store the QuantiFluor® ONE kit components according to the manufacturer’s ins
 5. Blank the fluorometer and load the correct calibration.
 6. Measure standards, controls, and samples.
 7. Record concentration, error, LOD, LOQ, and any dilution.
+ 
+---
+
+⬅️ Previous Chapter: [Calibration Suite and Data Transfer](07_calibration_suite_and_data_transfer.md)
+
+📖 [Documentation Summary](SUMMARY.md)
+
+➡️ Next Chapter: [Calibration, Results and Quality Control](09_calibration_results_and_quality_control.md)
