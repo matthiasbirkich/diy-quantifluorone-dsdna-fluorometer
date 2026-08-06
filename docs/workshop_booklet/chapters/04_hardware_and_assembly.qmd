@@ -84,9 +84,9 @@ The printed parts perform four critical tasks:
 
 The holder establishes the 90° geometry mechanically. The correct wording is therefore **“at 90°”**, not “approximately at 90°”.
 
-![CAD overview of the PyBadge enclosure and instrument base.](../../figures/cad/ch04/qfo_pybadge_enclosure_cad_overview.jpg)
+![CAD overview of the PyBadge enclosure and instrument base.](../../figures/cad/ch04/pybadge_enclosure_cad.jpeg)
 
-![CAD overview of the optical module mounted on the instrument base.](../../figures/cad/ch04/qfo_optical_module_cad_overview.jpg)
+![CAD overview of the optical module mounted on the instrument base.](../../figures/cad/ch04/optical_module_overview_cad.jpeg)
 
 ## 4. Preparation and inspection of the 3D-printed parts
 
