@@ -254,7 +254,7 @@ Do not merge a new installation with residual files from an older device state.
 
 The following screen indicates CircuitPython automatic reload or a soft reboot, not UF2 bootloader mode:
 
-![CircuitPython soft-reboot and automatic-reload screen.](../../figures/photos/ch07/circuitpython_safe_mode_screen.jpeg)
+![CircuitPython soft-reboot and automatic-reload screen.](../figures/photos/ch07/circuitpython_safe_mode_screen.jpeg)
 
 ## 13. References
 
