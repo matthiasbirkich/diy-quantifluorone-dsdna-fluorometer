@@ -14,9 +14,9 @@ book:
     - chapters/02_safety.qmd
     - chapters/03_theory_and_references.qmd
     - chapters/04_hardware_and_assembly.qmd
-    - chapters/05_getting_started_basic_operation_and_menu_navigation.qmd
-    - chapters/06_calibration_suite_and_data_transfer.qmd
-    - chapters/07_software_installation.qmd
+    - chapters/05_software_installation.qmd
+    - chapters/06_getting_started_basic_operation_and_menu_navigation.qmd
+    - chapters/07_calibration_suite_and_data_transfer.qmd
     - chapters/08_measurement_protocol.qmd
     - chapters/09_calibration_results_and_quality_control.qmd
     - chapters/10_validation_and_analytical_performance.qmd

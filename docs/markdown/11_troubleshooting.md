@@ -24,7 +24,7 @@ This chapter summarizes the most common operational problems that may occur duri
 | Calibration cannot be loaded | Missing or incompatible JSON file | Export the calibration again using the Calibration Suite. |
 | Calibration import fails | Invalid JSON format | Validate the calibration file before copying it to the device. |
 | Device reports "uncalibrated" | No calibration selected | Load a valid calibration before measuring samples. |
-| Device freezes during startup | Incomplete firmware installation | Reinstall the firmware according to Chapter 7. |
+| Device freezes during startup | Incomplete firmware installation | Reinstall the firmware according to Chapter 5. |
 
 ---
 
