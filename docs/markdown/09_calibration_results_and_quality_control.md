@@ -4,7 +4,7 @@
 > 
 > **Important:** A calibration marked `PROVISIONAL` is intended for software or hardware testing only. It must not be used to report analytically validated sample concentrations.
 
-1. Calibration routes
+**1. Calibration routes**
 
 Use one of the following calibration routes before measuring unknown samples.
 
@@ -17,11 +17,11 @@ Use one of the following calibration routes before measuring unknown samples.
 
 A calibration that loads successfully is not automatically suitable for the current samples.
 
-2. Use the Calibration Suite
+**2. Use the Calibration Suite**
 
 The Calibration Suite is the primary tool for creating, evaluating, documenting, and exporting a multipoint calibration.
 
-2.1 File roles
+**2.1 File roles**
 
 The files on CIRCUITPY have different purposes. Do not use them interchangeably.
 
@@ -37,7 +37,7 @@ The files on CIRCUITPY have different purposes. Do not use them interchangeably.
 
 A spreadsheet copy such as an .ods or .xlsx file is a working copy only. It is not read by the firmware.
 
-2.2 Set sample identifiers before measurement
+**2.2 Set sample identifiers before measurement**
 
 The displayed and logged sample_id is selected from the samples.list array in quantifluorone_config.json.
 
@@ -62,7 +62,7 @@ Copy the edited configuration to CIRCUITPY before standalone measurement and ver
 
 A repeated placeholder such as Std400 does not mathematically prevent later regression when an explicit reference column is supplied. It does, however, remove direct traceability. The measurement order must then be reconstructed from laboratory notes and CSV row numbers.
 
-2.3 Prepare a dedicated calibration CSV
+**2.3 Prepare a dedicated calibration CSV**
 
 Do not import the complete firmware log as a new calibration dataset.
 
@@ -86,7 +86,7 @@ Recommended file format:
 • one row per independently prepared assay determination; and
 • no merged cells, formulas, units in numeric cells, or repeated header rows.
 
-2.4 Required and recommended columns
+**2.4 Required and recommended columns**
 
 The Calibration Suite requires:
 
@@ -116,7 +116,7 @@ For a blank, enter reference_ng_uL = 0.
 
 When several PyBadge measurements originate from the same reference solution, repeat the same assigned reference value in every corresponding replicate row. When the Quantus reference was determined separately for each solution or replicate, enter the matching independent value for each row.
 
-2.5 Columns that must not be used as independent reference values
+**2.5 Columns that must not be used as independent reference values**
 
 Do not use the following firmware-output columns as the x-axis of a new calibration:
 
@@ -130,7 +130,7 @@ Do not use the following firmware-output columns as the x-axis of a new calibrat
 
 concentration_ng_uL is already calculated from the active PyBadge calibration. Regressing RFU against this column is circular and does not constitute independent calibration or validation.
 
-2.6 Import and verify column assignment
+**2.6 Import and verify column assignment**
 
 After importing the prepared calibration CSV, confirm that the Calibration Suite shows:
 
@@ -142,7 +142,7 @@ After importing the prepared calibration CSV, confirm that the Calibration Suite
 
 Stop and correct the input when the x-axis contains negative concentrations, unexpected values, or concentrations calculated by the PyBadge.
 
-2.7 Evaluate the calibration
+**2.7 Evaluate the calibration**
 
 In the Calibration Suite:
 
@@ -160,7 +160,7 @@ Do not accept a calibration from the coefficient of determination alone. A high 
 
 The current QF1-1.0.0-rc2 firmware imports an OLS multipoint calibration. Do not load another model type unless the firmware release documentation explicitly confirms compatibility.
 
-2.8 Export the operational calibration
+**2.8 Export the operational calibration**
 
 After the model has been accepted:
 
@@ -174,7 +174,7 @@ quantifluorone_multipoint.json
 
 The Calibration Suite report is the complete calibration record. The JSON file is the operational copy used by the fluorometer.
 
-3. Load and verify a multipoint calibration
+**3. Load and verify a multipoint calibration**
 
 To transfer an accepted multipoint calibration:
 
@@ -202,7 +202,7 @@ Measure and store a fresh reagent blank after loading a new calibration.
 
 > Loading a new JSON does not replace the need for a current blank and passing QC samples.
 
-4. Check calibration validity before each batch
+**4. Check calibration validity before each batch**
 
 Use a stored or imported calibration only when all of the following are true:
 
@@ -227,7 +227,7 @@ Reject or replace the calibration when:
 • reagent or standards are known to be degraded; or
 • QC performance no longer supports the calibration.
 
-5. Measurement-batch sequence
+**5. Measurement-batch sequence**
 
 Use the following sequence for each batch:
 
@@ -241,9 +241,9 @@ Use the following sequence for each batch:
 
 For a broad calibration range, preferably use low-, mid-, and high-level QC samples. QC material should be independent of the standards used to create the calibration whenever suitable material is available.
 
-6. Evaluate replicate measurements
+**6. Evaluate replicate measurements**
 
-6.1 Three readings within one measurement cycle
+**6.1 Three readings within one measurement cycle**
 
 The fluorometer uses three TSL2591 readings to calculate one measurement-cycle mean and standard deviation.
 
@@ -269,7 +269,7 @@ When a visible technical cause is present:
 
 Do not delete an individual reading without recording a technical reason.
 
-6.2 Independently prepared assay replicates
+**6.2 Independently prepared assay replicates**
 
 Independent replicates require separate pipetting of sample and reagent.
 
@@ -282,9 +282,9 @@ When replicate concentrations disagree:
 
 Near zero concentration, relative standard deviation may be misleading. Evaluate the absolute spread together with LOD and LOQ.
 
-7. Evaluate blank and QC samples
+**7. Evaluate blank and QC samples**
 
-7.1 Reagent blank
+**7.1 Reagent blank**
 
 The blank must:
 
@@ -304,7 +304,7 @@ When the blank fails:
 
 Do not use a clearly invalid blank to correct unknown samples.
 
-7.2 Quality-control samples
+**7.2 Quality-control samples**
 
 A QC sample passes only when its result lies within a predefined acceptance interval.
 
@@ -327,9 +327,9 @@ When QC fails:
 
 Results measured since the last passing QC sample are potentially invalid.
 
-8. Interpret concentration, prediction error, LOD, and LOQ
+**8. Interpret concentration, prediction error, LOD, and LOQ**
 
-8.1 Concentration basis
+**8.1 Concentration basis**
 
 The current firmware reports the principal concentration on the original-sample basis defined by the calibration. The corresponding in-assay concentration may also be retained in the CSV output.
 
@@ -345,7 +345,7 @@ c_\text{original}=c_\text{reported}\times F_\text{pre-dilution}
 
 Record the pre-dilution factor.
 
-8.2 Prediction error
+**8.2 Prediction error**
 
 For an imported multipoint calibration, the displayed 95% PI +/- value is the half-width of the two-sided prediction interval for one analytical determination.
 
@@ -363,7 +363,7 @@ Report concentration with its prediction error only when:
 • the result is at or above the LOQ; and
 • blank, QC, and replicate criteria have passed.
 
-8.3 LOD and LOQ
+**8.3 LOD and LOQ**
 
 Use the LOD and LOQ belonging to the active calibration and confirm their concentration basis.
 
@@ -377,7 +377,7 @@ Use the LOD and LOQ belonging to the active calibration and confirm their concen
 
 Negative blank-corrected values must not be reported as negative dsDNA concentrations. Report them according to the laboratory procedure, normally as < LOD.
 
-8.4 Sensor saturation
+**8.4 Sensor saturation**
 
 The current QF1-1.0.0-rc2 firmware stops acquisition when the TSL2591 FULL or IR channel reaches the configured overflow threshold.
 
@@ -398,7 +398,7 @@ Do not reduce gain or integration time for one sample while continuing to use a 
 
 > **Known RC2 limitation:** saturation is handled as a fatal runtime error rather than as a recoverable, logged result flag.
 
-9. Accept, repeat, dilute, or reject
+**9. Accept, repeat, dilute, or reject**
 
 |Observation                                                                                    |Decision                                         |Required action                                                                                  |
 |-----------------------------------------------------------------------------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------|
@@ -413,7 +413,7 @@ Do not reduce gain or integration time for one sample while continuing to use a 
 |Wrong sample, dilution, reagent, protocol, unit, or calibration was used                       |**Reject**                                       |Repeat the assay correctly                                                                       |
 |No technically justified and reproducible result can be obtained                               |**Reject**                                       |Record the result as invalid and document the reason                                             |
 
-10. Minimum documentation
+**10. Minimum documentation**
 
 Record at least:
 
@@ -437,7 +437,7 @@ Record at least:
 
 Retain the original data. Repeated or corrected measurements must not overwrite earlier results without traceability.
 
-11. Bench-side checklist
+**11. Bench-side checklist**
 
 Before reporting a quantitative result, confirm:
 
