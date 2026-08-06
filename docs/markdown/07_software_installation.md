@@ -106,9 +106,9 @@ Safe mode prevents the QuantiFluorONE application from running while files are c
 
 Press the underside reset button twice in quick succession. The PyBadge display changes to the UF2 bootloader screen, and the computer mounts `PYBADGEBOOT` or `BADGEBOOT`.
 
-![PyBadge UF2 bootloader screen.](../../figures/photos/ch07/pybadge_bootloader_screen.jpeg)
+![PyBadge UF2 bootloader screen.](../figures/photos/ch07/pybadge_bootloader_screen.jpeg)
 
-![Typical contents of the PyBadge UF2 boot drive.](../../figures/photos/ch07/pybadgeboot_drive.png)
+![Typical contents of the PyBadge UF2 boot drive.](../figures/photos/ch07/pybadgeboot_drive.png)
 
 If `PYBADGEBOOT` appears when `CIRCUITPY` was intended, press Reset once to restart normally and repeat with slower timing.
 
