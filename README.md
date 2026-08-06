@@ -215,7 +215,9 @@ Complete references, original licenses, modification notes, and attribution info
 
 ## Contact
 
-**Project lead:** Matthias Birkicht
+**DIY-Fluorometer-Project Research Engineer:** Dipl.-Ing. Matthias Birkicht
+
+**Summer school LZMT Participant:** Dr. Achim Meyer
 
 **Institution:** Leibniz Centre for Marine Tropical Research (LZMT)
 
