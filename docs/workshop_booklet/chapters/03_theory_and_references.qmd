@@ -51,6 +51,20 @@ one Adafruit TSL2591 fluorescence sensor
 
 The TSL2591 sensor axis is positioned **at 90°** to the excitation axis. This geometry reduces direct illumination of the sensor by the excitation beam. The geometry, tube position, filters, LED current, gain, and integration time are part of the calibration and must remain unchanged during a measurement series.
 
+### Selection of the Optical Configuration
+
+The optical configuration of the DIY-QuantiFluorONE-dsDNA-Fluorometer was selected to maximize excitation efficiency while minimizing stray excitation light reaching the detector.
+
+The 485 nm excitation LED closely matches the excitation spectrum of the Promega QuantiFluor® ONE dsDNA dye. The Ex470BP-40 excitation filter narrows the LED spectrum, while the Em532BP-40 emission filter efficiently suppresses scattered excitation light and transmits the fluorescence emission around 530 nm.
+
+The spectral relationship between the excitation source, optical filters and fluorescence spectra is illustrated in Figure A.
+
+![Spectral compatibility of the optical configuration](../figures/source/ch03/optical_configuration_spectra.png)
+
+**Figure A** Spectral compatibility of the 485 nm excitation LED, Ex470BP-40 excitation filter, Em532BP-40 emission filter and the QuantiFluor® ONE dsDNA fluorescence system. The overlap illustrates the optical basis of the DIY-QuantiFluorONE-dsDNA-Fluorometer.
+
+The same design principle can be applied to other fluorescence assays by selecting appropriate LEDs, optical filters, cuvette holders and calibration models.
+
 ### Installed optical and electronic components
 
 | Component | Installed configuration | Practical role |

@@ -1,4 +1,5 @@
 Figure_ID,Relative_path_from_docs_figures,Caption,Status,Source,Notes
+fig-ch03-01,source/ch03/optical_configuration_spectra.png
 fig-ch04-01,photos/ch04/assembled_instrument_front.jpg,"Assembled prototype, front view",Included,Project photograph supplied 2026-08-03,Displayed reading is not analytical validation data
 fig-ch04-02,cad/ch04/pybadge_enclosure_cad.jpeg,PyBadge enclosure CAD overview,Included,Project CAD screenshot,
 fig-ch04-03,cad/ch04/optical_module_overview_cad.jpeg,Optical module mounted on base,Included,Project CAD screenshot,
@@ -9,3 +10,4 @@ fig-ch04-07,source/ch04/qfo_electronics_overview.svg,Electronics and I2C overvie
 fig-ch04-08,photos/ch04/open_instrument_wiring.jpg,Open instrument with complete wiring,Missing,,Required final photograph
 fig-ch04-09,photos/ch04/excitation_side_led_filter.jpg,LED and Ex470BP-40 installation,Missing,,Required final photograph
 fig-ch04-10,photos/ch04/detection_side_filter_sensor.jpg,Em532BP-40 and one TSL2591 installation,Missing,,Required final photograph
+
