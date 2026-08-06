@@ -59,7 +59,7 @@ The 485 nm excitation LED closely matches the excitation spectrum of the Promega
 
 The spectral relationship between the excitation source, optical filters and fluorescence spectra is illustrated in Figure A.
 
-![Spectral compatibility of the optical configuration](../figures/source/ch03/optical_configuration_spectra.png)
+![Spectral compatibility of the optical configuration](../../figures/source/ch03/optical_configuration_spectra.png)
 
 **Figure A** Spectral compatibility of the 485 nm excitation LED, Ex470BP-40 excitation filter, Em532BP-40 emission filter and the QuantiFluor® ONE dsDNA fluorescence system. The overlap illustrates the optical basis of the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 
