@@ -4,7 +4,7 @@
 
 ## 1. Front-panel controls
 
-![QuantiFluorONE front-panel controls for firmware QF1-1.0.0-rc2.](../../figures/photos/ch05/qfo_getting_started_menu_navigation.jpeg)
+![QuantiFluorONE front-panel controls for firmware QF1-1.0.0-rc2.](../figures/photos/ch05/qfo_getting_started_menu_navigation.jpeg)
 
 The firmware defines the controls as follows:
 
