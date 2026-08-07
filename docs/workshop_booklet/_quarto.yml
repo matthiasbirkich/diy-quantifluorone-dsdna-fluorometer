@@ -4,6 +4,8 @@ project:
 
 lang: en
 
+bibliography: ../references/references.bib
+
 book:
   title: "DIY-QuantiFluorONE-dsDNA-Fluorometer Workshop Booklet"
   author: "Open Science Project"
@@ -36,3 +38,4 @@ format:
     number-sections: true
     colorlinks: true
     use-rsvg-convert: false
+ 
