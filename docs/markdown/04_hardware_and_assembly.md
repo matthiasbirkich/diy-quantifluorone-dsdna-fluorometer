@@ -180,7 +180,7 @@ Do not compensate for poor printed fit by angling the sensor board or LED. Corre
 
 ![Open instrument showing the internal wiring.](../figures/photos/ch04/open_instrument_wiring.jpg)
 
-**Figure 4.x.** Interior view of the assembled instrument showing the PyBadge, PCA9546 I²C multiplexer, modified ioRodeo LED board, TSL2591 sensor and internal wiring. 
+**Figure 4.3.** Interior view of the assembled instrument showing the PyBadge, PCA9546 I²C multiplexer, modified ioRodeo LED board, TSL2591 sensor and internal wiring. 
 
 ## 10. STEMMA QT / Qwiic wiring and I²C addresses
 
@@ -248,7 +248,7 @@ The photograph below shows the complete laboratory configuration used throughout
 
 ![Complete measurement setup.](../figures/photos/ch04/measuring_setup.jpg)
 
-**Figure 4.3** Complete measurement setup including the DIY-QuantiFluorONE-dsDNA-Fluorometer, Promega QuantiFluor® ONE dsDNA System, pipettes, PCR tubes and the supporting laboratory equipment used for routine measurements. 
+**Figure 4.4** Complete measurement setup including the DIY-QuantiFluorONE-dsDNA-Fluorometer, Promega QuantiFluor® ONE dsDNA System, pipettes, PCR tubes and the supporting laboratory equipment used for routine measurements. 
 
 ## 13. Pre-power inspection
 
