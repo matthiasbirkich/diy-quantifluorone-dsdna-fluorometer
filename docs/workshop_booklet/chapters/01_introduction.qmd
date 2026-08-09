@@ -1,25 +1,39 @@
 ---
 title: "Introduction and Learning Objectives"
-document-status: "Draft"
-validation-status: "Not yet validated"
+document-status: "Current"
+validation-status: "Validated configuration"
 ---
-
-> **Chapter status:** concise workshop introduction; final project and partner names remain to be inserted.
 
 ## Purpose
 
-This booklet supports the assembly, software installation, calibration, and practical use of the DIY-QuantiFluorONE-dsDNA-Fluorometer during a laboratory workshop.
+This booklet supports the assembly, software installation, calibration, quality control, and practical use of the DIY-QuantiFluorONE-dsDNA-Fluorometer during the 2026 eDNA workshop within the STABLE Project (*Higher Education Partnership for a Sustainable Blue Economy*, 2025–2027).
+
+The instrument and its documentation are intended to provide a transparent and reproducible approach to fluorometric dsDNA quantification using the Promega QuantiFluor® ONE dsDNA System. The workshop combines practical instrument construction and operation with calibration, analytical quality control, and interpretation of measurement results.
 
 ## Learning objectives
 
 After the workshop, participants should be able to:
 
-- identify the main optical, electronic, and mechanical components;
-- operate the instrument and navigate the measurement menus;
+- identify the main optical, electronic, and mechanical components of the instrument;
+- understand the 90° fluorescence measurement geometry and the roles of the excitation source, optical filters, and TSL2591 detector;
+- install and operate the documented PyBadge firmware and navigate the measurement and calibration menus;
 - prepare and measure QuantiFluor® ONE dsDNA assays using clean, DNA-free consumables;
-- apply an appropriate calibration and recognise its valid working range; and
-- document results, quality-control observations, and limitations.
+- perform reagent-blank and calibration measurements;
+- apply two-point or multipoint calibration and recognise the valid working range;
+- interpret concentration results together with calibration information, LOD, LOQ, and quality-control criteria;
+- document and retain raw measurements, calibration data, and analytical results; and
+- understand which hardware, software, optical, or analytical changes require renewed verification or calibration.
+
+## Workshop context
+
+The DIY-QuantiFluorONE-dsDNA-Fluorometer is used as part of the 2026 eDNA workshop with Dr. Achim Meyer within the STABLE Project.
+
+The practical exercise demonstrates how an openly documented fluorometric instrument can be assembled, calibrated, validated, and used for dsDNA quantification in an eDNA-related laboratory workflow. The emphasis is not only on obtaining a concentration result, but also on understanding the measurement chain and the quality-control information associated with that result.
 
 ## Intended use
 
-The instrument is a research, teaching, and development device. It is not a medical or clinical diagnostic device.
+The DIY-QuantiFluorONE-dsDNA-Fluorometer is a research, teaching, and development instrument intended for laboratory and educational applications.
+
+The documented configuration has been evaluated for the analytical workflow described in this booklet. Changes to the optical configuration, detector settings, firmware, sample geometry, assay procedure, or calibration model may affect analytical performance and should therefore be evaluated before results are considered equivalent to those obtained with the documented configuration.
+
+The instrument is not intended for medical or clinical diagnostic use.

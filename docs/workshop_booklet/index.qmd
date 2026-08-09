@@ -1,15 +1,25 @@
----
-title: "DIY-QuantiFluorONE-dsDNA-Fluorometer Workshop Booklet"
----
+# DIY-QuantiFluorONE-dsDNA-Fluorometer Workshop Booklet
+
+**Prepared for the STABLE Project (2025–2027)**  
+*Higher Education Partnership for a Sustainable Blue Economy*
+
+**eDNA Workshop 2026**  
+with Dr. Achim Meyer
 
 ## About this booklet
 
-This English-language booklet supports the practical workshop use of the DIY-QuantiFluorONE-dsDNA-Fluorometer. It is intentionally compact and assumes that participants already have basic laboratory experience.
+This booklet provides the practical and technical documentation for the DIY-QuantiFluorONE-dsDNA-Fluorometer used in the 2026 eDNA workshop within the STABLE Project.
 
-The active structure contains 13 chapters and one appendix section. Detailed topics from the former 25-chapter scaffold have been consolidated to avoid repetition and an unnecessarily fragmented workflow.
+The STABLE Project, *Higher Education Partnership for a Sustainable Blue Economy*, is a three-year international collaboration (2025–2027) bringing together universities and research institutions from Indonesia, Malaysia, Germany, and the Netherlands. The partnership aims to advance and modernise postgraduate education in support of a sustainable Blue Economy.
+
+Within this framework, eDNA-based biodiversity monitoring forms part of the research-based teaching and advanced-training activities. The DIY-QuantiFluorONE-dsDNA-Fluorometer provides an open and reproducible platform for practical dsDNA quantification during the eDNA workshop.
+
+This booklet covers the theoretical background, hardware and mechanical design, software installation, calibration workflow, measurement protocol, quality-control procedures, analytical validation, troubleshooting, and the information required to reproduce and operate the instrument.
 
 ## Current content status
 
-Chapters 3–8 contain the current developed material. Chapters 1–2 and 9–13 are concise, intentional draft or planning pages that define the remaining scope without duplicating the old scaffold.
+This booklet documents the current validated configuration of the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 
-> **Validation notice:** software stability, documentation maturity, hardware maturity, and analytical validation are controlled separately. The complete analytical procedure is not yet finally validated.
+The documented hardware, mechanical components, firmware, calibration workflow, measurement procedure, and analytical validation correspond to the repository version supplied with this booklet.
+
+Any future changes to hardware, firmware, optical components, calibration procedures, or analytical performance should be documented explicitly and evaluated before being treated as equivalent to the configuration described here.
