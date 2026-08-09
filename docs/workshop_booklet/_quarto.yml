@@ -27,7 +27,7 @@ book:
     - chapters/11_troubleshooting.qmd
     - chapters/12_workshop_exercises_and_checklists.qmd
     - chapters/13_references.qmd
-    - appendices/appendices.qmd
+    - chapters/14_appendices.qmd
 
 format:
   html:
