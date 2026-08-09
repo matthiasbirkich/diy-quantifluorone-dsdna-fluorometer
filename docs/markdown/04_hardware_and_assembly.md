@@ -169,6 +169,48 @@ Do not compensate for poor printed fit by angling the sensor board or LED. Corre
 
 ## 9. Installation of the PyBadge, multiplexer, and LED board
 
+##### ioRodeo fixed-current radial 16 mA LED board
+
+The excitation LED is driven by the ioRodeo `radial_16mA` fixed-current LED board, revision `ver_0p1_rev_3`. The component-placement drawing below identifies the principal components and provides a visual reference for inspection of the assembled board.
+
+![Component placement of the ioRodeo `radial_16mA` fixed-current LED board, revision `ver_0p1_rev_3`. The drawing identifies the principal components used for visual inspection and assembly verification.](../figures/source/ch04/iorodeo_radial_16mA_assembly.png)
+
+The principal components are:
+
+- **U1** — TPS61222DCKR boost converter, fixed 5 V;
+- **U2** — LMV321 operational amplifier, SOT-23-5;
+- **Q1** — MMBT5551 NPN transistor;
+- **L1** — 4.7 µH inductor;
+- **C1, C2, C4** — 10 µF ceramic capacitors;
+- **C3** — 100 nF ceramic capacitor;
+- **R1** — 10 Ω resistor;
+- **R2** — 30 kΩ resistor;
+- **R3** — 1 kΩ resistor;
+- **J1, J2** — four-pin JST-SH connectors; and
+- **D1** — radial excitation LED position.
+
+The drawing is intended as an assembly and visual-inspection aid. PCB fabrication and automated assembly should use the verified Gerber, BOM, and CPL files supplied with the repository.# ioRodeo fixed-current radial 16 mA LED board
+
+The excitation LED is driven by the ioRodeo `radial_16mA` fixed-current LED board, revision `ver_0p1_rev_3`. The component-placement drawing below identifies the principal components and provides a visual reference for inspection of the assembled board.
+
+![Component placement of the ioRodeo `radial_16mA` fixed-current LED board, revision `ver_0p1_rev_3`. The drawing identifies the principal components used for visual inspection and assembly verification.](../figures/source/ch04/iorodeo_radial_16mA_assembly.png)
+
+The principal components are:
+
+- **U1** — TPS61222DCKR boost converter, fixed 5 V;
+- **U2** — LMV321 operational amplifier, SOT-23-5;
+- **Q1** — MMBT5551 NPN transistor;
+- **L1** — 4.7 µH inductor;
+- **C1, C2, C4** — 10 µF ceramic capacitors;
+- **C3** — 100 nF ceramic capacitor;
+- **R1** — 10 Ω resistor;
+- **R2** — 30 kΩ resistor;
+- **R3** — 1 kΩ resistor;
+- **J1, J2** — four-pin JST-SH connectors; and
+- **D1** — radial excitation LED position.
+
+The drawing is intended as an assembly and visual-inspection aid. PCB fabrication and automated assembly should use the verified Gerber, BOM, and CPL files supplied with the repository.
+
 1. Place the PyBadge in the enclosure without connecting a battery.
 2. Confirm access to the reset button, on/off switch, USB Micro port, and LiPo connector.
 3. Fit the cover and check that no button is held down by the printed part.

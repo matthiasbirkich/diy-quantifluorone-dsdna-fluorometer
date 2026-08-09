@@ -171,6 +171,10 @@ Do not compensate for poor printed fit by angling the sensor board or LED. Corre
 
 ## 9. Installation of the PyBadge, multiplexer, and LED board
 
+The excitation LED is driven by the ioRodeo `radial_16mA` fixed-current LED board, revision `ver_0p1_rev_3`. The component-placement drawing below identifies the principal components and provides a visual reference for inspection of the assembled board.
+
+![Component placement of the ioRodeo `radial_16mA` fixed-current LED board, revision `ver_0p1_rev_3`. The drawing identifies the principal components used for visual inspection and assembly verification.](../../figures/source/ch04/iorodeo_radial_16mA_assembly.png)
+
 1. Place the PyBadge in the enclosure without connecting a battery.
 2. Confirm access to the reset button, on/off switch, USB Micro port, and LiPo connector.
 3. Fit the cover and check that no button is held down by the printed part.
