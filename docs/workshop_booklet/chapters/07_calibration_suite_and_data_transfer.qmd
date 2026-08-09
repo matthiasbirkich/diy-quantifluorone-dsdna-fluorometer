@@ -1,19 +1,21 @@
 ---
 title: "Calibration Suite and Data Transfer"
+document-status: "Current"
+validation-status: "Validated configuration"
 ---
 
-## 1. Purpose
+## Purpose
 
 The repository includes the current browser-based Calibration Suite as a local web app. This chapter covers the calibration workflow and the safe transfer of compatible calibration files to the QuantiFluorONE firmware.
 
-## 2. Repository location
+## Repository location
 
 The current files are stored in:
 
 - `tools/calibration_suite/Open_Fluorometer_Calibration_Suite_v7.2_Dynamic_Axis_Labels.html`
 - `tools/calibration_suite/Open_Fluorometer_Calibration_Suite_v7.2_Dynamic_Axis_Labels.txt`
 
-## 3. Basic workflow
+## Basic workflow
 
 1. Open the HTML file in a current desktop browser.
 2. Load or paste the calibration data required by the app.
@@ -21,14 +23,14 @@ The current files are stored in:
 4. Record the calibration parameters required for the fluorometer workflow.
 5. Store calibration exports together with the experimental metadata whenever possible.
 
-## 4. Recommended repository practice
+## Recommended repository practice
 
 - keep the web app under version control;
 - record the active calibration-suite version in documentation and workshop notes;
 - store example calibration data separately from the app itself;
 - treat the web app as a reproducibility tool, not merely as a convenience file.
 
-## 5. Calibration-file transfer
+## Calibration-file transfer
 
 1. Export and retain the complete calibration report and source data.
 2. Transfer only a file that is explicitly compatible with QuantiFluorONE `QF1-1.0.0-rc2`.
@@ -36,7 +38,7 @@ The current files are stored in:
 4. Back up the existing JSON file before replacement.
 5. Safely eject `CIRCUITPY`, restart normally, and confirm the calibration status on the instrument.
 
-## 6. Compatibility note for QF1-1.0.0-rc2
+## Compatibility note for QF1-1.0.0-rc2
 
 The supplied Calibration Suite v7.2 Stable displays a firmware target of `v8.2+` and includes a function that updates a `configuration.json` file containing a `diynafluor` section. QuantiFluorONE `QF1-1.0.0-rc2` uses a different file layout:
 

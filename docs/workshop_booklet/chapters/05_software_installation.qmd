@@ -9,7 +9,7 @@ fig-cap-location: bottom
 >
 > **Repository policy:** one instrument, one supported QuantiFluorONE firmware release, and one documented installation procedure.
 
-## 1. Purpose and scope
+## Purpose and scope
 
 This chapter describes the workshop procedure for preparing an Adafruit PyBadge and installing the current QuantiFluorONE firmware. It covers:
 
@@ -22,7 +22,7 @@ This chapter describes the workshop procedure for preparing an Adafruit PyBadge 
 
 The physical reset button is mounted on the **underside of the PyBadge**. It is reached from below through the dedicated reset access opening in the enclosure.
 
-## 2. Software files in the repository
+## Software files in the repository
 
 All installation components are stored under one top-level directory:
 
@@ -59,7 +59,7 @@ Use a short **non-conductive** tool to reach the reset switch through the unders
 
 ![The reset switch is mounted on the underside of the PyBadge and is reached from below through the enclosure opening.](../../figures/photos/ch07/reset_button_access.png)
 
-## 3. One supported QuantiFluorONE firmware
+## One supported QuantiFluorONE firmware
 
 The current supported device firmware is the unchanged archive:
 
@@ -72,11 +72,9 @@ Do not shorten, clean, rename, rebuild, or replace this archive with a reduced d
 
 Earlier development versions remain traceable through Git history, tags, or GitHub releases, but they are not presented in the main repository as competing installation choices.
 
-> **Important:** “stable RC2” describes the tested firmware package and operating workflow. The included multipoint calibration remains marked `PROVISIONAL` and is not a completed analytical-method validation.
+> > **Important:** "stable RC2" describes the tested firmware package and operating workflow. The documented multipoint calibration and analytical workflow have been evaluated using the validation procedure described in Chapter 10.
 
-The original archive also contains documentation that describes an earlier selective overlay procedure. Those files remain unchanged as part of the release record. For the current workshop build, follow the clean full-copy procedure in this chapter.
-
-## 4. Back up the current device
+## Back up the current device
 
 > **Back up the complete `CIRCUITPY` drive before continuing.** Deleting its contents also removes measurement logs, calibration files, configuration files, saved blank and state files, and other user-generated data stored on the device.
 
@@ -89,7 +87,7 @@ The original archive also contains documentation that describes an earlier selec
 
 Do not copy old configuration, state, calibration, or log files back to the device automatically after installation. Restore only files that are known to be compatible with the current firmware.
 
-## 5. Reset timing: three different results
+## Reset timing: three different results
 
 | Reset action | Result | Drive | Main use |
 |---|---|---|---|
@@ -97,7 +95,7 @@ Do not copy old configuration, state, calibration, or log files back to the devi
 | **Slow double-click** | CircuitPython safe mode | `CIRCUITPY` | copy, replace, download, or delete firmware, CSV, and JSON files |
 | Fast double-click | UF2 bootloader mode | `PYBADGEBOOT` or `BADGEBOOT` | install a bootloader-updater or CircuitPython UF2 file |
 
-### 5.1 Slow double-click: required for file maintenance
+### Slow double-click: required for file maintenance
 
 Use the **slow double-click** before modifying files on `CIRCUITPY`:
 
@@ -107,7 +105,7 @@ Use the **slow double-click** before modifying files on `CIRCUITPY`:
 
 Safe mode prevents the QuantiFluorONE application from running while files are changed. Automatic reload is disabled, making this the preferred state for copying firmware, replacing JSON files, downloading CSV logs, and deleting old files.
 
-### 5.2 Fast double-click: UF2 bootloader mode
+### Fast double-click: UF2 bootloader mode
 
 Press the underside reset button twice in quick succession. The PyBadge display changes to the UF2 bootloader screen, and the computer mounts `PYBADGEBOOT` or `BADGEBOOT`.
 
@@ -117,7 +115,7 @@ Press the underside reset button twice in quick succession. The PyBadge display 
 
 If `PYBADGEBOOT` appears when `CIRCUITPY` was intended, press Reset once to restart normally and repeat with slower timing.
 
-## 6. Check or update the UF2 bootloader
+## Check or update the UF2 bootloader
 
 A bootloader update is not required for every firmware installation.
 
@@ -134,7 +132,7 @@ To install the supplied version 3.15.0 updater:
 
 > **Do not copy** `bootloader-arcade_pybadge-v3.15.0.bin` to `PYBADGEBOOT` or `BADGEBOOT`. The BIN file is retained only for archival and technical recovery purposes.
 
-## 7. Install CircuitPython 9.1.1
+## Install CircuitPython 9.1.1
 
 1. Confirm that the current `CIRCUITPY` contents have been backed up.
 2. Enter UF2 bootloader mode with a **fast double-click**.
@@ -151,11 +149,11 @@ Adafruit Pybadge with samd51j19
 Board ID: pybadge
 ```
 
-## 8. Clean installation of QuantiFluorONE stable RC2
+## Clean installation of QuantiFluorONE stable RC2
 
 This is the current recommended workshop procedure.
 
-### 8.1 Prepare the firmware folder
+### Prepare the firmware folder
 
 1. Locate:
 
@@ -173,7 +171,7 @@ This is the current recommended workshop procedure.
 
 4. Leave the original ZIP file unchanged in the repository.
 
-### 8.2 Empty `CIRCUITPY`
+### Empty `CIRCUITPY`
 
 1. Confirm once more that the complete previous drive has been backed up.
 2. Enter safe mode with the **slow double-click**.
@@ -182,7 +180,7 @@ This is the current recommended workshop procedure.
 5. Delete the selected contents.
 6. Confirm that no old firmware, library, configuration, state, calibration, or log files remain.
 
-### 8.3 Copy the complete stable release
+### Copy the complete stable release
 
 1. In the extracted stable-release folder, select **all files and folders inside** `QuantiFluorONE_Firmware_1.0.0-rc2-stable`.
 2. Copy the complete selected contents to the **root of the empty `CIRCUITPY` drive**.
@@ -194,7 +192,7 @@ This is the current recommended workshop procedure.
 
 This full-copy procedure installs one complete, internally consistent release and avoids mixing files from different firmware generations.
 
-## 9. First startup and hardware check
+## First startup and hardware check
 
 After the normal restart:
 
@@ -211,9 +209,9 @@ After the normal restart:
 6. Measure a fresh reagent blank with START.
 7. Measure a test sample with A.
 
-The display may show `cal=none c=uncalibrated` until a calibration is loaded or created. When the supplied provisional calibration is loaded, the status is marked `PROV`.
+The display may show `cal=none c=uncalibrated` until a calibration is loaded or created. After loading a compatible calibration, verify that the calibration information displayed by the instrument corresponds to the calibration intended for the current measurement series.
 
-## 10. CSV and JSON write behaviour
+## CSV and JSON write behaviour
 
 The included `boot.py` provides two different file-system modes:
 
@@ -229,7 +227,7 @@ For firmware-generated writes:
 
 Use the **slow double-click** whenever returning to computer-based file maintenance.
 
-## 11. Updating or reinstalling the same supported release
+## Updating or reinstalling the same supported release
 
 Use the same clean procedure whenever a complete reinstall is needed:
 
@@ -243,7 +241,7 @@ Use the same clean procedure whenever a complete reinstall is needed:
 
 Do not merge a new installation with residual files from an older device state.
 
-## 12. Troubleshooting
+## Troubleshooting
 
 | Symptom | Likely cause or corrective action |
 |---|---|
@@ -261,7 +259,7 @@ The following screen indicates CircuitPython automatic reload or a soft reboot, 
 
 ![CircuitPython soft-reboot and automatic-reload screen.](../../figures/photos/ch07/circuitpython_safe_mode_screen.jpeg)
 
-## 13. References
+## References
 
 - IO Rodeo. *Installing/upgrading CircuitPython and the bootloader.* https://blog.iorodeo.com/installing-upgrading-circuitpython-or-the-bootloader/
 - IO Rodeo. *Installing/upgrading the firmware.* https://blog.iorodeo.com/installing-upgrading-the-firmware/

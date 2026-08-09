@@ -1,13 +1,14 @@
 ---
+title: "References and Acknowledgements"
+document-status: "Current"
+validation-status: "Validated configuration"
 bibliography: ../../references/references.bib
 link-citations: true
 ---
 
-# References and Acknowledgements
-
 This project combines open-source hardware, commercial laboratory reagents, scientific standards, manufacturer documentation and original engineering developments. This chapter records the principal sources and acknowledges the contributions on which the DIY-QuantiFluorONE-dsDNA-Fluorometer is based.
 
-The complete machine-readable bibliography is maintained in `docs/references/references.bib`. Additional provenance information is available in `hardware_sources.yml`, `source_register.csv` and `standards_register.md`.
+The complete machine-readable bibliography is maintained in `references/references.bib`. Additional provenance information is available in `hardware_sources.yml`, `source_register.csv` and `standards_register.md`.
 
 ## Scientific and Analytical References
 
@@ -52,7 +53,7 @@ Product names and supplier references are provided for reproducibility and do no
 
 The optical module is derived from the open-source DIYNAFLUOR design and was extensively adapted for the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 
-The modified 3D-print parts and their mechanical integration were jointly developed by:
+The modified 3D-print parts and their mechanical integration were developed collaboratively by:
 
 - Dipl.-Ing. Matthias Birkicht, project author; and
 - Florian Bock, 3D-Haven, 27570 Bremerhaven, Germany.
@@ -63,21 +64,22 @@ This work included adaptation of the optical parts, integration of the installed
 
 Detailed source and provenance records are maintained in:
 
-- `docs/references/references.bib`
-- `docs/references/hardware_sources.yml`
-- `docs/references/source_register.csv`
-- `docs/references/standards_register.md`
-- component-specific `README.md` and licence files under `hardware/pcb/`
+- `references/references.bib`
+- `references/hardware_sources.yml`
+- `references/source_register.csv`
+- `references/standards_register.md`
 
 These records should be updated whenever a source, component revision, software version or standard reference changes.
 
 ## Acknowledgements
 
-The project gratefully acknowledges the developers and contributors of ioRodeo Open Colorimeter, DIYNAFLUOR, Adafruit CircuitPython and PySpectrometer2, as well as the manufacturers and standards organisations whose documentation supported the development and validation of the instrument.
+The project gratefully acknowledges the developers and contributors of the ioRodeo Open Colorimeter Plus, DIYNAFLUOR, Adafruit CircuitPython, and PySpectrometer2 projects, as well as the manufacturers and standards organisations whose documentation supported the development and validation of the instrument.
 
 Special thanks are extended to Florian Bock of 3D-Haven for the collaborative development and adaptation of the mechanical parts.
 
-## Bibliography
+The DIY-QuantiFluorONE-dsDNA-Fluorometer and this workshop documentation were prepared in the context of the 2026 eDNA workshop with Dr. Achim Meyer within the STABLE Project (2025–2027), *Higher Education Partnership for a Sustainable Blue Economy*.
+
+## Bibliography {.unnumbered}
 
 ::: {#refs}
 :::

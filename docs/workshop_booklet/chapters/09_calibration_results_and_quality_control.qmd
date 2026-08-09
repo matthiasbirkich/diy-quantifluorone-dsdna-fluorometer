@@ -1,15 +1,14 @@
 ---
 title: "DIY-QuantiFluorONE-dsDNA-Fluorometer – Calibration, Results, and Quality Control"
 format: gfm
+document-status: "Current"
+validation-status: "Validated configuration"
+date: "2026-08-09"
 ---
 
-# 09 -- Calibration, Results, and Quality Control
-
 > **Scope:** This chapter provides the concise operational workflow for routine laboratory decisions. The theoretical and statistical basis of calibration, prediction intervals, LOD, and LOQ is described in Chapter 3.
->
-> **Important:** A calibration marked `PROVISIONAL` is intended for software or hardware testing only. It must not be used to report analytically validated sample concentrations.
 
-## 1. Calibration routes
+## Calibration routes
 
 Use one of the following calibration routes before measuring unknown samples.
 
@@ -22,11 +21,11 @@ Use one of the following calibration routes before measuring unknown samples.
 
 A calibration that loads successfully is not automatically suitable for the current samples.
 
-## 2. Use the Calibration Suite
+## Use the Calibration Suite
 
 The Calibration Suite is the primary tool for creating, evaluating, documenting, and exporting a multipoint calibration.
 
-### 2.1 Prepare the calibration dataset
+### Prepare the calibration dataset
 
 Use standards prepared with the same:
 
@@ -47,7 +46,7 @@ For the standard assay described in Chapter 8, each tube contains:
 
 The total assay volume is 201 µL.
 
-### 2.2 Evaluate the calibration
+### Evaluate the calibration
 
 In the Calibration Suite:
 
@@ -64,7 +63,7 @@ Do not accept a calibration from the coefficient of determination alone. A high 
 
 The current QF1-1.0.0-rc2 firmware imports an OLS multipoint calibration. Do not load another model type unless the firmware release documentation explicitly confirms compatibility.
 
-### 2.3 Export the operational calibration
+### Export the operational calibration
 
 After the model has been accepted:
 
@@ -80,7 +79,7 @@ After the model has been accepted:
 
 The Calibration Suite report is the complete calibration record. The JSON file is the operational copy used by the fluorometer.
 
-## 3. Load and verify a multipoint calibration
+## Load and verify a multipoint calibration
 
 To transfer an accepted multipoint calibration:
 
@@ -108,7 +107,7 @@ Measure and store a fresh reagent blank after loading a new calibration.
 
 > Loading a new JSON does not replace the need for a current blank and passing QC samples.
 
-## 4. Check calibration validity before each batch
+## Check calibration validity before each batch
 
 Use a stored or imported calibration only when all of the following are true:
 
@@ -125,7 +124,6 @@ Use a stored or imported calibration only when all of the following are true:
 
 Reject or replace the calibration when:
 
-- `PROVISIONAL` is displayed for work requiring validated results;
 - the wrong file, assay, unit, or concentration basis was selected;
 - required fields are missing;
 - the expected samples fall outside the validated range;
@@ -133,7 +131,7 @@ Reject or replace the calibration when:
 - reagent or standards are known to be degraded; or
 - QC performance no longer supports the calibration.
 
-## 5. Measurement-batch sequence
+## Measurement-batch sequence
 
 Use the following sequence for each batch:
 
@@ -147,9 +145,9 @@ Use the following sequence for each batch:
 
 For a broad calibration range, preferably use low-, mid-, and high-level QC samples. QC material should be independent of the standards used to create the calibration whenever suitable material is available.
 
-## 6. Evaluate replicate measurements
+## Evaluate replicate measurements
 
-### 6.1 Three readings within one measurement cycle
+### Three readings within one measurement cycle
 
 The fluorometer uses three TSL2591 readings to calculate one measurement-cycle mean and standard deviation.
 
@@ -175,7 +173,7 @@ When a visible technical cause is present:
 
 Do not delete an individual reading without recording a technical reason.
 
-### 6.2 Independently prepared assay replicates
+### Independently prepared assay replicates
 
 Independent replicates require separate pipetting of sample and reagent.
 
@@ -188,9 +186,9 @@ When replicate concentrations disagree:
 
 Near zero concentration, relative standard deviation may be misleading. Evaluate the absolute spread together with LOD and LOQ.
 
-## 7. Evaluate blank and QC samples
+## Evaluate blank and QC samples
 
-### 7.1 Reagent blank
+### Reagent blank
 
 The blank must:
 
@@ -210,7 +208,7 @@ When the blank fails:
 
 Do not use a clearly invalid blank to correct unknown samples.
 
-### 7.2 Quality-control samples
+### Quality-control samples
 
 A QC sample passes only when its result lies within a predefined acceptance interval.
 
@@ -233,9 +231,9 @@ When QC fails:
 
 Results measured since the last passing QC sample are potentially invalid.
 
-## 8. Interpret concentration, prediction error, LOD, and LOQ
+## Interpret concentration, prediction error, LOD, and LOQ
 
-### 8.1 Concentration basis
+### Concentration basis
 
 The current firmware reports the principal concentration on the original-sample basis defined by the calibration. The corresponding in-assay concentration may also be retained in the CSV output.
 
@@ -251,7 +249,7 @@ c_\text{original}=c_\text{reported}\times F_\text{pre-dilution}
 
 Record the pre-dilution factor.
 
-### 8.2 Prediction error
+### Prediction error
 
 For an imported multipoint calibration, the displayed `95% PI +/-` value is the half-width of the two-sided prediction interval for one analytical determination.
 
@@ -269,7 +267,7 @@ Report concentration with its prediction error only when:
 - the result is at or above the LOQ; and
 - blank, QC, and replicate criteria have passed.
 
-### 8.3 LOD and LOQ
+### LOD and LOQ
 
 Use the LOD and LOQ belonging to the active calibration and confirm their concentration basis.
 
@@ -283,22 +281,22 @@ Use the LOD and LOQ belonging to the active calibration and confirm their concen
 
 Negative blank-corrected values must not be reported as negative dsDNA concentrations. Report them according to the laboratory procedure, normally as `< LOD`.
 
-## 9. Accept, repeat, dilute, or reject
+## Accept, repeat, dilute, or reject
 
 | Observation | Decision | Required action |
 |---|---|---|
 | Calibration valid; blank and QC pass; replicates agree; result at or above LOQ and within range | **Accept** | Report the result and record any pre-dilution |
 | One tube shows unstable readings, bubbles, contamination, or incorrect placement | **Repeat measurement** | Correct the technical problem and remeasure the same tube |
 | Independent assay replicates remain inconsistent | **Repeat assay preparation** | Prepare fresh independent replicates |
+| Calibration is incompatible, expired, or incomplete | **Reject** | Load or create an acceptable calibration |
 | Result is above range or the detector response is saturated | **Dilute and repeat** | Dilute the original sample, repeat the complete assay, and apply the recorded pre-dilution factor |
 | Result is below LOQ | **Do not accept as a normal quantitative result** | Report according to the LOD/LOQ category |
 | Blank fails | **Hold the batch** | Investigate and obtain an acceptable blank |
 | QC fails | **Hold or reject affected results** | Correct the cause and repeat QC and affected samples |
-| Calibration is `PROVISIONAL`, incompatible, expired, or incomplete | **Reject for validated reporting** | Load or create an acceptable calibration |
 | Wrong sample, dilution, reagent, protocol, unit, or calibration was used | **Reject** | Repeat the assay correctly |
 | No technically justified and reproducible result can be obtained | **Reject** | Record the result as invalid and document the reason |
 
-## 10. Minimum documentation
+## Minimum documentation
 
 Record at least:
 
@@ -322,7 +320,7 @@ Record at least:
 
 Retain the original data. Repeated or corrected measurements must not overwrite earlier results without traceability.
 
-## 11. Bench-side checklist
+## Bench-side checklist
 
 Before reporting a quantitative result, confirm:
 

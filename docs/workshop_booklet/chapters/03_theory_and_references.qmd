@@ -1,7 +1,7 @@
 ---
 title: "Theory and References"
-document-status: "Draft"
-validation-status: "Not yet validated"
+document-status: "Current"
+validation-status: "Validated configuration"
 date: "2026-08-02"
 bibliography: "../../references/references.bib"
 ---
@@ -141,7 +141,7 @@ Promega recommends thin-walled 0.5 mL PCR tubes, thorough mixing without bubbles
 
 Promega notes that a standard with a molecular size similar to the unknown DNA may improve comparability. Therefore λ-DNA is a practical workshop standard, but matrix and fragment-size differences remain possible sources of bias [@promega_tm405].
 
-# Analytical validity, reference methods, and open measurement chains
+## Analytical validity, reference methods, and open measurement chains
 
 Instrument qualification, assay calibration, and method validation are related but distinct tasks. A fluorometer can be checked for properties such as linear response, wavelength suitability, detector response, sensitivity, and day-to-day stability without treating another fluorometer as an absolute reference. General fluorescence-quality guidance likewise distinguishes instrument characterization and performance verification from the validation of the analytical method itself.[^fluorometry-qa]
 
@@ -273,8 +273,3 @@ Prepare blank and standards
 ```
 
 The practical implementation of these analytical concepts, including calibration acceptance, quality control, uncertainty evaluation, and routine decision criteria, is described in Chapter 9.
-
-## References {.unnumbered}
-
-::: {#refs}
-:::

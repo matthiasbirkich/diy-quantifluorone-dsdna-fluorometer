@@ -1,10 +1,8 @@
 ---
 title: "Safety and Laboratory Requirements"
-document-status: "Draft"
-validation-status: "Not yet validated"
+document-status: "Current"
+validation-status: "Validated configuration"
 ---
-
-> **Chapter status:** final workshop risk assessment and local waste-disposal rules remain to be added.
 
 ## General laboratory practice
 
