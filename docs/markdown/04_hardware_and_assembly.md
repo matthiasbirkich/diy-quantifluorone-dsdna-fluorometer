@@ -338,7 +338,7 @@ This package includes:
 
 - PyBadge enclosure STEP files;
 - CAD screenshots of the enclosure and optical module;
-- ioRodeo `radial_16mA` revision-3 KiCad, Gerber, BOM, CPL, and position files;
+- ioRodeo `radial_16mA` revision-3 KiCad source files and the verified Gerber, BOM, and CPL files required for PCB fabrication and assembly;
 - Adafruit PyBadge EagleCAD schematic and board files;
 - upstream license files and source notes;
 - the current assembled-instrument photograph;

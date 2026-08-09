@@ -24,6 +24,6 @@
 
 - License supplied with this package: Creative Commons Attribution 4.0 International
 
-This repository package contains the KiCad schematic and board files, Gerber/drill files, JLCPCB BOM and CPL files, and a position file supplied for the project.
+This repository package contains the KiCad schematic and board files, Gerber/drill files, JLCPCB BOM and CPL files.
 
 The radial wavelength-specific LED is installed separately on the back of the board. The board is a fixed-current board and is not an addressable I²C device.
