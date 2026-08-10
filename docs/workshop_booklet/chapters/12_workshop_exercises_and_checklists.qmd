@@ -60,6 +60,7 @@ The examples below summarize possible starting points for further instrument dev
 | Chlorophyll-a | 450 nm | 680 nm | Phytoplankton and algal biomass |
 | CDOM | 350 nm | 425 nm | Colored dissolved organic matter |
 | Ammonium (OPA derivatisation) | 350 nm | 425 nm | Nutrient analysis |
+| PAK (Naphtalene and derivates) | 275 nm | UVA with AS7331 | SPE from seawater |
 
 These examples illustrate how the modular optical concept may be extended beyond dsDNA quantification. They do not constitute validated instrument configurations or complete analytical methods.
 

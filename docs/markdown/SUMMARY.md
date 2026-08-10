@@ -28,6 +28,4 @@
 
 13. [References and Acknowledgements](13_references.md)
 
-## Appendices
-
-- [Appendices](appendices.md)
+14. [Appendices](14_appendices.md)

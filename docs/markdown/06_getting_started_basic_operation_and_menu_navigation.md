@@ -1,8 +1,14 @@
+---
+document-status: "Current"
+validation-status: "Validated configuration"
+date: "2026-08-10"
+---
+
 # Getting Started: Basic Operation and Menu Navigation
 
 > **Firmware basis:** QuantiFluorONE `QF1-1.0.0-rc2`, display version `v1.0 RC2`.
 
-## 1. Front-panel controls
+## Front-panel controls
 
 ![QuantiFluorONE front-panel controls for firmware QF1-1.0.0-rc2.](../figures/photos/ch05/qfo_getting_started_menu_navigation.jpeg)
 
@@ -23,7 +29,7 @@ The firmware defines the controls as follows:
 
 The last line of the display shows context-sensitive button hints. These hints take priority whenever a calibration or confirmation dialog is open.
 
-## 2. Normal measurement workflow
+## Normal measurement workflow
 
 1. Switch the instrument on and wait for `QuantiFluorONE v1.0 RC2`.
 2. Use D-pad UP or DOWN to select the required sample ID.
@@ -34,7 +40,7 @@ The last line of the display shows context-sensitive button hints. These hints t
 7. Read concentration, prediction interval, VIS, standard deviation, blank, and RFU from the live screen.
 8. Press B for the details screen or RIGHT for raw readings.
 
-## 3. SELECT menu
+## SELECT menu
 
 Press SELECT from the live screen to open:
 
@@ -49,7 +55,7 @@ SELECT MENU
 
 Use UP/DOWN to move the selection, SELECT to open or confirm, and B to return or cancel.
 
-## 4. Display views
+## Display views
 
 ### Live
 
@@ -63,7 +69,7 @@ Press B from Live. The details screen shows FULL, IR, VIS, RFU, concentration, s
 
 Press B again, or press RIGHT from Live/Details. LEFT changes between the two raw-data pages. RIGHT returns to Live.
 
-## 5. Multipoint calibration import
+## Multipoint calibration import
 
 1. Place the compatible `quantifluorone_multipoint.json` file in the root of `CIRCUITPY`.
 2. Disconnect the USB data host and power the device from a charger or power bank so the firmware can write its state files.
@@ -74,7 +80,7 @@ Press B again, or press RIGHT from Live/Details. LEFT changes between the two ra
 
 The calibration included with RC2 is marked `PROVISIONAL` and is intended for software and hardware testing, not final analytical validation.
 
-## 6. Managing CSV and JSON files: use the slow double-click
+## Managing CSV and JSON files: use the slow double-click
 
 > **Important — slow double-click required:** Before copying, replacing, deleting, or downloading CSV, JSON, or firmware files, enter CircuitPython **safe mode** with a slow double-click of the Reset button. Press Reset once, then press it again during the approximately one-second startup window. The display reports that code has stopped and will not run the saved application.
 
@@ -87,7 +93,7 @@ In safe mode:
 
 A **fast** double-click is different: it opens `PYBADGEBOOT` or `BADGEBOOT` and is used only for UF2 installation.
 
-## 7. Files produced or used by RC2
+## Files produced or used by RC2
 
 | File | Purpose |
 |---|---|

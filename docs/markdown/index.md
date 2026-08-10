@@ -17,5 +17,4 @@ The canonical editable sources are the Quarto files under `docs/workshop_booklet
 11. [Troubleshooting](11_troubleshooting.md)
 12. [Workshop Exercises and Checklists](12_workshop_exercises_and_checklists.md)
 13. [References](13_references.md)
-
-[Appendices](appendices.md)
+14. [Appendices](14_appendices.md)

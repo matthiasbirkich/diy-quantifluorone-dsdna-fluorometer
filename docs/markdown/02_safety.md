@@ -1,6 +1,11 @@
+---
+document-status: "Current"
+validation-status: "Validated configuration"
+date: "2026-08-10"
+---
+
 # Safety and Laboratory Requirements
 
-> **Chapter status:** final workshop risk assessment and local waste-disposal rules remain to be added.
 
 ## General laboratory practice
 

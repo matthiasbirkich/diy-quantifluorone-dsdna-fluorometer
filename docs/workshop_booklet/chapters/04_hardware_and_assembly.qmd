@@ -52,7 +52,7 @@ The confirmed mounting fasteners are:
 
 - four M2.5 x 20 screws with matching M2.5 nuts for fastening the PyBadge cover to the enclosure;
 - four M3 x 20 screws with matching M3 nuts for fastening the PCR-tube holder to the enclosure.
-- two M2 x 6 screws with matchin nuts for emission filter holder C
+- two M2 x 6 screws with matching nuts for emission filter holder C
 - four M3 x 35 screws with matching M3 nuts for fastening the cuvette holder to the led-cover and parts A+B
 
 ![Main components required to assemble the DIY-QuantiFluorONE-dsDNA-Fluorometer.](../../figures/photos/ch04/qfo_complete_component_set.jpg)
@@ -98,12 +98,10 @@ open ioRodeo fluorometer tube-holder project. The original repository provides
 FreeCAD design files for the fluorometer tube holder and is distributed under
 the Creative Commons Attribution 4.0 International (CC BY 4.0) licence.
 
-The DIY-QuantiFluorONE holder was adapted for the Promega E4941 thin-walled
-0.5 mL PCR tube, the installed 8 × 8 × 1 mm optical filters, one TSL2591
-sensor, and the project-specific 90° optical geometry. 
-The holder is a mix between DIYNAFLUOR and ioRodeo.
-
-[@iorodeo_fluorometer_tube_holder]
+The DIY-QuantiFluorONE holder combines and adapts elements of these open
+designs for the Promega E4941 thin-walled 0.5 mL PCR tube, the installed
+8 × 8 × 1 mm optical filters, one TSL2591 sensor, and the project-specific
+90° optical geometry [@anderson_diynafluor; @traulab_diynafluor] [@iorodeo_fluorometer_tube_holder]
 
 ![CAD overview of the PyBadge enclosure and instrument base.](../../figures/cad/ch04/pybadge_enclosure_cad.jpeg)
 

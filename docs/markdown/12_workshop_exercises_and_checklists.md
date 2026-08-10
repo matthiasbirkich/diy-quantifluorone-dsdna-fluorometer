@@ -1,8 +1,12 @@
+---
+document-status: "Current"
+validation-status: "Validated configuration"
+date:  "2026-08-10"
+---
+
 # Workshop Review, Quality Check and Further Applications
 
-This chapter concludes the workshop with a brief review of the practical exercises, a final functional quality check, and an outlook on additional fluorescence-based applications that can be implemented using the modular DIY-QuantiFluorONE-dsDNA-Fluorometer platform.
-
----
+This chapter concludes the workshop with a brief review of the practical exercises, a final functional quality check, and an outlook on possible future applications of the underlying modular fluorescence platform.
 
 ## Functional Quality Check
 
@@ -17,13 +21,9 @@ Before completing the workshop, verify that the instrument performs the followin
 | Save the measurement | CSV file created successfully |
 | Load a stored calibration | Calibration accepted without errors |
 
-Successful completion of these checks confirms that the instrument is ready for routine measurements.
-
----
+Successful completion of these checks confirms correct basic instrument operation. Quantitative results should only be accepted when the calibration, blank, quality-control, range, and reporting criteria described in Chapter 9 are also satisfied.
 
 ## Workshop Review
-
-The following questions may be used for self-assessment or group discussion.
 
 ### Instrument
 
@@ -44,11 +44,17 @@ The following questions may be used for self-assessment or group discussion.
 - Which file is transferred from the Calibration Suite to the fluorometer?
 - Why should calibration and validation data always be archived?
 
----
+## Further Applications
 
 ## Further Applications
 
-The DIY-QuantiFluorONE-dsDNA-Fluorometer is a modular fluorescence platform. By exchanging the excitation LED, optical filters and calibration, the same hardware can be adapted to many fluorescence-based analytical methods.
+## Further Applications
+
+The DIY-QuantiFluorONE-dsDNA-Fluorometer described in this booklet is configured and evaluated specifically for the Promega QuantiFluor® ONE dsDNA assay.
+
+The underlying instrument concept is modular. By selecting an appropriate excitation source, optical filters, detector settings, sample geometry, and calibration procedure, the same general design approach can provide a basis for other fluorescence-based analytical applications.
+
+The examples below summarize possible starting points for further instrument development. The excitation and emission wavelengths are indicative optical design parameters for the respective fluorescence methods; they do not imply that these applications have been validated with the present DIY-QuantiFluorONE configuration.
 
 | Example application | Excitation LED | Emission wavelength | Typical application |
 |---------------------|---------------:|--------------------:|--------------------|
@@ -56,12 +62,11 @@ The DIY-QuantiFluorONE-dsDNA-Fluorometer is a modular fluorescence platform. By 
 | Chlorophyll-a | 450 nm | 680 nm | Phytoplankton and algal biomass |
 | CDOM | 350 nm | 425 nm | Colored dissolved organic matter |
 | Ammonium (OPA derivatisation) | 350 nm | 425 nm | Nutrient analysis |
+| PAK (Naphtalene and derivates) | 275 nm | UVA with AS7331 | SPE from seawater |
 
-These examples illustrate the flexibility of the optical platform and do not represent a complete list of possible fluorescence assays.
+These examples illustrate how the modular optical concept may be extended beyond dsDNA quantification. They do not constitute validated instrument configurations or complete analytical methods.
 
-Future applications may require different LEDs, optical filters, detector settings and calibration procedures depending on the fluorophore being analysed.
-
----
+Future applications may require different LEDs, excitation and emission filters, detector settings, sample holders, firmware parameters, and calibration procedures. Each modified configuration should therefore be characterized and validated for its intended analytical application before quantitative results are reported.
 
 ## Workshop Completed
 

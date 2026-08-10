@@ -1,3 +1,9 @@
+---
+document-status: "Current"
+validation-status: "Validated configuration"
+date: "2026-08-10"
+---
+
 # Theory and References
 
 ## Purpose and practical scope
@@ -126,6 +132,7 @@ The project uses:
 1 µL sample or standard + 200 µL QuantiFluor® ONE reagent
 = 201 µL physical total volume
 ```
+
 Promega recommends thin-walled 0.5 mL PCR tubes, thorough mixing without bubbles, five minutes of incubation at room temperature protected from light, and careful pipetting of the small sample volume [@promega_tm405].
 
 ### λ-DNA standards
@@ -134,36 +141,19 @@ Promega recommends thin-walled 0.5 mL PCR tubes, thorough mixing without bubbles
 
 Promega notes that a standard with a molecular size similar to the unknown DNA may improve comparability. Therefore λ-DNA is a practical workshop standard, but matrix and fragment-size differences remain possible sources of bias [@promega_tm405].
 
-# Analytical validity, reference methods, and open measurement chains
+## Analytical validity, reference methods, and open measurement chains
 
-> **Analytical perspective**
->
-> Instrument qualification, assay calibration, method validation, and comparison with established instruments are complementary but distinct elements of analytical quality assurance. Throughout this project, the emphasis is placed on transparent documentation of the complete measurement chain rather than on comparison with a single commercial instrument.
+Instrument qualification, assay calibration, and method validation are related but distinct tasks. A fluorometer can be checked for properties such as linear response, wavelength suitability, detector response, sensitivity, and day-to-day stability without treating another fluorometer as an absolute reference. General fluorescence-quality guidance likewise distinguishes instrument characterization and performance verification from the validation of the analytical method itself.[^fluorometry-qa]
 
-Instrument qualification, assay calibration, and method validation are related but distinct tasks. A fluorometer can be characterized with respect to linear response, detector performance, wavelength suitability, sensitivity, stability, and background behaviour without considering another fluorometer as an absolute reference. Likewise, analytical method validation addresses the performance of the complete measurement procedure rather than the instrument alone.
+For dsDNA quantification, a commercial fluorometer is therefore useful as a **comparison instrument**, but agreement with one commercial instrument is not the only possible evidence of analytical validity. A stronger validation strategy combines several independent lines of evidence: assigned or independently characterized DNA standards, repeatability and linearity studies, blank behaviour, recovery, LOD/LOQ, and comparison with an analytically independent method.
 
-For dsDNA quantification, a commercial fluorometer therefore represents a useful **comparison instrument**, but agreement with one commercial device is not the only possible evidence of analytical validity. A robust validation strategy combines several independent sources of evidence, including:
+For sufficiently pure dsDNA at concentrations suitable for absorbance measurement, UV photometry at 260 nm provides such an independent comparison principle through the Beer–Lambert relationship and an accepted DNA-specific mass-extinction convention. Fluorometric and photometric DNA determinations are not chemically identical measurements: absorbance at 260 nm responds to total UV-absorbing nucleic-acid material and other absorbing contaminants, whereas the QuantiFluor® ONE assay is designed to respond preferentially to dsDNA. Promega therefore notes that concentrations obtained by fluorescence and by optical-density measurements may differ because the two methods measure different properties of the sample [@promega_tm405]. Agreement should consequently be evaluated on clean, well-characterized dsDNA standards rather than assumed for arbitrary biological extracts.
 
-- assigned or independently characterized DNA reference materials;
-- repeatability and intermediate precision;
-- calibration linearity;
-- recovery experiments;
-- blank behaviour;
-- LOD and LOQ;
-- comparison with an analytically independent measurement principle where appropriate.
+This distinction is particularly useful for open-science instrumentation. The analytical evidence need not form a hierarchy in which an open instrument is considered valid only because it reproduces the result of a proprietary instrument. Instead, the DIY-QuantiFluorONE can be evaluated within an **open measurement chain**: reference or assigned DNA materials define the sample, photometric determination provides an independent physical-chemical comparison where applicable, open fluorometers such as DIYNAFLUOR provide reproducible peer systems, and established commercial instruments provide continuity with routine laboratory practice.
 
-For sufficiently pure dsDNA, UV absorbance at 260 nm provides such an independent comparison principle through the Beer–Lambert law and the accepted DNA-specific mass-extinction convention. Fluorometric and photometric DNA determinations are based on different physical principles. UV absorbance responds to nucleic-acid absorption, whereas the QuantiFluor® ONE assay selectively measures fluorescence generated after binding of the dye to dsDNA. Consequently, both methods may yield different numerical results for contaminated or compositionally different samples. Agreement should therefore be assessed using well-characterized reference materials.
+The objective is therefore not to designate one instrument as the universal reference, but to demonstrate that the complete measurement procedure is transparent, reproducible, and consistent with independent analytical evidence within stated uncertainty and applicability limits. This is also why the project retains raw signals, calibration metadata, blank statistics, model diagnostics, and validation data rather than reporting only a final concentration.
 
-Within the philosophy of Open Science, analytical evidence should not rely exclusively on reproducing the result of a proprietary instrument. Instead, the complete measurement chain should remain transparent and independently verifiable. In this project, analytical confidence is established through an open measurement chain comprising:
-
-- well-characterized λ-DNA reference materials;
-- transparent calibration procedures;
-- complete documentation of raw signals and metadata;
-- independent comparison methods where appropriate;
-- comparison with established commercial fluorometers;
-- comparison with other openly documented fluorometers such as DIYNAFLUOR.
-
-The objective is therefore not to identify a single instrument as the universal analytical reference. Rather, the goal is to demonstrate that the complete measurement procedure is reproducible, transparent, and analytically consistent within its stated uncertainty, working range, and intended application.
+[^fluorometry-qa]: See Resch-Genger U, Hoffmann K, Nietfeld W, et al. *How to improve quality assurance in fluorometry: fluorescence-inherent sources of error and suited fluorescence standards*. Journal of Fluorescence. 2005;15:337–362. doi:10.1007/s10895-005-2630-3; and DeRose PC, Resch-Genger U. *Recommendations for Fluorescence Instrument Qualification: The New ASTM Standard Guide*. Analytical Chemistry. 2010;82(5). These works discuss instrument qualification, linearity, spectral response, wavelength accuracy, sensitivity, and performance verification as elements of quantitative fluorescence quality assurance.
 
 ## Calibration
 
@@ -283,11 +273,6 @@ Prepare blank and standards
 ```
 
 The practical implementation of these analytical concepts, including calibration acceptance, quality control, uncertainty evaluation, and routine decision criteria, is described in Chapter 9.
-
-## References {.unnumbered}
-
-::: {#refs}
-:::
 
 ---
 

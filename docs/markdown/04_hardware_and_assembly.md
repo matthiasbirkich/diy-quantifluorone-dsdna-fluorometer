@@ -1,8 +1,12 @@
+---
+document-status: "Current"
+validation-status: "Validated configuration"
+date: "2026-08-10"
+---
+
 # Hardware and Assembly
 
-> **Document status:** workshop draft with confirmed core hardware. The assembled-instrument photograph, PyBadge enclosure STEP files, PyBadge PCB sources, and ioRodeo LED-board manufacturing files are included. The final 0.5 mL PCR-tube optical-holder files, separate light-shield files, exact PCA9546 channel map, cable lengths, and detailed internal photographs are still pending.
-
-## 1. Purpose and workshop outcome
+## Purpose and workshop outcome
 
 This chapter guides participants through the identification, assembly, inspection, and first hardware check of the DIY-QuantiFluorONE-dsDNA-Fluorometer. It is intended as a practical build guide rather than a comprehensive electronics or fluorescence textbook.
 
@@ -20,7 +24,7 @@ The instrument uses **one TSL2591 sensor only**. It does not use a second refere
 
 ![Assembled DIY-QuantiFluorONE prototype during a firmware and display check. The displayed measurement is not presented as analytical validation data.](../figures/photos/ch04/assembled_instrument_front.jpg)
 
-## 2. Complete component overview and bill of materials
+## Complete component overview and bill of materials
 
 The machine-readable bill of materials is stored in `bom/master_bom.csv`. The core configuration is summarized below.
 
@@ -50,7 +54,7 @@ The confirmed mounting fasteners are:
 
 - four M2.5 x 20 screws with matching M2.5 nuts for fastening the PyBadge cover to the enclosure;
 - four M3 x 20 screws with matching M3 nuts for fastening the PCR-tube holder to the enclosure.
-- two M2 x 6 screws with matchin nuts for emission filter holder C
+- two M2 x 6 screws with matching nuts for emission filter holder C
 - four M3 x 35 screws with matching M3 nuts for fastening the cuvette holder to the led-cover and parts A+B
 
 ![Main components required to assemble the DIY-QuantiFluorONE-dsDNA-Fluorometer.](../figures/photos/ch04/qfo_complete_component_set.jpg)
@@ -58,19 +62,20 @@ The confirmed mounting fasteners are:
 **Figure 4.0.** Main electronic, optical, mechanical, and laboratory components
 used to assemble and operate the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 
-## 3. Function of the components
 
-### 3.1 Electronic components
+## Function of the components
+
+### Electronic components
 
 **Adafruit PyBadge.** The PyBadge is the controller and user interface. It provides the display, buttons, reset switch, on/off switch, USB Micro connection, LiPo connector, battery charging circuit, and the I²C interface used by the external modules. The documented software baseline for this project is CircuitPython 9.1.1.
 
-**PCA9546 multiplexer.** The multiplexer divides the upstream I²C connection into four selectable downstream branches. Its address is `0x70`. The final channel allocation must be copied from the assembled instrument and entered in `hardware/wiring/qfo_cable_map.csv` before the hardware release is tagged.
+**PCA9546 multiplexer.** The multiplexer divides the upstream I²C connection into four selectable downstream branches. Its address is `0x70`. The firmware scans the available multiplexer channels for the TSL2591 sensor, so a fixed downstream channel assignment is not required.
 
 **TSL2591 sensor.** The TSL2591 detects light passing through the emission filter. Its address is `0x29`. Only one TSL2591 is installed, and its detection axis is mechanically fixed at 90° to the excitation axis.
 
 **ioRodeo fixed-current LED board.** Revision `ver_0p1_rev_3` supplies a fixed nominal LED current of 16 mA. It is not an addressable I²C device. Its SDA and SCL conductors are pass-through connections, so the board must not be expected to appear in an I²C scan.
 
-### 3.2 Optical components
+### Optical components
 
 **485 nm LED.** The LED provides excitation light. Its radial package must be installed with the correct polarity and must be seated without bending the leads against the printed holder.
 
@@ -80,7 +85,7 @@ used to assemble and operate the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 
 **Promega E4941 tube.** The thin-walled 0.5 mL PCR tube defines the sample container used by the mechanical holder. The tube must reach the mechanical stop reproducibly and must not be forced into the holder.
 
-### 3.3 Mechanical components
+### Mechanical components
 
 The printed parts perform four critical tasks:
 
@@ -95,18 +100,16 @@ open ioRodeo fluorometer tube-holder project. The original repository provides
 FreeCAD design files for the fluorometer tube holder and is distributed under
 the Creative Commons Attribution 4.0 International (CC BY 4.0) licence.
 
-The DIY-QuantiFluorONE holder was adapted for the Promega E4941 thin-walled
-0.5 mL PCR tube, the installed 8 × 8 × 1 mm optical filters, one TSL2591
-sensor, and the project-specific 90° optical geometry. 
-The holder is a mix between DIYNAFLUOR and ioRodeo.
-
-[@iorodeo_fluorometer_tube_holder]
+The DIY-QuantiFluorONE holder combines and adapts elements of these open
+designs for the Promega E4941 thin-walled 0.5 mL PCR tube, the installed
+8 × 8 × 1 mm optical filters, one TSL2591 sensor, and the project-specific
+90° optical geometry [@anderson_diynafluor; @traulab_diynafluor] [@iorodeo_fluorometer_tube_holder]
 
 ![CAD overview of the PyBadge enclosure and instrument base.](../figures/cad/ch04/pybadge_enclosure_cad.jpeg)
 
 ![CAD overview of the optical module mounted on the instrument base.](../figures/cad/ch04/optical_module_overview_cad.jpeg)
 
-## 4. Preparation and inspection of the 3D-printed parts
+## Preparation and inspection of the 3D-printed parts
 
 Before installing electronics or filters:
 
@@ -122,7 +125,7 @@ Before installing electronics or filters:
 
 Do not enlarge filter pockets with a power tool while the filters or electronics are installed. Fine manual correction is safer and easier to control.
 
-## 5. Installation of the LED and excitation filter
+## Installation of the LED and excitation filter
 
 1. Disconnect USB and remove the LiPo battery if fitted.
 2. Identify the LED anode and cathode from the component data and PCB markings.
@@ -133,17 +136,16 @@ Do not enlarge filter pockets with a power tool while the filters or electronics
 7. Handle the **8 x 8 x 1 mm** Ex470BP-40 by its edges. Do not touch the clear aperture.
 8. Insert the filter into the excitation-filter pocket without twisting or forcing it.
 9. Confirm that the filter fully covers the optical opening and cannot rattle into the tube chamber.
-10. Install the intended clip, cover, or retention part. The final retention method is to be documented when the optical-holder archive is supplied.
+10. Install the Part B with two M3 x 40 screws and nuts
+11. Install the 485 nm LED-board and the holder. Fix ist with 3M x 40 screws and nuts.
 
 > **Check:** Looking from the LED side, the sequence must be LED → Ex470BP-40 → sample tube.
 
 ![Excitation side of the optical module showing the installed 485 nm LED and Ex470BP-40 excitation filter.](../figures/photos/ch04/excitation_side_led_filter.jpg)
 
-**Figure 4.1** Excitation side of the optical module showing the modified ioRodeo fixed-current LED board with the rear-mounted 485 nm LED and the installed Ex470BP-40 excitation filter.
+**Figure 4.1.** Excitation side of the optical module showing the modified ioRodeo fixed-current LED board with the rear-mounted 485 nm LED and the installed Ex470BP-40 excitation filter.
 
-## 6. Installation of the Promega E4941 sample-tube holder
-
-The final holder archive is pending. The assembly procedure will be finalized from the supplied STEP/STL files. The following checks already apply:
+## Installation of the Promega E4941 sample-tube holder
 
 1. The E4941 tube must enter vertically and reach a defined mechanical stop.
 2. The tube must not tilt toward either optical opening.
@@ -152,7 +154,7 @@ The final holder archive is pending. The assembly procedure will be finalized fr
 5. The tube must be removable without pulling the optical module or cables.
 6. The holder must block stray light around the upper tube opening when the light shield is installed.
 
-## 7. Installation of the emission filter and single TSL2591 sensor
+## Installation of the emission filter and single TSL2591 sensor
 
 1. Handle the **8 x 8 x 1 mm** Em532BP-40 only by its edges.
 2. Insert it into the detection-side filter pocket.
@@ -170,7 +172,7 @@ The final holder archive is pending. The assembly procedure will be finalized fr
 
 **Figure 4.2.** Detection side of the optical module showing the Em532BP-40 emission filter together with the single TSL2591 light sensor mounted in the optical holder.
 
-## 8. Correct 90° optical geometry
+## Correct 90° optical geometry
 
 ![Optical geometry of the instrument.](../figures/source/ch04/qfo_optical_geometry.png)
 
@@ -187,9 +189,7 @@ The workshop inspection is mechanical and visual:
 
 Do not compensate for poor printed fit by angling the sensor board or LED. Correct the printed part or replace it.
 
-## 9. Installation of the PyBadge, multiplexer, and LED board
-
-##### ioRodeo fixed-current radial 16 mA LED board
+## Installation of the PyBadge, multiplexer, and LED board
 
 The excitation LED is driven by the ioRodeo `radial_16mA` fixed-current LED board, revision `ver_0p1_rev_3`. The component-placement drawing below identifies the principal components and provides a visual reference for inspection of the assembled board.
 
@@ -197,19 +197,19 @@ The excitation LED is driven by the ioRodeo `radial_16mA` fixed-current LED boar
 
 The principal components are:
 
-- **U1** — TPS61222DCKR boost converter, fixed 5 V;
-- **U2** — LMV321 operational amplifier, SOT-23-5;
-- **Q1** — MMBT5551 NPN transistor;
-- **L1** — 4.7 µH inductor;
-- **C1, C2, C4** — 10 µF ceramic capacitors;
-- **C3** — 100 nF ceramic capacitor;
-- **R1** — 10 Ω resistor;
-- **R2** — 30 kΩ resistor;
-- **R3** — 1 kΩ resistor;
-- **J1, J2** — four-pin JST-SH connectors; and
-- **D1** — radial excitation LED position.
+- **U1** -- TPS61222DCKR boost converter, fixed 5 V;
+- **U2** -- LMV321 operational amplifier, SOT-23-5;
+- **Q1** -- MMBT5551 NPN transistor;
+- **L1** -- 4.7 µH inductor;
+- **C1, C2, C4** -- 10 µF ceramic capacitors;
+- **C3** -- 100 nF ceramic capacitor;
+- **R1** -- 10 Ω resistor;
+- **R2** -- 30 kΩ resistor;
+- **R3** -- 1 kΩ resistor;
+- **J1, J2** -- four-pin JST-SH connectors; and
+- **D1** -- radial excitation LED position.
 
-The drawing is intended as an assembly and visual-inspection aid. PCB fabrication and automated assembly should use the verified Gerber, BOM, and CPL files supplied with the repository.# ioRodeo fixed-current radial 16 mA LED board
+The drawing is intended as an assembly and visual-inspection aid.
 
 1. Place the PyBadge in the enclosure without connecting a battery.
 2. Confirm access to the reset button, on/off switch, USB Micro port, and LiPo connector.
@@ -222,9 +222,9 @@ The drawing is intended as an assembly and visual-inspection aid. PCB fabricatio
 
 ![Open instrument showing the internal wiring.](../figures/photos/ch04/open_instrument_wiring.jpg)
 
-**Figure 4.3.** Interior view of the assembled instrument showing the PyBadge, PCA9546 I²C multiplexer, modified ioRodeo LED board, TSL2591 sensor and internal wiring. 
+**Figure 4.3.** Interior view of the assembled instrument showing the PyBadge, PCA9546 I²C multiplexer, modified ioRodeo LED board, TSL2591 sensor and internal wiring.
 
-## 10. STEMMA QT / Qwiic wiring and I²C addresses
+## STEMMA QT / Qwiic wiring and I²C addresses
 
 ![Electronics overview. Dashed branches indicate that the exact PCA9546 channel allocation is still to be recorded.](../figures/source/ch04/qfo_electronics_overview.png)
 
@@ -250,7 +250,7 @@ When inserting JST-SH connectors:
 - do not connect or disconnect while the instrument is powered;
 - verify that no cable crosses the tube opening or blocks a filter aperture.
 
-## 11. Cable routing, strain relief, and prevention of light leakage
+## Cable routing, strain relief, and prevention of light leakage
 
 1. Route cables along enclosure walls and printed channels.
 2. Keep the optical chamber clear of wire loops.
@@ -264,7 +264,7 @@ When inserting JST-SH connectors:
 
 The final light shield must be fitted before blank stability and low-signal performance are evaluated.
 
-## 12. Recommended step-by-step assembly sequence
+## Recommended step-by-step assembly sequence
 
 1. Print and inspect all mechanical parts.
 2. Test the E4941 tube fit using an empty tube.
@@ -290,9 +290,9 @@ The photograph below shows the complete laboratory configuration used throughout
 
 ![Complete measurement setup.](../figures/photos/ch04/measuring_setup.jpg)
 
-**Figure 4.4** Complete measurement setup including the DIY-QuantiFluorONE-dsDNA-Fluorometer, Promega QuantiFluor® ONE dsDNA System, pipettes, PCR tubes and the supporting laboratory equipment used for routine measurements. 
+**Figure 4.4.** Complete measurement setup including the DIY-QuantiFluorONE-dsDNA-Fluorometer, Promega QuantiFluor® ONE dsDNA System, pipettes, PCR tubes and the supporting laboratory equipment used for routine measurements.
 
-## 13. Pre-power inspection
+## Pre-power inspection
 
 Do not power the instrument until every item below is checked.
 
@@ -314,7 +314,7 @@ Do not power the instrument until every item below is checked.
 - [ ] Light shield and enclosure close without pressure on the boards.
 - [ ] No loose screw, wire clipping, or printed debris remains inside.
 
-## 14. First power-up and hardware checks
+## First power-up and hardware checks
 
 Use USB power for the first check. Leave the optional LiPo disconnected.
 
@@ -333,7 +333,7 @@ Use USB power for the first check. Leave the optional LiPo disconnected.
 
 Firmware installation, menu operation, and analytical calibration are covered in their own chapters.
 
-## 15. Troubleshooting
+## Troubleshooting
 
 | Symptom | Likely cause | Workshop check |
 |---|---|---|
@@ -348,7 +348,7 @@ Firmware installation, menu operation, and analytical calibration are covered in
 | Tube jams | support residue, undersized bore, damaged tube | remove tube; clean or reprint holder; do not force it |
 | Readings change after handling | loose filter, sensor board movement, cable strain | inspect retention and strain relief; repeat mechanical check |
 
-## 16. Cleaning, maintenance, and replacement of optical components
+## Cleaning, maintenance, and replacement of optical components
 
 - Switch off and disconnect USB and LiPo before opening the instrument.
 - Remove the sample tube immediately after use.
@@ -363,7 +363,7 @@ Firmware installation, menu operation, and analytical calibration are covered in
 - Inspect Qwiic sockets and cables periodically for looseness or strain damage.
 - Inspect the LiPo for swelling, puncture, unusual heat, or damaged leads. Remove a suspect battery from service.
 
-## 17. Safety notes
+## Safety notes
 
 - Do not stare directly into the 485 nm LED, especially when the excitation filter or light shield is removed.
 - Disconnect power before soldering, rewiring, installing filters, or moving boards.
@@ -374,18 +374,18 @@ Firmware installation, menu operation, and analytical calibration are covered in
 - Follow the safety data sheets and laboratory rules for QuantiFluor ONE reagent, DNA standards, cleaning agents, and samples.
 - Dispose of reagents, samples, tubes, electronics, and batteries according to local rules.
 
-## 18. Reproducibility files and references
+## Reproducibility files and references
 
 This package includes:
 
 - PyBadge enclosure STEP files;
 - CAD screenshots of the enclosure and optical module;
-- ioRodeo `radial_16mA` revision-3 KiCad source files and the verified Gerber, BOM, and CPL files required for PCB fabrication and assembly;
+- ioRodeo `radial_16mA` revision-3 KiCad, Gerber, BOM, CPL;
 - Adafruit PyBadge EagleCAD schematic and board files;
 - upstream license files and source notes;
 - the current assembled-instrument photograph;
-- BOM, wiring, I²C, figure, and open-item manifests.
-
+- BOM, wiring, I²C, figure, and open-item manifests;
+- STEP-Files.
 
 The third-party source locations and licenses are recorded in `THIRD_PARTY_NOTICES.md` and the `SOURCE.md` files beside the upstream hardware data.
 

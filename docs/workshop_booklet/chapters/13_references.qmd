@@ -24,9 +24,23 @@ The standards are cited as methodological references. Formal conformity assessme
 
 ### ioRodeo
 
-The firmware and hardware concepts are derived in part from the ioRodeo Open Colorimeter Plus project [@iorodeo_ocp_firmware].
+The firmware and hardware concepts are derived in part from the ioRodeo
+Open Colorimeter Plus project [@iorodeo_ocp_firmware].
 
-The installed LED driver is the ioRodeo fixed-current radial 16 mA LED board, revision `ver_0p1_rev_3` [@iorodeo_led_board]. For integration into the optical module, the through-hole LED is mounted on the rear side of the board. The board design files, licence and source record are retained in the repository for traceability.
+The installed LED driver is the ioRodeo fixed-current radial 16 mA LED board,
+revision `ver_0p1_rev_3` [@iorodeo_led_board]. For integration into the optical
+module, the through-hole LED is mounted on the rear side of the board. The
+board design files, licence and source record are retained in the repository
+for traceability.
+
+The mechanical development of the optical sample holder also draws on the
+open ioRodeo fluorometer tube-holder project
+[@iorodeo_fluorometer_tube_holder].
+
+Further examples of open photometric and fluorometric DNA quantification
+using ioRodeo instrumentation are documented by ioRodeo
+[@iorodeo_uv_dna_quantification; @iorodeo_ocp_dna_quantitation;
+@iorodeo_ocp_updates_2025].
 
 ### DIYNAFLUOR
 

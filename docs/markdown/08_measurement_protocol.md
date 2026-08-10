@@ -1,8 +1,14 @@
+---
+document-status: "Current"
+validation-status: "Validated configuration"
+date: "2026-08-10"
+---
+
 # Measurement Protocol
 
 This short protocol is intended for participants with previous laboratory experience. All reagents required for the dsDNA assay are supplied with the Promega QuantiFluor® ONE dsDNA System. No reagent preparation is required.
 
-## 1. Materials and preparation
+## Materials and preparation
 
 ### Laboratory materials
 
@@ -22,13 +28,13 @@ This short protocol is intended for participants with previous laboratory experi
 - DIY-QuantiFluorONE-dsDNA-Fluorometer
 - Smart device with access to the project GitHub repository and the Calibration Suite
 
-## 2. Clean working conditions
+## Clean working conditions
 
 Work on a clean bench and wear fresh gloves. All pipette tips, PCR tubes, and other materials that come into contact with samples, standards, or reagents must be sterile and DNA-free.
 
 The fluorometer, smart device, notebook, and pencil do not need to be sterile, but they must be kept clean and away from open tubes. Replace gloves immediately after possible contact with DNA-containing material.
 
-## 3. Assay setup
+## Assay setup
 
 1. Label one PCR tube for the blank and additional tubes for standards, quality-control samples, and unknown samples.
 2. Mix the QuantiFluor® ONE reagent and the DNA solutions gently before use. Avoid foaming.
@@ -39,13 +45,13 @@ The fluorometer, smart device, notebook, and pencil do not need to be sterile, b
 
 Use a fresh pipette tip for every transfer.
 
-## 4. Incubation
+## Incubation
 
 Place the prepared tubes in the rack and incubate them in a closed drawer or another dark place. Use the same incubation time for the blank, standards, quality-control samples, and unknown samples.
 
-Follow the incubation time specified in the Promega kit instructions. Start the timer immediately after preparation of the last tube or prepare the tubes in clearly timed batches.
+Incubate the prepared tubes for 5 minutes at room temperature, protected from light, in accordance with the Promega QuantiFluor® ONE dsDNA System instructions. Start the timer immediately after preparation of the last tube or prepare larger sample sets in clearly timed batches.
 
-## 5. Blank, calibration, and sample measurement
+## Blank, calibration, and sample measurement
 
 1. Switch on the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 2. Open the Calibration Suite on the smart device when calibration data must be loaded, checked, or evaluated.
@@ -58,7 +64,7 @@ Follow the incubation time specified in the Promega kit instructions. Start the 
 
 Do not measure tubes containing visible bubbles, droplets on the outside, or fingerprints in the optical measurement area. Clean or replace the tube before repeating the measurement.
 
-## 6. Recording and checking results
+## Recording and checking results
 
 Record at least:
 
@@ -75,11 +81,11 @@ Results below the LOD must not be reported as quantified concentrations. Results
 
 When replicate measurements are performed, report the mean value and note any clearly inconsistent result.
 
-## 7. Cleaning and completion
+## Cleaning and completion
 
 Dispose of used tubes and pipette tips according to the local laboratory rules. Wipe the outside of the fluorometer and clean the working area. Do not allow liquid or cleaning agent to enter the fluorometer.
 
-Store the QuantiFluor® ONE kit components according to the manufacturer’s instructions and save the measurement data before closing the Calibration Suite.
+Store the QuantiFluor® ONE kit components according to the manufacturer’s instructions and ensure that all required measurement and calibration data have been saved before completing the measurement session.
 
 ## Quick reference
 
