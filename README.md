@@ -1,24 +1,40 @@
-# DIY-QuantiFluorONE-dsDNA-Fluorometer
-
-> **Date:** 2026-08-10  
-> **Repository status:** Final  
-> **Release:** v1.0.0  
-> **Operational calibration status:** ACTIVE  
-> **Method performance status:** VERIFIED  
-> **Operational range:** 0–400 ng/µL dsDNA  
-> **Documentation language:** English
-
-Open, portable, and modular fluorometer for dsDNA quantification using the
-Promega QuantiFluor® ONE dsDNA System.
-
 ## eDNA Workshop 2026 — Start Here
 
 **Workshop participants:** You do not need to navigate the repository
+
 structure to get started.
 
-### 📘 Workshop Booklet
+### ▶️ Start the Workshop
 
-➡️ **[Open the complete Workshop Booklet (PDF)](00_DIY-QuantiFluorONE_Workshop_Handbook.pdf)**
+➡️ **[Start with the workshop documentation](docs/markdown/index.md)**
+
+The online documentation guides you step by step through the workshop,
+
+from the introduction and instrument assembly to software installation,
+
+calibration, dsDNA measurement, quality control, and troubleshooting.
+
+For sequential reading, use the chapter navigation provided in the
+
+documentation.
+
+### 📘 Complete Workshop Booklet
+
+The complete workshop documentation is also available as a PDF for
+
+offline use, printing, or download:
+
+➡️ **[Download the complete Workshop Booklet (PDF)](00_DIY-QuantiFluorONE_Workshop_Handbook.pdf)**
+
+The PDF is approximately 30 MB and may not be previewed directly by GitHub.
+
+Downloading the file is therefore recommended.
+
+### Repository contents
+
+The folders in this repository contain the hardware files, software,
+Calibration Suite, validation data, references, and editable documentation
+used to reproduce the project.
 
 The workshop booklet is the primary guide for assembly, software installation,
 basic operation, calibration, quality control, dsDNA measurement, validation,
