@@ -34,20 +34,29 @@ The machine-readable bill of materials is stored in `bom/master_bom.csv`. The co
 | Excitation filter | Neemoo Ex470BP-40 | **8 x 8 x 1 mm**, installed | 1 |
 | Emission filter | Neemoo Em532BP-40 | **8 x 8 x 1 mm**, installed | 1 |
 | Sample vessel | Promega E4941 thin-walled 0.5 mL PCR tube | workshop sample tube | as required |
-| Cabling | STEMMA QT / Qwiic JST SH four-pin cables | final lengths pending | as required |
+| Cabling | STEMMA QT / Qwiic JST SH four-pin cables | 10 cm | 1 |
+| Cabling | STEMMA QT / Qwiic JST SH four-pin cables |  5 cm | 1 |
 | Adapter | SparkFun Qwiic-to-Grove adapter cable | PRT-15109 | 1 |
 | Mechanical assembly | 3D-printed PyBadge enclosure | STEP files included | 1 set |
-| Optical assembly | 3D-printed tube and optics holder | final files pending | 1 |
-| Light control | 3D-printed light shield | final files pending | 1 |
+| Optical assembly | 3D-printed tube and optics holder | step file | 1 |
+| Light control | 3D-printed light shield | step file  | 1 |
 | Programming and power | USB Micro cable | programming, power, and charging | 1 |
-| Portable power | 3.7 V LiPo battery | 400 mAh; status optional until confirmed | 0 or 1 |
+| Portable power | 3.7 V LiPo battery | 400 mAh; status optional| 0 or 1 |
+| Portable power | 3.7 V LiPo battery | 1200 mAh; status optional| 0 or 1 |
+
+Actually the fluorometer is powerd via USB via PC.
 
 The confirmed mounting fasteners are:
 
 - four M2.5 x 20 screws with matching M2.5 nuts for fastening the PyBadge cover to the enclosure;
 - four M3 x 20 screws with matching M3 nuts for fastening the PCR-tube holder to the enclosure.
+- two M2 x 6 screws with matchin nuts for emission filter holder C
+- four M3 x 35 screws with matching M3 nuts for fastening the cuvette holder to the led-cover and parts A+B
 
-Cable clips and the final filter-retention details remain listed in `bom/assembly_hardware_tbd.csv` until the optical-holder archive is added.
+![Main components required to assemble the DIY-QuantiFluorONE-dsDNA-Fluorometer.](../figures/photos/ch04/qfo_complete_component_set.jpg)
+
+**Figure 4.0.** Main electronic, optical, mechanical, and laboratory components
+used to assemble and operate the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 
 ## 3. Function of the components
 
@@ -80,7 +89,18 @@ The printed parts perform four critical tasks:
 3. align the emission filter and active TSL2591 area with the detection axis;
 4. shield the optical path from room light and display light.
 
-The holder establishes the 90° geometry mechanically. The correct wording is therefore **“at 90°”**, not “approximately at 90°”.
+The holder establishes the 90° geometry mechanically.
+The mechanical development of the optical sample holder also draws on the
+open ioRodeo fluorometer tube-holder project. The original repository provides
+FreeCAD design files for the fluorometer tube holder and is distributed under
+the Creative Commons Attribution 4.0 International (CC BY 4.0) licence.
+
+The DIY-QuantiFluorONE holder was adapted for the Promega E4941 thin-walled
+0.5 mL PCR tube, the installed 8 × 8 × 1 mm optical filters, one TSL2591
+sensor, and the project-specific 90° optical geometry. 
+The holder is a mix between DIYNAFLUOR and ioRodeo.
+
+[@iorodeo_fluorometer_tube_holder]
 
 ![CAD overview of the PyBadge enclosure and instrument base.](../figures/cad/ch04/pybadge_enclosure_cad.jpeg)
 

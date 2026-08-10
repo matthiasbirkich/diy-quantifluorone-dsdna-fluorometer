@@ -40,6 +40,26 @@ The LED board used in this project is based on the ioRodeo design. For integrati
 
 The optical module of the present instrument is derived from the DIYNAFLUOR concept and was modified for the installed LED board, filters, sensor geometry and PyBadge enclosure.
 
+### ioRodeo Fluorometer Tube Holder
+
+The mechanical development of the optical sample holder also draws on the
+open ioRodeo fluorometer tube-holder project. The original repository provides
+FreeCAD design files for the fluorometer tube holder and is distributed under
+the Creative Commons Attribution 4.0 International (CC BY 4.0) licence.
+
+The DIY-QuantiFluorONE holder was adapted for the Promega E4941 thin-walled
+0.5 mL PCR tube, the installed 8 × 8 × 1 mm optical filters, one TSL2591
+sensor, and the project-specific 90° optical geometry. The holder is a mix between DIYNAFLUOR and ioRodeo.
+
+These tube holders could used for Tubidimetry, photometry and fluorometry.
+Please look at the ioRodeo blog.
+UV-photometrcic determination of dsDNA (reference method). 
+Instrument = Open UV colorimeter: https://blog.iorodeo.com/uv-dna-quantification/
+Fluorometric determination of dsDNA with accu green (2 TSL2951 sensors): 
+Instrument = Open colorimeter plus:
+https://blog.iorodeo.com/open-colorimeter-plus-dna-quantitation/
+Source: https://github.com/iorodeo/fluorometer_tube_holder
+
 ### Adafruit and CircuitPython
 
 - Adafruit PyBadge, Product ID 4200.
