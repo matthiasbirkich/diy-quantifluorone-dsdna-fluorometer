@@ -3,7 +3,7 @@
 **Workshop participants:** 
 You do not need to navigate the repository structure to get started.
 
-### ▶️ Start the Workshop
+### Start the Workshop
 
 ➡️ **[Start the Workshop](docs/markdown/SUMMARY.md)**
 
