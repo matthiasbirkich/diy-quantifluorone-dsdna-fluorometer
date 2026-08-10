@@ -1,21 +1,16 @@
 ## eDNA Workshop 2026 — Start Here
 
-**Workshop participants:** You do not need to navigate the repository
-
-structure to get started.
+**Workshop participants:** 
+You do not need to navigate the repository structure to get started.
 
 ### ▶️ Start the Workshop
 
-➡️ **[Start with the workshop documentation](docs/markdown/index.md)**
+➡️ **[Start the Workshop](docs/markdown/SUMMARY.md)**
 
 The online documentation guides you step by step through the workshop,
-
 from the introduction and instrument assembly to software installation,
-
 calibration, dsDNA measurement, quality control, and troubleshooting.
-
 For sequential reading, use the chapter navigation provided in the
-
 documentation.
 
 ### 📘 Complete Workshop Booklet
