@@ -10,8 +10,6 @@ The appendices provide practical reference material supporting the construction,
 
 The appendices provide practical reference material supporting the construction, calibration and routine operation of the DIY-QuantiFluorONE-dsDNA-Fluorometer. They complement the main chapters and are intended as a quick reference rather than a tutorial.
 
-## Appendix A – File and Data Overview
-
 | File | Purpose |
 |------|---------|
 | `quantifluorone_calibration.json` | Stores the active saved calibration used by the firmware. |
