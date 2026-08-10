@@ -10,8 +10,8 @@ Sample vessel,as required,Promega E4941 thin-walled 0.5 mL PCR tube,Promega,E494
 Cable,as required,STEMMA QT / Qwiic JST SH cable,Various,JST SH 4-pin,Power and I2C cabling,Exact lengths still to be documented
 Adapter,1,SparkFun Qwiic-to-Grove adapter cable,SparkFun,PRT-15109,Adapter between board ecosystems,Upstream adapter used from PyBadge side
 Mechanical,1,PyBadge enclosure set,Project CAD,v1r4,Enclosure for controller,STEP files included
-Mechanical,1,0.5 mL PCR-tube holder with integrated optics,Project CAD,pending,Optical alignment and tube positioning,Pending upload
-Mechanical,1,Light shield,Project CAD,pending,Blocks ambient light,Pending upload
+Mechanical,1,0.5 mL PCR-tube holder with integrated optics,Project CAD,confirmed,Optical alignment and tube positioning,upload ok
+Mechanical,1,Light shield,Project CAD,pending,Blocks ambient light, upload OK
 Power,1,USB Micro cable,Generic,USB Micro,Programming power and charging,Known-good data cable recommended
 Power,0 or 1,3.7 V LiPo battery,Generic,400 mAh,Portable operation,Optional status until final confirmation
 Fastener,4,M2.5 x 20 screw,Generic,M2.5x20,Fastens PyBadge cover to enclosure,Use with matching M2.5 nut
