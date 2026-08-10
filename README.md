@@ -1,16 +1,14 @@
 # DIY-QuantiFluorONE-dsDNA-Fluorometer
 
-> **Date:** 2026-08-06
-
-> **Repository status:** Final
-
+> **Date:** 2026-08-10  
+> **Repository status:** Final  
 > **Release:** v1.0.0  
-
-> **Validation status:** validated  
-
+> **Operational calibration status:** ACTIVE  
+> **Method performance status:** VERIFIED  
+> **Operational range:** 0–400 ng/µL dsDNA  
 > **Documentation language:** English
 
-Open, portable fluorometer for dsDNA quantification using the
+Open, portable, and modular fluorometer for dsDNA quantification using the
 Promega QuantiFluor® ONE dsDNA System.
 
 ## eDNA Workshop 2026 — Start Here
@@ -20,244 +18,252 @@ structure to get started.
 
 ### 📘 Workshop Booklet
 
-➡️ **[Open the complete Workshop Booklet (PDF)](DIY-QuantiFluorONE-dsDNA-Fluorometer_Workshop-Booklet.pdf)**
+➡️ **[Open the complete Workshop Booklet (PDF)](00_DIY-QuantiFluorONE_Workshop_Handbook.pdf)**
 
-The booklet guides you through:
+The workshop booklet is the primary guide for assembly, software installation,
+basic operation, calibration, quality control, dsDNA measurement, validation,
+and troubleshooting.
+
+It guides participants through:
 
 1. instrument overview and measurement principle;
-2. required hardware and assembly;
-3. software installation;
-4. preparation for measurement;
-5. calibration and quality control;
-6. dsDNA measurements;
-7. interpretation of results.
+2. safety and laboratory preparation;
+3. hardware and assembly;
+4. software installation;
+5. basic operation and menu navigation;
+6. calibration and data transfer;
+7. dsDNA measurement;
+8. calibration, results, and quality control;
+9. validation and analytical performance; and
+10. troubleshooting and workshop review.
 
-The folders below contain the source files, hardware documentation,
-software, calibration tools, and validation material used by the project.
+The folders in this repository contain the source files, hardware documentation,
+software, calibration tools, validation data, references, and editable workshop
+documentation used to reproduce the project.
 
-## 📖 Documentation
+## About the project
 
-The complete documentation can either be read as:
+The **DIY-QuantiFluorONE-dsDNA-Fluorometer**, abbreviated **DIY-QFO**, is an
+independently developed portable fluorometer for fluorometric quantification
+of double-stranded DNA (**dsDNA**).
 
-- GitHub documentation (`docs/markdown/`)
-- Quarto workshop booklet (HTML/PDF)
-- Individual chapter files
+The instrument is designed for use with the **Promega QuantiFluor® ONE dsDNA
+System** and combines:
 
-For sequential reading start here:
+- an **Adafruit PyBadge** as controller, display, and user interface;
+- one **TSL2591** fluorescence sensor positioned at 90° to the excitation axis;
+- an **ioRodeo fixed-current radial 16 mA LED board**;
+- a 485 nm excitation LED;
+- Neemoo Ex470BP-40 and Em532BP-40 optical band-pass filters;
+- a modified 3D-printed optical sample holder derived from concepts used by
+  **DIYNAFLUOR** and the **ioRodeo fluorometer tube-holder project**; and
+- modified firmware derived from the open-source **ioRodeo Open Colorimeter
+  Plus** project.
 
-➡️ **[Documentation Summary](docs/markdown/SUMMARY.md)**
+The modular optical design allows LEDs, filters, sample holders, and detector
+settings to be adapted for other fluorescence-based analytical applications,
+provided that the modified configuration is appropriately calibrated and
+evaluated.
 
-The **DIY-QuantiFluorONE-dsDNA-Fluorometer**, abbreviated **DIY-QFO**, is an independently developed, portable, and modular fluorometer project for the fluorometric quantification of double-stranded DNA (**dsDNA**).
-Its modular optical design allows excitation LED boards, kuvette holders and optical filters to be exchanged. This makes it possible to adapt the instrument to other dsDNA fluorescence assays and, after appropriate hardware configuration, calibration, and validation, Add draft hardware and assembly documentation additional fluorescence-based analytical applications.
+## Workshop context
 
-The instrument is designed for use with the **Promega QuantiFluor® ONE dsDNA System**. It integrates:
+This repository and the accompanying workshop booklet were prepared for the
+**eDNA Workshop 2026** within the **STABLE Project (2025–2027), Higher
+Education Partnership for a Sustainable Blue Economy**.
 
-- the **Adafruit PyBadge** as the instrument control and user-interface platform;
+The workshop uses the DIY-QFO as an open and reproducible platform for
+introducing fluorometric dsDNA quantification, instrument construction,
+calibration, quality control, and analytical evaluation.
 
-- modified firmware derived from the open-source **ioRodeo Open Colorimeter Plus** project; and
-
-- a modified 3D-printed sample holder derived from the open-source **DIYNAFLUOR** project.
-
-The instrument is intended for use during the **[project name]** in Malaysia in cooperation with members of the **Leibniz Centre for Tropical Marine Research (ZMT)** and **[partner institution or organisation]**.
-
-## Important status statement
-
-Software stability, documentation maturity, hardware maturity, and analytical validation are controlled independently.
-
-A software component marked **Stable** is not automatically analytically **Validated**. Likewise, a completed hardware or documentation release does not imply that the complete measurement procedure has passed final validation.
-
-Preliminary, draft, stable, validated, and final materials are identified separately throughout this repository.
-
-## Project objectives
-
-The project aims to provide a compact and comprehensively documented fluorometer system for:
-
-- teaching and laboratory workshops;
-
-- preparation and measurement of dsDNA calibration standards;
-
-- two-point and multipoint calibration;
-
-- transfer and use of calibration JSON files;
-
-- measurement of dsDNA samples using the Promega QuantiFluor® ONE dsDNA System;
-
-- evaluation of calibration performance, residuals, LOD, LOQ, precision, and repeatability; and
-
-- reproducible documentation of hardware, firmware, calibration, and validation procedures.
+The instrument is intended for **research, teaching, development, and workshop
+measurements**. It is not intended for clinical diagnostic use.
 
 ## Documentation
 
-- [Documentation index](docs/markdown/index.md)
+The complete workshop documentation is available in several forms:
 
-- Workshop booklet:  
+- **Workshop Booklet (PDF)** — primary document for workshop participants;
+- `workshop_booklet/` — Quarto source used to generate the booklet;
+- `docs/` — project documentation and figures;
+- `references/` — bibliography and project source/provenance records.
 
-  `docs/pdf/a4/DIY-QuantiFluorONE-dsDNA-Fluorometer_Workshop_Booklet_A4.pdf`
-
-- Quick-start guides:  
-
-  `docs/quick_start_guides/`
-
-- Editable documentation source files:  
-
-  `docs/source_files/` and `docs/workshop_booklet/`
-
-- Figures and diagrams:  
-
-  `docs/figures/`
-
-- References:  
-
-  `docs/references/`
-
-The workshop booklet is intended to be sufficiently self-contained for the basic installation, calibration, and dsDNA measurement exercises. Participants should not need to browse the complete GitHub repository during the practical workshop sessions.
+For workshop participation, the PDF booklet is the recommended starting point.
+Participants do not need to navigate the complete repository during the
+practical exercises.
 
 ## Repository map
 
-- `firmware/` — PyBadge firmware, configuration files, libraries, and user-interface assets
+The principal project directories are:
 
-- `calibration_suite/` — Calibration Suite 7.2 Stable and supporting files
+- **`bom/`** — bill of materials and component information;
+- **`docs/`** — project documentation and figures;
+- **`hardware/`** — mechanical CAD models, PCB files, wiring information, and
+  hardware documentation;
+- **`references/`** — bibliography and source/provenance records;
+- **`software/`** — PyBadge bootloader, CircuitPython, and the supported
+  QuantiFluorONE firmware release;
+- **`tools/`** — Calibration Suite and supporting analytical utilities;
+- **`validation/`** — analytical validation datasets, processed data, and
+  evaluation scripts;
+- **`workshop_booklet/`** — Quarto sources for the workshop booklet.
 
-- `calibration_files/` — calibration JSON templates, examples, and released calibration files
-
-- `hardware/` — mechanical, PCB, optical, and electronic design files
-
-- `bom/` — bill of materials, supplier information, alternatives, and cost records
-
-- `validation/` — protocols, raw data, processed data, analysis, and validation reports
-
-- `docs/` — synchronized Markdown and PDF documentation
-
-- `examples/` — example CSV, JSON, and workshop datasets
-
-- `tests/` — software, data-format, and documentation tests
-
-- `releases/` — release manifests and archived release information
-
-## System architecture
-
-The DIY-QFO combines the following principal components:
-
-- an Adafruit PyBadge control and display unit;
-
-- one excitation LED;
-
-- an optical excitation path;
-
-- a sample vessel or reaction tube;
-
-- an emission filter;
-
-- one TSL2591 light sensor;
-
-- a 3D-printed optical and mechanical assembly; and
-
-- firmware for measurement, calibration handling, result display, and data export.
-
-Detailed component specifications and revision-controlled hardware information are provided in the `hardware/`, `bom/`, and `docs/` directories.
+This structure separates hardware, software, analytical tools, validation
+evidence, references, and documentation while maintaining traceability between
+the documented instrument and the files required to reproduce it.
 
 ## Optical architecture
 
-The QuantiFluorONE-Fluorometer uses one TSL2591 fluorescence sensor positioned at 90° to the excitation axis. A Neemoo Ex470BP-40 8x8x1mm excitation filter and a Neemoo Em532BP-40 8x8x1mm emission filter are installed, and measurements use Promega E4941 thin-walled 0.5 mL PCR tubes.
+The DIY-QFO uses one TSL2591 fluorescence sensor positioned **at 90°** to the
+excitation axis.
 
-Fluorescence emitted by the stained dsDNA sample passes through the emission filter and is detected by the TSL2591 sensor.
+The documented configuration uses:
 
-Calibration is based on the blank-corrected 90° fluorescence response:
+- 485 nm excitation LED;
+- Neemoo Ex470BP-40, 8 × 8 × 1 mm excitation filter;
+- Neemoo Em532BP-40, 8 × 8 × 1 mm emission filter; and
+- Promega E4941 thin-walled 0.5 mL PCR tubes.
+
+Fluorescence emitted by the stained dsDNA sample passes through the emission
+filter and is detected by the TSL2591.
+
+The project-defined visible analytical signal is:
 
 \[
-S_{\mathrm{corrected}} = S_{\mathrm{sample}} - S_{\mathrm{blank}}
+VIS = FULL - IR
 \]
 
-The corrected fluorescence signal is related to dsDNA concentration using either a two-point calibration (**2PT**) or a multipoint calibration (**MP**), depending on the selected procedure.
+and the blank-corrected fluorescence response is used for calibration and
+concentration calculation.
 
-## Calibration
+## Calibration and analytical performance
 
-The repository distinguishes between:
+The firmware supports an on-instrument two-point calibration and import of a
+compatible multipoint calibration.
 
-- **2PT calibration** — two-point calibration using a blank or low standard and a defined higher-concentration standard;
+Routine operation uses a two-point calibration consisting of a reagent blank
+and a nominal 400 ng/µL lambda-DNA standard.
 
-- **MP calibration** — multipoint calibration using several concentration levels across the intended measurement range.
+Under the tested configuration and assay conditions, method performance was
+evaluated over an operational range of:
 
-Calibration measurements may be processed using **Calibration Suite 7.2 Stable**. Calibration results can be exported as JSON files and transferred to the fluorometer.
+**0–400 ng/µL dsDNA**
 
-The applicable calibration model, concentration range, units, regression method, LOD and LOQ procedure, residual evaluation, and validity criteria must be documented for every released calibration.
+The validation study showed close agreement with a Promega Quantus Fluorometer
+used as an independent external comparator.
+
+The project currently uses approximately:
+
+- **LOD: 8 ng/µL**
+- **LOQ: 24 ng/µL**
+
+on the original-sample concentration basis.
+
+Detailed calibration procedures, quality-control requirements, statistical
+evaluation, validation results, and limitations are documented in the workshop
+booklet and under `validation/`.
+
+## Software
+
+The documented software configuration is:
+
+- **PyBadge UF2 bootloader:** 3.15.0
+- **Adafruit CircuitPython:** 9.1.1
+- **QuantiFluorONE firmware:** QF1-1.0.0-rc2
+
+The supported firmware package is stored under:
+
+`software/quantifluorone_firmware/`
+
+The repository follows a **one instrument — one supported firmware release**
+policy for the documented workshop configuration.
 
 ## Safety and intended use
 
-The DIY-QuantiFluorONE-dsDNA-Fluorometer is intended as a research, teaching, development, and workshop instrument.
+The DIY-QuantiFluorONE-dsDNA-Fluorometer is intended as a research, teaching,
+development, and workshop instrument.
 
 It is not a medical device and must not be used for:
 
 - clinical diagnostic decisions;
-
 - patient testing;
-
 - therapeutic decisions;
-
 - forensic conclusions; or
+- other regulated diagnostic applications.
 
-- any other regulated diagnostic application.
+Users are responsible for following the safety instructions supplied with all
+reagents, DNA standards, batteries, electronic components, laboratory equipment,
+and consumables.
 
-Users are responsible for following the safety instructions supplied with all reagents, DNA standards, batteries, electronic components, laboratory equipment, and consumables.
+## Reproducibility and source records
 
-## Validation status
+Project-specific source and provenance records are maintained in:
 
-The complete analytical procedure has not yet passed final validation.
+- `references/references.bib`
+- `references/hardware_sources.yml`
+- `references/source_register.csv`
+- `references/standards_register.md`
 
-Current results, when available, must be identified as one of the following:
-
-- example data;
-
-- preliminary experimental data;
-
-- preliminary validation data;
-
-- quality-controlled validation data; or
-
-- final validated data.
-
-Preliminary results must not be presented as final performance specifications.
+Component-specific source files, licences, and attribution information are
+retained with the corresponding hardware and software documentation where
+applicable.
 
 ## Citation
 
 Citation metadata are maintained in [`CITATION.cff`](CITATION.cff).
 
-A formal citation will be added when the first citable project release is published.
+Please use the citation information associated with the corresponding project
+release when referencing the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 
-## License
+## License and third-party material
 
-License selection is currently pending.
+The repository contains original project material as well as components,
+concepts, software, and design files derived from or based on third-party
+open-source projects.
 
-Hardware files, firmware, documentation, datasets, photographs, diagrams, and third-party components may require separate licenses or attribution notices. Until the applicable licenses have been confirmed, repository contents must not be assumed to be available for unrestricted reuse or redistribution.
-
-Third-party source files must retain their original copyright, license, and attribution information.
+Third-party materials retain their respective copyright, licence, and
+attribution requirements. Consult the component-specific licence files,
+source records, and repository documentation before reuse or redistribution.
 
 ## Trademark and affiliation notice
 
-**Promega**, **QuantiFluor**, and **Quantus** are trademarks or registered trademarks of Promega Corporation or its affiliates.
+**Promega**, **QuantiFluor**, and **Quantus** are trademarks or registered
+trademarks of Promega Corporation or its affiliates.
 
-The DIY-QuantiFluorONE-dsDNA-Fluorometer is an independent DIY project. It is not an official Promega product and is not presented as being endorsed, certified, validated, manufactured, or supported by Promega Corporation.
+The DIY-QuantiFluorONE-dsDNA-Fluorometer is an independent DIY project. It is
+not an official Promega product and is not presented as being endorsed,
+certified, manufactured, or supported by Promega Corporation.
 
-The references to the Promega QuantiFluor® ONE dsDNA System and the Promega Quantus™ Fluorometer are provided solely to identify the intended reagent system and a relevant commercial comparison instrument.
+References to the Promega QuantiFluor® ONE dsDNA System and Promega Quantus™
+Fluorometer identify the reagent system and commercial comparison instrument
+used in the documented project.
 
 ## Acknowledgements
 
-The project builds upon concepts, source code, mechanical designs, or documentation from the following open-source projects:
+The project builds upon concepts, source code, mechanical designs, and
+documentation from open-source projects including:
 
 - **ioRodeo Open Colorimeter Plus**
-
+- **ioRodeo fluorometer tube holder**
 - **DIYNAFLUOR**
+- **Adafruit CircuitPython**
+- **PySpectrometer2**
 
-Complete references, original licenses, modification notes, and attribution information will be maintained in the documentation and third-party notices.
+The modified mechanical parts and their integration into the
+DIY-QuantiFluorONE-dsDNA-Fluorometer were developed collaboratively by
+**Dipl.-Ing. Matthias Birkicht** and **Florian Bock, 3D-Haven, Bremerhaven,
+Germany**.
 
-## Contact
+Complete references, licences, modification notes, and attribution information
+are maintained in the project documentation and source records.
 
-**DIY-Fluorometer-Project Research Engineer:** Dipl.-Ing. Matthias Birkicht
+## Contact and project context
 
-**Summer school LZMT Participant:** Dr. Achim Meyer
+**Project author:** Dipl.-Ing. Matthias Birkicht
 
-**Institution:** Leibniz Centre for Marine Tropical Research (LZMT)
+**eDNA Workshop 2026:** with Dr. Achim Meyer
 
-**Project:**  LZMT collaborates with Universiti Malaysia Terengganu (UMT) through the EU-ASEAN STABLE Project (2025–2027), which features joint summer schools focused on the Sustainable Blue Economy hosted within the international academic cluster
+**Workshop context:** STABLE Project (2025–2027), *Higher Education Partnership
+for a Sustainable Blue Economy*
 
-**Contact:** LZMT, Fahrenheitstraße 6, D-28359 Bremen, Germany
+For technical details, reproducibility information, and source attribution,
+consult the workshop booklet and the documentation contained in this repository.
