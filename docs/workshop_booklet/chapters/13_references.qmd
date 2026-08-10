@@ -24,47 +24,59 @@ The standards are cited as methodological references. Formal conformity assessme
 
 ### ioRodeo
 
-The firmware and hardware concepts are derived in part from the ioRodeo
-Open Colorimeter Plus project [@iorodeo_ocp_firmware].
+### ioRodeo Open Colorimeter Plus and related instrumentation
 
-The installed LED driver is the ioRodeo fixed-current radial 16 mA LED board,
-revision `ver_0p1_rev_3` [@iorodeo_led_board]. For integration into the optical
-module, the through-hole LED is mounted on the rear side of the board. The
-board design files, licence and source record are retained in the repository
-for traceability.
+The firmware and hardware concepts are derived in part from the ioRodeo Open Colorimeter Plus project [@iorodeo_ocp_firmware].
 
-The mechanical development of the optical sample holder also draws on the
-open ioRodeo fluorometer tube-holder project
-[@iorodeo_fluorometer_tube_holder].
+The installed LED driver is the ioRodeo fixed-current radial 16 mA LED board, revision `ver_0p1_rev_3` [@iorodeo_led_board]. For integration into the optical module, the through-hole LED is mounted on the rear side of the board. The board design files, licence, and source record are retained in the repository for traceability.
 
-Further examples of open photometric and fluorometric DNA quantification
-using ioRodeo instrumentation are documented by ioRodeo
-[@iorodeo_uv_dna_quantification; @iorodeo_ocp_dna_quantitation;
-@iorodeo_ocp_updates_2025].
+ioRodeo has also documented open photometric and fluorometric approaches to DNA quantification. The UV Open Colorimeter was used for UV-photometric dsDNA determination [@iorodeo_uv_dna_quantification], while the Open Colorimeter Plus was evaluated for fluorometric dsDNA quantification with the AccuGreen assay [@iorodeo_ocp_dna_quantitation]. Subsequent Open Colorimeter Plus hardware and firmware developments, including the dual-sensor architecture, are documented separately [@iorodeo_ocp_updates_2025].
 
-### DIYNAFLUOR
-
-The optical module is derived from the published DIYNAFLUOR fluorometer concept and its open repository [@anderson_diynafluor; @traulab_diynafluor]. It was modified for the installed LED board, filters, sensor geometry and PyBadge enclosure.
+These sources provide useful technical context for the open measurement-chain concept used in this project without being reproduced in detail in the workshop chapters.
 
 ### ioRodeo Fluorometer Tube Holder
 
 The mechanical development of the optical sample holder also draws on the
-open ioRodeo fluorometer tube-holder project. The original repository provides
-FreeCAD design files for the fluorometer tube holder and is distributed under
-the Creative Commons Attribution 4.0 International (CC BY 4.0) licence.
+open ioRodeo fluorometer tube-holder project:
+
+https://github.com/iorodeo/fluorometer_tube_holder
+
+The repository provides FreeCAD design files for the fluorometer tube holder
+and is distributed under the Creative Commons Attribution 4.0 International
+(CC BY 4.0) licence.
 
 The DIY-QuantiFluorONE holder was adapted for the Promega E4941 thin-walled
 0.5 mL PCR tube, the installed 8 × 8 × 1 mm optical filters, one TSL2591
-sensor, and the project-specific 90° optical geometry. The holder is a mix between DIYNAFLUOR and ioRodeo.
+sensor, and the project-specific 90° optical geometry. The resulting holder
+combines design concepts from DIYNAFLUOR and ioRodeo.
 
-These tube holders could used for Tubidimetry, photometry and fluorometry.
-Please look at the ioRodeo blog.
-UV-photometrcic determination of dsDNA (reference method). 
-Instrument = Open UV colorimeter: https://blog.iorodeo.com/uv-dna-quantification/
-Fluorometric determination of dsDNA with accu green (2 TSL2951 sensors): 
-Instrument = Open colorimeter plus:
+The ioRodeo tube-holder and Open Colorimeter platform also illustrate how
+related modular optical arrangements can be used for photometric, turbidimetric and
+fluorometric measurements.
+
+A UV-photometric approach to dsDNA determination using the UV Open Colorimeter
+is described here:
+
+https://blog.iorodeo.com/uv-dna-quantification/
+
+A fluorometric dsDNA determination using AccuGreen and the Open Colorimeter
+Plus is described here:
+
 https://blog.iorodeo.com/open-colorimeter-plus-dna-quantitation/
-Source: https://github.com/iorodeo/fluorometer_tube_holder
+
+In this fluorometric configuration, two TSL2591 sensors are used. The later
+ioRodeo hardware description documents the detector arrangement as a 180°
+geometry. This differs from the DIY-QuantiFluorONE configuration, which uses
+one TSL2591 detector fixed at 90° to the excitation axis.
+
+Later firmware and hardware developments of the Open Colorimeter Plus,
+including changes relevant to this optical configuration, are described here:
+
+https://blog.iorodeo.com/open-colorimeter-plus-firmware-and-hardware-updates/
+
+### DIYNAFLUOR
+
+The optical module is derived from the published DIYNAFLUOR fluorometer concept and its open repository [@anderson_diynafluor; @traulab_diynafluor]. It was modified for the installed LED board, filters, sensor geometry and PyBadge enclosure.
 
 ### Adafruit and CircuitPython
 
