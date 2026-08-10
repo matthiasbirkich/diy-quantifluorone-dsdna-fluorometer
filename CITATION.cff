@@ -2,10 +2,10 @@ cff-version: 1.2.0
 message: "Please cite the DIY-QuantiFluorONE-dsDNA-Fluorometer using the metadata below."
 title: "DIY-QuantiFluorONE-dsDNA-Fluorometer"
 type: software
-version: "0.1.2-draft.1"
-date-released: "2026-08-02"
+version: "1.0.0"
+date-released: "2026-08-10"
 authors:
-  - family-names: "[Family name]"
-    given-names: "[Given name]"
-repository-code: "[Private repository URL]"
-license: "[Pending]"
+  - family-names: "Birkicht"
+    given-names: "Matthias"
+repository-code: "https://github.com/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer"
+license: "MIT"

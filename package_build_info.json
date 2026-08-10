@@ -1,12 +1,11 @@
 {
-  "package_name": "DIY-QuantiFluorONE-dsDNA-Fluorometer_booklet_structure_cleanup",
-  "generated": "2026-08-03",
-  "status": "draft repository working copy for review and push",
-  "source_archive": "Archive_20260803.zip",
-  "measurement_protocol_source": "08_measurement_protocol(1).qmd",
-  "active_booklet_chapters": 13,
-  "appendix_files": 1,
-  "legacy_scaffold_location": "docs/workshop_booklet/archive/legacy_25_chapter_scaffold",
+  "package_name": "DIY-QuantiFluorONE-dsDNA-Fluorometer",
+  "generated": "2026-08-10",
+  "status": "final",
+  "release_version": "1.0.0",
+  "active_booklet_chapters": 14,
   "qmd_source_of_truth": true,
-  "markdown_mirror": "docs/markdown"
+  "markdown_mirror": "docs/markdown",
+  "workshop_booklet_source": "workshop_booklet",
+  "repository_release": "v1.0.0"
 }
