@@ -227,13 +227,15 @@ release when referencing the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 
 ## License and third-party material
 
-The repository contains original project material as well as components,
-concepts, software, and design files derived from or based on third-party
-open-source projects.
+Original project material in this repository is released under the
+[MIT License](LICENSE), unless otherwise stated.
 
-Third-party materials retain their respective copyright, licence, and
-attribution requirements. Consult the component-specific licence files,
-source records, and repository documentation before reuse or redistribution.
+Third-party software, hardware designs, documentation, and other incorporated
+or referenced materials remain subject to their respective original licenses
+and attribution requirements.
+
+See the component-specific license files, source records, and documentation
+for details.
 
 ## Trademark and affiliation notice
 
