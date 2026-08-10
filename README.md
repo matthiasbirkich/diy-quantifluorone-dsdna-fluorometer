@@ -10,6 +10,31 @@
 
 > **Documentation language:** English
 
+Open, portable fluorometer for dsDNA quantification using the
+Promega QuantiFluor® ONE dsDNA System.
+
+## eDNA Workshop 2026 — Start Here
+
+**Workshop participants:** You do not need to navigate the repository
+structure to get started.
+
+### 📘 Workshop Booklet
+
+➡️ **[Open the complete Workshop Booklet (PDF)](DIY-QuantiFluorONE-dsDNA-Fluorometer_Workshop-Booklet.pdf)**
+
+The booklet guides you through:
+
+1. instrument overview and measurement principle;
+2. required hardware and assembly;
+3. software installation;
+4. preparation for measurement;
+5. calibration and quality control;
+6. dsDNA measurements;
+7. interpretation of results.
+
+The folders below contain the source files, hardware documentation,
+software, calibration tools, and validation material used by the project.
+
 ## 📖 Documentation
 
 The complete documentation can either be read as:
