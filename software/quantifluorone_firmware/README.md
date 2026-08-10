@@ -23,6 +23,4 @@ repacked derivative.
 8. Safely eject and restart the device.
 9. Confirm `QuantiFluorONE v1.0 RC2` on the display.
 
-The included calibration remains marked `PROVISIONAL`; the stable designation
-refers to the tested software package and operating workflow, not to completed
-analytical-method validation.
+The multipoint calibration used for quantitative measurements must correspond to the validated calibration workflow described in this repository. Verify the calibration identity, working range, concentration basis, and status before measuring samples.

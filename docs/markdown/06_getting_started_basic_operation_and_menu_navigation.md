@@ -78,7 +78,7 @@ Press B again, or press RIGHT from Live/Details. LEFT changes between the two ra
 5. Confirm with SELECT.
 6. Measure a fresh reagent blank with START before measuring samples.
 
-The calibration included with RC2 is marked `PROVISIONAL` and is intended for software and hardware testing, not final analytical validation.
+The multipoint calibration used for quantitative measurements must correspond to the validated calibration workflow described in this repository. Verify the calibration identity, working range, concentration basis, and status before measuring samples.
 
 ## Managing CSV and JSON files: use the slow double-click
 
