@@ -1,6 +1,3 @@
-
-
-
 ---
 document-status: "Current"
 validation-status: "Validated configuration"
