@@ -1,15 +1,29 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+message: "If you use this software, please cite the archived software release and the associated methodological article."
 
+type: software
 title: "DIY-QuantiFluorONE-dsDNA-Fluorometer"
 
 authors:
   - family-names: "Birkicht"
     given-names: "Matthias"
     orcid: "https://orcid.org/0009-0006-0386-0278"
-    affiliation: "Centre for Tropical Marine Research"
+    affiliation: "Leibniz Centre for Tropical Marine Research"
 
-version: "v1.0.2"
-date-released: 2026-08-12
+version: "1.0.3"
+date-released: "2026-08-12"
+
+doi: "10.5281/zenodo.21909959"
 
 repository-code: "https://github.com/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer"
+
+references:
+  - type: article
+    authors:
+      - family-names: "Birkicht"
+        given-names: "Matthias"
+        orcid: "https://orcid.org/0009-0006-0386-0278"
+    title: "Beyond the Black Box: From Open Hardware to Open Validation in Analytical Science"
+    doi: "10.5281/zenodo.21910043"
+    date-published: "2026-08-13"
+    year: 2026
