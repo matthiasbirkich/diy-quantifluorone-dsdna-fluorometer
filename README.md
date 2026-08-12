@@ -76,6 +76,18 @@ settings to be adapted for other fluorescence-based analytical applications,
 provided that the modified configuration is appropriately calibrated and
 evaluated.
 
+## Citation and archived release
+
+The archived release associated with the Open Validation work is:
+
+**DIY-QuantiFluorONE-dsDNA-Fluorometer v1.0.3**  
+Zenodo DOI: https://doi.org/10.5281/zenodo.21909959
+
+The associated methodological preprint is:
+
+**Birkicht, M. (2026). Beyond the Black Box: From Open Hardware to Open Validation in Analytical Science.**  
+Zenodo DOI: https://doi.org/10.5281/zenodo.21910043
+
 ## Workshop context
 
 This repository and the accompanying workshop booklet were prepared for the
