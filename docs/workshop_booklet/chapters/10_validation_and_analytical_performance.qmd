@@ -41,7 +41,7 @@ This does **not** imply that the Quantus is analytically privileged, traceable, 
 
 The most direct practical linearity check is the comparison of the concentrations reported by the two-point-calibrated DIY fluorometer with the independently obtained Quantus concentrations.
 
-![Two-point-calibrated DIY fluorometer results shown as technical triplicate mean ± SD. Marker size was reduced so that the error bars remain visible. The shaded band is the 95% confidence band of the independent linear regression. The square identifies the upper calibration anchor.](../../figures/rendered/ch10/two_point_calibrated_diy_results_with_sd_and_confidence_band.png){#fig-ch10-linearity-sd}
+![Two-point-calibrated DIY fluorometer results shown as technical triplicate mean ± SD. Marker size was reduced so that the error bars remain visible. The shaded band is the 95% confidence band of the independent linear regression. The square identifies the upper calibration anchor.](../../figures/two_point_calibrated_diy_results_with_sd_and_confidence_band.png){#fig-ch10-linearity-sd}
 
 For the 14 independent results:
 
@@ -56,7 +56,7 @@ The slope was close to 1, the intercept was close to 0, and no systematic curvat
 
 The same technical-repeat data can also be visualized with 95% confidence intervals for the three technical readings:
 
-![Two-point-calibrated DIY fluorometer results shown as technical triplicate mean ± 95% confidence interval. The shaded band is again the 95% confidence band of the independent regression. These intervals describe the uncertainty of the three consecutive sensor readings within one measurement cycle; they do not represent independently prepared assay replicates.](../../figures/rendered/ch10/two_point_calibrated_diy_results_with_95CI_and_confidence_band.png){#fig-ch10-linearity-ci}
+![Two-point-calibrated DIY fluorometer results shown as technical triplicate mean ± 95% confidence interval. The shaded band is again the 95% confidence band of the independent regression. These intervals describe the uncertainty of the three consecutive sensor readings within one measurement cycle; they do not represent independently prepared assay replicates.](../../figures/two_point_calibrated_diy_results_with_95CI_and_confidence_band.png){#fig-ch10-linearity-ci}
 
 A formal curvature assessment such as a Mandel fitting test would be more defensible with independent replicate preparations per concentration level. In the present dataset, the triplicate readings are technical sensor repeats rather than independent assay replicates. They support the visual conclusion of linearity and short-term repeatability, but they should not be overinterpreted as full replicate-level evidence of non-linearity testing.
 
@@ -71,7 +71,7 @@ $$R^2=0.999415$$
 
 A Bland–Altman plot is a useful complement to the linearity figure because it answers a different question: not *Is the relation linear?*, but *How large is the bias and how wide is the agreement interval between the two devices?*
 
-![Bland–Altman agreement plot for the independent validation results. The solid line marks the mean bias, and the dashed lines mark the approximate 95% limits of agreement.](../../figures/rendered/ch10/quantus_diy_bland_altman_v2.png){#fig-ch10-bland-altman}
+![Bland–Altman agreement plot for the independent validation results. The solid line marks the mean bias, and the dashed lines mark the approximate 95% limits of agreement.](../../figures/quantus_diy_bland_altman_v2.png){#fig-ch10-bland-altman}
 
 The independent comparison results gave:
 
@@ -119,7 +119,7 @@ The blank-based evaluation follows the project framework already described in Ch
 
 Two additional independently prepared blanks were later measured in eleven repeated cycles each. They produced confirmatory estimates of 7.027 ng/µL for the LOD and 21.294 ng/µL for the LOQ. These 22 cycles represent repeated measurements of two blank preparations and are not counted as 22 independent blanks.
 
-![Primary and confirmatory blank-based LOD and LOQ estimates.](../../figures/rendered/ch10/blank_based_lod_loq_summary.png){#fig-ch10-blank-limits}
+![Primary and confirmatory blank-based LOD and LOQ estimates.](../../figures/blank_based_lod_loq_summary.png){#fig-ch10-blank-limits}
 
 For concise operational use, the project uses approximately:
 
