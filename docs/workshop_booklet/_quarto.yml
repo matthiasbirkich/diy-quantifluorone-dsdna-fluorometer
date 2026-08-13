@@ -35,7 +35,14 @@ format:
     number-sections: true
   pdf:
     documentclass: scrreprt
+    papersize: a4
+    geometry:
+      - top=22mm
+      - bottom=22mm
+      - left=20mm
+      - right=20mm
     toc: true
     number-sections: true
     colorlinks: true
     use-rsvg-convert: false
+    include-in-header: preamble.tex
