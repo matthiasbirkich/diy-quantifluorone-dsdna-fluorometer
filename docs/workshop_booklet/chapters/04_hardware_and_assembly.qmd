@@ -20,7 +20,7 @@ At the end of the workshop, the participant should be able to:
 
 The instrument uses **one TSL2591 sensor only**. It does not use a second reference or transmission sensor.
 
-![Assembled DIY-QuantiFluorONE prototype during a firmware and display check. The displayed measurement is not presented as analytical validation data.](../../figures/photos/ch04/assembled_instrument_front.jpg)
+![Assembled DIY-QuantiFluorONE prototype during a firmware and display check. The displayed measurement is not presented as analytical validation data.](../../figures/assembled_instrument_front.jpg)
 
 ## Complete component overview and bill of materials
 
@@ -55,7 +55,7 @@ The confirmed mounting fasteners are:
 - two M2 x 6 screws with matching nuts for emission filter holder C
 - four M3 x 35 screws with matching M3 nuts for fastening the cuvette holder to the led-cover and parts A+B
 
-![Main components required to assemble the DIY-QuantiFluorONE-dsDNA-Fluorometer.](../../figures/photos/ch04/qfo_complete_component_set.jpg)
+![Main components required to assemble the DIY-QuantiFluorONE-dsDNA-Fluorometer.](../../figures/qfo_complete_component_set.jpg)
 
 **Figure 4.0.** Main electronic, optical, mechanical, and laboratory components
 used to assemble and operate the DIY-QuantiFluorONE-dsDNA-Fluorometer.
@@ -103,9 +103,9 @@ designs for the Promega E4941 thin-walled 0.5 mL PCR tube, the installed
 8 × 8 × 1 mm optical filters, one TSL2591 sensor, and the project-specific
 90° optical geometry [@anderson_diynafluor; @traulab_diynafluor] [@iorodeo_fluorometer_tube_holder]
 
-![CAD overview of the PyBadge enclosure and instrument base.](../../figures/cad/ch04/pybadge_enclosure_cad.jpeg)
+![CAD overview of the PyBadge enclosure and instrument base.](../../figures/pybadge_enclosure_cad.jpeg)
 
-![CAD overview of the optical module mounted on the instrument base.](../../figures/cad/ch04/optical_module_overview_cad.jpeg)
+![CAD overview of the optical module mounted on the instrument base.](../../figures/optical_module_overview_cad.jpeg)
 
 ## Preparation and inspection of the 3D-printed parts
 
@@ -139,7 +139,7 @@ Do not enlarge filter pockets with a power tool while the filters or electronics
 
 > **Check:** Looking from the LED side, the sequence must be LED → Ex470BP-40 → sample tube.
 
-![Excitation side of the optical module showing the installed 485 nm LED and Ex470BP-40 excitation filter.](../../figures/photos/ch04/excitation_side_led_filter.jpg)
+![Excitation side of the optical module showing the installed 485 nm LED and Ex470BP-40 excitation filter.](../../figures/excitation_side_led_filter.jpg)
 
 **Figure 4.1.** Excitation side of the optical module showing the modified ioRodeo fixed-current LED board with the rear-mounted 485 nm LED and the installed Ex470BP-40 excitation filter.
 
@@ -166,13 +166,13 @@ Do not enlarge filter pockets with a power tool while the filters or electronics
 
 > **Check:** Looking from the detector side, the sequence must be sample tube → Em532BP-40 → TSL2591.
 
-![Detection side of the optical module showing the Em532BP-40 emission filter and TSL2591 sensor.](../../figures/photos/ch04/detection_side_filter_sensor.jpg)
+![Detection side of the optical module showing the Em532BP-40 emission filter and TSL2591 sensor.](../../figures/detection_side_filter_sensor.jpg)
 
 **Figure 4.2.** Detection side of the optical module showing the Em532BP-40 emission filter together with the single TSL2591 light sensor mounted in the optical holder.
 
 ## Correct 90° optical geometry
 
-![Optical geometry of the instrument.](../../figures/source/ch04/qfo_optical_geometry.png)
+![Optical geometry of the instrument.](../../figures/qfo_optical_geometry.png)
 
 The excitation axis passes from the LED through the Ex470BP-40 to the sample. The detection axis passes from the sample through the Em532BP-40 to the single TSL2591. The printed holder fixes these axes at 90°.
 
@@ -191,7 +191,7 @@ Do not compensate for poor printed fit by angling the sensor board or LED. Corre
 
 The excitation LED is driven by the ioRodeo `radial_16mA` fixed-current LED board, revision `ver_0p1_rev_3`. The component-placement drawing below identifies the principal components and provides a visual reference for inspection of the assembled board.
 
-![Component placement of the ioRodeo `radial_16mA` fixed-current LED board, revision `ver_0p1_rev_3`. The drawing identifies the principal components used for visual inspection and assembly verification.](../../figures/source/ch04/iorodeo_radial_16mA_assembly.png)
+![Component placement of the ioRodeo `radial_16mA` fixed-current LED board, revision `ver_0p1_rev_3`. The drawing identifies the principal components used for visual inspection and assembly verification.](../../figures/iorodeo_radial_16mA_assembly.png)
 
 The principal components are:
 
@@ -218,13 +218,13 @@ The drawing is intended as an assembly and visual-inspection aid.
 7. Keep all boards mechanically supported. Qwiic cables must not be used as structural restraints.
 8. Leave enough service loop to disconnect a board without pulling directly on the wire bundle.
 
-![Open instrument showing the internal wiring.](../../figures/photos/ch04/open_instrument_wiring.jpg)
+![Open instrument showing the internal wiring.](../../figures/open_instrument_wiring.jpg)
 
 **Figure 4.3.** Interior view of the assembled instrument showing the PyBadge, PCA9546 I²C multiplexer, modified ioRodeo LED board, TSL2591 sensor and internal wiring.
 
 ## STEMMA QT / Qwiic wiring and I²C addresses
 
-![Electronics overview. Dashed branches indicate that the exact PCA9546 channel allocation is still to be recorded.](../../figures/source/ch04/qfo_electronics_overview.png)
+![Electronics overview. Dashed branches indicate that the exact PCA9546 channel allocation is still to be recorded.](../../figures/qfo_electronics_overview.png)
 
 The confirmed address map is:
 
@@ -286,7 +286,7 @@ The final light shield must be fitted before blank stability and low-signal perf
 
 The photograph below shows the complete laboratory configuration used throughout this documentation and during the workshop.
 
-![Complete measurement setup.](../../figures/photos/ch04/measuring_setup.jpg)
+![Complete measurement setup.](../../figures/measuring_setup.jpg)
 
 **Figure 4.4.** Complete measurement setup including the DIY-QuantiFluorONE-dsDNA-Fluorometer, Promega QuantiFluor® ONE dsDNA System, pipettes, PCR tubes and the supporting laboratory equipment used for routine measurements.
 
