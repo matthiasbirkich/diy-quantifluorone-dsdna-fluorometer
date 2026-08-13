@@ -1,6 +1,6 @@
 {
-  "sha": "f8116656d6160e6cf67a0557f66b5fe8df299b53",
-  "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/f8116656d6160e6cf67a0557f66b5fe8df299b53",
+  "sha": "bfc7279de3e483523f9b434b17c98f0ecac6f62d",
+  "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/bfc7279de3e483523f9b434b17c98f0ecac6f62d",
   "tree": [
     {
       "path": ".gitattributes",
@@ -59,6 +59,21 @@
       "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/55227b5d6646b098f5af581e04b3c65b55508c83"
     },
     {
+      "path": "Repo_tree",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5603a360950e55d06f466d3dd12b7d941e2fe543",
+      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/5603a360950e55d06f466d3dd12b7d941e2fe543"
+    },
+    {
+      "path": "Repo_tree/Tree_DIY-Fluorometer-Repo.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "300d0a366fa2435e20d33b58cfcc0657ddd3dd27",
+      "size": 78687,
+      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/300d0a366fa2435e20d33b58cfcc0657ddd3dd27"
+    },
+    {
       "path": "SOFTWARE_BINARY_MANIFEST.json",
       "mode": "100644",
       "type": "blob",
@@ -78,32 +93,8 @@
       "path": "bom",
       "mode": "040000",
       "type": "tree",
-      "sha": "255dcf4fb6f3376fe6f0b3079e55da7bcb7aebf3",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/255dcf4fb6f3376fe6f0b3079e55da7bcb7aebf3"
-    },
-    {
-      "path": "bom/alternates.csv",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "b9e6bc009631d8502bfc8cc1d50ff66d26f65722",
-      "size": 83,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/b9e6bc009631d8502bfc8cc1d50ff66d26f65722"
-    },
-    {
-      "path": "bom/assembly_hardware_tbd.csv",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "07f9674c87e4196c0a3865cbc4373ed0711fc3e4",
-      "size": 318,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/07f9674c87e4196c0a3865cbc4373ed0711fc3e4"
-    },
-    {
-      "path": "bom/cost_history.csv",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "f83aeacc8b3780b7c822b519ef4e2de46b2f3ac5",
-      "size": 94,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/f83aeacc8b3780b7c822b519ef4e2de46b2f3ac5"
+      "sha": "a5806bd5242631eaf9cdc11c3af652ca9476e01d",
+      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/a5806bd5242631eaf9cdc11c3af652ca9476e01d"
     },
     {
       "path": "bom/master_bom.csv",
@@ -112,14 +103,6 @@
       "sha": "366ee23f2ba36d7ddf2eeff33a0c02ad521bcaad",
       "size": 2087,
       "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/366ee23f2ba36d7ddf2eeff33a0c02ad521bcaad"
-    },
-    {
-      "path": "bom/suppliers.csv",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "bf40c48c0de4412ec6ad9efa8518ba218043ffcb",
-      "size": 56,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/bf40c48c0de4412ec6ad9efa8518ba218043ffcb"
     },
     {
       "path": "docs",
@@ -1539,8 +1522,8 @@
       "path": "validation",
       "mode": "040000",
       "type": "tree",
-      "sha": "e3f97ae78c078636eed4b647cd8d071f03b1048b",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/e3f97ae78c078636eed4b647cd8d071f03b1048b"
+      "sha": "ce20c5f83f862f219ad6d606ce493ca51cb297d4",
+      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/ce20c5f83f862f219ad6d606ce493ca51cb297d4"
     },
     {
       "path": "validation/PROVISIONAL_calibration_MP_2026-07-24.csv",
@@ -1554,24 +1537,9 @@
       "path": "validation/README.md",
       "mode": "100644",
       "type": "blob",
-      "sha": "01922a666b653355dea3b55ee6d3e5b007c3f477",
-      "size": 2303,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/01922a666b653355dea3b55ee6d3e5b007c3f477"
-    },
-    {
-      "path": "validation/acceptance_criteria",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/d564d0bc3dd917926892c55e3706cc116d5b165e"
-    },
-    {
-      "path": "validation/acceptance_criteria/.gitkeep",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
-      "size": 0,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      "sha": "cf6a577d373107a59d7d44169c5dc6c180ee2d50",
+      "size": 2842,
+      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/cf6a577d373107a59d7d44169c5dc6c180ee2d50"
     },
     {
       "path": "validation/blank_performance_summary.csv",
@@ -1590,170 +1558,6 @@
       "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/de905f5f1b3365e0a5cee9c29bfd005b6f93a4df"
     },
     {
-      "path": "validation/final",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "6782dbe094cb3a44dc5a4ae3c253d1ee02ddd2db",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/6782dbe094cb3a44dc5a4ae3c253d1ee02ddd2db"
-    },
-    {
-      "path": "validation/final/notebooks",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/d564d0bc3dd917926892c55e3706cc116d5b165e"
-    },
-    {
-      "path": "validation/final/notebooks/.gitkeep",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
-      "size": 0,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-    },
-    {
-      "path": "validation/final/processed",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/d564d0bc3dd917926892c55e3706cc116d5b165e"
-    },
-    {
-      "path": "validation/final/processed/.gitkeep",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
-      "size": 0,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-    },
-    {
-      "path": "validation/final/raw",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/d564d0bc3dd917926892c55e3706cc116d5b165e"
-    },
-    {
-      "path": "validation/final/raw/.gitkeep",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
-      "size": 0,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-    },
-    {
-      "path": "validation/final/reports",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/d564d0bc3dd917926892c55e3706cc116d5b165e"
-    },
-    {
-      "path": "validation/final/reports/.gitkeep",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
-      "size": 0,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-    },
-    {
-      "path": "validation/preliminary",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "6782dbe094cb3a44dc5a4ae3c253d1ee02ddd2db",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/6782dbe094cb3a44dc5a4ae3c253d1ee02ddd2db"
-    },
-    {
-      "path": "validation/preliminary/notebooks",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/d564d0bc3dd917926892c55e3706cc116d5b165e"
-    },
-    {
-      "path": "validation/preliminary/notebooks/.gitkeep",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
-      "size": 0,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-    },
-    {
-      "path": "validation/preliminary/processed",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/d564d0bc3dd917926892c55e3706cc116d5b165e"
-    },
-    {
-      "path": "validation/preliminary/processed/.gitkeep",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
-      "size": 0,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-    },
-    {
-      "path": "validation/preliminary/raw",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/d564d0bc3dd917926892c55e3706cc116d5b165e"
-    },
-    {
-      "path": "validation/preliminary/raw/.gitkeep",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
-      "size": 0,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-    },
-    {
-      "path": "validation/preliminary/reports",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/d564d0bc3dd917926892c55e3706cc116d5b165e"
-    },
-    {
-      "path": "validation/preliminary/reports/.gitkeep",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
-      "size": 0,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-    },
-    {
-      "path": "validation/protocols",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/d564d0bc3dd917926892c55e3706cc116d5b165e"
-    },
-    {
-      "path": "validation/protocols/.gitkeep",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
-      "size": 0,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-    },
-    {
-      "path": "validation/qc",
-      "mode": "040000",
-      "type": "tree",
-      "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e",
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/trees/d564d0bc3dd917926892c55e3706cc116d5b165e"
-    },
-    {
-      "path": "validation/qc/.gitkeep",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
-      "size": 0,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-    },
-    {
       "path": "validation/quantifluorone_log_v100rc2.csv",
       "mode": "100644",
       "type": "blob",
@@ -1762,20 +1566,12 @@
       "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/725cf478d41baf48a7665829eb0d1bfa16cd952e"
     },
     {
-      "path": "validation/quantus_diy_comparison_dataset.csv",
+      "path": "validation/quantusquantus_diy_two_point_comparison.csv",
       "mode": "100644",
       "type": "blob",
-      "sha": "a343abb5a49e42699e6102bbfd6dfed4a17c8049",
+      "sha": "05a0fc772b216db445c38eb2622017ff222d5a5e",
       "size": 1611,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/a343abb5a49e42699e6102bbfd6dfed4a17c8049"
-    },
-    {
-      "path": "validation/quantus_diy_two_point_comparison.csv",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "f7c2abe53b0bd4350a9ea9bb8dacc746640ca2f5",
-      "size": 160,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/f7c2abe53b0bd4350a9ea9bb8dacc746640ca2f5"
+      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/05a0fc772b216db445c38eb2622017ff222d5a5e"
     },
     {
       "path": "validation/requirements.txt",
@@ -1789,9 +1585,9 @@
       "path": "validation/validation_and_analytical_performance.py",
       "mode": "100644",
       "type": "blob",
-      "sha": "767a02b336dc0f356864c72535724b413ae76fd5",
-      "size": 6916,
-      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/767a02b336dc0f356864c72535724b413ae76fd5"
+      "sha": "2f0bf328b3acd8dd936244542ef2bcec8c4a3c0d",
+      "size": 8873,
+      "url": "https://api.github.com/repos/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer/git/blobs/2f0bf328b3acd8dd936244542ef2bcec8c4a3c0d"
     },
     {
       "path": "validation/validation_statistics.csv",
