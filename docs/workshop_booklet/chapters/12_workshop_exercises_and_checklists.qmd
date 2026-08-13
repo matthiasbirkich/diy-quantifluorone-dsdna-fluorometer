@@ -44,10 +44,6 @@ Successful completion of these checks confirms correct basic instrument operatio
 
 ## Further Applications
 
-## Further Applications
-
-## Further Applications
-
 The DIY-QuantiFluorONE-dsDNA-Fluorometer described in this booklet is configured and evaluated specifically for the Promega QuantiFluor® ONE dsDNA assay.
 
 The underlying instrument concept is modular. By selecting an appropriate excitation source, optical filters, detector settings, sample geometry, and calibration procedure, the same general design approach can provide a basis for other fluorescence-based analytical applications.

@@ -121,6 +121,8 @@ These records should be updated whenever a source, component revision, software 
 
 The project gratefully acknowledges the developers and contributors of the ioRodeo Open Colorimeter Plus, DIYNAFLUOR, Adafruit CircuitPython, and PySpectrometer2 projects, as well as the manufacturers and standards organisations whose documentation supported the development and validation of the instrument.
 
+Special thanks to Joanne Long from ioRodeo. Mrs. Long spendt us a fluorometric cuvette holder for 0.2mL tubes to test the ioRodeo colorimeter plus for fluorometry.
+
 Special thanks are extended to Florian Bock of 3D-Haven for the collaborative development and adaptation of the mechanical parts.
 
 The DIY-QuantiFluorONE-dsDNA-Fluorometer and this workshop documentation were prepared in the context of the 2026 eDNA workshop with Dr. Achim Meyer within the STABLE Project (2025–2027), *Higher Education Partnership for a Sustainable Blue Economy*.
