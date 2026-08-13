@@ -1,5 +1,11 @@
 \usepackage{needspace}
 
-\AddToHook{cmd/section/before}{\Needspace{6\baselineskip}}
-\AddToHook{cmd/subsection/before}{\Needspace{5\baselineskip}}
-\AddToHook{cmd/subsubsection/before}{\Needspace{4\baselineskip}}
+% Keep headings together with a reasonable amount of following text
+\AddToHook{cmd/section/before}{\Needspace{10\baselineskip}}
+\AddToHook{cmd/subsection/before}{\Needspace{8\baselineskip}}
+\AddToHook{cmd/subsubsection/before}{\Needspace{6\baselineskip}}
+
+% Avoid single paragraph lines at page boundaries
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
