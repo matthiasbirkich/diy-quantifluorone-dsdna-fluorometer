@@ -57,11 +57,11 @@ The optical configuration of the DIY-QuantiFluorONE-dsDNA-Fluorometer was select
 
 The 485 nm excitation LED closely matches the excitation spectrum of the Promega QuantiFluor® ONE dsDNA dye. The Ex470BP-40 excitation filter narrows the LED spectrum, while the Em532BP-40 emission filter efficiently suppresses scattered excitation light and transmits the fluorescence emission around 530 nm.
 
-The spectral relationship between the excitation source, optical filters and fluorescence spectra is illustrated in Figure 4.1.
+The spectral relationship between the excitation source, optical filters and fluorescence spectra is illustrated in Figure 3.1.
 
 ![Spectral compatibility of the optical configuration](../figures/optical_configuration_spectra.png){width=75%}
 
-**Figure 4.1** Spectral compatibility of the 485 nm excitation LED, Ex470BP-40 excitation filter, Em532BP-40 emission filter and the QuantiFluor® ONE dsDNA fluorescence system. The overlap illustrates the optical basis of the DIY-QuantiFluorONE-dsDNA-Fluorometer.
+**Figure 3.1** Spectral compatibility of the 485 nm excitation LED, Ex470BP-40 excitation filter, Em532BP-40 emission filter and the QuantiFluor® ONE dsDNA fluorescence system. The overlap illustrates the optical basis of the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 
 The same design principle can be applied to other fluorescence assays by selecting appropriate LEDs, optical filters, cuvette holders and calibration models.
 
@@ -219,9 +219,9 @@ Two-point calibration is fast and suitable for a workshop routine when the assay
 
 ### Multipoint calibration
 
-Multipoint calibration uses several concentration levels and replicate measurements. Calibration Suite 7.2 Stable can calculate ordinary least squares (OLS) and compare it with weighted models (`1/c`, `1/c²`, and `1/s²`). It also displays residuals, confidence bands, prediction bands, recovery, and model-comparison statistics.
+Multipoint calibration uses several concentration levels and replicate measurements. Calibration Suite 7.3 can calculate ordinary least squares (OLS) and compare it with weighted models (`1/c`, `1/c²`, and `1/s²`). It also displays residuals, confidence bands, prediction bands, recovery, and model-comparison statistics.
 
-The current PyBadge firmware imports accepted OLS calibration data. Model selection and diagnostics are performed in Calibration Suite 7.2 Stable before the calibration JSON is transferred to the instrument.
+The current PyBadge firmware imports accepted OLS calibration data. Model selection and diagnostics are performed in Calibration Suite 7.3 before the calibration JSON is transferred to the instrument.
 
 DIN 38402-51:2017-05 is used as a reference for linear calibration concepts. The repository cites the standard but does not reproduce protected standard text [@din38402_51].
 
@@ -245,9 +245,9 @@ $$
 
 These are transparent blank-based estimates for workshop and instrument evaluation. They are not presented as a complete implementation of every procedure in DIN 32645.
 
-### Multipoint calculation in Calibration Suite 7.2 Stable
+### Multipoint calculation in Calibration Suite 7.3
 
-For multipoint calibration, Calibration Suite 7.2 Stable implements the indirect calibration-curve calculation documented in the software as the DIN 32645 method summarized in CLB1. The calculation uses the residual standard deviation, slope, Student-$t$ factors, calibration design, significance level, the selected quantification factor $k$, and the number of future determinations. The LOQ is solved iteratively.
+For multipoint calibration, Calibration Suite 7.3 implements the indirect calibration-curve calculation documented in the software as the DIN 32645 method summarized in CLB1. The calculation uses the residual standard deviation, slope, Student-$t$ factors, calibration design, significance level, the selected quantification factor $k$, and the number of future determinations. The LOQ is solved iteratively.
 
 DIN 32645:2008-11 is cited as the relevant standard for decision, detection, and quantification limits under repeatability conditions [@din32645]. A formal claim of conformity requires a documented comparison of the software implementation with the licensed standard and the defined validation protocol.
 

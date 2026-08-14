@@ -12,8 +12,8 @@ The repository includes the current browser-based Calibration Suite as a local w
 
 The current files are stored in:
 
-- `tools/calibration_suite/Open_Fluorometer_Calibration_Suite_v7.2_Dynamic_Axis_Labels.html`
-- `tools/calibration_suite/Open_Fluorometer_Calibration_Suite_v7.2_Dynamic_Axis_Labels.txt`
+- `tools/calibration_suite/Open_Fluorometer_Calibration_Suite_v7.3.html`
+- `tools/calibration_suite/Open_Fluorometer_Calibration_Suite_v7.3.txt`
 
 ## Basic workflow
 
@@ -40,7 +40,7 @@ The current files are stored in:
 
 ## Compatibility note for QF1-1.0.0-rc2
 
-The supplied Calibration Suite v7.2 Stable displays a firmware target of `v8.2+` and includes a function that updates a `configuration.json` file containing a `diynafluor` section. QuantiFluorONE `QF1-1.0.0-rc2` uses a different file layout:
+The supplied Calibration Suite v7.3 displays a firmware target of `v8.2+` and includes a function that updates a `configuration.json` file containing a `diynafluor` section. QuantiFluorONE `QF1-1.0.0-rc2` uses a different file layout:
 
 - `quantifluorone_config.json` for device settings;
 - `quantifluorone_multipoint.json` for the model imported through `SELECT → LOAD MP CAL`.

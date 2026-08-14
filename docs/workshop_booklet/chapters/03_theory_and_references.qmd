@@ -59,11 +59,11 @@ The optical configuration of the DIY-QuantiFluorONE-dsDNA-Fluorometer was select
 
 The 485 nm excitation LED closely matches the excitation spectrum of the Promega QuantiFluor® ONE dsDNA dye. The Ex470BP-40 excitation filter narrows the LED spectrum, while the Em532BP-40 emission filter efficiently suppresses scattered excitation light and transmits the fluorescence emission around 530 nm.
 
-The spectral relationship between the excitation source, optical filters and fluorescence spectra is illustrated in Figure 4.1.
+The spectral relationship between the excitation source, optical filters and fluorescence spectra is illustrated in Figure 3.1.
 
 ![Spectral compatibility of the optical configuration](../../figures/optical_configuration_spectra.png){width=75%}
 
-**Figure 4.1** Spectral compatibility of the 485 nm excitation LED, Ex470BP-40 excitation filter, Em532BP-40 emission filter and the QuantiFluor® ONE dsDNA fluorescence system. The overlap illustrates the optical basis of the DIY-QuantiFluorONE-dsDNA-Fluorometer.
+**Figure 3.1** Spectral compatibility of the 485 nm excitation LED, Ex470BP-40 excitation filter, Em532BP-40 emission filter and the QuantiFluor® ONE dsDNA fluorescence system. The overlap illustrates the optical basis of the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 
 The same design principle can be applied to other fluorescence assays by selecting appropriate LEDs, optical filters, cuvette holders and calibration models.
 

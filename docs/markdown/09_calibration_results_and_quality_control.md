@@ -13,7 +13,7 @@ Use one of the following calibration routes before measuring unknown samples.
 | Calibration route | Preparation and evaluation | Instrument action | Appropriate use |
 |---|---|---|---|
 | On-instrument two-point calibration | Blank and one known standard | `SELECT → 2-PT CAL` | Rapid routine measurements within a limited working range |
-| Multipoint calibration | Evaluate calibration CSV data in the Open Fluorometer Calibration Suite v7.2 Stable | Copy the accepted firmware-compatible JSON to `CIRCUITPY`, then use `SELECT → LOAD MP CAL` | Measurements requiring a defined calibration range, prediction error, LOD, LOQ, and documented model checks |
+| Multipoint calibration | Evaluate calibration CSV data in the Open Fluorometer Calibration Suite v7.3 Stable | Copy the accepted firmware-compatible JSON to `CIRCUITPY`, then use `SELECT → LOAD MP CAL` | Measurements requiring a defined calibration range, prediction error, LOD, LOQ, and documented model checks |
 | Stored calibration | Review the stored calibration identity and status | `SELECT → CAL STATUS` | Continued work under unchanged and verified conditions |
 | No valid calibration | Raw-signal inspection only | Do not report a concentration | Instrument checks and troubleshooting |
 
