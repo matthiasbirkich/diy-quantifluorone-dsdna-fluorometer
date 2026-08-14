@@ -103,9 +103,9 @@ designs for the Promega E4941 thin-walled 0.5 mL PCR tube, the installed
 8 × 8 × 1 mm optical filters, one TSL2591 sensor, and the project-specific
 90° optical geometry [@anderson_diynafluor; @traulab_diynafluor] [@iorodeo_fluorometer_tube_holder]
 
-![CAD overview of the PyBadge enclosure and instrument base.](../../figures/pybadge_enclosure_cad.jpeg)
+![CAD overview of the PyBadge enclosure and instrument base.](../../figures/pybadge_enclosure_cad.jpeg){width=65%}
 
-![CAD overview of the optical module mounted on the instrument base.](../../figures/optical_module_overview_cad.jpeg)
+![CAD overview of the optical module mounted on the instrument base.](../../figures/optical_module_overview_cad.jpeg){width=65%}
 
 ## Preparation and inspection of the 3D-printed parts
 
