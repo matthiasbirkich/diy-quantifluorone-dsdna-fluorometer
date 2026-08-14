@@ -173,6 +173,8 @@ Thus, 1 µL of the 400 ng/µL $\lambda$-DNA stock contains 400 ng DNA but only a
 
 For example, 100 fmol corresponds to approximately 9.8 ng at 150 bp, 32.5 ng at 500 bp, and 65 ng at 1000 bp.
 
+The getting started - basic operation of the instrument, use of calibration suite, editing the samle list and the dsDNA measurement protocol you will find in chapters 7 - 8.
+
 ## Analytical validity, reference methods, and open measurement chains
 
 Instrument qualification, assay calibration, and method validation are related but distinct tasks. A fluorometer can be checked for properties such as linear response, wavelength suitability, detector response, sensitivity, and day-to-day stability without treating another fluorometer as an absolute reference. General fluorescence-quality guidance likewise distinguishes instrument characterization and performance verification from the validation of the analytical method itself.[^fluorometry-qa]
