@@ -135,11 +135,27 @@ The project uses:
 
 Promega recommends thin-walled 0.5 mL PCR tubes, thorough mixing without bubbles, five minutes of incubation at room temperature protected from light, and careful pipetting of the small sample volume [@promega_tm405].
 
-### λ-DNA standards
+### $\lambda$-DNA standards
 
-λ-DNA is double-stranded DNA from bacteriophage lambda and is suitable for preparing calibration standards. Record the supplier, product, lot, stock concentration, dilution medium, preparation date, and storage conditions. Use fresh low-concentration dilutions where practical, and mix carefully without introducing bubbles.
+Promega $\lambda$-DNA is double-stranded DNA from bacteriophage lambda and is suitable for preparing calibration standards. Record the supplier, product, lot, stock concentration, dilution medium, preparation date, and storage conditions. Use fresh low-concentration dilutions where practical, vortex well, and remove introduced bubbles by gently tapping the tube.
 
-Promega notes that a standard with a molecular size similar to the unknown DNA may improve comparability. Therefore λ-DNA is a practical workshop standard, but matrix and fragment-size differences remain possible sources of bias [@promega_tm405].
+Promega notes that a standard with a molecular size similar to the unknown DNA may improve comparability. Therefore, $\lambda$-DNA is a practical workshop standard, but matrix and fragment-size differences remain possible sources of bias [@promega_tm405].
+
+Commercially available $\lambda$-DNA is a 48,502-bp linear dsDNA molecule with a molecular mass of approximately 32 MDa; 1 ng $\lambda$-DNA corresponds to approximately 0.032 fmol (about 32 fmol per µg).
+
+**PCR target:** For the downstream PCR workflow, approximately 100 fmol DNA template is targeted, with 80 fmol used as the minimum acceptable input. Because molar amount depends on DNA fragment length, conversion from the fluorometrically measured mass concentration requires an appropriate representative fragment length:
+
+$$
+
+n_{\mathrm{DNA}}\;(\mathrm{fmol}) \approx
+
+\frac{m\;(\mathrm{ng})\times10^6}
+
+{650\times L\;(\mathrm{bp})}
+
+$$
+
+For example, 100 fmol corresponds to approximately 9.8 ng at 150 bp, 32.5 ng at 500 bp, and 65 ng at 1,000 bp.
 
 ## Analytical validity, reference methods, and open measurement chains
 
