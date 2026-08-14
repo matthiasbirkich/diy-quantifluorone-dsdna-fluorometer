@@ -211,7 +211,7 @@ The drawing is intended as an assembly and visual-inspection aid.
 7. Keep all boards mechanically supported. Qwiic cables must not be used as structural restraints.
 8. Leave enough service loop to disconnect a board without pulling directly on the wire bundle.
 
-![Interior view of the assembled instrument showing the PyBadge, PCA9546 I²C multiplexer, modified ioRodeo LED board, TSL2591 sensor and internal wiring.](../../figures/open_instrument_wiring.jpg)
+![Interior view of the assembled instrument showing the PyBadge, PCA9546 I²C multiplexer, modified ioRodeo LED board, TSL2591 sensor and internal wiring.](../../figures/open_instrument_wiring.jpg){width=65%}
 
 ## STEMMA QT / Qwiic wiring and I²C addresses
 
