@@ -46,8 +46,6 @@ The machine-readable bill of materials is stored in `bom/master_bom.csv`. The co
 | Portable power | 3.7 V LiPo battery | 400 mAh; status optional| 0 or 1 |
 | Portable power | 3.7 V LiPo battery | 1200 mAh; status optional| 0 or 1 |
 
-Actually the fluorometer is powerd via USB via PC.
-
 The confirmed mounting fasteners are:
 
 - four M2.5 x 20 screws with matching M2.5 nuts for fastening the PyBadge cover to the enclosure;
@@ -215,7 +213,7 @@ The drawing is intended as an assembly and visual-inspection aid.
 
 ## STEMMA QT / Qwiic wiring and I²C addresses
 
-![Electronics overview. Dashed branches indicate that the exact PCA9546 channel allocation is still to be recorded.](../../figures/qfo_electronics_overview.png)
+![Electronics overview. The TSL2591 may be connected to any available downstream PCA9546 channel. The firmware scans the downstream channels for the sensor at address `0x29`; therefore, a fixed downstream channel assignment is not required.](../../figures/qfo_electronics_overview.png)
 
 The confirmed address map is:
 

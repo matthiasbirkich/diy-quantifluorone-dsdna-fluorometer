@@ -105,8 +105,6 @@ The exact field names are defined by the documented RC2 firmware import format a
 
 ### Mathematical Symbols
 
-### Mathematical Symbols
-
 | Symbol | Meaning |
 |--------|---------|
 | $a$ | Regression intercept |
@@ -123,12 +121,19 @@ The repository separates hardware, software, analytical tools, validation data, 
 
 The principal project directories are:
 
-- **`hardware/`** – mechanical CAD models, PCB source and manufacturing files, wiring information, and hardware documentation;
-- **`software/`** – PyBadge bootloader, CircuitPython, and the supported QuantiFluorONE firmware release;
-- **`tools/`** – Calibration Suite and supporting analytical utilities;
-- **`validation/`** – analytical validation datasets, processed data, and evaluation scripts;
-- **`references/`** – machine-readable bibliography and project source/provenance records;
-- **`workshop_booklet/`** – Quarto source files used to generate the workshop booklet;
-- **`docs/`** – project documentation and figures used by the repository and booklet.
+The principal project directories are:
+
+- `bom/` – machine-readable bill of materials and component information;
+- `hardware/` – mechanical CAD models, PCB source and manufacturing files, wiring information, and hardware documentation;
+- `software/` – PyBadge bootloader, CircuitPython, and the supported QuantiFluorONE firmware release;
+- `tools/` – Calibration Suite and supporting analytical utilities;
+- `validation/` – analytical validation datasets, processed data, and evaluation scripts;
+- `docs/figures/` – figures used by the GitHub documentation and workshop booklet;
+- `docs/markdown/` – GitHub-readable workshop course chapters;
+- `docs/references/` – bibliography and project source/provenance records;
+- `docs/source_files/` – supporting source material; and
+- `docs/workshop_booklet/` – Quarto source files used to generate the printable workshop booklet.
+
+The Markdown and Quarto documentation contain the same scientific and operational content but serve different presentation formats. The Markdown chapters provide a directly browsable GitHub course, while the Quarto sources generate the formatted workshop booklet and PDF.
 
 This organisation keeps hardware, software, analytical tools, validation evidence, references, and documentation separate while maintaining traceability between the documented instrument and the files required to reproduce it.

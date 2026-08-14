@@ -70,7 +70,7 @@ The same design principle can be applied to other fluorescence assays by selecti
 | Component | Installed configuration | Practical role |
 |---|---|---|
 | Excitation LED | 5 mm radial 485 nm “Ice Blue/Cyan” LED; 30°; 12,000 mcd; 3.2 V; article 1030055 | Excites the dye–dsDNA complex |
-| LED control board | ioRodeo `i_control_led` I²C board, SMD0603 production version, configured for 16 mA | Provides defined LED operation through the I²C system |
+| LED control board | ioRodeo `radial_16mA` fixed-current LED board, `ver_0p1_rev_3`, 16 mA | Provides a defined fixed current for the excitation LED; not an addressable I²C device |
 | Excitation filter | Neemoo Ex470BP-40 | Selects the useful blue excitation band and reduces longer-wavelength LED emission |
 | Sample vessel | Promega thin-walled 0.5 mL PCR tube, Cat. No. E4941 | Defines the assay volume and optical geometry |
 | Emission filter | Neemoo Em532BP-40 | Passes the green fluorescence band and suppresses excitation light |
@@ -171,7 +171,7 @@ Thus, 1 µL of the 400 ng/µL $\lambda$-DNA stock contains 400 ng DNA but only a
 
 For example, 100 fmol corresponds to approximately 9.8 ng at 150 bp, 32.5 ng at 500 bp, and 65 ng at 1000 bp.
 
-The getting started - basic operation of the instrument, use of calibration suite, editing the sample list in json at the PC and the dsDNA measurement protocol you will find in chapters 7 - 9.
+Getting started with instrument operation, use of the Calibration Suite, sample-list editing, and the dsDNA measurement protocol is covered in Chapters 6–8.
 
 ## Analytical validity, reference methods, and open measurement chains
 

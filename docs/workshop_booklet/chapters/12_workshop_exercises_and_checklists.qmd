@@ -50,13 +50,13 @@ The underlying instrument concept is modular. By selecting an appropriate excita
 
 The examples below summarize possible starting points for further instrument development. The excitation and emission wavelengths are indicative optical design parameters for the respective fluorescence methods; they do not imply that these applications have been validated with the present DIY-QuantiFluorONE configuration.
 
-| Example application | Excitation LED | Emission wavelength | Typical application |
+| Example application | Excitation LED | Emission / detection | Typical application |
 |---------------------|---------------:|--------------------:|--------------------|
 | dsDNA (QuantiFluor® ONE) | 485 nm | 530 nm | DNA quantification |
 | Chlorophyll-a | 450 nm | 680 nm | Phytoplankton and algal biomass |
 | CDOM | 350 nm | 425 nm | Colored dissolved organic matter |
 | Ammonium (OPA derivatisation) | 350 nm | 425 nm | Nutrient analysis |
-| PAK (Naphtalene and derivates) | 275 nm | UVA with AS7331 | SPE from seawater |
+| PAHs (naphtalene methyl derivates) | 275 nm | AS7331 UVA channel (315–410 nm) | SPE from seawater |
 
 These examples illustrate how the modular optical concept may be extended beyond dsDNA quantification. They do not constitute validated instrument configurations or complete analytical methods.
 
