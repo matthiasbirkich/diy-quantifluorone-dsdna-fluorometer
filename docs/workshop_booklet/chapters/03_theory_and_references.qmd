@@ -171,7 +171,7 @@ Thus, 1 µL of the 400 ng/µL $\lambda$-DNA stock contains 400 ng DNA but only a
 
 **PCR context:** In the downstream PCR workflow used for this workshop, approximately 100 fmol DNA template is targeted, with 80 fmol regarded as the minimum acceptable input. This requirement cannot be inferred directly from the fluorometrically measured concentration in ng/µL: conversion to fmol additionally requires the volume of DNA used and an appropriate representative fragment length.
 
-For example, 100 fmol corresponds to approximately 9.8 ng at 150 bp, 32.5 ng at 500 bp, and 65 ng at 1,000 bp.
+For example, 100 fmol corresponds to approximately 9.8 ng at 150 bp, 32.5 ng at 500 bp, and 65 ng at 1000 bp.
 
 ## Analytical validity, reference methods, and open measurement chains
 
