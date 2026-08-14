@@ -44,33 +44,35 @@ software/
     └── SHA256SUMS.txt
 ```
 
-The former top-level `firmware/` directory is obsolete and must not be retained after this restructuring.
+**Component:** PyBadge bootloader updater  
+**Repository file:**  
+`software/bootloader/3.15.0/`  
+`update-bootloader-arcade_pybadge-v3.15.0.uf2`  
+**When required:** Only when the bootloader must be updated
 
-::: {.list-table tbl-colwidths="[24,48,28]"}
-- - **Component**
-  - **Repository file**
-  - **When required**
+---
 
-- - PyBadge bootloader updater
-  - `software/bootloader/3.15.0/`  
-    `update-bootloader-arcade_pybadge-v3.15.0.uf2`
-  - Only when the bootloader must be updated
+**Component:** Raw bootloader image  
+**Repository file:**  
+`software/bootloader/3.15.0/`  
+`bootloader-arcade_pybadge-v3.15.0.bin`  
+**When required:** Archive and technical recovery only
 
-- - Raw bootloader image
-  - `software/bootloader/3.15.0/`  
-    `bootloader-arcade_pybadge-v3.15.0.bin`
-  - Archive and technical recovery only
+---
 
-- - CircuitPython
-  - `software/circuitpython/9.1.1/`  
-    `adafruit-circuitpython-pybadge-en_US-9.1.1.uf2`
-  - After a bootloader update or for a clean CircuitPython installation
+**Component:** CircuitPython  
+**Repository file:**  
+`software/circuitpython/9.1.1/`  
+`adafruit-circuitpython-pybadge-en_US-9.1.1.uf2`  
+**When required:** After a bootloader update or for a clean CircuitPython installation
 
-- - Current device firmware
-  - `software/quantifluorone_firmware/`  
-    `QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip`
-  - Clean QuantiFluorONE installation
-:::
+---
+
+**Component:** Current device firmware  
+**Repository file:**  
+`software/quantifluorone_firmware/`  
+`QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip`  
+**When required:** Clean QuantiFluorONE installation
 
 Use a computer with a USB port and a known-good USB Micro **data cable**. A charge-only cable cannot expose the PyBadge drives.
 
