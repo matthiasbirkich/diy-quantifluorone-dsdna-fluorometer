@@ -137,15 +137,21 @@ Promega recommends thin-walled 0.5 mL PCR tubes, thorough mixing without bubbles
 
 ### $\lambda$-DNA standards
 
-Promega $\lambda$-DNA is double-stranded DNA from bacteriophage lambda and is suitable for preparing calibration standards. Record the supplier, product, lot, stock concentration, dilution medium, preparation date, and storage conditions. Use fresh low-concentration dilutions where practical, vortex well, and remove introduced bubbles by gently tapping the tube.
+Promega $\lambda$-DNA is double-stranded DNA from bacteriophage lambda and is suitable for preparing calibration standards. Record the supplier, product, lot, stock concentration, dilution medium, preparation date, and storage conditions. Use fresh low-concentration dilutions where practical, vortex well, and remove introduced bubbles by gently tapping or flicking the tube. Please notice, that the whole liquid have to be in the lower part of the tube for the measurement.
 
 Promega notes that a standard with a molecular size similar to the unknown DNA may improve comparability. Therefore, $\lambda$-DNA is a practical workshop standard, but matrix and fragment-size differences remain possible sources of bias [@promega_tm405].
 
-Commercially available $\lambda$-DNA is a 48,502-bp linear dsDNA molecule with a molecular mass of approximately 32 MDa; 1 ng $\lambda$-DNA corresponds to approximately 0.032 fmol (about 32 fmol per µg).
+Commercially available $\lambda$-DNA is a 48,502-bp linear dsDNA molecule with a molecular mass of approximately 32 MDa. Consequently, 1 ng $\lambda$-DNA corresponds to approximately 0.032 fmol, or about 32 fmol per µg.
 
-**PCR target:** For the downstream PCR workflow, approximately 100 fmol DNA template is targeted, with 80 fmol used as the minimum acceptable input. Because molar amount depends on DNA fragment length, conversion from the fluorometrically measured mass requires an appropriate representative fragment length.
+For dsDNA of a known or representative fragment length, the molar amount can be estimated from its mass:
 
 $$n_{\mathrm{DNA}}\;(\mathrm{fmol}) \approx \frac{m\;(\mathrm{ng}) \times 10^{6}}{650 \times L\;(\mathrm{bp})}$$
+
+At this stage of the workflow, the only known DNA concentration is the supplied Promega $\lambda$-DNA stock of 400 ng/µL. Thus, 1 µL of this stock contains 400 ng $\lambda$-DNA, corresponding to approximately 12.7 fmol of intact 48,502-bp $\lambda$-DNA.
+
+This illustrates an important distinction between mass concentration and molar amount: the same DNA mass represents many more molecules when the DNA fragments are shorter. Later, after the concentration of an unknown sample has been measured, its DNA mass can first be calculated from concentration and sample volume and then converted to an approximate molar amount using an appropriate representative fragment length.
+
+**PCR context:** If the downstream PCR workflow specifies a target of approximately 100 fmol DNA template (and, where applicable, a minimum input of 80 fmol), this requirement must not be inferred directly from the fluorometric concentration alone. The conversion requires both the measured DNA mass and an appropriate estimate of the fragment length.
 
 For example, 100 fmol corresponds to approximately 9.8 ng at 150 bp, 32.5 ng at 500 bp, and 65 ng at 1,000 bp.
 
