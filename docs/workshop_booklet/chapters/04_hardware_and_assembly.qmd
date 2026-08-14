@@ -275,8 +275,6 @@ The final light shield must be fitted before blank stability and low-signal perf
 
 ## Complete Measurement Setup
 
-The photograph below shows the complete laboratory configuration used throughout this documentation and during the workshop.
-
 ![Complete measurement setup including the DIY-QuantiFluorONE-dsDNA-Fluorometer, Promega QuantiFluor® ONE dsDNA System, pipettes, PCR tubes and the supporting laboratory equipment used for routine measurements.](../../figures/measuring_setup.jpg)
 
 ## Pre-power inspection
