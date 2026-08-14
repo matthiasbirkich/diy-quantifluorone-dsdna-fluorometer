@@ -136,7 +136,7 @@ Do not enlarge filter pockets with a power tool while the filters or electronics
 
 > **Check:** Looking from the LED side, the sequence must be LED → Ex470BP-40 → sample tube.
 
-![Excitation side of the optical module showing the installed 485 nm LED and Ex470BP-40 excitation filter.](../../figures/excitation_side_led_filter.jpg){width=65%}
+![Excitation side of the optical module showing PartC with the **installed** 485 nm LED and Ex470BP-40 excitation filter.](../../figures/excitation_side_led_filter.jpg){width=65%}
 
 ## Installation of the Promega E4941 sample-tube holder
 
