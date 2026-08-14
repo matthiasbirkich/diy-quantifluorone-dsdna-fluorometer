@@ -157,7 +157,7 @@ Combining both steps gives the direct conversion from a measured DNA concentrati
 
 $$n_{\mathrm{DNA}}\;(\mathrm{fmol}) \approx \frac{c\;(\mathrm{ng}/\mu\mathrm{L}) \times V\;(\mu\mathrm{L}) \times 10^{6}}{650 \times L\;(\mathrm{bp})}$$
 
-where $begin:math:text$c$end:math:text$ is the DNA concentration, $begin:math:text$V$end:math:text$ is the selected DNA volume, and $begin:math:text$L$end:math:text$ is the representative DNA fragment length in base pairs.
+where $c$ is the DNA concentration in ng/µL, $V$ is the selected DNA volume in µL, and $L$ is the representative DNA fragment length in base pairs.
 
 For the supplied Promega $\lambda$-DNA standard, 1 µL of the 400 ng/µL stock contains:
 
