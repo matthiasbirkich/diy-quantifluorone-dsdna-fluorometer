@@ -1,4 +1,4 @@
-# DIY-QuantiFluorONE-dsDNA-Fluorometer Workshop Booklet
+# DIY-QuantiFluorONE-dsDNA-Fluorometer Workshop Booklet {.unnumbered}
 
 **Prepared for the STABLE Project (2025–2027)**  
 *Higher Education Partnership for a Sustainable Blue Economy*
