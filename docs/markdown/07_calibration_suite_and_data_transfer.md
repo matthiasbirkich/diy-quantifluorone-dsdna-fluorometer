@@ -38,15 +38,6 @@ The current files are stored in:
 4. Back up the existing JSON file before replacement.
 5. Safely eject `CIRCUITPY`, restart normally, and confirm the calibration status on the instrument.
 
-## Compatibility note for QF1-1.0.0-rc2
-
-The supplied Calibration Suite v7.3 displays a firmware target of `v8.2+` and includes a function that updates a `configuration.json` file containing a `diynafluor` section. QuantiFluorONE `QF1-1.0.0-rc2` uses a different file layout:
-
-- `quantifluorone_config.json` for device settings;
-- `quantifluorone_multipoint.json` for the model imported through `SELECT → LOAD MP CAL`.
-
-Therefore, do **not** replace the RC2 configuration with a suite-generated `configuration.json`. A dedicated RC2 export adapter or a compatible `quantifluorone_multipoint.json` export is required before direct transfer from the suite to RC2.
-
 
 ---
 

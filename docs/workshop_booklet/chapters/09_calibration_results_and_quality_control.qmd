@@ -67,15 +67,9 @@ The current QF1-1.0.0-rc2 firmware imports an OLS multipoint calibration. Do not
 
 After the model has been accepted:
 
-1. Export the firmware-compatible calibration JSON from the Calibration Suite.
-2. Save the accepted file as:
-
-   ```text
-   quantifluorone_multipoint.json
-   ```
-
-3. Retain the original CSV, Calibration Suite report, and exported JSON together.
-4. Do not edit individual coefficients manually after export.
+1. Export the accepted multipoint calibration from the Calibration Suite as `quantifluorone_multipoint.json`.
+2. Retain the original CSV, Calibration Suite report, and exported JSON together.
+3. Do not edit individual coefficients manually after export.
 
 The Calibration Suite report is the complete calibration record. The JSON file is the operational copy used by the fluorometer.
 
