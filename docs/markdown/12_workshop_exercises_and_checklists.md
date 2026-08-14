@@ -1,10 +1,8 @@
 ---
 document-status: "Current"
 validation-status: "Validated configuration"
-date:  "2026-08-10"
+date:  "2026-08-14"
 ---
-
-# Workshop Review, Quality Check and Further Applications
 
 This chapter concludes the workshop with a brief review of the practical exercises, a final functional quality check, and an outlook on possible future applications of the underlying modular fluorescence platform.
 
@@ -43,10 +41,6 @@ Successful completion of these checks confirms correct basic instrument operatio
 - Which file stores the measurement results?
 - Which file is transferred from the Calibration Suite to the fluorometer?
 - Why should calibration and validation data always be archived?
-
-## Further Applications
-
-## Further Applications
 
 ## Further Applications
 

@@ -1,10 +1,8 @@
 ---
 document-status: "Current"
 validation-status: "Validated configuration"
-date: "2026-08-10"
+date: "2026-08-14"
 ---
-
-# Appendices
 
 The appendices provide practical reference material supporting the construction, calibration and routine operation of the DIY-QuantiFluorONE-dsDNA-Fluorometer. They complement the main chapters and are intended as a quick reference rather than a tutorial.
 

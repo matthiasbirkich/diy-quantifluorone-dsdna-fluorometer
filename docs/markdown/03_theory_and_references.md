@@ -1,10 +1,8 @@
 ---
 document-status: "Current"
 validation-status: "Validated configuration"
-date: "2026-08-10"
+date: "2026-08-14"
 ---
-
-# Theory and References
 
 ## Purpose and practical scope
 
@@ -59,11 +57,11 @@ The optical configuration of the DIY-QuantiFluorONE-dsDNA-Fluorometer was select
 
 The 485 nm excitation LED closely matches the excitation spectrum of the Promega QuantiFluor® ONE dsDNA dye. The Ex470BP-40 excitation filter narrows the LED spectrum, while the Em532BP-40 emission filter efficiently suppresses scattered excitation light and transmits the fluorescence emission around 530 nm.
 
-The spectral relationship between the excitation source, optical filters and fluorescence spectra is illustrated in Figure A.
+The spectral relationship between the excitation source, optical filters and fluorescence spectra is illustrated in Figure 4.1.
 
-![Spectral compatibility of the optical configuration](../figures/source/ch03/optical_configuration_spectra.png)
+![Spectral compatibility of the optical configuration](../figures/optical_configuration_spectra.png){width=75%}
 
-**Figure A** Spectral compatibility of the 485 nm excitation LED, Ex470BP-40 excitation filter, Em532BP-40 emission filter and the QuantiFluor® ONE dsDNA fluorescence system. The overlap illustrates the optical basis of the DIY-QuantiFluorONE-dsDNA-Fluorometer.
+**Figure 4.1** Spectral compatibility of the 485 nm excitation LED, Ex470BP-40 excitation filter, Em532BP-40 emission filter and the QuantiFluor® ONE dsDNA fluorescence system. The overlap illustrates the optical basis of the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 
 The same design principle can be applied to other fluorescence assays by selecting appropriate LEDs, optical filters, cuvette holders and calibration models.
 
@@ -94,9 +92,9 @@ The project measurements were normalized to the maximum of each curve and were u
 
 The measurements confirm the intended spectral separation but are not used as an absolute calibration of filter transmittance.
 
-![Spectral verification of the installed Neemoo Ex470BP-40 excitation filter. The project measurement was normalized to its maximum; the approximate half-maximum interval was 450–490 nm.](../figures/source/qfo_ex470bp40_spectral_verification.jpeg){#fig-ex470 width=85%}
+![Spectral verification of the installed Neemoo Ex470BP-40 excitation filter. The project measurement was normalized to its maximum; the approximate half-maximum interval was 450–490 nm.](../figures/qfo_ex470bp40_spectral_verification.jpeg){#fig-ex470 width=65%}
 
-![Spectral verification of the installed Neemoo Em532BP-40 emission filter. The project measurement was normalized to its maximum; the approximate half-maximum interval was 518–555 nm.](../figures/source/qfo_em532bp40_spectral_verification.jpeg){#fig-em532 width=85%}
+![Spectral verification of the installed Neemoo Em532BP-40 emission filter. The project measurement was normalized to its maximum; the approximate half-maximum interval was 518–555 nm.](../figures/qfo_em532bp40_spectral_verification.jpeg){#fig-em532 width=65%}
 
 ## Signal formation and blank correction
 
@@ -135,11 +133,45 @@ The project uses:
 
 Promega recommends thin-walled 0.5 mL PCR tubes, thorough mixing without bubbles, five minutes of incubation at room temperature protected from light, and careful pipetting of the small sample volume [@promega_tm405].
 
-### λ-DNA standards
+### $\lambda$-DNA standards
 
-λ-DNA is double-stranded DNA from bacteriophage lambda and is suitable for preparing calibration standards. Record the supplier, product, lot, stock concentration, dilution medium, preparation date, and storage conditions. Use fresh low-concentration dilutions where practical, and mix carefully without introducing bubbles.
+Promega supplies $\lambda$-DNA as the dsDNA calibration material for the QuantiFluor® ONE assay. The stock concentration specified by the manufacturer is 400 µg/mL, which is exactly equivalent to 400 ng/µL. Because the fluorometer reports DNA concentrations in ng/µL and the assay range is expressed in the same unit, 400 ng/µL is used throughout this booklet for consistency [@promega_tm405].
 
-Promega notes that a standard with a molecular size similar to the unknown DNA may improve comparability. Therefore λ-DNA is a practical workshop standard, but matrix and fragment-size differences remain possible sources of bias [@promega_tm405].
+Record the supplier, product, lot, stock concentration, dilution medium, preparation date, and storage conditions of all calibration standards. Use fresh low-concentration dilutions where practical. Promega recommends thorough mixing of the standard and assay reagent; vortex well while avoiding persistent air bubbles.
+
+Promega also notes that a dsDNA standard with a molecular size similar to that of the unknown DNA can improve comparability. Therefore, $\lambda$-DNA is a practical and well-defined workshop calibration standard, but differences in DNA fragment size and sample matrix may remain sources of bias [@promega_tm405].
+
+Lambda DNA is a linear dsDNA molecule containing 48,502 bp. Using an approximate average molecular mass of 650 Da per base pair, intact $\lambda$-DNA has a molecular mass of approximately 31.5 MDa. Thus, 1 ng of intact $\lambda$-DNA corresponds to approximately 0.032 fmol, or about 32 fmol per µg.
+
+The DNA mass contained in a selected volume is calculated from its mass concentration:
+
+$$m\;(\mathrm{ng}) = c\;(\mathrm{ng}/\mu\mathrm{L}) \times V\;(\mu\mathrm{L})$$
+
+The corresponding molar amount can then be estimated from the DNA mass and the representative fragment length:
+
+$$n_{\mathrm{DNA}}\;(\mathrm{fmol}) \approx \frac{m\;(\mathrm{ng}) \times 10^{6}}{650 \times L\;(\mathrm{bp})}$$
+
+Combining both steps gives the direct conversion from a measured DNA concentration:
+
+$$n_{\mathrm{DNA}}\;(\mathrm{fmol}) \approx \frac{c\;(\mathrm{ng}/\mu\mathrm{L}) \times V\;(\mu\mathrm{L}) \times 10^{6}}{650 \times L\;(\mathrm{bp})}$$
+
+where $c$ is the DNA concentration in ng/µL, $V$ is the selected DNA volume in µL, and $L$ is the representative DNA fragment length in base pairs.
+
+For the supplied Promega $\lambda$-DNA standard, 1 µL of the 400 ng/µL stock contains:
+
+$$m = 400\;\mathrm{ng}/\mu\mathrm{L} \times 1\;\mu\mathrm{L} = 400\;\mathrm{ng}$$
+
+For intact 48,502-bp $\lambda$-DNA:
+
+$$n_{\mathrm{DNA}} \approx \frac{400 \times 10^{6}}{650 \times 48{,}502} \approx 12.7\;\mathrm{fmol}$$
+
+Thus, 1 µL of the 400 ng/µL $\lambda$-DNA stock contains 400 ng DNA but only approximately 12.7 fmol of intact $\lambda$-DNA molecules. The same DNA mass represents a much larger molar amount when the DNA is present as shorter fragments.
+
+**PCR context:** In the downstream PCR workflow used for this workshop, approximately 100 fmol DNA template is targeted, with 80 fmol regarded as the minimum acceptable input. This requirement cannot be inferred directly from the fluorometrically measured concentration in ng/µL: conversion to fmol additionally requires the volume of DNA used and an appropriate representative fragment length.
+
+For example, 100 fmol corresponds to approximately 9.8 ng at 150 bp, 32.5 ng at 500 bp, and 65 ng at 1000 bp.
+
+The getting started - basic operation of the instrument, use of calibration suite, editing the sample list in json at the PC and the dsDNA measurement protocol you will find in chapters 7 - 9.
 
 ## Analytical validity, reference methods, and open measurement chains
 
@@ -273,7 +305,6 @@ Prepare blank and standards
 ```
 
 The practical implementation of these analytical concepts, including calibration acceptance, quality control, uncertainty evaluation, and routine decision criteria, is described in Chapter 9.
-
 ---
 
 ⬅️ Previous Chapter: [Safety](02_safety.md)

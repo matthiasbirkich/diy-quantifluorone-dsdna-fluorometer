@@ -1,10 +1,8 @@
 ---
 document-status: "Current"
 validation-status: "Validated configuration"
-date: "2026-08-10"
+date: "2026-08-14"
 ---
-
-# Software Installation
 
 > **Current supported software set:** PyBadge UF2 bootloader 3.15.0, Adafruit CircuitPython 9.1.1, and the unchanged `QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip` release.
 >
@@ -45,20 +43,41 @@ software/
     └── SHA256SUMS.txt
 ```
 
-The former top-level `firmware/` directory is obsolete and must not be retained after this restructuring.
+**Component:** PyBadge bootloader updater  
+**Repository file:**  
+`software/bootloader/3.15.0/`  
+`update-bootloader-arcade_pybadge-v3.15.0.uf2`  
+**When required:** Only when the bootloader must be updated
 
-| Component | Repository file | When required |
-|---|---|---|
-| PyBadge bootloader updater | `software/bootloader/3.15.0/update-bootloader-arcade_pybadge-v3.15.0.uf2` | only when the bootloader must be updated |
-| Raw bootloader image | `software/bootloader/3.15.0/bootloader-arcade_pybadge-v3.15.0.bin` | archive and technical recovery only |
-| CircuitPython | `software/circuitpython/9.1.1/adafruit-circuitpython-pybadge-en_US-9.1.1.uf2` | after a bootloader update or for a clean CircuitPython installation |
-| Current device firmware | `software/quantifluorone_firmware/QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip` | clean QuantiFluorONE installation |
+---
+
+**Component:** Raw bootloader image  
+**Repository file:**  
+`software/bootloader/3.15.0/`  
+`bootloader-arcade_pybadge-v3.15.0.bin`  
+**When required:** Archive and technical recovery only
+
+---
+
+**Component:** CircuitPython  
+**Repository file:**  
+`software/circuitpython/9.1.1/`  
+`adafruit-circuitpython-pybadge-en_US-9.1.1.uf2`  
+**When required:** After a bootloader update or for a clean CircuitPython installation
+
+---
+
+**Component:** Current device firmware  
+**Repository file:**  
+`software/quantifluorone_firmware/`  
+`QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip`  
+**When required:** Clean QuantiFluorONE installation
 
 Use a computer with a USB port and a known-good USB Micro **data cable**. A charge-only cable cannot expose the PyBadge drives.
 
 Use a short **non-conductive** tool to reach the reset switch through the underside opening. The eraser end of a pencil or a suitable plastic rod is preferable to a metal tool.
 
-![The reset switch is mounted on the underside of the PyBadge and is reached from below through the enclosure opening.](../figures/photos/ch07/reset_button_access.png)
+![The reset switch is mounted on the underside of the PyBadge and is reached from below through the enclosure opening.](../figures/reset_button_access.png)
 
 ## One supported QuantiFluorONE firmware
 
@@ -110,9 +129,9 @@ Safe mode prevents the QuantiFluorONE application from running while files are c
 
 Press the underside reset button twice in quick succession. The PyBadge display changes to the UF2 bootloader screen, and the computer mounts `PYBADGEBOOT` or `BADGEBOOT`.
 
-![PyBadge UF2 bootloader screen.](../figures/photos/ch07/pybadge_bootloader_screen.jpeg)
+![PyBadge UF2 bootloader screen.](../figures/pybadge_bootloader_screen.jpeg)
 
-![Typical contents of the PyBadge UF2 boot drive.](../figures/photos/ch07/pybadgeboot_drive.png)
+![Typical contents of the PyBadge UF2 boot drive.](../figures/pybadgeboot_drive.png)
 
 If `PYBADGEBOOT` appears when `CIRCUITPY` was intended, press Reset once to restart normally and repeat with slower timing.
 
@@ -258,7 +277,7 @@ Do not merge a new installation with residual files from an older device state.
 
 The following screen indicates CircuitPython automatic reload or a soft reboot, not UF2 bootloader mode:
 
-![CircuitPython soft-reboot and automatic-reload screen.](../figures/photos/ch07/circuitpython_safe_mode_screen.jpeg)
+![CircuitPython soft-reboot and automatic-reload screen.](../figures/circuitpython_safe_mode_screen.jpeg)
 
 ## References
 
@@ -270,6 +289,7 @@ The following screen indicates CircuitPython automatic reload or a soft reboot, 
 - CircuitPython.org. *PyBadge downloads.* https://circuitpython.org/board/pybadge/
 
 This chapter adapts the general IO Rodeo and Adafruit procedures to the current QuantiFluorONE hardware, enclosure, software versions, and the tested clean-installation workflow used for this instrument.
+
 ---
 
 ⬅️ Previous Chapter: [Hardware and Assembly](04_hardware_and_assembly.md)

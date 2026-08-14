@@ -1,10 +1,8 @@
 ---
 document-status: "Current"
 validation-status: "Validated configuration"
-date: "2026-08-10"
+date: "2026-08-14"
 ---
-
-# 09 — Calibration, Results, and Quality Control
 
 > **Scope:** This chapter provides the concise operational workflow for routine laboratory decisions. The theoretical and statistical basis of calibration, prediction intervals, LOD, and LOQ is described in Chapter 3.
 
@@ -336,6 +334,7 @@ Before reporting a quantitative result, confirm:
 - **No unresolved technical fault?**
 
 Only when all applicable checks pass may the result be accepted as quantitative.
+
 ---
 
 ⬅️ Previous Chapter: [Measurement Protocol](08_measurement_protocol.md)

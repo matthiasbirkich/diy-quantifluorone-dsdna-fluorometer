@@ -1,16 +1,14 @@
 ---
 document-status: "Current"
 validation-status: "Validated configuration"
-date: "2026-08-10"
+date: "2026-08-14"
 ---
-
-# Getting Started: Basic Operation and Menu Navigation
 
 > **Firmware basis:** QuantiFluorONE `QF1-1.0.0-rc2`, display version `v1.0 RC2`.
 
 ## Front-panel controls
 
-![QuantiFluorONE front-panel controls for firmware QF1-1.0.0-rc2.](../figures/photos/ch05/qfo_getting_started_menu_navigation.jpeg)
+![QuantiFluorONE front-panel controls for firmware QF1-1.0.0-rc2.](../figures/qfo_getting_started_menu_navigation.jpeg)
 
 The firmware defines the controls as follows:
 
@@ -28,6 +26,71 @@ The firmware defines the controls as follows:
 | USB Micro port | USB | Power, charging, programming, and file access | — |
 
 The last line of the display shows context-sensitive button hints. These hints take priority whenever a calibration or confirmation dialog is open.
+
+## Preparing and documenting the sample list
+
+Before starting a measurement series, the sample identifiers can be entered in `quantifluorone_config.json`. This is recommended because the selected sample ID is written to the measurement CSV file and allows each measurement to be assigned directly to the corresponding laboratory sample.
+
+Editing the sample list is optional. If the list is not updated, the exact order in which the physical samples are measured must be recorded separately in the laboratory notebook. Without such a record, measurements in the CSV file may no longer be assignable reliably to the original samples after the measurement series.
+
+### Editing the sample list
+
+1. Connect the switched-on fluorometer to the computer using a USB data cable.
+
+2. Enter CircuitPython safe mode using the **slow double-click** of the Reset button:
+   - press Reset once;
+   - allow the restart sequence to begin; and
+   - press Reset a second time during the approximately one-second startup window.
+
+3. Confirm that the `CIRCUITPY` drive is available on the computer.
+
+4. Open `quantifluorone_config.json` with a plain-text editor.
+
+   Suitable examples are:
+   - Windows Notepad;
+   - Notepad++;
+   - Visual Studio Code; or
+   - another editor that saves plain-text files without changing the JSON structure.
+
+   Do not edit the file with a word processor such as Microsoft Word.
+
+5. Locate the `samples` section and enter the required sample identifiers, for example:
+
+```json
+"samples": {
+  "list": ["Blank", "Std400", "QC1", "Sample01", "Sample02"],
+  "selected_index": 0
+}
+```
+
+Use short, unique identifiers because the display width is limited. The complete identifier is retained in the measurement data even when only part of it is visible on the instrument display.
+
+6. Save `quantifluorone_config.json` without changing its filename or file type.
+
+7. Safely eject the `CIRCUITPY` drive from the computer.
+
+8. Disconnect the USB data connection.
+
+9. Connect the fluorometer to its normal standalone power source, such as a power bank, and restart it normally.
+
+10. Use **UP/DOWN** on the measurement screen to select the required sample ID before measuring the corresponding sample with **A**.
+
+### If the sample list is not edited
+
+Updating `quantifluorone_config.json` is not mandatory. The instrument can also be used with the existing sample list.
+
+In this case, record the physical samples and their measurement order explicitly in the laboratory notebook, for example:
+
+```text
+Measurement 1  = Sample A17
+Measurement 2  = Sample A18
+Measurement 3  = Sample B03
+Measurement 4  = Sample B04
+```
+
+**Important:** The CSV file records the sample identifier selected on the instrument. If this identifier does not correspond to the actual sample and no separate measurement-order record is kept, the analytical result may not be assignable reliably to the original sample afterwards.
+
+Whenever practical, prepare the sample list before the measurement series and keep the displayed sample order consistent with the physical order of the prepared tubes.
 
 ## Normal measurement workflow
 
@@ -104,6 +167,7 @@ A **fast** double-click is different: it opens `PYBADGEBOOT` or `BADGEBOOT` and 
 | `quantifluorone_config.json` | Hardware, measurement, sample, assay, and calibration settings |
 
 Always back up required data and safely eject the drive before resetting, switching off, or disconnecting USB.
+
 
 ---
 

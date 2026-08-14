@@ -1,10 +1,8 @@
 ---
 document-status: "Current"
 validation-status: "Validated configuration"
-date:  "2026-08-10"
+date:  "2026-08-14"
 ---
-
-# Troubleshooting
 
 This chapter summarizes the most common operational problems that may occur during assembly, firmware installation, calibration, and routine measurements. It is intended as a practical troubleshooting guide for workshop participants and laboratory users. More detailed background information is provided in the previous chapters.
 
@@ -75,6 +73,7 @@ To ensure reproducible analytical performance:
 | Calibration rejected | Calibration |
 | Unexpected measurement results | Measurement |
 | CSV or JSON problems | Calibration Suite |
+
 ---
 
 ⬅️ Previous Chapter: [Validation and Analytical Performance](10_validation_and_analytical_performance.md)

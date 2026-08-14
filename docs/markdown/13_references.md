@@ -1,55 +1,36 @@
 ---
 document-status: "Current"
 validation-status: "Validated configuration"
-date: "2026-08-10"
+date: "2026-08-14"
 ---
 
-# References and Acknowledgements
+This project combines open-source hardware, commercial laboratory reagents, scientific standards, manufacturer documentation and original engineering developments. This chapter records the principal sources and acknowledges the contributions on which the DIY-QuantiFluorONE-dsDNA-Fluorometer is based.
 
-This project combines open-source hardware, commercial laboratory reagents,
-scientific standards, manufacturer documentation, and original engineering
-developments. This chapter records the principal sources and acknowledges the
-contributions on which the DIY-QuantiFluorONE-dsDNA-Fluorometer is based.
-
-The complete machine-readable bibliography is maintained in
-`references/references.bib`. Additional provenance information is available in
-`hardware_sources.yml`, `source_register.csv`, and `standards_register.md`.
+The complete machine-readable bibliography is maintained in `references/references.bib`. Additional provenance information is available in `hardware_sources.yml`, `source_register.csv` and `standards_register.md`.
 
 ## Scientific and Analytical References
 
-The theoretical background is based on standard works on fluorescence
-spectroscopy by Lakowicz (2006) and Valeur and Berberan-Santos (2012), and on
-the fluorescence-based dsDNA quantification method described by Singer et al.
-(1997).
+The theoretical background is based on standard works on fluorescence spectroscopy [@lakowicz2006; @valeur2012] and on published fluorescence-based dsDNA quantification methods [@singer1997].
 
-The assay procedure and commercial comparison instrument are documented in
-the Promega QuantiFluor® ONE dsDNA System Technical Manual (TM405) and the
-Quantus™ Fluorometer Operating Manual (TM396).
+The assay procedure and commercial reference instrument are documented by Promega [@promega_tm405; @promega_tm396].
 
-The calibration and detection-limit framework refers to DIN 38402-51:2017-05
-and DIN 32645:2008-11.
+The calibration and detection-limit framework refers to DIN 38402-51 and DIN 32645 [@din38402_51; @din32645].
 
-The standards are cited as methodological references. Formal conformity
-assessment requires access to licensed copies and a documented comparison
-between the implemented calculations and the normative text.
+The standards are cited as methodological references. Formal conformity assessment requires access to licensed copies and a documented comparison between the implemented calculations and the normative text.
 
 ## Open Hardware and Software Sources
 
 ### ioRodeo
 
-The firmware and hardware concepts are derived in part from the ioRodeo
-Open Colorimeter Plus project:
+### ioRodeo Open Colorimeter Plus and related instrumentation
 
-https://github.com/iorodeo/open_colorimeter_plus_firmware
+The firmware and hardware concepts are derived in part from the ioRodeo Open Colorimeter Plus project [@iorodeo_ocp_firmware].
 
-The installed LED driver is the ioRodeo fixed-current radial 16 mA LED board,
-revision `ver_0p1_rev_3`:
+The installed LED driver is the ioRodeo fixed-current radial 16 mA LED board, revision `ver_0p1_rev_3` [@iorodeo_led_board]. For integration into the optical module, the through-hole LED is mounted on the rear side of the board. The board design files, licence, and source record are retained in the repository for traceability.
 
-https://github.com/iorodeo/i_control_led/tree/main/fixed/5V_regulator/radial_16mA/production/ver_0p1_rev_3
+ioRodeo has also documented open photometric and fluorometric approaches to DNA quantification. The UV Open Colorimeter was used for UV-photometric dsDNA determination [@iorodeo_uv_dna_quantification], while the Open Colorimeter Plus was evaluated for fluorometric dsDNA quantification with the AccuGreen assay [@iorodeo_ocp_dna_quantitation]. Subsequent Open Colorimeter Plus hardware and firmware developments, including the dual-sensor architecture, are documented separately [@iorodeo_ocp_updates_2025].
 
-For integration into the optical module, the through-hole LED is mounted on
-the rear side of the board. The board design files, licence, and source record
-are retained in the repository for traceability.
+These sources provide useful technical context for the open measurement-chain concept used in this project without being reproduced in detail in the workshop chapters.
 
 ### ioRodeo Fluorometer Tube Holder
 
@@ -68,7 +49,7 @@ sensor, and the project-specific 90° optical geometry. The resulting holder
 combines design concepts from DIYNAFLUOR and ioRodeo.
 
 The ioRodeo tube-holder and Open Colorimeter platform also illustrate how
-related modular optical arrangements can be used for turbidimetric, photometric and
+related modular optical arrangements can be used for photometric, turbidimetric and
 fluorometric measurements.
 
 A UV-photometric approach to dsDNA determination using the UV Open Colorimeter
@@ -93,93 +74,35 @@ https://blog.iorodeo.com/open-colorimeter-plus-firmware-and-hardware-updates/
 
 ### DIYNAFLUOR
 
-The optical module is derived from the published DIYNAFLUOR fluorometer
-concept:
-
-Anderson W, Antaw F, Kenny S, Rupani H, Khamis R, Constantin N, Kumar V,
-Gemmell A, Bell C, Trau M, Korbie D. *DIYNAFLUOR: An Affordable DIY
-Plug-and-Play Nucleic Acid Fluorometer for eDNA Quantification in Resource
-Limited Settings*. bioRxiv, 2024.
-
-https://doi.org/10.1101/2024.12.16.626200
-
-The accompanying open repository provides code, 3D-print files, BOM, and build
-instructions:
-
-https://github.com/traulab/DIYNAFLUOR
-
-The design was modified for the installed LED board, filters, sensor geometry,
-sample vessel, and PyBadge enclosure.
+The optical module is derived from the published DIYNAFLUOR fluorometer concept and its open repository [@anderson_diynafluor; @traulab_diynafluor]. It was modified for the installed LED board, filters, sensor geometry and PyBadge enclosure.
 
 ### Adafruit and CircuitPython
 
-The controller and detector architecture uses:
-
-- Adafruit PyBadge, Product ID 4200  
-  https://www.adafruit.com/product/4200
-
-- Adafruit TSL2591 High Dynamic Range Digital Light Sensor, Product ID 1980  
-  https://www.adafruit.com/product/1980
-
-- Adafruit PCA9546 4-Channel I²C Multiplexer, Product ID 5664  
-  https://www.adafruit.com/product/5664
-
-The documented firmware environment uses CircuitPython 9.1.1:
-
-https://circuitpython.org/board/pybadge/
-
-The SparkFun Qwiic adapter cable PRT-15109 is used in the documented wiring:
-
-https://www.sparkfun.com/products/15109
+The controller and detector architecture uses the Adafruit PyBadge, TSL2591
+sensor and PCA9546 multiplexer [@adafruit_pybadge; @adafruit_tsl2591;
+@adafruit_pca9546]. The documented firmware environment uses CircuitPython
+9.1.1 [@circuitpython_9_1_1].
 
 ### Spectral Verification
 
-The project-specific filter measurements were acquired using a DIY
-spectrometer based on PySpectrometer2:
-
-https://github.com/leswright1977/PySpectrometer2
-
-The recorded curves were normalized to their respective maxima and are used
-to verify spectral position and band shape rather than absolute transmittance.
+The project-specific filter measurements were acquired using a DIY spectrometer based on PySpectrometer2 [@wright_pyspectrometer2]. The recorded curves were normalized to their respective maxima and are used to verify spectral position and band shape rather than absolute transmittance.
 
 ## Commercial Components and Manufacturer Information
 
-The validated configuration uses the Promega QuantiFluor® ONE dsDNA System,
-Neemoo Ex470BP-40 and Em532BP-40 band-pass filters, and a 485 nm
-high-brightness radial excitation LED.
+The validated configuration uses the Promega QuantiFluor® ONE dsDNA System [@promega_tm405], Neemoo Ex470BP-40 and Em532BP-40 band-pass filters [@neemoo_filters], and a 485 nm high-brightness radial excitation LED.
 
-Promega QuantiFluor® ONE dsDNA System:
-
-https://www.promega.com/resources/protocols/technical-manuals/101/quantifluor-one-dsdna-system-protocol/
-
-Promega Quantus™ Fluorometer:
-
-https://www.promega.com/resources/protocols/technical-manuals/101/quantus-fluorometer-operating-manual-protocol/
-
-Neemoo optical band-pass filters:
-
-https://de.aliexpress.com/item/1005010613836251.html
-
-Product names and supplier references are provided for reproducibility and do
-not imply endorsement. Supplier listings may change over time.
+Product names and supplier references are provided for reproducibility and do not imply endorsement.
 
 ## Engineering Contributions
 
-The optical module is derived from the open-source DIYNAFLUOR design and was
-extensively adapted for the DIY-QuantiFluorONE-dsDNA-Fluorometer. Its
-mechanical development also incorporates concepts from the open ioRodeo
-fluorometer tube-holder project.
+The optical module is derived from the open-source DIYNAFLUOR design and was extensively adapted for the DIY-QuantiFluorONE-dsDNA-Fluorometer.
 
-The modified 3D-print parts and their mechanical integration were developed
-collaboratively by:
+The modified 3D-print parts and their mechanical integration were developed collaboratively by:
 
 - Dipl.-Ing. Matthias Birkicht, project author; and
 - Florian Bock, 3D-Haven, 27570 Bremerhaven, Germany.
 
-This work included adaptation of the optical parts, integration of the
-installed filters and sensor, accommodation of the rear-mounted LED board,
-adaptation to the Promega E4941 sample tube, and mechanical integration with
-the PyBadge enclosure.
+This work included adaptation of the optical parts, integration of the installed filters and sensor, accommodation of the rear-mounted LED board, and mechanical integration with the PyBadge enclosure.
 
 ## Repository Source Records
 
@@ -190,24 +113,17 @@ Detailed source and provenance records are maintained in:
 - `references/source_register.csv`
 - `references/standards_register.md`
 
-These records should be updated whenever a source, component revision,
-software version, or standard reference changes.
+These records should be updated whenever a source, component revision, software version or standard reference changes.
 
 ## Acknowledgements
 
-The project gratefully acknowledges the developers and contributors of the
-ioRodeo Open Colorimeter Plus, ioRodeo fluorometer tube-holder, DIYNAFLUOR,
-Adafruit CircuitPython, and PySpectrometer2 projects, as well as the
-manufacturers and standards organisations whose documentation supported the
-development and validation of the instrument.
+The project gratefully acknowledges the developers and contributors of the ioRodeo Open Colorimeter Plus, DIYNAFLUOR, Adafruit CircuitPython, and PySpectrometer2 projects, as well as the manufacturers and standards organisations whose documentation supported the development and validation of the instrument.
 
-Special thanks are extended to Florian Bock of 3D-Haven for the collaborative
-development and adaptation of the mechanical parts.
+Special thanks to Joanne Long of ioRodeo, who kindly donated a fluorometric cuvette holder for 0.2 mL tubes so that we could test the ioRodeo Colorimeter Plus for fluorometric measurements.
 
-The DIY-QuantiFluorONE-dsDNA-Fluorometer and this workshop documentation were
-prepared in the context of the 2026 eDNA workshop with Dr. Achim Meyer within
-the STABLE Project (2025–2027), *Higher Education Partnership for a
-Sustainable Blue Economy*.
+Special thanks are extended to Florian Bock of 3D-Haven for the collaborative development and adaptation of the mechanical parts.
+
+The DIY-QuantiFluorONE-dsDNA-Fluorometer and this workshop documentation were prepared in the context of the 2026 eDNA workshop with Dr. Achim Meyer within the STABLE Project (2025–2027), *Higher Education Partnership for a Sustainable Blue Economy*.
 
 ## Bibliography
 
