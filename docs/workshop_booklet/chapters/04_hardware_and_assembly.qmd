@@ -20,7 +20,7 @@ At the end of the workshop, the participant should be able to:
 
 The instrument uses **one TSL2591 sensor only**. It does not use a second reference or transmission sensor.
 
-![Assembled DIY-QuantiFluorONE prototype during a firmware and display check. The displayed measurement is not presented as analytical validation data.](../../figures/assembled_instrument_front.jpg)
+![Assembled DIY-QuantiFluorONE prototype during a firmware and display check. The displayed measurement is not presented as analytical validation data.](../../figures/assembled_instrument_front.jpg){width=65%}
 
 ## Complete component overview and bill of materials
 
@@ -55,11 +55,8 @@ The confirmed mounting fasteners are:
 - two M2 x 6 screws with matching nuts for emission filter holder C
 - four M3 x 35 screws with matching M3 nuts for fastening the cuvette holder to the led-cover and parts A+B
 
-![Main components required to assemble the DIY-QuantiFluorONE-dsDNA-Fluorometer.](../../figures/qfo_complete_component_set.jpg)
-
-**Figure 4.0.** Main electronic, optical, mechanical, and laboratory components
-used to assemble and operate the DIY-QuantiFluorONE-dsDNA-Fluorometer.
-
+![Main electronic, optical, mechanical, and laboratory components
+used to assemble and operate the DIY-QuantiFluorONE-dsDNA-Fluorometer.](../../figures/qfo_complete_component_set.jpg)
 
 ## Function of the components
 
@@ -139,9 +136,7 @@ Do not enlarge filter pockets with a power tool while the filters or electronics
 
 > **Check:** Looking from the LED side, the sequence must be LED → Ex470BP-40 → sample tube.
 
-![Excitation side of the optical module showing the installed 485 nm LED and Ex470BP-40 excitation filter.](../../figures/excitation_side_led_filter.jpg)
-
-**Figure 4.1.** Excitation side of the optical module showing the modified ioRodeo fixed-current LED board with the rear-mounted 485 nm LED and the installed Ex470BP-40 excitation filter.
+![Excitation side of the optical module showing the installed 485 nm LED and Ex470BP-40 excitation filter.](../../figures/excitation_side_led_filter.jpg){width=65%}
 
 ## Installation of the Promega E4941 sample-tube holder
 
@@ -166,9 +161,7 @@ Do not enlarge filter pockets with a power tool while the filters or electronics
 
 > **Check:** Looking from the detector side, the sequence must be sample tube → Em532BP-40 → TSL2591.
 
-![Detection side of the optical module showing the Em532BP-40 emission filter and TSL2591 sensor.](../../figures/detection_side_filter_sensor.jpg)
-
-**Figure 4.2.** Detection side of the optical module showing the Em532BP-40 emission filter together with the single TSL2591 light sensor mounted in the optical holder.
+![Detection side of the optical module showing the Em532BP-40 emission filter and TSL2591 sensor.](../../figures/detection_side_filter_sensor.jpg){width=65%}
 
 ## Correct 90° optical geometry
 
@@ -218,9 +211,7 @@ The drawing is intended as an assembly and visual-inspection aid.
 7. Keep all boards mechanically supported. Qwiic cables must not be used as structural restraints.
 8. Leave enough service loop to disconnect a board without pulling directly on the wire bundle.
 
-![Open instrument showing the internal wiring.](../../figures/open_instrument_wiring.jpg)
-
-**Figure 4.3.** Interior view of the assembled instrument showing the PyBadge, PCA9546 I²C multiplexer, modified ioRodeo LED board, TSL2591 sensor and internal wiring.
+![Interior view of the assembled instrument showing the PyBadge, PCA9546 I²C multiplexer, modified ioRodeo LED board, TSL2591 sensor and internal wiring.](../../figures/open_instrument_wiring.jpg)
 
 ## STEMMA QT / Qwiic wiring and I²C addresses
 
@@ -286,9 +277,7 @@ The final light shield must be fitted before blank stability and low-signal perf
 
 The photograph below shows the complete laboratory configuration used throughout this documentation and during the workshop.
 
-![Complete measurement setup.](../../figures/measuring_setup.jpg)
-
-**Figure 4.4.** Complete measurement setup including the DIY-QuantiFluorONE-dsDNA-Fluorometer, Promega QuantiFluor® ONE dsDNA System, pipettes, PCR tubes and the supporting laboratory equipment used for routine measurements.
+![Complete measurement setup including the DIY-QuantiFluorONE-dsDNA-Fluorometer, Promega QuantiFluor® ONE dsDNA System, pipettes, PCR tubes and the supporting laboratory equipment used for routine measurements.](../../figures/measuring_setup.jpg)
 
 ## Pre-power inspection
 
