@@ -11,7 +11,6 @@ book:
   subtitle: "Workshop Booklet for dsDNA Quantification in eDNA Applications"
   author:
     - name: "Dipl.-Ing. Matthias Birkicht"
-  date: today
   chapters:
     - index.qmd
     - chapters/01_introduction.qmd

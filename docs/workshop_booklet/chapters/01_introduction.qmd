@@ -4,8 +4,6 @@ document-status: "Current"
 validation-status: "Validated configuration"
 ---
 
-![FluoroQuantTM.](../../figures/FluoroQuant.png){width=65%}
-
 ## Purpose
 
 This booklet supports the assembly, software installation, calibration, quality control, and practical use of the DIY-QuantiFluorONE-dsDNA-Fluorometer during the 2026 eDNA workshop within the STABLE Project (*Higher Education Partnership for a Sustainable Blue Economy*, 2025–2027).
