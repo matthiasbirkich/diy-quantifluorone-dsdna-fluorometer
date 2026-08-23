@@ -1,20 +1,18 @@
 # DIY-QuantiFluorONE-dsDNA-Fluorometer Workshop Booklet {.unnumbered}
 
-**Prepared for the STABLE Project (2025–2027)**  
-*Higher Education Partnership for a Sustainable Blue Economy*
+**Prepared for the SHARK-Seq Project (2026–2027)**
 
 **eDNA Workshop 2026**  
 with Dr. Achim Meyer
 
 ## About this booklet
 
-This booklet provides the practical and technical documentation for the DIY-QuantiFluorONE-dsDNA-Fluorometer used in the 2026 eDNA workshop within the STABLE Project.
+This booklet provides the practical and technical documentation for the DIY-QuantiFluorONE-dsDNA-Fluorometer used in the 2026 eDNA workshop within the SHARK-Seq Project.
 
-The STABLE Project, *Higher Education Partnership for a Sustainable Blue Economy*, is a three-year international collaboration (2025–2027) bringing together universities and research institutions from Indonesia, Malaysia, Germany, and the Netherlands. The partnership aims to advance and modernise postgraduate education in support of a sustainable Blue Economy.
+SHARK-Seq contributes to more inclusive ocean observation and demonstrates the potential of on-site sequencing as an introduction to eDNA workflows. Library construction and data processingshare steps with traditional illumina based eDNA workflows while being more robust andbioinformatically lighter, with immediate results. A side aspect is the flowcell reuse strategy whichlikewise benefits biodiversity monitoring in particular in data-poor regions: Short-fragment eDNAamplicons, which rapidly block sequencing pores, are run first; the flowcell is then flushed andreloaded with long-amplicon reference sequences efficiently utilising the remaining ~50-200 pores,substantially reducing costs.
+The Then lab currently implements traditional eDNA surveys in the same region using MiFishamplicons (Illumina/Sterivex), providing benchmarks for SHARK-Seq. Additionally, Then and Meyersecured ONT funding for whole-genome sequencing of the critically endangered Bornean guitarfish(Rhinobatos borneensis, 20× coverage) on site, creating synergies for consumables and data. SHARK-Seq funds transforms the Then lab into a regional nanopore eDNA hub whilst equipping Thai andIndonesian partners with skills, seeding south–south capacity exchange.This capacity is important as climate-driven range shifts in elasmobranchs necessitate adaptivemonitoring. Rapid, cost-effective eDNA assessment enables responsive governance such as MPA boundary adjustments and fisheries regulations as species distributions change. SHARK-Seq creates a transferable model adaptable to other taxa and geographies, offering a scalable blueprint for inclusive biodiversity monitoring aligned with OBON and Global South priorities.
 
-Within this framework, eDNA-based biodiversity monitoring forms part of the research-based teaching and advanced-training activities. The DIY-QuantiFluorONE-dsDNA-Fluorometer provides an open and reproducible platform for practical dsDNA quantification during the eDNA workshop.
-
-This booklet covers the theoretical background, hardware and mechanical design, software installation, calibration workflow, measurement protocol, quality-control procedures, analytical validation, troubleshooting, and the information required to reproduce and operate the instrument.
+This booklet covers the theoretical background, hardware and mechanical design, software installation, calibration workflow, measurement protocol, quality-control procedures, analytical validation, troubleshooting, and the information required to reproduce and operate the FluoroQuant instrument (by M. Birkicht) for the dsDNA quantification.
 
 ## Current content status
 
