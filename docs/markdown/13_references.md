@@ -123,7 +123,7 @@ Special thanks to Joanne Long of ioRodeo, who kindly donated a fluorometric cuve
 
 Special thanks are extended to Florian Bock of 3D-Haven for the collaborative development and adaptation of the mechanical parts.
 
-The DIY-QuantiFluorONE-dsDNA-Fluorometer and this workshop documentation were prepared in the context of the 2026 eDNA workshop with Dr. Achim Meyer within the STABLE Project (2025–2027), *Higher Education Partnership for a Sustainable Blue Economy*.
+The DIY-QuantiFluorONE-dsDNA-Fluorometer and this workshop documentation were prepared in the context of the 2026 eDNA workshop with Dr. Achim Meyer within the SHARK-Seq Project (2026–2027).
 
 ## Bibliography
 

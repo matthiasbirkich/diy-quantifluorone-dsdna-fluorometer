@@ -8,7 +8,7 @@ date: "2026-08-14"
 
 ## Purpose
 
-This booklet supports the assembly, software installation, calibration, quality control, and practical use of the DIY-QuantiFluorONE-dsDNA-Fluorometer during the 2026 eDNA workshop within the STABLE Project (*Higher Education Partnership for a Sustainable Blue Economy*, 2025–2027).
+This booklet supports the assembly, software installation, calibration, quality control, and practical use of the DIY-QuantiFluorONE-dsDNA-Fluorometer during the 2026 eDNA workshop within the SHARK-Seq Project (2026–2027).
 
 The instrument and its documentation are intended to provide a transparent and reproducible approach to fluorometric dsDNA quantification using the Promega QuantiFluor® ONE dsDNA System. The workshop combines practical instrument construction and operation with calibration, analytical quality control, and interpretation of measurement results.
 
@@ -28,7 +28,7 @@ After the workshop, participants should be able to:
 
 ## Workshop context
 
-The DIY-QuantiFluorONE-dsDNA-Fluorometer is used as part of the 2026 eDNA workshop with Dr. Achim Meyer within the STABLE Project.
+The DIY-QuantiFluorONE-dsDNA-Fluorometer is used as part of the 2026 eDNA workshop with Dr. Achim Meyer within the SHARK-Seq Project.
 
 The practical exercise demonstrates how an openly documented fluorometric instrument can be assembled, calibrated, validated, and used for dsDNA quantification in an eDNA-related laboratory workflow. The emphasis is not only on obtaining a concentration result, but also on understanding the measurement chain and the quality-control information associated with that result.
 
