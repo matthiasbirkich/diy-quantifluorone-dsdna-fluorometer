@@ -43,7 +43,8 @@ The machine-readable bill of materials is stored in `bom/master_bom.csv`. The co
 | Optical assembly | 3D-printed tube and optics holder | step file | 1 |
 | Light control | 3D-printed light shield | step file  | 1 |
 | Programming and power | USB Micro cable | programming, power, and charging | 1 |
-| Portable power | 3.7 V LiPo battery | 400 mAh; status optional| 0 or 1 |
+| Portable power | Powerbank | 10000 mAh | 1 |
+| Programming | Laptop | with Thonny + USB-Port | 1 |
 | Portable power | 3.7 V LiPo battery | 1200 mAh; status optional| 0 or 1 |
 
 The confirmed mounting fasteners are:
@@ -51,7 +52,8 @@ The confirmed mounting fasteners are:
 - four M2.5 x 20 screws with matching M2.5 nuts for fastening the PyBadge cover to the enclosure;
 - four M3 x 20 screws with matching M3 nuts for fastening the PCR-tube holder to the enclosure.
 - two M2 x 6 screws with matching nuts for emission filter holder C
-- four M3 x 35 screws with matching M3 nuts for fastening the cuvette holder to the led-cover and parts A+B
+- two M3 x 40 screws with matching M3 nuts and washers for fastening the cuvette holder to the led-cover
+- two M3 x 35 screws with matching M3 nuts for fastening the cuvette holder
 
 ![Main electronic, optical, mechanical, and laboratory components
 used to assemble and operate the DIY-QuantiFluorONE-dsDNA-Fluorometer.](../../figures/qfo_complete_component_set.jpg)
