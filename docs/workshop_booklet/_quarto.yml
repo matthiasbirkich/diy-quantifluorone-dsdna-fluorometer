@@ -44,4 +44,6 @@ format:
     number-sections: true
     colorlinks: true
     use-rsvg-convert: false
-    include-in-header: preamble.tex
+    include-in-header:
+      - preamble.tex
+      - cover.tex
