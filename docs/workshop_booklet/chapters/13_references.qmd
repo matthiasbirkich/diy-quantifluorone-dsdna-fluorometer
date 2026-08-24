@@ -116,6 +116,7 @@ Detailed source and provenance records are maintained in:
 - `references/standards_register.md`
 
 These records should be updated whenever a source, component revision, software version or standard reference changes.
+The complete project repository and current release files are available on GitHub [@birkicht_diy_qfo_repository].
 
 ## Acknowledgements
 

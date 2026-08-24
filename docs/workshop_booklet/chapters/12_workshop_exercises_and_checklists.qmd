@@ -61,6 +61,7 @@ The examples below summarize possible starting points for further instrument dev
 These examples illustrate how the modular optical concept may be extended beyond dsDNA quantification. They do not constitute validated instrument configurations or complete analytical methods.
 
 Future applications may require different LEDs, excitation and emission filters, detector settings, sample holders, firmware parameters, and calibration procedures. Each modified configuration should therefore be characterized and validated for its intended analytical application before quantitative results are reported.
+Further examples of community-developed applications using the ioRodeo Open Colorimeter platform are collected in the ioRodeo community applications database [@iorodeo_community_applications].
 
 ## Workshop Completed
 
