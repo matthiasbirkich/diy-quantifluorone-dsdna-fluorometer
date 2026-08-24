@@ -8,6 +8,8 @@ validation-status: "Validated configuration"
 
 This booklet supports the assembly, software installation, calibration, quality control, and practical use of the DIY-QuantiFluorONE-dsDNA-Fluorometer during the 2026 eDNA workshop within the SHARK-Seq Project (2026–2027).
 
+Project repository: [DIY-QuantiFluorONE-dsDNA-Fluorometer](https://github.com/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer)
+
 The instrument and its documentation are intended to provide a transparent and reproducible approach to fluorometric dsDNA quantification using the Promega QuantiFluor® ONE dsDNA System. The workshop combines practical instrument construction and operation with calibration, analytical quality control, and interpretation of measurement results.
 
 ## Learning objectives
