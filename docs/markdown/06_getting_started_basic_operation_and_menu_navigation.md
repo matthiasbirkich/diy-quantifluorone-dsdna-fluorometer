@@ -27,6 +27,24 @@ The firmware defines the controls as follows:
 
 The last line of the display shows context-sensitive button hints. These hints take priority whenever a calibration or confirmation dialog is open.
 
+## Quick 2-PT calibration and measurement
+
+- Take standard and fluorescent dye out of the freezer/fridge and warm up to room temperature.
+- Please switch the instrument on and wait for 20 Minutes before you start the first measurements.
+- During the warm up prepare the Blank and the 400 ug/uL-Standard for the 2-PT calibration in 0.5 mL tubes.
+- Press SELECT button for 2 time to start the 2-PT calibration of   9the instrument.
+- Put the Blank-sample (200 uL Promega QuantiFluor® ONE dsDNA Dye) into the cuvette holder.
+- Press START button to measure the blank.
+- Remove the blank and store it in the dark.
+- Put the 400 ug/uL-standard (200 uL Promega QuantiFluor® ONE dsDNA Dye + 1 uL QuantiFluor® ONE Lambda DNA, mix well) into the cuvette holder.
+- Press SELECT button
+- Press A button to measure the standard.
+- Press SELECT button to save the 2-PT calibration data.
+- The expected values are; slope ~114.5 ± 0.5 ; Blank raw ~ 6500 - 8500 ; 400 ng/uL ~ 45800 ± 500 RFU
+- Press B button to go back to the measurement.
+- Select "sample01" with the D-Pad up/down keys.
+- Now you should measure your samples 200 uL Promega QuantiFluor® ONE dsDNA Dye + 1 uL sample. Mix well. Do not forget to write a protocol of your measurements.
+
 ## Preparing and documenting the sample list
 
 Before starting a measurement series, the sample identifiers can be entered in `quantifluorone_config.json`. This is recommended because the selected sample ID is written to the measurement CSV file and allows each measurement to be assigned directly to the corresponding laboratory sample.
