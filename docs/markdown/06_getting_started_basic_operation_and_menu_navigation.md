@@ -46,6 +46,7 @@ The last line of the display shows context-sensitive button hints. These hints t
 - Now you should measure your samples 200 uL Promega QuantiFluor® ONE dsDNA Dye + 1 uL sample. Mix well. Do not forget to write a protocol of your measurements.
 
 For our Amlicon with ~ 726 bp a rule of thumb -> 48 ng/µL ~ 100 fmol
+The maximum error with slope of 114.7 ± 0.5 and Blank raw of 6000-9000 ~ ±25 fmol
 
 ## Preparing and documenting the sample list
 
