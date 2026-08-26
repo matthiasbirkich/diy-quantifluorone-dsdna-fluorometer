@@ -45,6 +45,8 @@ The last line of the display shows context-sensitive button hints. These hints t
 - Select "sample01" with the D-Pad up/down keys.
 - Now you should measure your samples 200 uL Promega QuantiFluor® ONE dsDNA Dye + 1 uL sample. Mix well. Do not forget to write a protocol of your measurements.
 
+For our Amlicon with ~ 726 bp a rule of thumb -> 48 ng/µL ~ 100 fmol
+
 ## Preparing and documenting the sample list
 
 Before starting a measurement series, the sample identifiers can be entered in `quantifluorone_config.json`. This is recommended because the selected sample ID is written to the measurement CSV file and allows each measurement to be assigned directly to the corresponding laboratory sample.
