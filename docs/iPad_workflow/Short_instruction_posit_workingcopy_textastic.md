@@ -21,9 +21,17 @@ POSIT (Terminal)
 POSIT (Console)
 1. gert::git_push(repo = "/cloud/project")
 
-WORKING COPY
+WORKING COPY Fluorometer 2026-2027 (Jugend forscht 2027)
 1. PULL
 
+cd /cloud/project/fluorometer-2026
+git fetch origin --prune
+git switch main
+git reset --hard origin/main
+git clean -fd
+
+cd Documents/Report
+quarto render
 
 # Workshop Booklet – Routine Workflow
 
