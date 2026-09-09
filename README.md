@@ -91,8 +91,7 @@ Zenodo DOI: https://doi.org/10.5281/zenodo.21910043
 ## Workshop context
 
 This repository and the accompanying workshop booklet were prepared for the
-**eDNA Workshop 2026** within the **STABLE Project (2025–2027), Higher
-Education Partnership for a Sustainable Blue Economy**.
+**eDNA Workshop 2026** within the **SHARK Project (2025–2026).
 
 The workshop uses the DIY-QFO as an open and reproducible platform for
 introducing fluorometric dsDNA quantification, instrument construction,
