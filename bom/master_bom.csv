@@ -1,20 +1,20 @@
-Category,Qty,Item,Supplier,Part_or_Article,Function, EUR-Price, Notes
-Controller,1,Adafruit PyBadge,Adafruit,4200,Main controller and UI,CircuitPython 9.1.1 workflow
-I2C distribution,1,Adafruit PCA9546 multiplexer,Adafruit,5664,I2C bus multiplexer,Address 0x70
-Detector,1,Adafruit TSL2591 STEMMA QT,Adafruit,1980,Fluorescence detector,Address 0x29
-LED driver,1,ioRodeo fixed-current radial LED board,ioRodeo,radial_16mA ver_0p1_rev_3,Drives excitation LED,Fixed nominal current 16 mA
-Excitation source,1,5 mm Ice Blue/Cyan LED,LEDs and More,1030055,Excitation source,485 nm; 30°; 12000 mcd; 3.2 V
-Excitation filter,1,Neemoo Ex470BP-40,Neemoo,Ex470BP-40,Excitation filtering,8 x 8 x 1 mm
-Emission filter,1,Neemoo Em532BP-40,Neemoo,Em532BP-40,Emission filtering,8 x 8 x 1 mm
-Sample vessel,as required,Promega E4941 thin-walled 0.5 mL PCR tube,Promega,E4941,Sample container,Workshop tube format
-Cable,as required,STEMMA QT / Qwiic JST SH cable,Various,JST SH 4-pin,Power and I2C cabling,Exact lengths still to be documented
-Adapter,1,SparkFun Qwiic-to-Grove adapter cable,SparkFun,PRT-15109,Adapter between board ecosystems,Upstream adapter used from PyBadge side
-Mechanical,1,PyBadge enclosure set,Project CAD,v1r4,Enclosure for controller,STEP files included
-Mechanical,1,0.5 mL PCR-tube holder with integrated optics,Project CAD,confirmed,Optical alignment and tube positioning,upload ok
-Mechanical,1,Light shield,Project CAD,pending,Blocks ambient light, upload OK
-Power,1,USB Micro cable,Generic,USB Micro,Programming power and charging,Known-good data cable recommended
-Power,0 or 1,3.7 V LiPo battery,Generic,400 mAh,Portable operation,Optional status until final confirmation
-Fastener,4,M2.5 x 20 screw,Generic,M2.5x20,Fastens PyBadge cover to enclosure,Use with matching M2.5 nut
-Fastener,4,M2.5 nut,Generic,M2.5,Matches PyBadge-cover screw,Current assembly quantity
-Fastener,4,M3 x 20 screw,Generic,M3x20,Fastens PCR-tube holder to enclosure,Use with matching M3 nut
-Fastener,4,M3 nut,Generic,M3,Matches PCR-tube-holder screw,Current assembly quantity
+Category,Qty,Item,Supplier,Part_or_Article,Function, Notes, EU-costs
+Controller,1,Adafruit PyBadge,Adafruit,4200,Main controller and UI,CircuitPython 9.1.1 workflow, 60,- EUR
+I2C distribution,1,Adafruit PCA9546 multiplexer,Adafruit,5664,I2C bus multiplexer,Address 0x70, 5,- EUR
+Detector,1,Adafruit TSL2591 STEMMA QT,Adafruit,1980,Fluorescence detector,Address 0x29, 8,50 EUR
+LED driver,1,ioRodeo fixed-current radial LED board,ioRodeo,radial_16mA ver_0p1_rev_3,Drives excitation LED,Fixed nominal current 16 mA, 10,- EUR
+Excitation source,1,5 mm Ice Blue/Cyan LED,LEDs and More,1030055,Excitation source,485 nm; 30°; 12000 mcd; 3.2 V, 1,- EUR
+Excitation filter,1,Neemoo Ex470BP-40,Neemoo,Ex470BP-40,Excitation filtering,8 x 8 x 1 mm, 10,- EUR
+Emission filter,1,Neemoo Em532BP-40,Neemoo,Em532BP-40,Emission filtering,8 x 8 x 1 mm, 10,- EUR
+Sample vessel,as required,Promega E4941 thin-walled 0.5 mL PCR tube,Promega,E4941,Sample container,Workshop tube format, 1,- EUR
+Cable,as required,STEMMA QT / Qwiic JST SH cable,Various,JST SH 4-pin,Power and I2C cabling,10cm, 3,- EUR
+Adapter,1,SparkFun Qwiic-to-Grove adapter cable,SparkFun,PRT-15109,Adapter between board ecosystems,Upstream adapter used from PyBadge side, 3,- EUR
+Mechanical,1,PyBadge enclosure set,Project CAD,v1r4,Enclosure for controller,STEP files included, 12,50 EUR
+Mechanical,1,0.5 mL PCR-tube holder with integrated optics,Project CAD,confirmed,Optical alignment and tube positioning,upload ok, 12,50 EUR
+Mechanical,1,Light shield,Project CAD,Blocks ambient light, Upload as step, 12,50 EUR
+Power,1,USB Micro cable,Generic,USB Micro,Programming power and charging,Known-good data cable recommended, 5,- EUR
+Power,0 or 1,3.7 V LiPo battery,Generic,400 mAh,Portable operation,Optional status until final confirmation, 10,00 EUR
+Fastener,4,M2.5 x 20 screw,Generic,M2.5x20,Fastens PyBadge cover to enclosure,Use with matching M2.5 nut, 1,- EUR
+Fastener,4,M2.5 nut,Generic,M2.5,Matches PyBadge-cover screw,Current assembly quantity, 1,- EUR
+Fastener,4,M3 x 20 screw,Generic,M3x20,Fastens PCR-tube holder to enclosure,Use with matching M3 nut, 1,- EUR
+Fastener,4,M3 nut,Generic,M3,Matches PCR-tube-holder screw,Current assembly quantity, 1,- EUR
