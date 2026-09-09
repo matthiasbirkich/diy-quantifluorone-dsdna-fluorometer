@@ -2,13 +2,13 @@ Category,Qty,Item,Supplier,Part_or_Article,Function,Notes,EU-costs
 Controller,1,Adafruit PyBadge,Adafruit,4200,Main controller and UI,CircuitPython 9.1.1 workflow,60.00 EUR
 I2C distribution,1,Adafruit PCA9546 multiplexer,Adafruit,5664,I2C bus multiplexer,Address 0x70,5.00 EUR
 Detector,1,Adafruit TSL2591 STEMMA QT,Adafruit,1980,Fluorescence detector,Address 0x29,8.50 EUR
-LED driver,1,ioRodeo fixed-current radial LED board,ioRodeo,radial_16mA ver_0p1_rev_3,Drives excitation LED,Fixed nominal current 16 mA,10.00 EUR
+LED driver,1,ioRodeo fixed-current radial LED board,ioRodeo,radial_16mA ver_0p1_rev_3,Drives excitation LED,Fixed current 16 mA,10.00 EUR
 Excitation source,1,5 mm Ice Blue/Cyan LED,LEDs and More,1030055,Excitation source,485 nm; 30°; 12000 mcd; 3.2 V,1.00EUR
 Excitation filter,1,Neemoo Ex470BP-40,Neemoo,Ex470BP-40,Excitation filtering,8 x 8 x 1 mm,10.00 EUR
 Emission filter,1,Neemoo Em532BP-40,Neemoo,Em532BP-40,Emission filtering,8 x 8 x 1 mm,10.00 EUR
-Sample vessel,as required,Promega E4941 thin-walled 0.5 mL PCR tube,Promega,E4941,Sample container,Workshop tube format,1.00 EUR
-Cable,as required,STEMMA QT / Qwiic JST SH cable,Various,JST SH 4-pin,Power and I2C cabling,10cm,3.00 EUR
-Adapter,1,SparkFun Qwiic-to-Grove adapter cable,SparkFun,PRT-15109,Adapter between board ecosystems,Upstream adapter used from PyBadge side,3.00 EUR
+Sample vessel,50,Promega E4941 thin-walled 0.5 mL PCR tube,Promega,E4941,Sample container,Workshop tube format,10.00 EUR
+Cable,1,STEMMA QT / Qwiic JST SH cable,Various,JST SH 4-pin,Power and I2C cabling,10cm,3.00 EUR
+Adapter,1,SparkFun Qwiic-to-Grove adapter cable,SparkFun,PRT-15109,Adapter between board ecosystems,Upstream adapter from PyBadge,3.00 EUR
 Mechanical,1,PyBadge enclosure set,Project CAD,v1r4,Enclosure for controller,STEP files included,12.50 EUR
 Mechanical,1,0.5 mL PCR-tube holder with integrated optics,Project CAD,confirmed,Optical alignment and tube positioning,upload ok,12.50 EUR
 Mechanical,1,Light shield,Project CAD,DIY,Blocks ambient light,Upload as step,12.50 EUR
