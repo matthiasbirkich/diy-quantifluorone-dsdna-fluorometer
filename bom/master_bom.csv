@@ -1,5 +1,5 @@
 Category,Qty,Item,Supplier,Part_or_Article,Function,Notes,EU-costs
-Controller,1,Adafruit PyBadge,Adafruit,4200,Main controller and UI,CircuitPython 9.1.1 workflow,60,- EUR
+Controller,1,Adafruit PyBadge,Adafruit,4200,Main controller and UI,CircuitPython 9.1.1 workflow,60.00 EUR
 I2C distribution,1,Adafruit PCA9546 multiplexer,Adafruit,5664,I2C bus multiplexer,Address 0x70,5.00 EUR
 Detector,1,Adafruit TSL2591 STEMMA QT,Adafruit,1980,Fluorescence detector,Address 0x29,8.50 EUR
 LED driver,1,ioRodeo fixed-current radial LED board,ioRodeo,radial_16mA ver_0p1_rev_3,Drives excitation LED,Fixed nominal current 16 mA,10.00 EUR
