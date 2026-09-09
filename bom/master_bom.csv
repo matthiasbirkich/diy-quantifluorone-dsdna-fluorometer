@@ -1,8 +1,8 @@
-Category,Qty,Item,Supplier,Part_or_Article,Function,Notes
+Category,Qty,Item,Supplier,Part_or_Article,Function, EUR-Price, Notes
 Controller,1,Adafruit PyBadge,Adafruit,4200,Main controller and UI,CircuitPython 9.1.1 workflow
 I2C distribution,1,Adafruit PCA9546 multiplexer,Adafruit,5664,I2C bus multiplexer,Address 0x70
-Detector,1,Adafruit TSL2591 STEMMA QT,Adafruit,1980,Fluorescence detector,Address 0x29; only one sensor used
-LED driver,1,ioRodeo fixed-current radial LED board,ioRodeo,radial_16mA ver_0p1_rev_3,Drives excitation LED,Fixed nominal current 16 mA; no I2C address
+Detector,1,Adafruit TSL2591 STEMMA QT,Adafruit,1980,Fluorescence detector,Address 0x29
+LED driver,1,ioRodeo fixed-current radial LED board,ioRodeo,radial_16mA ver_0p1_rev_3,Drives excitation LED,Fixed nominal current 16 mA
 Excitation source,1,5 mm Ice Blue/Cyan LED,LEDs and More,1030055,Excitation source,485 nm; 30°; 12000 mcd; 3.2 V
 Excitation filter,1,Neemoo Ex470BP-40,Neemoo,Ex470BP-40,Excitation filtering,8 x 8 x 1 mm
 Emission filter,1,Neemoo Em532BP-40,Neemoo,Em532BP-40,Emission filtering,8 x 8 x 1 mm
