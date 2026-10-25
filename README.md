@@ -1,5 +1,7 @@
 # DIY QuantiFluorONE dsDNA Fluorometer
 
+[Deutsch](README.de.md) · **English**
+
 An open portable instrument for quantifying double-stranded DNA with the
 Promega QuantiFluor® ONE dsDNA System. This repository provides the assembly
 and operating manual, mechanical and PCB files, firmware, calibration tools
