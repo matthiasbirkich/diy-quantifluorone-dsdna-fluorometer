@@ -1,0 +1,142 @@
+---
+document-status: "Zur Durchsicht"
+lang: de-DE
+---
+
+# Montage des Geräts {#sec-assembly}
+
+Mechanische und optische Bauteile bei getrennter USB-Versorgung und getrenntem Akku montieren. Komponenten und Dateien anhand der Tabellen des vorherigen Kapitels identifizieren. Die Filter bis zur Reinigung und Prüfung der Druckteile in ihrer Schutzverpackung belassen.
+
+## Montagefolge
+
+| Schritt | Arbeit | Prüfung vor dem nächsten Schritt |
+|---|---|---|
+| 1 | Druckteile prüfen | Keine Rückstände; Röhrchen und Filterprüfstücke passen |
+| 2 | Grundkörper am Gehäuse befestigen | Befestigungsbohrungen fluchten ohne Verformung |
+| 3 | Anregungsgehäuse und LED-Halter montieren | LED, Anregungsöffnung und Röhrchenposition fluchten |
+| 4 | Emissionsfilter, Blende und Detektor einsetzen | Aktive Detektorfläche zeigt zur Emissionsöffnung |
+| 5 | Controller und Multiplexer montieren | Platinen sind abgestützt; Bedienelemente und Anschlüsse zugänglich |
+| 6 | Kabel anschließen und verlegen | Versorgung und Signale geprüft; keine Zugbelastung |
+| 7 | Optische Abdeckung montieren | Röhrchen zugänglich; Strahlengang vor Raumlicht geschützt |
+| 8 | Prüfung vor dem Einschalten abschließen | Alle Prüfpunkte erfüllt |
+| 9 | Software installieren und erstmals einschalten | Gerät startet und findet den Detektor |
+
+Den für den dokumentierten Aufbau bestätigten kombinierten LED-Platinen- und Röhrchenhalter E verwenden. Die Zuordnung der Befestigungsmittel ist weiterhin Gegenstand der Aufbauprüfung. Vor dem Festziehen oder der Fertigung eines vollständigen Druckteilsatzes die betroffenen Verbindungen anhand einer bestätigten passenden Baugruppe prüfen.
+
+## Schritt 1 Druckteile prüfen
+
+1. A, B, C, D, den kombinierten Halter E, F sowie Controllergehäuse und -deckel anhand von Dateinamen und Positionierungsmerkmalen identifizieren.
+2. Stützmaterial und lose Druckrückstände aus Röhrchenbohrung, Filtertaschen, Schraubenlöchern und Kabelöffnungen entfernen.
+3. Ein leeres E4941-Röhrchen vorsichtig einsetzen. Es muss den mechanischen Anschlag erreichen und ohne übermäßigen Kraftaufwand aufrecht stehen.
+4. Jede Filtertasche nach Möglichkeit mit einem sauberen Prüfstück von 8 × 8 × 1 mm prüfen. Nicht bei eingesetztem optischem Filter schleifen oder bohren.
+5. Platinensitze ohne Stromversorgung prüfen. TSL2591- und LED-Platine müssen ohne Biegung passen.
+6. Das leere optische Gehäuse gegen eine Lampe auf lichtdurchlässige Spalten und dünne Bereiche prüfen. Vor dem Einsetzen der Filter alle Rückstände entfernen.
+
+**Prüfung:** Das Röhrchen lässt sich entnehmen, ohne Halter oder Verkabelung mitzuziehen. Alle Passflächen liegen ohne gewaltsames Zusammenpressen an.
+
+## Schritt 2 Grundkörper befestigen
+
+1. Grundkörper A auf die Montagefläche des Gehäuses setzen.
+2. Befestigungslöcher ausrichten und Freiraum für Röhrchen und beide optischen Seiten prüfen.
+3. Passende Befestigungsmittel verwenden; Schraubenenden dürfen keine Elektronik berühren.
+4. Gleichmäßig und schrittweise festziehen. Prüfen, dass das Röhrchen senkrecht bleibt und seinen Anschlag erreicht.
+
+**Prüfung:** Der Halter kippt oder verschiebt sich beim Einsetzen und Entnehmen des Röhrchens nicht. Die Schraubenlänge vor dem Festziehen an der tatsächlichen Verbindung prüfen.
+
+## Schritt 3 Anregungsseite montieren
+
+Wird eine kompatible Platine mit bereits bestückter vorgesehener Anregungs-LED verwendet, entfällt das Löten in Punkt 3. Vor dem Einbau Polarität, Montageposition und Ausrichtung der LED prüfen. Kapitel 4 beschreibt diese Beschaffungsoption.
+
+1. Anode und Kathode der radialen 485-nm-LED anhand der Bauteilangaben und Platinenmarkierungen bestimmen.
+2. LED und ausgewählten Halter E mit Anregungsgehäuse B zunächst ohne Löten zusammenpassen. LED auf Anregungsöffnung und Röhrchenposition ausrichten.
+3. LED mit korrekter Polarität an der vorgesehenen Position der radialen LED-Platine einlöten. Wärmeeintrag begrenzen und Anschlüsse so kürzen, dass sie weder andere Leiter noch Befestigungsmittel berühren.
+4. Ex470BP-40 an den Kanten greifen und ohne Verkanten oder Belastung der beschichteten optischen Fläche in die anregungsseitige Tasche einsetzen.
+5. B und Halter E wieder zusammenfügen. Platine und Filter mit den vorgesehenen Positionierungsmerkmalen halten; den Filter nicht als tragenden Abstandhalter verwenden.
+6. Prüfen, dass weder Anschlussdraht noch Schraube oder Druckkante die Öffnung verdecken.
+
+**Prüfung:** Die optische Reihenfolge lautet **LED → Ex470BP-40 → Probenröhrchen**. Die LED zeigt zur Röhrchenmitte. Den kombinierten Halter E verwenden; die Schraubenzuordnung der Anregungsseite muss noch bestätigt werden.
+
+Die vorhandenen Fotos des zerlegten Geräts zeigen die lose LED-Platine und den Bereich des Emissionsfilters. Sie dokumentieren nicht jeden Schritt des Einsetzens des Anregungsfilters. Für eine eindeutige fotografische Darstellung dieser Montage ist noch eine gesonderte Nahaufnahme erforderlich.
+
+## Schritt 4 Detektionsseite montieren
+
+1. Emissionsgehäuse C und Blende D anhand von Funktion und Dateiname identifizieren. Öffnung und Positionierungsflächen des Detektors vor dem Filtereinbau prüfen.
+2. Em532BP-40 an den Kanten greifen und in die detektorseitige Filtertasche einsetzen.
+3. Prüfen, dass der Filter die gesamte optische Öffnung abdeckt und ohne Druck auf seine freie Fläche gehalten wird.
+4. Den einzelnen TSL2591 so ausrichten, dass seine aktive optische Fläche zum Emissionsfilter zeigt. Die Platine eben und ohne Durchbiegung befestigen.
+5. Blende anhand der Positionierungsmerkmale der passenden Teile einsetzen. Ihre zentrale Öffnung muss auf die aktive Detektorfläche ausgerichtet bleiben.
+6. Genügend Platz zum Anschluss des Sensorkabels lassen, damit dabei der Detektor nicht verschoben wird.
+
+**Prüfung:** Die optische Reihenfolge lautet **Probenröhrchen → Em532BP-40 → TSL2591**. Die Detektionsachse steht im Winkel von 90° zur Anregungsachse. Beide Achsen erfassen denselben Röhrchenbereich.
+
+![Zerlegtes Gerät mit freigelegtem Emissionsfilterbereich und daneben abgelegter Detektorbaugruppe. Das Foto dient der Orientierung. Die Filteridentität anhand der Verpackung oder der dokumentierten Montage prüfen.](../../../figures/open_instrument_wiring.jpg){width=80%}
+
+![Am Grundkörper montierte Detektorseite. Das Foto zeigt die Kennzeichnung Em und die befestigte Detektorbaugruppe. Schraubenlängen nicht aus dem Bild ableiten.](../../../figures/detection_side_filter_sensor.jpg){width=60%}
+
+## Schritt 5 Controller und Multiplexer einbauen
+
+1. PyBadge bei getrenntem Akku in sein Gehäuse legen.
+2. Prüfen, dass keine Druckkante eine Taste betätigt oder auf die Anzeige drückt.
+3. Zugänglichkeit von USB-Micro-Anschluss, Reset, Netzschalter und Akkuanschluss prüfen.
+4. PCA9546 so montieren, dass vorgeschaltete und nachgeschaltete Anschlüsse erreichbar bleiben.
+5. Radiale LED-Platine und Sensor mechanisch abstützen. Kabel dürfen nicht die Platinen in Position halten.
+6. Prüfen, dass Lötstellen und Schraubenenden keine benachbarten Platinen berühren können.
+
+**Prüfung:** Bedienelemente bewegen sich frei, Platinen bleiben abgestützt und Stecker sind ohne Ziehen an den Adern erreichbar.
+
+## Schritt 6 Kabel anschließen und verlegen
+
+Bei getrennter Stromversorgung die vorgesehene Verbindung **PyBadge → PRT-15109-Adapter → vorgeschalteter Anschluss des PCA9546** herstellen. Den TSL2591 an einen nachgeschalteten Multiplexeranschluss anschließen. Laut bestehender Firmwarebeschreibung werden die nachgeschalteten Kanäle nach dem Sensor durchsucht. Den tatsächlich gewählten Anschluss für die Reproduzierbarkeit des Aufbaus dokumentieren.
+
+Die LED-Platine benötigt den dokumentierten Versorgungsanschluss und besitzt keine I²C-Adresse. Ihr Anschlussort und die Pinzuordnung des Adapters müssen vor dem ersten Einschalten am realen Aufbau und Schaltplan bestätigt werden. Der aktuelle [Kabelplan](../../../../hardware/wiring/qfo_cable_map.csv) kennzeichnet diese Angaben noch als unbestätigt; er ist keine vollständige Verdrahtungsanleitung.
+
+| Gerät | Adresse | Erwarteter Nachweis |
+|---|---|---|
+| PCA9546 | 0x70 | Vorgeschalteter I²C-Bus |
+| TSL2591 | 0x29 | Gewählter nachgeschalteter Bus |
+| LED-Konstantstromplatine | Keine | Keine adressierte I²C-Antwort |
+
+1. Vor dem Stecken Identität der Verbinder, Versorgungspolarität und Signalzuordnung prüfen. Aderfarben allein belegen keine Pinzuordnung.
+2. Steckergehäuse festhalten, ausrichten und ohne Hebeln an der Buchse einstecken.
+3. Kabel entlang der Gehäusewände verlegen und an lösbaren Modulen ausreichende Reserveschlaufen lassen.
+4. Kabel von Röhrchenöffnung, Filteröffnungen, Tasten und Gehäuseverschraubungen fernhalten.
+5. Zugentlastung vorsehen, ohne an den JST-SH-Buchsen zu ziehen.
+6. Anschlusszuordnung, Kabellängen und LED-Versorgungsanschluss im Kabelplan dokumentieren.
+
+**Prüfung:** Kein Kabel wird beim Schließen des Deckels gespannt oder eingeklemmt. Bei ungeklärter Versorgung oder Adapterbelegung das Gerät nicht einschalten.
+
+## Schritt 7 Optische Abdeckung montieren
+
+Abdeckung F und die vorgesehenen lichtabschirmenden Teile montieren. Röhrchenöffnung, Filtertaschen, Gehäusenähte und Kabelausgänge auf Lichteintritt prüfen. Das Röhrchen muss weiterhin den Anschlag erreichen und sich ohne Verschieben der Optik entnehmen lassen.
+
+**Prüfung:** Alle optischen Teile bleiben beim Anbringen der Abschirmung an ihrem Platz. Bei Blindwert-, Kalibrier- und Probenmessungen muss die Abschirmung in Messposition stehen.
+
+## Schritt 8 Prüfung vor dem Einschalten abschließen
+
+- [ ] USB und LiPo sind während der Prüfung getrennt.
+- [ ] LED-Polarität und Revision der radialen Platine sind geprüft.
+- [ ] Versorgung und Pinbelegung des Adapters sind bestätigt.
+- [ ] Keine freie Drahtspitze, Lötstelle oder Schraube kann einen anderen Leiter kurzschließen.
+- [ ] Ex470BP-40 sitzt auf der Anregungsseite und Em532BP-40 auf der Detektorseite.
+- [ ] Der einzelne TSL2591 zeigt zur Emissionsöffnung.
+- [ ] Platinen und Filter sind ohne Verformung befestigt.
+- [ ] Einsetzen und Entnehmen des Röhrchens verschieben die optische Baugruppe nicht.
+- [ ] Alle Stecker sitzen; Kabel halten Abstand zu optischen Öffnungen.
+- [ ] Anzeige, Tasten, Reset und USB-Anschluss sind zugänglich.
+- [ ] Das Gehäuse schließt, ohne Kabel einzuklemmen.
+- [ ] Keine lose Schraube, kein Drahtabschnitt und kein Druckrückstand liegt im Inneren.
+
+## Schritt 9 Erstes Einschalten
+
+Die dokumentierte Softwareversion nach dem Softwareinstallationskapitel installieren. Für die erste Hardwareprüfung ein geprüftes USB-Datenkabel verwenden und den optionalen LiPo getrennt lassen.
+
+1. Einschalten und den Start der Anzeige prüfen.
+2. Mit unterstützter Software oder dem vorgesehenen Diagnoseverfahren den PCA9546 an 0x70 und den TSL2591 an 0x29 auf einem nachgeschalteten Kanal nachweisen.
+3. LED-Funktion prüfen, ohne direkt in die LED oder Anregungsöffnung zu schauen. Die LED-Platine erscheint nicht als I²C-Gerät.
+4. Leeres Röhrchen und Lichtabschirmung einsetzen. Bei geschlossener Abschirmung die Wirkung wechselnder Raumbeleuchtung beobachten. Bei deutlicher Signaländerung vor der Kalibrierung nach Lichteintritt suchen.
+5. Den vorgesehenen Reagenzblindwert wiederholt bei geschlossener Abschirmung messen. Instabilität, Sättigung oder Empfindlichkeit gegenüber mechanischen Bewegungen vor der Kalibrierung klären.
+6. Vollständige Konfiguration, Verkabelung und Abweichungen vom bereitgestellten Aufbau dokumentieren.
+
+Die Prüfung mit leerem Röhrchen untersucht Hardware und Abschirmung. Für die analytische Kalibrierung den vorgeschriebenen Reagenzblindwert verwenden. Der erfolgreiche Gerätestart allein berechtigt noch nicht zur Angabe von dsDNA-Konzentrationen; Kalibrierung und unabhängige Qualitätskontrolle folgen in den Betriebskapiteln.
+
+Nach Austausch von LED, einem der Filter, Detektor oder Röhrchenhalter die betroffenen Hardwareprüfungen wiederholen und vor Angabe neuer Probenergebnisse eine geeignete Kalibrierung herstellen.

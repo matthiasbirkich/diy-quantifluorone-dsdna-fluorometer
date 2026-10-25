@@ -1,0 +1,134 @@
+---
+document-status: "Zur Durchsicht durch den Autor"
+---
+
+# Routinemäßige dsDNA-Analyse mit QuantiFluor ONE {#sec-routine-analysis}
+
+Dieses Protokoll verwendet **1 µL Probe und 200 µL gebrauchsfertiges QuantiFluor ONE-Reagenz** in einem dünnwandigen Promega E4941 PCR-Röhrchen mit 0,5 mL. Die vorbereiteten Proben nach erfolgter Gerätecharakterisierung und Festlegung eines Qualitätskontrollplans gegen die Zweipunktkalibrierung am Gerät messen. Eine vorläufige oder importierte Mehrpunktkalibrierung ist für dieses Routineverfahren nicht erforderlich. Das Gerät gibt die Konzentration der DNA-Lösung vor Reagenzzugabe aus.
+
+## Probenserie vorbereiten
+
+Saubere DNA-freie Röhrchen und Spitzen, frische Handschuhe, eine für 1-µL-Übertragungen geeignete P2- oder P10-Pipette, eine 200-µL-Pipette, einen Röhrchenständer und einen Timer verwenden. Ausreichend Reagenz, bei erforderlicher Neukalibrierung den bestätigten ONE-Stammstandard, eine unabhängige Kontrolllösung und gegebenenfalls Probenverdünnungen vorbereiten.
+
+Datum der Probenserie, ausführende Person, Gerät, Firmware, Reagenz- und Standardidentität, Kalibrierkennung, Arbeitsbereich, geltende LOD/LOQ und die vorab festgelegten Annahmeintervalle für Blindwert und QC dokumentieren. Tatsächliche Uhrzeiten gesondert festhalten; die Geräte-CSV enthält Betriebszeitsekunden statt UTC.
+
+- [ ] 1. Gerät mit eigenständiger Stromversorgung starten und die dokumentierte Aufwärmzeit von 20 Minuten einhalten.
+- [ ] 2. Mechanische Unversehrtheit, Lichtabschirmung, Sensoreinstellungen und ausreichende Stromversorgung prüfen.
+- [ ] 3. Vorgesehene Zweipunktkalibrierung prüfen. Deren gespeicherten Blindwert beibehalten oder vollständig neu zweipunktkalibrieren; den Blindwert nicht mit START ersetzen und anschließend fortfahren, als wäre das Modell weiterhin aktiv.
+- [ ] 4. Röhrchen mit nachvollziehbaren Kennungen beschriften. Entweder passende Gerätekennungen verwenden oder ein handschriftliches Zuordnungsprotokoll führen; eine Änderung der Probenliste am Computer ist nicht erforderlich.
+- [ ] 5. Röhrchen in Messreihenfolge anordnen. Im Protokoll jede Messung einschließlich Prüfblindwert, Kontrolle und Wiederholung einzeln erfassen.
+
+
+**Einfaches Zuordnungsprotokoll ohne Änderung der Probenliste**
+
+Vor jedem Druck auf A Messnummer, Uhrzeit, tatsächliche Röhrchenkennung und angezeigte Gerätekennung notieren; unmittelbar danach Ergebnis und Hinweise ergänzen. Das folgende Beispiel zeigt nur die Protokollstruktur, keine Messdaten.
+
+| Messnr. | Uhrzeit | Röhrchenkennung | Gerätekennung | Ergebnis und Hinweise |
+|---|---|---|---|---|
+| 1 | … | Prüfblindwert | Sample01 | … |
+| 2 | … | QC-A | Sample01 | … |
+| 3 | … | Probe-A17 | Sample02 | … |
+| 4 | … | Probe-A17 Wiederholung | Sample02 | … |
+
+Zusätzlich Datum, Gerät und Beginn jeder Sitzung beziehungsweise jeden Neustart vermerken. Die Gerätekennung darf unverändert bleiben, wenn jede einzelne Messung eindeutig zugeordnet wird. Sie wird nicht automatisch weitergeschaltet. Die Original-CSV unverändert aufbewahren und die Zuordnung gemeinsam mit dem Protokoll archivieren; Abschnitt 7.6 erläutert beide Varianten der Kennungsvergabe.
+
+## Röhrchen ansetzen und inkubieren
+
+| Röhrchen | Vorbereitung | Zweck |
+|---|---|---|
+| Reagenzblindwert oder Prüfblindwert | 200 µL ONE-Reagenz; keine DNA-Zugabe | Je nach gewähltem Ablauf Kalibrierblindwert, unabhängige Blindwertstudie oder Blindwertprüfung der Serie |
+| Oberer Standard bei Bedarf | 200 µL Reagenz + 1 µL bestätigte Stammlösung mit 400 ng/µL | Oberer Kalibrierpunkt mit 400 ng DNA |
+| Kontrollprobe | 200 µL Reagenz + 1 µL Kontrolllösung | Unabhängige Prüfung gegen einen bekannten Sollwert |
+| Unbekannte Probe | 200 µL Reagenz + 1 µL Probenlösung | Standard-Probenassay |
+| Verdünnte unbekannte Probe | 200 µL Reagenz + 1 µL gezielt vorverdünnte Probe | Assay innerhalb des festgelegten Bereichs; Vorverdünnungsfaktor dokumentieren |
+
+- [ ] 1. Assaykomponenten auf Raumtemperatur bringen und DNA-Lösungen vor dem Pipettieren mischen.
+- [ ] 2. Röhrchen beschriften und jeweils 200 µL Reagenz vorlegen.
+- [ ] 3. Je 1 µL Standard, Kontrolllösung oder Probe in die zugehörigen Röhrchen geben; bei jeder Übertragung die Spitze wechseln. Zum Reagenzblindwert keine DNA-Lösung geben.
+- [ ] 4. Verschließen und mit Vortex oder nach dem Pipettenmischverfahren des Herstellers gründlich mischen. Blasenbildung vermeiden.
+- [ ] 5. **5 Minuten bei Raumtemperatur lichtgeschützt inkubieren.** Bei großen Serien zeitlich abgestimmte Gruppen verwenden, damit die Inkubation einheitlich bleibt.
+- [ ] 6. Röhrchen auf Blasen, äußere Tropfen und Fingerabdrücke prüfen. Bei Bedarf außen reinigen oder ein Ersatzröhrchen ansetzen.
+
+Promega erlaubt am Quantus andere Probenvolumina; dort wird das eingegebene Volumen zur Berechnung verwendet. Dieses DIY-Verfahren legt das Probenaliquot auf 1 µL fest. Es nicht unter Beibehaltung derselben Kalibrierung auf 2 oder 20 µL erhöhen und eine weiterhin richtige Konzentrationsanzeige erwarten. Ein geändertes Volumen benötigt eine dokumentierte kompatible Kalibrierung sowie eine Beurteilung von Assaygeometrie und Antwortverhalten.
+
+## Blindwertbezug der Serie festlegen und Kontrollprobe prüfen
+
+**Bei einer neuen Zweipunktkalibrierung:** Die Checkliste in Abschnitt 8.3 vollständig durchführen, einschließlich Blindwert, oberem Standard und Speicherung mit SELECT.
+
+**Bei Weiterverwendung einer gespeicherten Zweipunktkalibrierung:**
+
+- [ ] Aus CAL STATUS zweimal B drücken, um über das Menü nach Live zurückzukehren. Aus Details zweimal B, aus RAW einmal B drücken (Abschnitt 7.2).
+- [ ] Vorhandene Kalibrierung und zugehörigen gespeicherten Blindwert beibehalten. START auf dem normalen Messbildschirm nicht drücken.
+- [ ] Prüfblindwertkennung mit UP/DOWN auswählen oder die Zuordnung einer vorhandenen Gerätekennung zum Prüfblindwert handschriftlich dokumentieren.
+- [ ] Frisches Prüfblindwert-Röhrchen einsetzen, Lichtabschirmung schließen und A drücken. Die Messung prüft den Hintergrund gegen den gespeicherten Blindwert, ohne ihn zu ersetzen.
+- [ ] Ergebnis anhand der vorab festgelegten Annahmegrenzen beurteilen.
+
+**Unabhängige Kontrollprobe messen:**
+
+- [ ] Kontrollprobe nach Abschnitt 9.2 vorbereiten und inkubieren.
+- [ ] In Live die zugehörige Gerätekennung auswählen oder die Zuordnung im Protokoll vermerken.
+- [ ] Kontrollröhrchen einsetzen, Lichtabschirmung schließen und A drücken.
+- [ ] Ergebnis, Status und gegebenenfalls Vorverdünnung dokumentieren; Wiederfindung gegen den bekannten Sollwert und die vorab festgelegten Annahmegrenzen prüfen.
+- [ ] Erst nach bestandener Blindwert- und Kontrollprüfung die unbekannten Proben messen. Bei nicht bestandener Prüfung die Ursache untersuchen.
+
+Ein mit A gemessener Prüfblindwert und eine Kontrollprobe werden bei aktivierter Protokollierung automatisch wie eine Probe in der CSV aufgezeichnet; eine zusätzliche Speichertaste ist nicht erforderlich (Abschnitte 7.8 und 9.4). Benötigt die gespeicherte Zweipunktkalibrierung einen neuen Kalibrierblindwert, das vollständige Zweipunktverfahren und die Kontrollprüfung wiederholen (Abschnitt 8.4).
+
+## Unbekannte Proben messen
+
+Die Tastenpositionen zeigt das Foto in Abschnitt 7.2. **Nach einer erfolgreichen Messung mit A wird das Ergebnis automatisch in die CSV geschrieben, wenn Protokollierung und Schreibzugriff aktiv sind.** Ein zusätzlicher Druck auf SELECT ist für Routineproben nicht erforderlich.
+
+- [ ] **Live aufrufen:** Aus Details zweimal B drücken, aus RAW einmal B. Aus dem Menü einmal B, aus CAL STATUS zweimal B drücken. Einen laufenden Kalibrierdialog zunächst regulär abschließen; B bedeutet dort Abbruch.
+- [ ] **Zuordnung festhalten:** Mit UP/DOWN die passende Gerätekennung wählen. Ist keine passende Kennung vorhanden, eine vorhandene Kennung verwenden und vor dem Messen tatsächliche Probenkennung, Gerätekennung, Messnummer und Uhrzeit im Protokoll nach Abschnitt 9.1 notieren.
+- [ ] **Röhrchen einsetzen:** Inkubiertes Röhrchen bis zum reproduzierbaren Anschlag einsetzen und Lichtabschirmung schließen.
+- [ ] **Messen:** A drücken. Gerät und Röhrchen während aller drei Sensorablesungen nicht bewegen. Die Firmware kehrt nach Abschluss automatisch nach Live zurück.
+- [ ] **Ergebnis notieren:** Konzentration, Ergebnisstatus und bei Bedarf RFU oder Signalstatistik ablesen und zum Protokolleintrag ergänzen. Bei ungewöhnlichen Werten Details und RAW zur Untersuchung verwenden.
+- [ ] **Speicherablauf abwarten:** Nach Abschluss des Messzyklus versucht die Firmware, automatisch eine Zeile mit row_type = sample an quantifluorone_log_v100rc2.csv anzuhängen. Kein zusätzlicher Speichertastendruck. Die drei Sensorablesungen stehen gemeinsam in dieser einen Zeile.
+- [ ] **Nächste Messung vorbereiten:** Röhrchen entnehmen. Nächste Kennung ausdrücklich auswählen oder eine neue Protokollzeile anlegen. Eine Wiederholungsmessung erhält einen eigenen Eintrag, auch wenn dieselbe Gerätekennung verwendet wird.
+- [ ] **Kontrollen fortführen:** Kontrollprobe nach längerer Unterbrechung, vermuteter Drift oder einem anderen im Laborplan festgelegten Ereignis erneut messen. Falls vorgesehen, eine Kontrolle am Serienende einbeziehen. Betroffene Ergebnisse zurückhalten, wenn die Qualitätskontrolle nicht mehr bestanden wird.
+
+**Voraussetzungen für das automatische Speichern:** Das Gerät muss nach Trennen des USB-Datenhosts normal an eigenständiger Stromversorgung gestartet worden sein; die Konfiguration muss `measurement.csv_logging: true` enthalten. Dies ist im gelieferten Release voreingestellt. Die Live-Anzeige bestätigt einen erfolgreichen Schreibvorgang nicht zuverlässig. Deshalb die Funktion bei der Installation durch Auslesen einer Testmessung prüfen und nach jeder Serie die neuen CSV-Zeilen kontrollieren. Bei einem Erfassungsfehler entsteht nicht zwingend eine vollständige neue Messzeile; Fehler und Neustarts im Protokoll festhalten.
+
+Der obere Kalibrierstandard kann nicht zugleich als einzige unabhängige Kontrollprobe dienen, die die Richtigkeit dieser Kalibrierung belegt. Einen separaten Ansatz mit anderer Konzentration verwenden; ein unabhängig zugewiesenes Material ist vorzuziehen, sofern verfügbar.
+
+## Bei Bedarf wiederholen oder verdünnen
+
+Bei einem einzelnen instabilen Messwert Blasen, Mischung, Röhrchensitz, äußere Verunreinigung und Lichtabschirmung prüfen. Eine erkannte Ursache beheben und die Messung wiederholen, ohne die ursprüngliche Aufzeichnung zu löschen. Bei abweichenden Ergebnissen separat angesetzter Assayröhrchen die Vorbereitung untersuchen und erforderlichenfalls frische Wiederholungsansätze herstellen.
+
+Bei Ergebnissen oberhalb des Bereichs oder bei Sättigung die ursprüngliche Probe mit einem geeigneten DNA-freien Verdünnungsmittel verdünnen, Ansatzvolumina dokumentieren und den vollständigen 1-µL-Assay wiederholen. Einen bereits farbstoffhaltigen fertigen Assay nicht verdünnen und ohne Prüfung des geänderten Verfahrens mit der gewöhnlichen Kalibrierung auswerten.
+
+Die Firmware kann Sättigung als schwerwiegenden Erfassungsfehler behandeln. Fehler dokumentieren, Ursache beheben und neu starten; nicht annehmen, dass die vorherige Anzeige ein gültiges neues Ergebnis darstellt.
+
+## Ergebnis berechnen und freigeben
+
+Bei einer nicht vorverdünnten Ausgangsprobe ist die angezeigte Konzentration der ursprünglichen Lösung bereits die zu berichtende Konzentration, sofern Kalibrierung, Bereich und QC die Anforderungen erfüllen. **Nicht mit 201 multiplizieren.** Dieser Faktor beschreibt die Verdünnung im Standardassay und ist im Konzentrationsbezug der Kalibrierung bereits berücksichtigt.
+
+Bei gezielt vorverdünnten Proben die angezeigte Konzentration mit dem Vorverdünnungsfaktor multiplizieren. Beispielsweise entsprechen 30 ng/µL bei zehnfacher Vorverdünnung 300 ng/µL in der Ausgangsprobe. Den Faktor als Gesamtvolumen der Verdünnung geteilt durch das eingesetzte Probenvolumen dokumentieren; mehrdeutige Verdünnungsangaben vermeiden.
+
+Das entsprechende CSV-Feld `concentration_in_assay_ng_uL` beschreibt den fertigen Assay und ist nicht mit dem Ergebnis der Ausgangsprobe austauschbar. LOD/LOQ und Intervalle auf derselben Konzentrationsbasis interpretieren. Bei vorverdünnten Proben erhöhen sich auch die effektiven Grenzen bezogen auf die Ausgangsprobe um den Vorverdünnungsfaktor.
+
+## Probenserie abschließen und archivieren
+
+- [ ] 1. Blindproben, Kontrollen, Probenkennungen, Wiederholungen, Bereichsmarkierungen, Grenzen und Verdünnungsrechnungen prüfen.
+- [ ] 2. Ergebnisse zurückhalten oder verwerfen, wenn sie die vorab festgelegten Bedingungen nicht erfüllen.
+- [ ] 3. Messaufnahme beenden, Gerät mit dem Computer verbinden und in den sicheren Modus wechseln (Abschnitt 6.3). Aus CIRCUITPY die Datei quantifluorone_log_v100rc2.csv sowie Kalibrier-, Konfigurations- und Zustandsdateien in einen datierten Ordner der Probenserie kopieren.
+- [ ] 4. Die kopierte CSV öffnen und die neuen Zeilen mit row_type = sample prüfen. Diese umfassen auch die mit A gemessenen Prüfblindwerte und Kontrollen. Anzahl, Reihenfolge, sample_id und concentration_ng_uL mit dem Protokoll abgleichen. Bei Neustarts die Sitzungen getrennt zuordnen; t_s beginnt erneut. CSV und Zuordnungsprotokoll gemeinsam archivieren. Fehlen Zeilen, die angezeigten Werte nicht als nachweislich in der CSV gespeichert behandeln; handschriftliche Ergebnisse und Abweichung dokumentieren.
+- [ ] 5. Benutzte Röhrchen entnehmen, Geräteaußenseite ohne Flüssigkeitseintrag reinigen und Verbrauchsmaterial nach den Laborregeln entsorgen.
+- [ ] 6. Reagenz und Standard nach den Anweisungen des ONE-Kits lagern.
+
+![Gerät mit eigenständiger Stromversorgung neben vorbereiteten Probenröhrchen. Das Foto veranschaulicht die Messanordnung.](../../../figures/measuring_setup.jpg){width=85%}
+
+## Checkliste am Laborplatz
+
+- [ ] Gerät aufgewärmt, geschlossen und mit einer Stromversorgung in Betrieb, die Protokollierung erlaubt.
+- [ ] Richtige Kalibrierung und zugehöriger Blindwertablauf ausgewählt.
+- [ ] Reagenzblindwert beziehungsweise Prüfblindwert und unabhängige Kontrollprobe angenommen.
+- [ ] Röhrchen beschriftet, gemischt und 5 Minuten bei Raumtemperatur im Dunkeln inkubiert.
+- [ ] Für dieses Verfahren genau 1 µL Probe zu 200 µL Reagenz gegeben.
+- [ ] Vor jedem Druck auf A Gerätekennung ausgewählt oder tatsächliche Probenkennung im Zuordnungsprotokoll festgehalten.
+- [ ] Bereich, Grenzen, Verhalten der Wiederholungen und Ergebnismarkierungen geprüft.
+- [ ] Auf die berichtete Konzentration nur eine gezielte Probenvorverdünnung angewendet.
+- [ ] Erwartete CSV-Zeilen und Kalibrierunterlagen archiviert.
+
+## Quelle des Protokolls
+
+Promega Corporation, QuantiFluor ONE dsDNA System, TM405, überarbeitet Oktober 2022, Abschnitt 3, gedruckte Seite 4. Im mitgelieferten PDF steht das Verfahren auf PDF-Seite 5. Blindwert, 400-ng-Standard, Mischung und fünfminütige Inkubation stammen aus diesem Verfahren. Das feste Probenaliquot von 1 µL und die RC2-Bedienung sind die projektspezifische Umsetzung.

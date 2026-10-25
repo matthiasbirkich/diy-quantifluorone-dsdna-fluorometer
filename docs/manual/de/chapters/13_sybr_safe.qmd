@@ -1,0 +1,152 @@
+---
+document-status: "Zur Durchsicht durch den Autor"
+---
+
+# Alternativer Assay mit SYBR Safe {#sec-sybr-safe}
+
+SYBR Safe ist eine literaturgestützte Alternative zum QuantiFluor ONE-Assay. Anderson und Mitarbeitende beschreiben die DNA-Quantifizierung damit auf DIYNAFLUOR im mitgelieferten Preprint vom Dezember 2024 [R3]. Dieses Kapitel erläutert die dortige Vorbereitung und die Anpassungen zur Erprobung am DIY QuantiFluorONE-Gerät. **SYBR Safe ist auf diesem Gerät noch nicht analytisch verifiziert.** Vor der Angabe von Routinekonzentrationen Arbeitsbereich, Kontrollen und Grenzen ermitteln.
+
+**Die verfügbare Probenmenge bestimmt das Aliquot.** Die nachfolgend genannten 10 µL gehören zum veröffentlichten DIYNAFLUOR-Referenzverfahren; sie sind kein erforderliches Mindestprobenvolumen dieses Geräts. Bei knapper Probe kann ein kleineres Aliquot entwickelt werden. Reagenzvorbereitung, Kalibrierbezug und Berichtsgrenzen müssen für dieses Volumen festgelegt werden. Den Probenverbrauch nicht allein zur Nachbildung der Publikation erhöhen.
+
+Der Hersteller liefert SYBR Safe vor allem als Gelfarbstoff [R4]. Die hier beschriebene Verwendung in Lösung folgt dem DIYNAFLUOR-Forschungsverfahren. SYBR Safe ist kein direkt austauschbarer Ersatz für gebrauchsfertiges ONE-Reagenz; das ONE-Protokoll mit 1 µL und 200 µL gilt dafür nicht.
+
+## Warum die vorhandene Optik zu SYBR Safe passt
+
+Die eingebaute **485-nm-LED, der Anregungsfilter Ex470BP-40 und der Emissionsfilter Em532BP-40 sind spektral gut auf SYBR Safe abgestimmt**. Diese Hardware für die erste Charakterisierungsreihe beibehalten. Ein LED- oder Filteraustausch ist eine Optimierungsoption, wenn Messungen ein Problem erkennen lassen, keine Voraussetzung für den Assaywechsel.
+
+DNA-gebundenes SYBR Safe hat Anregungsmaxima nahe 280 nm und 502 nm und ein Emissionsmaximum nahe 530 nm [R4]. Die sichtbare Anregungsbande ist für blaue Anregung hinreichend breit: Thermo Fisher nennt 470-nm-LEDs und 488-nm-Anregung als nutzbar zur Sichtbarmachung [R5]. Die eingebaute 485-nm-LED bietet damit grundsätzlich eine geeignete Anregungswellenlänge. Die Überlappung ihres tatsächlichen Spektrums mit Anregungsfilter und Farbstoffabsorption bestimmt die nutzbare Anregungsintensität; die Nähe zum Absorptionsmaximum allein beziffert die Effizienz nicht.
+
+Ex470BP-40 hat eine nominelle Zentralwellenlänge von 470 nm und eine nominelle Bandbreite von 40 nm, meist als ungefähr 450–490 nm angegeben. Er lässt das blaue Anregungsband passieren und schwächt längerwellige LED-Anteile ab. **Diese Grenzen beschreiben einen Durchlassbereich, keine garantierte Nulltransmission oberhalb von 490 nm.** Filterflanken verlaufen allmählich; für die tatsächliche Leistung sind Transmission bei 485 nm und Sperrwirkung im Fluoreszenzband relevant.
+
+Em532BP-40 hat eine nominelle Zentralwellenlänge von 532 nm und 40 nm Bandbreite; seine nominellen Halbmaximumgrenzen liegen damit nahe 512 und 552 nm. Das Emissionsmaximum bei 530 nm liegt nur 2 nm vom Zentrum entfernt. Dies ist ein überzeugender spektraler Grund, den eingebauten Emissionsfilter beizubehalten. Die normierten Projektmessungen ergeben ungefähre Halbmaximumintervalle von 450–490 nm für das untersuchte Anregungsfilterexemplar und 518–555 nm für das Emissionsfilterexemplar. Sie prüfen Lage und Form der Banden, nicht absolute Transmission oder Sperrwirkung außerhalb des Durchlassbereichs. Siehe [Messnachweis des Anregungsfilters](../../../figures/qfo_ex470bp40_spectral_verification.jpeg) und [Messnachweis des Emissionsfilters](../../../figures/qfo_em532bp40_spectral_verification.jpeg).
+
+Zwischen 490 nm und 512 nm liegen nominell 22 nm. Dieser Abstand unterstützt zusammen mit 90°-Geometrie und Lichtabschirmung die Unterdrückung des Anregungslichts. Er gewährleistet nicht, dass keinerlei gestreutes LED-Licht den Detektor erreicht. Der verbleibende Hintergrund hängt von Filtersperrwirkung, spektralen Ausläufern, Reflexionen und Lichteintritt ab und muss mit dem passenden Assayblindwert geprüft werden.
+
+| Komponente | Grund für die Beibehaltung | Änderung nur bei messtechnisch begründetem Bedarf |
+|---|---|---|
+| Radiale 485-nm-LED | Liegt im nutzbaren blauen Anregungsbereich | Vorbereitung, Ausrichtung und Lichtleistung prüfen, bevor eine andere blaue LED erprobt wird |
+| Ex470BP-40 | Lässt blaue Anregung passieren und schwächt längerwellige LED-Anteile ab | Nutzbaren Lichtdurchsatz und verbleibenden Anregungslichtdurchtritt beurteilen |
+| Em532BP-40 | Detektionsband enthält das 530-nm-Fluoreszenzmaximum nahe seinem Zentrum | Sperrwirkung und blindwertkorrigierte Antwort prüfen, bevor das Band geändert wird |
+| LED-Platine und Halter | Erhalten dokumentierten Strom und optische Geometrie | Ersatz muss Strom, Polarität, LED-Position und mechanischer Passung entsprechen |
+
+Das veröffentlichte DIYNAFLUOR verwendet eine 470-nm-LED mit Anregungsfilter 470 ± 15 nm und Emissionsfilter 525 ± 15 nm [R3]. Beide Geräte arbeiten nominell mit 90°-Fluoreszenzdetektion; Halter, optische Abstände sowie Beleuchtungs- und Lichtsammlungsanordnung unterscheiden sich jedoch. Lichtquelle, Filterbänder und Geometrie bestimmen gemeinsam Hintergrund und Antwort. Dies ist eine Vergleichskonfiguration, kein Nachweis dafür, dass deren Komponenten dieses Gerät verbessern oder deren Empfindlichkeit unverändert übertragbar ist. Nicht allein zum Abgleich mit dem Absorptionsmaximum eine 502-nm-LED wählen: Der vorhandene Anregungsfilter kann sie abschwächen, und die Trennung von Anregung und Emission wird anspruchsvoller. Eine fertig bestückte LED-Platine bleibt unter den Kompatibilitätsprüfungen aus Kapitel 4 eine Option. Optische Änderungen erfordern erneute Charakterisierung und Kalibrierung.
+
+## Materialien und veröffentlichte Farbstoffvorbereitung
+
+Das **10.000X-SYBR-Safe-Konzentrat** verwenden, beispielsweise das im Herstellerleitfaden beschriebene DMSO-Konzentrat, keine gebrauchsfertige Gelfärbelösung [R4]. LTE-Puffer mit 10 mM Tris und 0,1 mM EDTA bei pH 8,0 sowie geeignete dünnwandige 0,5-mL-PCR-Röhrchen verwenden. Die Publikation verwendete Axygen-Röhrchen; die Übernahme des hier dokumentierten E4941-Röhrchens ist eine zu prüfende Verfahrensübertragung.
+
+**Bezugsquellen und Preisorientierung (Abruf: 25. Oktober 2026)**
+
+- **SYBR Safe, CONATEX, Art.-Nr. 1233020:** 80 µL 10.000X-Konzentrat; 58,00 EUR netto bzw. 69,02 EUR einschließlich 19 % MwSt., jeweils ohne Versand. [Produkt und Bestellung](https://www.conatex.com/biologie-lehrmittel/immunologie-und-genetik/restriktion-gelelektrophorese/sybr-safe-dna-marker.html).
+- **Low-TE-Puffer, PanReac AppliChem / ITW Reagents, Produkt A8569:** gebrauchsfertiger 1X-Puffer mit 10 mM Tris und 0,1 mM EDTA, pH 8,0 ± 0,1. Die nominelle Zusammensetzung entspricht dem LTE-Puffer des veröffentlichten DIYNAFLUOR-Ansatzes. 500 mL (A8569,0500): 28,80 EUR; 1 L (A8569,1000): 44,00 EUR, jeweils öffentlich ausgewiesene unverbindliche Einzelpreisempfehlung. Mehrwertsteuer, Versand, tatsächlichen Institutspreis und Lieferbarkeit bei Bestellung klären. [Produkt und Bezugsinformationen](https://www.itwreagents.com/germany/de/product/gb-bb_puffer-de/te---puffer-1x-ph-8-0-low-edta-fur-die-molekularbiologie/A8569).
+
+Diese Angebote dienen der Beschaffungsplanung; Gebinde, Preise und Lieferbarkeit vor Bestellung prüfen. Bei der Bestellung ausdrücklich auf **0,1 mM EDTA und 10 mM Tris bei pH 8,0** achten. Herkömmlicher 1X-TE-Puffer enthält häufig 1 mM EDTA und ist damit nicht dieselbe Formulierung. Eine zehnfache Verdünnung eines solchen TE-Puffers stellt LTE nicht her, weil dabei auch die Tris-Konzentration sinkt.
+
+**Eigenbau-Assay mit festgelegtem Puffer**
+
+Aus 10.000X-Konzentrat entsteht durch Verdünnung 1:10.000 ein nomineller 1X-Farbstoff-Mastermix, beispielsweise aus 1 µL Konzentrat und 9.999 µL des gewählten Puffers zu insgesamt 10 mL. Für kleinere Chargen ist die nachfolgende zweistufige Verdünnung besser pipettierbar. Für den literaturgestützten Ausgangsansatz LTE verwenden; bei einer TE-Variante alle Pufferzugaben einschließlich Blindwert, Standards und Kontrollen entsprechend einheitlich festlegen. Nicht lediglich Farbstofflösung ohne DNA messen: Das analytische Signal ist die Fluoreszenz der DNA-Farbstoff-Ansätze gegenüber dem passenden Assayblindwert. Die Maxima nahe 502 und 530 nm beziehen sich auf DNA-gebundenes SYBR Safe [R4].
+
+Die 1:10.000-Verdünnung beschreibt hier den Mastermix. Bei 190 µL davon und 10 µL DNA-Lösung enthält der fertige 200-µL-Ansatz etwa 0,95X Farbstoff. Pufferwahl und endgültige Farbstoffkonzentration bei der Standardreihe und allen späteren Messungen gleich halten. Die Herstelleranleitung [R4] beschreibt 1:10.000 für Gelfärbung in TAE/TBE; die quantitative Anwendung in LTE bzw. TE wird mit dem eigenen Lösungsassay geprüft.
+
+Die veröffentlichte Vorbereitung [R3] umfasst zwei Verdünnungsstufen:
+
+- [ ] 1. Das 10.000X-Konzentrat im Verhältnis 1:50 mit LTE zu einer 200X-Farbstoffstammlösung verdünnen. Beispielsweise 2 µL Konzentrat und 98 µL LTE gründlich mischen.
+- [ ] 2. Für den Mastermix je nomineller Ansatzeinheit 1 µL der 200X-Stammlösung mit 199 µL LTE mischen. Volumina für die gesamte Serie gemeinsam skalieren und Pipettierverluste einplanen.
+- [ ] 3. Je Assayröhrchen 190 µL Mastermix vorlegen, anschließend 10 µL DNA-Lösung oder Blindwertpuffer zugeben.
+
+Die angegebene Verdünnungsfolge ergibt 1X-Farbstoff im Mastermix und ungefähr 0,95X, nachdem zu 190 µL Mastermix 10 µL DNA-Lösung gegeben wurden. Diese Faktoren sind aus den veröffentlichten Volumina berechnet; die Folge nicht unbemerkt durch eine andere Farbstoffkonzentration ersetzen.
+
+Farbstoffstammlösungen und Mastermix nachvollziehbar beschriften und lichtgeschützt vorbereiten. Herstellerangaben zum gekauften Konzentrat beachten und eine Aufbewahrungsdauer verdünnter Lösungen festlegen, bevor gelagerte Mischungen verwendet werden. Kapitel 2 zu Reagenzhandhabung, Probengefahren und Entsorgung anwenden; der Produktname ersetzt keine angemessenen Vorsichtsmaßnahmen.
+
+Eine obere Standardlösung mit 10 ng/µL lässt sich aus der bestätigten ONE-Lambda-DNA-Stammlösung mit 400 ng/µL herstellen: 5 µL Stammlösung mit 195 µL LTE mischen, insgesamt 200 µL. Dies ersetzt die in der Publikation verwendete Standardquelle; Entscheidung dokumentieren und übertragenen Assay prüfen. Kontrolllösungen separat vorbereiten.
+
+## Veröffentlichter Röhrchenansatz und Messzeitpunkt
+
+| Röhrchen | Mastermix | Zugegebene Lösung | Zweck |
+|---|---|---|---|
+| Kalibrierblindwert | 190 µL | 10 µL LTE | Endpunkt ohne DNA bei angepasstem Endvolumen |
+| Oberer Standard | 190 µL | 10 µL Lambda-DNA mit 10 ng/µL in LTE | 100 ng DNA in 200 µL; 0,5 ng/µL im Assay |
+| Unabhängige Kontrollprobe | 190 µL | 10 µL separat vorbereitete Kontrolllösung im gewählten Bereich | Wiederfindung prüfen, ohne nur den Kalibrierpunkt zu verwenden |
+| Unbekannte Probe | 190 µL | 10 µL Probe oder dokumentierte Vorverdünnung | Konzentration nach Verifizierung des Verfahrens bestimmen |
+
+- [ ] Röhrchen nach obiger Zuordnung ansetzen und mit Vortex mischen.
+- [ ] Kurz zentrifugieren, um Flüssigkeit zu sammeln und Blasen zu entfernen.
+- [ ] Gemäß Publikation [R3] vor der Messung **1 Minute bei Raumtemperatur inkubieren**.
+- [ ] Zeitablauf, Röhrchensitz und Lichtschutz einheitlich halten.
+
+Dies unterscheidet sich vom fünfminütigen ONE-Verfahren. Ein frischer SYBR-Safe-Blindwert enthält Farbstoffmastermix und 10 µL LTE; nicht den ONE-Blindwertansatz für diesen Assay verwenden.
+
+## Konfiguration für das veröffentlichte Referenzverfahren
+
+Das veröffentlichte 10-µL-Aliquot ergibt einen Gesamtvolumen-/Probenvolumenfaktor von **20**, verglichen mit 201 beim ONE-Verfahren. Der obere Standard wird auf **10 ng/µL bezogen auf die ursprüngliche Lösung** eingestellt; dies entspricht 100 ng DNA und 0,5 ng/µL im Assay. Nicht 400 ng/µL wählen oder die ONE-Steigung weiterverwenden.
+
+RC2 liest Assaymetadaten aus `quantifluorone_config.json`. Die Quellcodeprüfung ergibt folgende Einstellungen für einen Übertragungsversuch. Sie sind eine Konfigurationsvorgabe, kein bereits qualifiziertes SYBR-Safe-Softwarerelease.
+
+| Einstellung im Objekt assay | Wert für diesen Ansatz |
+|---|---|
+| name | SYBR Safe DNA assay |
+| sample_volume_uL | 10.0 |
+| reagent_volume_uL | 190.0 |
+| total_volume_uL | 200.0 |
+| dilution_factor | 20.0 |
+| reported_concentration_basis | original_sample |
+
+Die Dezimalpunkte und Zeichenfolgen der Tabelle entsprechen den Konfigurationswerten; beim Bearbeiten gültige JSON-Syntax verwenden.
+
+- [ ] Vor dem Übertragungsversuch vollständige ONE-Konfiguration, Kalibrierung, Zustand und Messprotokoll sichern.
+- [ ] Dateipflege nach Kapitel 6 durchführen und die SYBR-Safe-Installation eindeutig kennzeichnen.
+- [ ] Alte Betriebskalibrierung und alten Blindwertzustand entfernen, bevor der neue Assay eingerichtet wird. Konfigurationsänderungen wandeln eine gespeicherte ONE-Kalibrierung nicht um.
+- [ ] Werte für den gewählten Ansatz eintragen, Datenhost trennen und mit eigenständiger Stromversorgung neu starten, damit die Anwendung die Einstellungen einliest. Installierte Dateien und Archivnachweis prüfen.
+- [ ] Den neuen Assay zunächst charakterisieren. Anschließend den Zweipunktdialog mit passendem SYBR-Safe-Blindwert und oberer Standardlösung mit 10 ng/µL durchführen. Die mitgelieferte Standardauswahl enthält 10 ng/µL.
+- [ ] Gespeicherte Standardkonzentration, Steigung, Bereich und Verdünnungsfaktor 20 prüfen. Eine separat vorbereitete Kontrollprobe messen und dauerhafte Dateispeicherung bestätigen.
+
+Die Tastenfolge entspricht Abschnitt 8.3, jedoch mit den hier genannten SYBR-Safe-Ansätzen und 10 ng/µL als oberem Standard. Für eine spätere Blindwertprüfung ohne Ersetzen der gespeicherten Kalibrierung gilt der Ablauf mit A aus Abschnitt 8.4. Proben und Kontrollen mit passenden Kennungen oder handschriftlicher Zuordnung dokumentieren.
+
+RC2 verwendet die Kennung QF1-2PT erneut und behält die ONE-Beschriftung. Beides identifiziert den Farbstoff nicht eindeutig. Getrennte datierte Assayarchive führen und Konfigurationen nicht allein anhand der Startanzeige unterscheiden.
+
+Unter dieser Kalibrierung ist die Hauptkonzentration die Konzentration der DNA-Lösung vor Assayzugabe. Der In-Assay-Wert ergibt sich durch Division dieses Ergebnisses durch 20. Beispielsweise entsprechen 4 ng/µL in der ursprünglichen Lösung 0,2 ng/µL im Assay. Einen zusätzlichen Faktor nur bei gezielter Probenvorverdünnung anwenden. Bei Rückkehr zu ONE die passende Konfiguration wiederherstellen und die zugehörige Kalibrierung mit Blindwert herstellen oder verifizieren; Assayunterlagen nicht vermischen.
+
+## Geeignetes Probenvolumen und oberen Messbereich ermitteln
+
+Das veröffentlichte 10-µL-Verfahren ist ein reproduzierbarer Bezugspunkt, nicht der einzig mögliche Assayentwurf. Ein kleineres Aliquot, beispielsweise 1 µL bei zuverlässiger Pipettierbarkeit, kann bei einem mit dem optischen Halter verträglichen Flüssigkeitsvolumen untersucht werden. Dies ist eine zu entwickelnde und zu charakterisierende Anpassung, kein bereits verifiziertes Verfahren für kleine Probenvolumina.
+
+**Geeignetes Aliquot mit einer Volumenreihe ermitteln**
+
+Zur Erprobung des SYBR-Safe-Assays eine Reihe mit **1, 2, 3, 5 und 10 µL Lambda-DNA-Standard** untersuchen. Ausgangspunkt ist die bestätigte Stammlösung mit **400 µg/mL = 400 ng/µL**. Die vorhandenen Messwerte des Promega QuantiFluor ONE-Kits helfen, die zu erwartenden DNA-Mengen und den sinnvoll zu untersuchenden Bereich abzuschätzen. Dazu die eingesetzte DNA-Masse vergleichen, nicht allein das pipettierte Volumen. Die ONE-Signalwerte sind eine Orientierung für die Versuchsplanung; Signalstärke und Sättigungsgrenze von SYBR Safe müssen separat gemessen werden.
+
+| Standardvolumen | DNA-Masse aus unverdünnter Stammlösung | DNA-Konzentration bei 200 µL Endvolumen |
+|---|---|---|
+| 1 µL | 400 ng | 2 ng/µL im Assay |
+| 2 µL | 800 ng | 4 ng/µL im Assay |
+| 3 µL | 1.200 ng | 6 ng/µL im Assay |
+| 5 µL | 2.000 ng | 10 ng/µL im Assay |
+| 10 µL | 4.000 ng | 20 ng/µL im Assay |
+
+Der konzentrierte Standard ermöglicht hohe DNA-Mengen bei geringem Zugabevolumen. Bereits 1 µL enthält 400 ng DNA, entsprechend der DNA-Masse des oberen ONE-Kalibrieransatzes; die größeren Aliquote dienen dazu, die obere Antwortgrenze zu erkunden. Eine Vorverdünnung der unbekannten Probe ist für diese Volumenauswahl nicht vorgesehen. Bei niedrig konzentrierten Proben können größere Aliquote als beim ONE-Verfahren erforderlich sein; das veröffentlichte DIYNAFLUOR-Verfahren setzt beispielsweise 10 µL ein.
+
+- [ ] Vergleichbare Ansätze vorbereiten: beispielsweise jeweils 190 µL desselben Mastermixes und das gewählte Standardvolumen einsetzen; mit dem gewählten Puffer auf 200 µL Gesamtvolumen ergänzen. Bei 1, 2, 3, 5 und 10 µL Standard sind dies 9, 8, 7, 5 beziehungsweise 0 µL zusätzliches Puffervolumen.
+- [ ] Zugehörigen Blindwert mit 190 µL Mastermix und 10 µL desselben Puffers ansetzen. Endvolumen, Farbstoffkonzentration, Mischung und Inkubation innerhalb der Reihe gleich halten.
+- [ ] Aliquot, DNA-Masse, Rohsignal, Blindwertabstand und Sättigungsanzeichen je Ansatz dokumentieren. Eine Sensorsättigung von einer nicht mehr proportionalen Assayantwort unterscheiden; ohne Messdaten keinen festen Sättigungswert angeben.
+- [ ] Anhand des benötigten Konzentrationsbereichs und der verfügbaren Probe ein geeignetes Probenvolumen auswählen. Ziel ist ein ausreichendes Signal ohne Übersteuerung; ein größeres Aliquot bleibt eine Option für geringe DNA-Konzentrationen.
+- [ ] **Danach die Linearität wie beim ONE-Assay mit einer Standardreihe in der Calibration Suite 7.3 prüfen** (Abschnitt 8.7). Mehrere bekannte DNA-Konzentrationen bei gleichbleibendem gewähltem Standardvolumen, Endvolumen und Farbstoffgehalt messen. Regressionsdiagnostik und Residuen beurteilen und den vollständigen Bericht archivieren. Die grobe Volumenreihe ersetzt diese Prüfung nicht.
+- [ ] Den akzeptierten Arbeitsbereich und das passende Probenvolumen mit unabhängigen Kontrollansätzen bestätigen; anschließend die zugehörige Zweipunktkalibrierung für den Routinebetrieb einrichten.
+
+Die Volumenreihe dient der Auswahl des Aliquots; sie ist noch keine Routinekalibrierung für wechselnde Probenvolumina. Nach der Auswahl Blindproben, Standards, Kontrollen und unbekannte Proben mit dem festgelegten Volumen und der passenden Kalibrierung messen. Das ONE-Routineverfahren aus Kapitel 9 bleibt bei 1 µL Probe und 200 µL Reagenz.
+
+Proben- und Mastermixvolumen ausdrücklich festlegen sowie endgültige Farbstoffkonzentration, Pufferzusammensetzung, Mischung und Inkubation kontrollieren. Allein das Ersetzen von 10 µL durch 1 µL ändert die eingesetzte DNA-Masse und kann auch die Assaychemie verändern. Blindproben, Standards, Kontrollen und unbekannte Proben mit den gewählten übereinstimmenden Volumina ansetzen. Die erstmalige Charakterisierung durchführen und eine neue Zweipunktkalibrierung für dieses Verfahren erstellen.
+
+Den Assayverdünnungsfaktor als Gesamtvolumen des Assays geteilt durch das Probenvolumen berechnen und tatsächliche Werte in die Konfiguration eintragen. Faktor 20 und obige Einstellungstabelle gelten nur für den veröffentlichten Ansatz mit 10 µL in 200 µL. Diese Einstellungen nicht für ein kleineres Aliquot weiterverwenden. Grenzen bezogen auf Ausgangsprobe und fertigen Assay getrennt berichten. Bei ausreichender Probe können größere Aliquote als Option untersucht werden; sie werden nicht für den Routinebetrieb vorausgesetzt.
+
+## Verifizierung vor dem Routineeinsatz
+
+- [ ] Konzentrationsreihe am tatsächlichen optischen Aufbau untersuchen, einschließlich unabhängig angesetzter Proben niedriger Konzentration und Kontrollen.
+- [ ] Blindwertstreuung, Wiederfindung, Residuen, Antwortstabilität, Sättigung und Probenmatrixeffekte beurteilen.
+- [ ] Verstärkung, Integrationszeit, Röhrchentyp und Assayvolumina festhalten und unverändert lassen.
+- [ ] Bei Verwendung der [Calibration Suite 7.3](https://matthiasbirkich.github.io/diy-quantifluorone-dsdna-fluorometer/software/calibration_suite/Open_Fluorometer_Calibration_Suite_v7.3.html) den Referenzwertbezug ausdrücklich prüfen: Ihr Konzentrationsparser multipliziert Konzentration mit eingegebenem Probenvolumen. Bei 10 µL sind Masse und Konzentration nicht mehr zahlenmäßig gleich wie im ONE-Verfahren mit 1 µL.
+- [ ] Arbeitsbereich, Kontrollen und Grenzen für den tatsächlich gewählten Ansatz festlegen; erst nach Annahme des Verfahrens Routineergebnisse freigeben.
+
+Bei der 20-fachen Assayverdünnung der Literatur entsprechen 0,5 ng/µL im Assay 10 ng/µL in der ursprünglichen Lösung. Der Preprint nennt In-Assay-Schätzwerte von 0,014 ng/µL für LOD und 0,048 ng/µL für LOQ [R3]. Dies sind DIYNAFLUOR-Ergebnisse, keine für dieses Gerät ermittelten Grenzen. Hier nicht als Berichtsgrenzen übernehmen.
+
+**Empfindlichkeit und Anwendungsbereich müssen an diesem Gerät bestimmt werden.** Die ONE-Konfiguration hat ein Kalibrierintervall von 0–400 ng/µL und eine blindwertbasierte LOD nahe 8 ng/µL bezogen auf die ursprüngliche Lösung, entsprechend ungefähr 0,04 ng/µL im Assay. Eine höhere SYBR-Safe-LOD lässt sich weder aus dem Farbstoffnamen noch aus DIYNAFLUOR-Ergebnissen mit anderer Optik und Geometrie ableiten. Grenzen auf gleichem Konzentrationsbezug und bei tatsächlichem Probenvolumen vergleichen. Die Eignung für Labor- oder eDNA-Proben hängt von Konzentration, Matrix und erforderlicher Bestimmungsgrenze ab; Kalibrierung allein belegt keine ausreichende Empfindlichkeit.
+
+SYBR Safe kann auch auf RNA ansprechen [R4]. Das Ergebnis der RNA-Zugabe im Preprint belegt keine allgemeingültige Selektivität in beliebigen Extrakten. Wenn RNA oder Extraktionsreagenzien beitragen könnten, deren Einfluss und gegebenenfalls eine Probenbehandlung gesondert beurteilen. Nach Annahme des Verfahrens dessen eigene Zweipunktkalibrierung, Kontrollen und Grenzen im Routineablauf verwenden. Rohsignale und Ansatzunterlagen aufbewahren, damit der Farbstoffwechsel nachvollziehbar bleibt.

@@ -1,0 +1,49 @@
+---
+document-status: "Zur Durchsicht"
+lang: de-DE
+---
+
+# Geräteübersicht und Verwendungszweck {#sec-overview}
+
+Das DIY QuantiFluorONE dsDNA Fluorometer bestimmt die Massenkonzentration doppelsträngiger DNA mit dem Promega QuantiFluor ONE dsDNA-Assay. Dieses Handbuch erläutert den Nachbau des dokumentierten Geräts, die Softwareinstallation, die Ermittlung seiner analytischen Leistungsfähigkeit, die Kalibrierung und die Probenmessung. Es richtet sich an Laboranwender mit Erfahrung im Umgang mit DNA und beim Pipettieren kleiner Volumina sowie an Personen mit Grundkenntnissen in Elektronik und mechanischer Montage.
+
+Der Routineansatz besteht aus **1 µL DNA-haltiger Probe und 200 µL gebrauchsfertigem QuantiFluor ONE-Reagenz**. Die Auswertung erfolgt anhand einer Zweipunktkalibrierung am Gerät. Das Hauptergebnis ist die DNA-Konzentration der Probenlösung vor der Reagenzzugabe in ng/µL.
+
+## Das dokumentierte Gerät
+
+Ein Adafruit PyBadge steuert einen TSL2591-Detektor über einen PCA9546-I²C-Multiplexer. Eine LED mit nominell 485 nm beleuchtet das Röhrchen durch den Anregungsfilter Ex470BP-40. Das Fluoreszenzlicht gelangt durch den Emissionsfilter Em532BP-40 zum Detektor. Dessen Achse steht im Winkel von 90° zum Anregungsstrahl. Die gedruckten Bauteile positionieren Röhrchen, Filter und Elektronik und schirmen Umgebungslicht ab.
+
+Als LED-Treiber ist die ioRodeo-Platine mit festem Strom von 16 mA für radiale LEDs in der Revision ver_0p1_rev_3 eingebaut. Der dokumentierte mechanische Aufbau verwendet die kombinierte Konstruktion **E LED Board + Vial Halter**. Kapitel 4 beschreibt die Komponenten und verweist auf CAD-, Druck- und Leiterplattendateien; Kapitel 5 erläutert die Montage. Die dokumentierte Software ist QuantiFluorONE v1.0.0 RC2 unter CircuitPython 9.1.1.
+
+![Fertig aufgebautes Gerät mit Steuerung, Anzeige, Bedienelementen und geschlossenem optischem Modul. Die Anzeige zeigt eine frühere Messung mit vorläufiger Kalibrierung. Die Kennzeichnung PROV und das Vorhersageintervall sind kein erforderlicher Zustand für den Routinebetrieb mit Zweipunktkalibrierung.](../../../figures/assembled_instrument_front.jpg){width=65%}
+
+## Vom Aufbau zur Routineanalyse
+
+Die Einsatzbereitschaft wird in drei Schritten hergestellt. Zunächst das Gerät montieren und elektrische Verbindungen, optische Ausrichtung, Lichtabschirmung, Softwarefunktion und Datenspeicherung prüfen. Anschließend jedes neue Gerät beziehungsweise jede geänderte Konfiguration mit einer Konzentrationsreihe charakterisieren und diese in der Calibration Suite auswerten. Regressionsdiagnostik und Belege für den festgelegten Arbeitsbereich aufbewahren. Danach die Zweipunktkalibrierung am Gerät durchführen und eine unabhängig angesetzte Kontrollprobe prüfen, bevor Routineproben freigegeben werden.
+
+Die Charakterisierung erfolgt anfangs für jedes neue Gerät beziehungsweise jede neue Konfiguration. Sie wird nicht für jede Probencharge wiederholt. Für Routinemessungen müssen weder eine vorläufige Kalibrierung geladen noch ein Mehrpunktmodell importiert werden. Spätere Änderungen oder ungeklärte Befunde der Qualitätskontrolle können eine erneute Prüfung der betroffenen Leistungsmerkmale erfordern.
+
+Eine gespeicherte Zweipunktkalibrierung kann weiterverwendet werden, wenn Gerätekonfiguration, zugehöriger Blindwert und Kontrollprüfungen weiterhin geeignet sind. Die normale START-Funktion ersetzt den Blindwert und macht in RC2 eine aktive Zweipunktkalibrierung ungültig. Kapitel 8 erläutert die Weiterverwendung einer Kalibrierung, die Blindwertprüfung ohne Ersetzen des gespeicherten Werts und die vollständige Neukalibrierung.
+
+## Orientierung im Handbuch
+
+| Aufgabe | Kapitel |
+|---|---|
+| Gerät und Messprinzip verstehen | 1–3 |
+| Komponenten auswählen und Gerät montieren | 4–5 |
+| Software installieren und Erststart prüfen | 6–7 |
+| Kalibrieren und DNA-Proben messen | 8–9 |
+| Ergebnisse beurteilen und Daten sichern | 10–11 |
+| Gerät warten und Fehler beheben | 12 |
+| Den alternativen SYBR Safe-Assay beurteilen | 13 |
+| Literatur und Herkunft der Konstruktionen finden | 14 und Quellenverzeichnisse |
+
+Das [Projekt-Repository](https://github.com/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer) enthält Konstruktionsdateien, Firmware, ergänzende Software, Fotos und analytische Unterlagen. Die Verweise im Handbuch führen zu den für die jeweilige Aufgabe benötigten Dateien. Das Releasearchiv bitte unverändert aufbewahren und die beim Aufbau verwendete Repository-Revision dokumentieren. Dateien auf dem Branch main können sich im Zuge der Weiterentwicklung ändern.
+
+## Verwendungszweck und Grenzen
+
+Das Gerät dient Forschung, Lehre und Entwicklung. Es ist kein medizinisches oder klinisches Diagnosegerät. Das Fluoreszenzergebnis schätzt die dsDNA-Massenkonzentration unter den festgelegten Assaybedingungen. Es identifiziert keine Art, bestimmt weder DNA-Integrität noch Fragmentlänge, belegt keine Probenreinheit und weist nicht die Eignung für eine bestimmte nachfolgende Reaktion nach.
+
+Die angegebenen Leistungsmerkmale gelten für den geprüften Geräteaufbau und das untersuchte Verfahren. Der vom Reagenzhersteller genannte Assaybereich ist nicht automatisch der quantitative Arbeitsbereich jedes Nachbaus. Kapitel 11 beschreibt die vorhandenen Belege einschließlich Quantus-Vergleich und blindwertbasierter Grenzen. Arbeitsbereich und Kontrollen müssen für das tatsächlich eingesetzte Gerät geeignet sein.
+
+SYBR Safe ist eine eigenständige Assayoption. Die vorhandene 485-nm-LED und die Filter Ex470BP-40 und Em532BP-40 sind spektral gut auf SYBR Safe abgestimmt; für die Erprobung ist kein Austausch dieser Komponenten vorgesehen. Kapitel 13 erläutert die optische Eignung und das Vorgehen. Der Assay benötigt eine eigene Reagenzvorbereitung, Charakterisierung und Kalibrierung. Seine analytische Leistungsfähigkeit muss auf dem tatsächlichen Gerät geprüft werden. Kalibrierkoeffizienten und Leistungsgrenzen des QuantiFluor ONE-Assays dürfen nicht auf SYBR Safe übertragen werden.

@@ -1,0 +1,58 @@
+---
+document-status: "Zur Durchsicht"
+lang: de-DE
+---
+
+# Sicherheit und Anforderungen an den Laborarbeitsplatz {#sec-safety}
+
+Vor Montage oder Messung einen sauberen, trockenen Arbeitsplatz vorbereiten. Anleitungen und zutreffende Sicherheitsdatenblätter der verwendeten Reagenzien, Proben, Reinigungsmittel und gegebenenfalls des Akkus lesen. Das Labor ist für die Gefährdungsbeurteilung seiner Materialien und Verfahren, geeignete Schutzausrüstung, festgelegte Notfallmaßnahmen und die Zuordnung der Abfälle verantwortlich.
+
+## Montage und Probenbearbeitung trennen
+
+Drucken, Bohren, Nachbearbeiten und Löten außerhalb des sauberen Assaybereichs durchführen. Druckrückstände und Metallspäne vor dem Einbau von Elektronik und optischen Bauteilen entfernen. Werkstücke sichern, beim Schneiden oder Bohren Augenschutz verwenden und beim Löten für geeignete Absaugung sorgen. Lötkolben und frisch gelötete Bauteile vor dem Berühren abkühlen lassen.
+
+Gedruckte Bauteile auf scharfe Kanten, Risse und schlechte Passung prüfen. Röhrchen, Filter und Leiterplatten nicht mit Gewalt einsetzen. Glasfilter nur an den Kanten anfassen und weder verbiegen noch verkratzen. Schrauben und lose Bauteile während der Montage von der Elektronik fernhalten.
+
+## Stromversorgung und Akkus
+
+Vor dem Öffnen des Gehäuses, dem Ändern der Verkabelung oder dem Versetzen von Platinen das Gerät ausschalten und **USB-Stromversorgung sowie einen gegebenenfalls angeschlossenen Akku trennen**. Bei Arbeiten im Geräteinneren genügt der Netzschalter allein nicht. Interne Steckverbindungen nicht unter Spannung verbinden oder trennen.
+
+Vor dem Einschalten Steckerausrichtung, Versorgungspolarität und Pinzuordnung anhand der dokumentierten Hardware prüfen. Pinbelegungen nicht allein aus den Aderfarben ableiten. Unbeschädigte Kabel und die dokumentierte USB-Versorgung verwenden. Leitfähige Werkzeuge von bestromten Platinen fernhalten und Kabel so zugentlasten, dass Bewegungen nicht an den Steckverbindern ziehen.
+
+Bei Verwendung eines LiPo-Akkus auf kompatiblen Akku und Stecker achten und die Ladehinweise der Akku- und Controllerhersteller befolgen. Einen Akku nicht durchstechen, quetschen oder kurzschließen. Aufgeblähte, beschädigte oder ungewöhnlich heiße Akkus nicht verwenden. Den Betrieb einstellen, wenn Verkabelung, Gehäuse oder Stromquelle ungewöhnlich heiß werden oder Schäden zeigen.
+
+## Optische Strahlung
+
+Die dokumentierte Anregungsquelle ist eine sichtbare blaue LED. Nicht direkt in die eingeschaltete LED schauen und sie nicht durch vergrößernde Optiken betrachten. Das optische Modul während normaler Messungen geschlossen halten. Vor dem Ausrichten oder Austauschen von LED und Filtern die Stromversorgung trennen. Bei erforderlichen Funktionsprüfungen die Lichtabgabe indirekt beobachten.
+
+Der Filtersatz trennt Anregungslicht und Fluoreszenz; daraus folgt keine Augensicherheitsklassifizierung des geöffneten Aufbaus. Änderungen an LED, Betriebsstrom oder Optik erfordern eine erneute Beurteilung. Bei einem Austausch optischer Komponenten die Hinweise im gesonderten SYBR Safe-Kapitel beachten.
+
+## Reagenzien und biologische Proben
+
+Beim Ansetzen der Assays geeignete Laborkleidung, Handschuhe und Augenschutz tragen. Haut- und Augenkontakt mit Reagenzien vermeiden, niemals mit dem Mund pipettieren und Reagenzgefäße nach Gebrauch schließen. Ein DNA-bindender Farbstoff ist nicht allein wegen der geringen eingesetzten Menge unbedenklich. Promega TM405 fordert, den ONE-Farbstoff wegen seiner Bindung an Nukleinsäuren als potenziell mutagen zu behandeln. Die Anleitung nennt außerdem einen reizenden Bestandteil, der das Eindringen organischer Verbindungen in Gewebe erleichtert. Das Sicherheitsdatenblatt des tatsächlich eingesetzten Produkts und seiner Formulierung beachten.
+
+Biologische und chemische Gefahren der Probe getrennt von denen des Farbstoffs beurteilen. Umweltextrakte und aufgereinigte DNA können Extraktionschemikalien oder andere Verunreinigungen enthalten. Die für das tatsächliche Material erforderlichen Schutzmaßnahmen und Entsorgungswege verwenden. Dieses Handbuch belegt keine biologische Inaktivierung einer Probe.
+
+Flüssigkeiten von PyBadge, USB-Anschluss, Akku und internen Platinen fernhalten. Röhrchen vor dem Einsetzen schließen und außen auf Tropfen prüfen. Bei Flüssigkeitseintritt die Arbeit einstellen, die Stromversorgung trennen, soweit dies sicher möglich ist, und nach dem betrieblichen Verfahren für verschüttete Stoffe vorgehen. Betroffene Bauteile vor erneuter Verwendung prüfen und trocknen. Funktion und gegebenenfalls Kalibrierung erneut verifizieren.
+
+## Sauberes Arbeiten und zuverlässiges Pipettieren
+
+Einen sauberen Assaybereich, DNA-freie Röhrchen und Spitzen sowie für 1 µL und 200 µL geeignete Pipetten verwenden. Zwischen Proben und Standards die Spitzen wechseln und kontaminierte Handschuhe ersetzen. Stammlösungen nach Möglichkeit getrennt von der Probenvorbereitung handhaben. Keine hochkonzentrierte DNA in Reagenzblindwert oder Reagenzvorrat verschleppen.
+
+Assaykomponenten vor dem Ansetzen auf Raumtemperatur bringen. DNA-Lösungen und fertige Ansätze gleichmäßig mischen, Luftblasen vermeiden und farbstoffhaltige Röhrchen vor Licht schützen. Das QuantiFluor ONE-Verfahren sieht eine fünfminütige Inkubation bei Raumtemperatur im Dunkeln vor. Kapitel 9 beschreibt die vollständige Vorbereitung und Messfolge.
+
+## Lagerung und Entsorgung
+
+Für die Lagerung von Reagenzien und Standards Produktetikett und Herstellerangaben beachten. Gefäße mit Produktidentität sowie den erforderlichen Chargen- und Ansatzangaben beschriften. Den Farbstoff vor Licht schützen. Gebrauchsfertiges ONE-Reagenz nicht mit einem konzentrierten Farbstoff aus einem anderen Kit verwechseln.
+
+Gebrauchte Assays, Spitzen und Röhrchen entsprechend ihren gemeinsamen chemischen und biologischen Inhaltsstoffen den im Labor festgelegten Abfallwegen zuordnen. Eine Entsorgung über den Ausguss nicht ohne entsprechende Freigabe voraussetzen. Akkus und Elektronik über die dafür vorgesehenen Sammelwege entsorgen.
+
+## Vor Arbeitsbeginn
+
+- [ ] Arbeitsplatz ist sauber und trocken; Montagewerkzeuge sind von der Assayvorbereitung getrennt.
+- [ ] Gefahren von Reagenzien und Proben, Schutzausrüstung, Maßnahmen bei Verschütten und Entsorgungswege sind festgelegt.
+- [ ] Stromquellen, Kabel, Gehäuse und gegebenenfalls Akku sind unbeschädigt.
+- [ ] Lichtabschirmung ist angebracht und interne Steckverbindungen sitzen sicher.
+- [ ] Geeignete Pipetten, saubere Verbrauchsmaterialien und eindeutig zuordenbare Probenkennzeichnungen sind vorhanden.
+
+Die Hinweise zur Assayhandhabung beruhen auf Promegas QuantiFluor ONE dsDNA System Technical Manual TM405 einschließlich des Abschnitts Handling and Disposal. Für produktspezifische Gefahreneinstufung und Notfallmaßnahmen sind die zutreffenden Sicherheitsdatenblätter und die betriebliche Gefährdungsbeurteilung maßgeblich.

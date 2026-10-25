@@ -1,0 +1,122 @@
+---
+document-status: "Zur Durchsicht durch den Autor"
+---
+
+# Softwareinstallation und Aktualisierung {#sec-software-installation}
+
+Den dokumentierten Softwarestand als vollständiges Release installieren, das Gerät vor dem Ersetzen von Dateien sichern und nach der Installation eine gerätespezifische Kalibrierung herstellen. Das unverändert aufbewahrte Firmwarearchiv enthält auch eine Beispielkalibrierung und gespeicherte Zustandsdateien. Diese Dateien qualifizieren ein neu aufgebautes Gerät nicht für die Probenanalyse.
+
+## Unterstützte Softwaredateien
+
+| Komponente | Datei im Repository | Verwendung |
+|---|---|---|
+| PyBadge-Bootloader 3.15.0 | [UF2-Aktualisierung](../../../../software/bootloader/3.15.0/update-bootloader-arcade_pybadge-v3.15.0.uf2) | Nur bei Bedarf aktualisieren |
+| CircuitPython 9.1.1 | [PyBadge-Laufzeitumgebung als UF2](../../../../software/circuitpython/9.1.1/adafruit-circuitpython-pybadge-en_US-9.1.1.uf2) | Laufzeitumgebung für die dokumentierte Firmware |
+| QuantiFluorONE RC2 | [Vollständiges stabiles RC2-ZIP](../../../../software/quantifluorone_firmware/QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip) | Geräteanwendung, Bibliotheken und Begleitdateien |
+| Prüfsummen | [SHA256-Liste der Softwaredateien](../../../../software/SHA256SUMS.txt) | Gelieferte Installationsdateien eindeutig zuordnen |
+
+Das unverändert aufbewahrte ZIP heißt `QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip`. Seine SHA256-Prüfsumme lautet `48cc941c12578308e4cb6ec68f8119962941370f60ce40eff16f0564134e97d1`. Das Archiv unverändert aufbewahren. Die Anwendung bezeichnet sich als `QF1-1.0.0-rc2` und zeigt `v1.0 RC2` an; die mitgelieferte Konfiguration und die gespeicherte Kalibrierung enthalten teilweise noch frühere RC1-Metadaten. Die Versionszeichenfolge in der Konfiguration allein identifiziert daher nicht die laufende Anwendung.
+
+Benötigt werden ein Computer, ein USB-Micro-Datenkabel und ein Texteditor für unformatierten Text. Ein reines Ladekabel ermöglicht keinen Dateizugriff. Die Bootloader-BIN-Datei dient der Archivierung beziehungsweise Wiederherstellung; sie wird nicht auf das UF2-Laufwerk gezogen.
+
+## Vorhandenen Gerätestand sichern
+
+1. Den eingeschalteten PyBadge über das USB-Datenkabel mit dem Computer verbinden.
+2. Die Anwendung über den unten beschriebenen sicheren Modus von CircuitPython anhalten.
+3. Den vollständigen Inhalt von `CIRCUITPY` in einen datierten Computerordner kopieren, der Gerät und Firmwareversion eindeutig bezeichnet.
+4. Prüfen, ob die benötigten CSV-Protokolle, die Konfiguration, die gespeicherte Kalibrierung, die Mehrpunkt-Quelldatei im JSON-Format und die Zustandsdateien in der Sicherung vorhanden sind.
+5. Das Laufwerk vor Zurücksetzen oder Trennen des Geräts sicher auswerfen.
+
+Eine Neuinstallation mit Bereinigung entfernt den vorherigen Gerätezustand. Die Sicherung aufbewahren, bis die neue Installation geprüft und die benötigten Daten archiviert sind. Alte Bibliotheken oder Kalibrierdateien nicht automatisch über die neue Installation zurückkopieren.
+
+## Reset und Laufwerksmodi
+
+Der Reset-Taster ist durch die Öffnung an der Unterseite des Gehäuses erreichbar. Ein kurzes, nichtleitendes Hilfsmittel verwenden und dieses nicht mit Kraft in die Elektronik drücken.
+
+![Zugang zum Reset-Taster durch die Gehäuseunterseite. Das Foto kennzeichnet die Öffnung und keinen freiliegenden elektrischen Kontakt.](../../../figures/reset_button_access.png){width=65%}
+
+| Aktion | Modus und Computerlaufwerk | Zweck |
+|---|---|---|
+| Reset einmal drücken | Normaler Anwendungsstart; bei Verbindung mit einem USB-Datenhost erscheint CIRCUITPY | Anwendung starten oder neu starten |
+| Während des Starts mit zeitlichem Abstand erneut drücken | Sicherer Modus von CircuitPython; CIRCUITPY | Dateien bei angehaltener Anwendung bearbeiten |
+| Reset zweimal schnell drücken | UF2-Bootloader; PYBADGEBOOT oder BADGEBOOT | UF2-Aktualisierung oder Laufzeitumgebung installieren |
+
+Für den sicheren Modus Reset einmal drücken, den Start beginnen lassen und während des ungefähr einsekündigen Zeitfensters erneut drücken. Prüfen, ob die Anwendung angehalten bleibt. Ein schneller Doppelklick öffnet stattdessen den UF2-Bootloader. Erscheint unerwartet das Bootlaufwerk, einmal zurücksetzen und den Ablauf mit größerem zeitlichem Abstand wiederholen.
+
+Das vorhandene Bild mit dem Namen `circuitpython_safe_mode_screen.jpeg` zeigt Meldungen zum automatischen Neuladen und zum Soft-Reboot. Es belegt keinen erfolgreichen Eintritt in den sicheren Modus und wird hier nicht als Referenz dafür verwendet.
+
+## Bootloader prüfen und Laufzeitumgebung installieren
+
+1. Mit einem schnellen Doppelklick in den UF2-Bootloader wechseln.
+2. `INFO_UF2.TXT` auf dem Bootlaufwerk öffnen und die installierte Version dokumentieren.
+3. Falls eine Aktualisierung auf die dokumentierte Version 3.15.0 erforderlich ist, die mitgelieferte UF2-Aktualisierungsdatei auf dieses Laufwerk kopieren und den Abschluss abwarten. Erneut den Bootloader öffnen und die Version in `INFO_UF2.TXT` prüfen.
+4. Zur Installation von CircuitPython 9.1.1 die mitgelieferte PyBadge-UF2-Datei der Laufzeitumgebung auf das Bootlaufwerk kopieren.
+5. Den Neustart der Platine abwarten und prüfen, ob `CIRCUITPY` erscheint.
+6. Nach der Installation die vom Gerät erzeugte `boot_out.txt` prüfen: Sie muss CircuitPython 9.1.1 und die Platinenkennung `pybadge` ausweisen.
+
+Einen anderen Bootloader nicht allein wegen einer abweichenden Versionsnummer auf eine ältere Version zurücksetzen. Bei einer funktionierenden Installation ist nicht bei jeder Neuinstallation der Anwendung eine Bootloader-Aktualisierung nötig. Das Repository enthält außerdem eine archivierte `boot_out.txt`; eine kopierte historische Datei ist kein Nachweis für die aktuell ausgeführte Laufzeitumgebung.
+
+![UF2-Bootloader-Anzeige des PyBadge. Die mitgelieferten UF2-Dateien auf das am Computer eingebundene Bootlaufwerk kopieren.](../../../figures/pybadge_bootloader_screen.jpeg){width=65%}
+
+## Vollständige Anwendung installieren
+
+1. Das unveränderte RC2-ZIP auf dem Computer entpacken.
+2. Den äußeren Ordner `QuantiFluorONE_Firmware_1.0.0-rc2-stable` öffnen.
+3. Prüfen, ob das vollständige bisherige Laufwerk `CIRCUITPY` gesichert wurde.
+4. In den sicheren Modus wechseln und den vorhandenen Inhalt von `CIRCUITPY` löschen.
+5. Alle Dateien und Unterordner aus dem entpackten Releaseordner direkt in das Hauptverzeichnis von `CIRCUITPY` kopieren. Den umschließenden Releaseordner selbst nicht mitkopieren.
+6. Prüfen, ob `boot.py`, `code.py`, `quantifluorone_app.py`, `quantifluorone_config.json`, `lib` und `src` unmittelbar im Hauptverzeichnis des Laufwerks liegen.
+7. Vor dem ersten analytischen Einsatz die nachfolgend beschriebene Bereinigung des Ausgangszustands abschließen.
+
+Das ZIP bleibt als unverändertes Release erhalten. Die Bereinigung entfernt historische Gerätedaten aus der installierten Kopie, ohne den Anwendungscode zu verändern oder eine weitere Firmwarevariante zu erzeugen.
+
+## Mitgelieferte Beispielkalibrierung und Zustandsdaten entfernen
+
+Die mitgelieferte `quantifluorone_calibration.json` ist aktiviert und bezeichnet das vorläufige Modell `QF1-PROVISIONAL-20260731`. Die zugehörige Mehrpunkt-JSON-Datei enthält `dataset_purpose: software_verification` und `calibration_status: PROVISIONAL`. Der gespeicherte Zustand enthält außerdem einen historischen Blindwert. Die Anwendung kann diese Dateien laden und daraus Konzentrationen berechnen; sie weist die Kalibrierung nicht allein aufgrund der Kennzeichnung als vorläufig zurück.
+
+Für ein neues oder vollständig neu installiertes Gerät im sicheren Modus:
+
+1. Das entpackte Release auf dem Computer als Herkunftsnachweis aufbewahren.
+2. `quantifluorone_calibration.json` und `quantifluorone_state.json` aus dem installierten Hauptverzeichnis von `CIRCUITPY` entfernen, damit eine alte Kalibrierung und ein alter Blindwert nicht zum Ausgangszustand werden.
+3. Die mitgelieferte `quantifluorone_multipoint.json` aus dem Gerätehauptverzeichnis entfernen. Auf dem Computer als Beispiel aufbewahren und eindeutig von freigegebenen Kalibrierdateien trennen.
+4. Mit dem Release kopierte historische Mess-CSV-Dateien archivieren und vom Gerät entfernen. Für die neue Installation ein neues Messprotokoll beginnen.
+5. Konfiguration, Anwendung, Bibliotheken und weitere Begleitdateien beibehalten. Nicht pauschal alle JSON-Dateien löschen.
+6. Das Laufwerk sicher auswerfen, die USB-Datenverbindung zum Computer trennen und das Gerät mit geeigneter eigenständiger Stromversorgung neu starten.
+7. Die RC2-Startanzeige bestätigen und über `CAL STATUS` prüfen, ob keine aktive Kalibrierung mehr vorhanden ist. Bleibt ein Modell aktiv, vor der Annahme von Ergebnissen die installierten Dateien prüfen.
+
+Eine nach Neuinstallation wiederhergestellte gerätespezifische Kalibrierung benötigt einen dokumentierten Nachweis ihrer Kompatibilität mit Gerät, Assay und Software. Den zugehörigen Blindwertzustand nur bewusst wiederherstellen und vor der Ergebnisfreigabe eine unabhängige Kontrollprobe prüfen.
+
+## Passende Stromversorgung und Schreibrechte wählen
+
+Die mitgelieferte `boot.py` prüft beim Start, ob ein USB-Datenhost angeschlossen ist. Bei angeschlossenem Computer hat dieser die Schreibrechte; die Firmware kann dann Mess- und Kalibrierdateien nicht zuverlässig speichern. Bei Betrieb an Ladegerät, Powerbank oder geeignetem LiPo ohne Datenhost fordert die Firmware Schreibzugriff an.
+
+| Aufgabe | Erforderlicher Betriebszustand |
+|---|---|
+| Firmware kopieren oder JSON bearbeiten | USB-Datenverbindung zum Computer; Anwendung im sicheren Modus angehalten |
+| Kalibrierung speichern oder Messungen protokollieren | Eigenständige Stromversorgung; normaler Neustart nach dem Trennen des Datenhosts |
+| Erzeugte CSV herunterladen | Messaufnahme beenden, Datenhost verbinden, in den sicheren Modus wechseln und Dateien kopieren |
+
+Das sichere Auswerfen des Laufwerks bei weiterhin bestehender USB-Datenverbindung ändert die Entscheidung beim Start nicht. Für Schreibzugriffe durch die Firmware den Datenhost trennen und normal neu starten. Eine angezeigte Konzentration belegt nicht, dass eine CSV-Zeile gespeichert wurde.
+
+## Installation und dauerhafte Speicherung prüfen
+
+1. Mit eigenständiger Stromversorgung starten und `QuantiFluorONE v1.0 RC2` bestätigen.
+2. Prüfen, ob keine Anzeige eines schwerwiegenden Fehlers erscheint.
+3. Die Startprüfungen des folgenden Kapitels durchführen. Testmessungen als Installationsprüfungen kennzeichnen.
+4. Nach dem Erstellen der vorgesehenen Kalibrierung neu starten und prüfen, ob sie erhalten bleibt.
+5. Messaufnahme beenden, im sicheren Modus mit dem Computer verbinden und die neue CSV sowie die gespeicherten JSON-Dateien prüfen. Erwartete Zeilen und Kalibrierwerte müssen vorhanden sein.
+6. Diese Installationsprüfung archivieren, bevor eine Probenserie mit freizugebenden Ergebnissen beginnt.
+
+Dieses Vorgehen prüft Dateien und dauerhafte Speicherung am tatsächlichen Gerät. Eine reine Prüfung des Quellcodes kann weder die USB-Erkennung noch Reset-Timing, Sensorfunktion oder Schreibzugriff auf einem bestimmten Computer bestätigen.
+
+## Probleme bei der Installation
+
+| Beobachtung | Maßnahme |
+|---|---|
+| Kein Laufwerk erscheint | Schalterstellung, USB-Anschluss und Datenfähigkeit des Kabels prüfen |
+| Bootlaufwerk erscheint statt CIRCUITPY | Einmal Reset drücken; für den sicheren Modus mit größerem zeitlichem Abstand drücken |
+| Dateien lösen während des Kopierens wiederholtes Neuladen aus | Anwendung im sicheren Modus anhalten |
+| Modul oder Konfiguration fehlt | Vollständige Installation mit dem entpackten Release vergleichen; auf versehentlich verschachtelte Ordner prüfen |
+| RC2-Startanzeige, aber Ergebnisse mit PROV | Historische vorläufige Kalibrierung nach dem dokumentierten Ablauf entfernen oder ersetzen |
+| Werte werden angezeigt, aber neue CSV-Zeilen fehlen | Protokollierungseinstellung, Start ohne Datenhost und Schreibrechte des Geräts prüfen |
+| Fehler bleibt nach Neuinstallation bestehen | Fehlertyp, Arbeitsschritt und seriellen Traceback dokumentieren; Sicherung und Nachweis der fehlgeschlagenen Installation aufbewahren |

@@ -1,0 +1,7 @@
+# Zur deutschen Ausgabe {.unnumbered .unlisted}
+
+Dieses Bau- und Betriebshandbuch beschreibt den dokumentierten Geräteaufbau, die Installation der Firmware, die Kalibrierung und die routinemäßige dsDNA-Analyse mit QuantiFluor ONE. Kapitel 13 behandelt die Entwicklung eines alternativen Assays mit SYBR Safe. Fotos und Verweise führen zu den zugehörigen Konstruktionsdateien, Programmen und Messnachweisen.
+
+Die Quarto-Kapitel bilden die maßgebliche Textquelle. Geräte- und App-Menütexte sowie vorhandene Beschriftungen in Messgrafiken bleiben auf Englisch, damit sie den tatsächlichen Anzeigen und Originalnachweisen entsprechen. Offene Hardwareprüfungen, insbesondere die Schraubenabmessungen, sind in der Aufgabenliste vermerkt.
+
+[Projekt-Repository](https://github.com/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer) · [Englische Ausgabe](../README.md) · [Aufgabenliste](../TODO.md)

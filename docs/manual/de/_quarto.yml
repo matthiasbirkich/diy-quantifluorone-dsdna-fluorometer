@@ -1,0 +1,32 @@
+project:
+  type: book
+  output-dir: _book
+lang: de-DE
+book:
+  title: "DIY QuantiFluorONE dsDNA Fluorometer"
+  subtitle: "Bau und Betriebshandbuch"
+  author:
+    - name: "Dipl.-Ing. Matthias Birkicht"
+      affiliations:
+        - name: "Leibniz-Zentrum für Marine Tropenforschung (ZMT) GmbH"
+  date: "2026-10-25"
+  chapters:
+    - index.qmd
+    - chapters/01_instrument_overview.qmd
+    - chapters/02_safety.qmd
+    - chapters/03_measurement_principles.qmd
+    - chapters/04_components_and_files.qmd
+    - chapters/05_assembly.qmd
+    - chapters/06_software_installation.qmd
+    - chapters/07_startup_and_controls.qmd
+    - chapters/08_calibration.qmd
+    - chapters/09_routine_analysis.qmd
+    - chapters/10_results_and_qc.qmd
+    - chapters/11_performance.qmd
+    - chapters/12_maintenance_and_troubleshooting.qmd
+    - chapters/13_sybr_safe.qmd
+    - chapters/14_references.qmd
+format:
+  html:
+    toc: true
+    number-sections: true

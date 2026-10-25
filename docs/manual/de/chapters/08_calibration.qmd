@@ -1,0 +1,170 @@
+---
+document-status: "Zur Durchsicht durch den Autor"
+---
+
+# Kalibrierung und Verwaltung der Kalibrierdaten {#sec-calibration}
+
+Das fertig aufgebaute Gerät mit demselben Assay, Röhrchentyp, optischen Aufbau und denselben Sensoreinstellungen kalibrieren, die auch für die Proben verwendet werden. Für die Routineanalyse dient die Zweipunktkalibrierung am Gerät. Eine gesonderte Mehrpunkt-Konzentrationsreihe, ausgewertet in der Calibration Suite, charakterisiert ein neu gebautes Gerät oder eine geänderte Konfiguration. Der aufbewahrte vorläufige Datensatz ist ein Entwicklungs- und Charakterisierungsnachweis, keine erforderliche Betriebskalibrierung für Routineproben.
+
+## Vorgehen zur Kalibrierung auswählen
+
+| Vorgehen | Voraussetzungen | Entscheidung für den Betrieb |
+|---|---|---|
+| Neue Zweipunktkalibrierung | Reagenzblindwert und bestätigte ONE-Stammlösung mit 400 ng/µL | Nachfolgendes Verfahren am Gerät anwenden; unabhängige Kontrollprobe prüfen |
+| Gespeicherte Zweipunktkalibrierung | Unveränderte Bedingungen, passender gespeicherter Blindwert und bestandene unabhängige Kontrollprüfung | Bewusst weiterverwenden; START auf dem Messbildschirm macht dieses Modell ungültig |
+| Mehrpunktreihe zur Gerätecharakterisierung | Unabhängig zugewiesene Konzentrationen über den vorgesehenen Bereich | Für jedes neue Gerät oder jede geänderte Konfiguration Regression und analytische Leistungsfähigkeit in der Calibration Suite bewerten; Routineproben weiterhin mit Zweipunktkalibrierung messen |
+| Keine geeignete Kalibrierung | Nur Hardwareprüfung | Signale aufzeichnen, aber keine Probenkonzentrationen angeben |
+
+Der Routineablauf erfordert keinen Import einer Mehrpunkt- oder vorläufigen Kalibrierung. Die Charakterisierung erfolgt anfangs für jedes neue Gerät beziehungsweise jede geänderte Konfiguration; sie muss nicht für jede Probenserie wiederholt werden. Daten und Schlussfolgerungen als Grundlage für Arbeitsbereich und Leistungsangaben aufbewahren. Betroffene Merkmale erneut prüfen, wenn Änderungen der Konfiguration oder Befunde der Qualitätskontrolle diese Grundlage infrage stellen.
+
+## Kalibrierröhrchen vorbereiten
+
+Die für dieses Verfahren bestätigte Promega QuantiFluor ONE Lambda DNA-Stammlösung mit **400 µg/mL = 400 ng/µL** verwenden. QuantiFluor ONE-Reagenz ist gebrauchsfertig. Das separate QuantiFluor dsDNA-Kit hat andere Anweisungen zur Reagenzvorbereitung und zum Stammstandard; sein Protokoll ist kein Ersatz für dieses Verfahren.
+
+| Röhrchen | Reagenz | DNA-Zugabe | DNA-Masse und Konzentrationsbezug |
+|---|---|---|---|
+| Reagenzblindwert | 200 µL ONE-Reagenz | Keine | Keine absichtlich zugesetzte dsDNA; insgesamt 200 µL |
+| Oberer Standard | 200 µL ONE-Reagenz | 1 µL ONE-Stammlösung mit 400 ng/µL | 400 ng DNA; insgesamt 201 µL; ungefähr 1,99 ng/µL im Assay |
+| Unabhängige Kontrollprobe | 200 µL ONE-Reagenz | 1 µL einer separat vorbereiteten Kontrolllösung | Sollwert als Konzentration der Kontrolllösung vor Reagenzzugabe |
+
+Der Blindwert folgt dem Einröhrchenverfahren des Herstellers in TM405. Die Zugabe von 1 µL DNA-freiem Puffer ergibt einen anders vorbereiteten Blindwert. Wird ein Blindwert mit angepasstem Puffer verwendet, diese Entscheidung dokumentieren und prüfen; nicht unbemerkt zwischen verschiedenen Blindwertansätzen wechseln.
+
+Komponenten auf Raumtemperatur bringen. Jedes DNA-haltige Röhrchen gründlich und ohne Blasenbildung mischen und **5 Minuten bei Raumtemperatur lichtgeschützt inkubieren**. Kalibrierung, Kontrollproben und Proben unter denselben Vorbereitungs- und Zeitbedingungen behandeln.
+
+Die Kalibriereinstellung **400 ng/µL** bezeichnet die Konzentration des 1-µL-Aliquots der Stammlösung. Sie bedeutet nicht, dass das fertige Assayröhrchen 400 ng/µL enthält. Die entsprechende Probenausgabe bezieht sich ebenfalls auf die ursprüngliche Lösung.
+
+## Zweipunktkalibrierung am Gerät durchführen
+
+- [ ] 1. Nach dokumentierter Aufwärmzeit und mechanischer Prüfung mit eigenständiger Stromversorgung starten. Ein USB-Datenhost verhindert den vorgesehenen Speicherablauf durch die Firmware.
+- [ ] 2. Aus Live SELECT drücken, `2-PT CAL` auswählen und öffnen.
+- [ ] 3. Reagenzblindwert vollständig einsetzen, Lichtabschirmung schließen und START drücken, wenn der Kalibrierdialog dazu auffordert.
+- [ ] 4. Auf `HIGH STANDARD` mit UP/DOWN **400 ng/uL** auswählen. Mit SELECT fortfahren.
+- [ ] 5. Blindwert durch das inkubierte Röhrchen des oberen Standards ersetzen, Abschirmung schließen und A drücken.
+- [ ] 6. Beide Ergebnisseiten mit LEFT prüfen. Konzentrationseinstellung, Signale, Steigung und QC-Hinweise bestätigen.
+- [ ] 7. Bei nicht annehmbarer Vorbereitung, Signalqualität oder QC mit B abbrechen und die Ursache vor einer Wiederholung untersuchen.
+- [ ] 8. Eine annehmbare Kalibrierung mit SELECT speichern.
+- [ ] 9. `CAL STATUS` öffnen, Zweipunktparameter dokumentieren und eine unabhängig angesetzte Kontrollprobe mit A messen.
+- [ ] 10. Nach einem Neustart prüfen, ob die Kalibrierung erhalten bleibt. Gespeicherte Kalibrierung und passende Zustandsdateien mit dem Probenserienprotokoll archivieren.
+
+Eine Kalibriermessung besteht aus drei Sensorablesungen desselben Röhrchens. Die Steigung ergibt sich aus dem blindwertkorrigierten Standardsignal geteilt durch 400 ng/µL. Dieses Zweipunktverfahren prüft die Linearität zwischen den Endpunkten nicht unabhängig.
+
+Die Firmware zeigt Warnungen zu `CV`, `SNR` oder `SAT`, verhindert aber nicht das Speichern jedes mit einer Warnung versehenen Ergebnisses. Warnungen untersuchen und eine Kontrollprobe prüfen. Alte beispielhafte RFU- oder Steigungswerte nicht als allgemeine Annahmegrenzen verwenden; sie hängen vom tatsächlichen optischen Aufbau und Blindwert ab.
+
+## Gespeicherte Kalibrierung weiterverwenden oder ersetzen
+
+Eine gespeicherte Zweipunktkalibrierung kann mit ihrem zugehörigen gespeicherten Blindwert weiterverwendet werden, wenn die Messbedingungen unverändert geeignet sind und die Kontrollprüfungen bestanden werden. Vorher Geräteaufbau, Sensoreinstellungen, Assayvolumina, Reagenzzustand und Temperaturbedingungen mit den Kalibrierunterlagen abgleichen. Das Labor legt die Annahmeintervalle für Prüfblindwert und Kontrollprobe vor Beginn der Probenserie fest.
+
+**Zum Prüfen des Blindwerts A verwenden. Dadurch bleiben der gespeicherte Kalibrierblindwert und die Zweipunktkalibrierung erhalten.** Ein frischer Reagenzblindwert wird dabei wie eine Probe gemessen:
+
+- [ ] 1. Im Menü über SELECT den Eintrag `CAL STATUS` öffnen und prüfen, ob die vorgesehene Zweipunktkalibrierung aktiv ist. Anschließend **zweimal B** drücken: zuerst zurück ins Menü, dann zur Live-Ansicht (Tastenbelegung in Abschnitt 7.2).
+- [ ] 2. In Live mit UP/DOWN eine Kennung für den Prüfblindwert auswählen, beispielsweise `BlankCheck`, falls vorhanden. Alternativ eine vorhandene Gerätekennung verwenden und die Zuordnung zum Prüfblindwert handschriftlich nach Abschnitt 7.6 beziehungsweise 9.1 dokumentieren; die Probenliste muss dafür nicht am Computer geändert werden.
+- [ ] 3. Ein frisches Röhrchen mit 200 µL ONE-Reagenz ohne DNA-Zugabe einsetzen, die Lichtabschirmung schließen und **A drücken**.
+- [ ] 4. Das Ergebnis als Prüfblindwert beurteilen. Die Messung wird gegen den bereits gespeicherten Blindwert ausgewertet; dieser wird dabei nicht ersetzt. Die Abweichung anhand der vorab festgelegten Annahmegrenzen bewerten.
+- [ ] 5. Anschließend die Kennung der unabhängigen Kontrollprobe auswählen oder deren Zuordnung im Protokoll festhalten, das vorbereitete Röhrchen einsetzen und ebenfalls mit **A** messen. Bei bestandenen Prüfungen mit den Proben fortfahren; auch diese mit A messen.
+
+Abschnitt 7.4 „Blindwertmessungen nach Kalibriertyp unterscheiden“ erläutert die unterschiedlichen Blindwertaktionen. Abschnitt 9.3 beschreibt die Blindwert- und Kontrollprüfung zu Beginn einer Probenserie.
+
+**START auf dem normalen Messbildschirm ersetzt dagegen den gespeicherten Blindwert und macht eine aktive Zweipunktkalibrierung ungültig.** Wird tatsächlich ein neuer Kalibrierblindwert benötigt, die vollständige Zweipunktkalibrierung einschließlich des oberen Standards nach Abschnitt 8.3 durchführen. Innerhalb dieses Kalibrierdialogs START nur dann drücken, wenn zur Aufnahme des Blindwerts aufgefordert wird.
+
+Ein Austausch von Optik, Röhrchenhalter oder Detektor, Änderungen von Sensoreinstellungen oder Assayvolumina sowie ungeklärte Blindwert- oder QC-Drift erfordern eine erneute Beurteilung und Kalibrierung. Die Firmware prüft einige gespeicherte Sensoreinstellungen. Reagenzwechsel, Austausch optischer Bauteile, Verunreinigung und geänderte Temperaturbedingungen muss der Anwender selbst beurteilen.
+
+## Blindwertbasierte Grenzen am Gerät schätzen
+
+Die Routine `10-BLANK L/Q` benötigt eine aktive Zweipunktkalibrierung. **Zehn unabhängige Reagenzblindwert-Röhrchen** nach demselben Verfahren vorbereiten. Zehn Messzyklen desselben Röhrchens erfassen einen anderen Streuungsanteil und dürfen nicht als zehn unabhängige Blindproben bezeichnet werden.
+
+- [ ] 1. `10-BLANK L/Q` im Menü auswählen.
+- [ ] 2. Für jede angeforderte Position einen frischen Blindwert einsetzen, Abschirmung schließen und innerhalb dieser Routine START drücken.
+- [ ] 3. Alle zehn Röhrchen messen und anschließend die Ergebnisse prüfen.
+- [ ] 4. Bei annehmbarer Untersuchung mit SELECT speichern; zugehörige CSV-Zeilen und aktualisierte Kalibrier-JSON archivieren.
+
+Diese Menüroutine ruft nicht die normale Funktion zum Ersetzen des Blindwerts auf. Sie behält die Zweipunktkalibrierung bei und schätzt die Grenzen anhand der Standardabweichung der zehn Messzyklus-Mittelwerte.
+
+Mit der ausgelieferten Konfiguration gilt **LOD = 3,3 × Blindwert-SD / Steigung** und **LOQ = 10 × Blindwert-SD / Steigung**. Die Steigung bezieht sich auf die Konzentration der ursprünglichen Lösung; die berechneten Grenzen haben daher denselben Bezug. Tatsächliche Faktoren, Blindprobenzahl, Vorbereitung und Einstellungen dokumentieren.
+
+Dies sind blindwertbasierte Schätzwerte für eine erste Beurteilung, keine vollständige Auswertung der Kalibrierkurve nach DIN 32645. Eine neue Zweipunktkalibrierung löscht die zuvor gespeicherten Grenzen; nicht voraussetzen, dass das neue Modell diese übernimmt. Grenzen nicht aus der Standardabweichung der drei Sensorablesungen eines einzelnen Röhrchens ableiten.
+
+## Neues Gerät oder neue Konfiguration charakterisieren
+
+Unabhängig zugewiesene Standardkonzentrationen über den vorgesehenen Arbeitsbereich verwenden, nach Möglichkeit mit unabhängig angesetzten Assaywiederholungen. Zugewiesene Konzentrationen, Blindwertvorbereitung, Signaldefinition, Röhrchenkennungen, Reagenzangaben und Sensoreinstellungen dokumentieren.
+
+Für ein RC2-Modell die Konzentration der ursprünglichen Lösung in ng/µL für das 1-µL-Probenaliquot und die blindwertkorrigierten RFU als Antwort verwenden. Gemessene RFU nicht gegen Konzentrationen regressieren, die aus denselben RFU berechnet wurden, und daraus eine unabhängig nachgewiesene Linearität ableiten. Ein an unkorrigierte VIS-Werte angepasstes Modell nicht als RFU-Modell importieren: RC2 zieht vor Anwendung von Steigung und Achsenabschnitt seinen aktiven Blindwert ab.
+
+Die [Calibration Suite v7.3 im Browser öffnen](https://matthiasbirkich.github.io/diy-quantifluorone-dsdna-fluorometer/software/calibration_suite/Open_Fluorometer_Calibration_Suite_v7.3.html), die Modelldiagnostik durchführen und den vollständigen Bericht aufbewahren. [HTML-Quelle und Offlinekopie](../../../../software/calibration_suite/Open_Fluorometer_Calibration_Suite_v7.3.html) sowie [v7.3 Standards Audit Notes](../../../../software/calibration_suite/V7.3_STANDARDS_AUDIT_NOTES.md) bleiben im Repository verfügbar. Der Weblink startet die Anwendung; der Quelllink öffnet die Dateiansicht von GitHub. Für die Offlinearbeit die eigentliche HTML-Datei herunterladen und die gespeicherte Datei im Browser öffnen.
+
+Beim Standardaliquot von 1 µL prüfen, ob die Referenzwerte der Suite zahlenmäßig den vorgesehenen ursprünglichen Konzentrationen entsprechen. Bei gewähltem Konzentrationsbezug multipliziert der mitgelieferte Parser die Konzentration mit dem Probenvolumen; ein anderes Volumen ändert den Zahlenmaßstab. Eine geänderte Achsenbeschriftung ändert diese Berechnung nicht.
+
+Neben der Kalibrierkurve Residuen, Streuung der Wiederholungen, Wiederfindung und den Vergleich linearer und quadratischer Regression prüfen. Ein hohes R² allein reicht nicht aus. Verdächtige Ausreißer aufbewahren und technische Ursachen untersuchen, statt sie zur Verbesserung der Anpassung zu löschen. Die Suite bietet auch gewichtete Anpassungen; RC2 importiert jedoch nur ein OLS-Modell.
+
+## Calibration Suite v7.3 verwenden
+
+Diesen Ablauf zur Charakterisierung eines neuen Geräts, Assays oder optischen Aufbaus verwenden. Er ist kein zusätzlicher Schritt vor jeder Routineprobe. Die nachfolgenden Anweisungen beziehen sich auf die mitgelieferte Anwendung v7.3 und ihre Standards Audit Notes; Bedienelemente werden wie auf dem Bildschirm bezeichnet.
+
+### Anwendung starten und prüfen
+
+Die Suite öffnet sich mit einem bereits berechneten eingebetteten Beispiel. **Dies sind Demonstrationsdaten, keine Messungen des zu charakterisierenden Geräts.** Prüfen, ob die Versionsanzeige `v7.3 Standards-Audit` lautet. Der integrierte openDIN-Selbsttest läuft beim Start; mit `Run openDIN standards self-test` lässt er sich wiederholen. Die acht Prüfungen in Abschnitt 13 betreffen Steigung, Achsenabschnitt, R², Residualstandardabweichung, Qx, NWG, EG und BG. Der Selbsttest verwendet einen eigenen festen Referenzdatensatz mit eigenen Einstellungen, unabhängig vom ausgewählten Probendatensatz.
+
+PASS bestätigt die Übereinstimmung der implementierten Referenzrechnung mit den eingebetteten Erwartungswerten. Es qualifiziert weder das Gerät noch legt es einen Arbeitsbereich fest oder bescheinigt Normkonformität. Bei fehlgeschlagenem Test oder Kompatibilitätsfehler die Meldung aufbewahren und das Softwareproblem lösen, bevor die Ergebnisse verwendet werden.
+
+### Kalibrier-CSV vorbereiten
+
+Eine Kopfzeile und je eine Zeile pro gemessener Assaywiederholung verwenden. Unabhängig zugewiesene Referenzkonzentrationen und die zugehörigen blindwertkorrigierten RFU-Mittelwerte der Messzyklen aufbewahren. Die drei Sensorablesungen eines Firmware-Messzyklus sind keine drei unabhängig angesetzten Assays. Das routinemäßige Konzentrationsprotokoll muss um unabhängig zugewiesene Referenzen ergänzt werden, bevor es als Kalibriereingabe dient; die vom Gerät berechneten Konzentrationen nicht als Referenzwerte verwenden.
+
+Die folgende Spaltenstruktur eignet sich für das Standardverfahren mit ONE. Semikolon als Spaltentrenner und Dezimalpunkte vermeiden Mehrdeutigkeiten. Die zwei Zeilen veranschaulichen nur das Format; eine vollständige Reihe über den gewählten Bereich mit den vorgesehenen Blindproben und Wiederholungen vorbereiten.
+
+| level_id | replicate | reference_ng_uL | sample_volume_uL | RFU |
+|---|---|---|---|---|
+| Blank | 1 | 0 | 1 | 2 |
+| Std45 | 1 | 45 | 1 | 563 |
+
+Die Kopfzeilen einschließlich `RFU` exakt übernehmen und nicht durch beschreibende Begriffe ersetzen. Die Anwendung liest eine vorhandene Signalspalte direkt ein. Optionale Spalten `VIS` und `blank_VIS` veranlassen keine Berechnung von RFU durch Subtraktion. RFU vorab berechnen und prüfen, sofern sie nicht bereits vorliegen. Blindwertvorbereitung und Signaldefinition über die gesamte Reihe beibehalten. Ein gemessener blindwertkorrigierter Blindwert kann um null schwanken; seinen aufgezeichneten Wert beibehalten.
+
+Der Parser akzeptiert Semikolon, Komma oder Tabulator und benötigt eine Kopfzeile sowie mindestens drei verwendbare numerische Zeilen. Dieses technische Minimum ist allein kein ausreichender Versuchsplan zur Charakterisierung. Felder in Anführungszeichen mit enthaltenen Trennzeichen vermeiden, da der einfache Parser an jedem Trennzeichen aufteilt. Eingelesene Zeilenzahl kontrollieren: Nicht verwendbare numerische Zeilen können entfallen. Rohmessungen getrennt von der vorbereiteten Importdatei speichern.
+
+### Daten importieren und Auswertung einstellen
+
+1. In Abschnitt 1, `Import and settings`, die vorbereitete Datei über `Calibration CSV` auswählen. Alternativ den gesamten Demonstrationstext in Abschnitt 3, `Imported calibration data`, durch den vollständigen CSV-Text ersetzen. Dateiimport löst die Berechnung sofort aus; nach dem Einfügen von Text `Calculate selected model` drücken.
+2. Für das ONE-Verfahren `Sample volume [µL]` auf **1**, `Reference values represent` auf **Original sample concentration**, `x-axis unit` auf **ng/µL** und `y-axis unit` auf **RFU** setzen. Eine Spalte `sample_volume_uL` überschreibt den globalen Volumenwert für jede Zeile; prüfen, ob alle Werte 1 betragen. Referenzkonzentration mal 1 µL entspricht zahlenmäßig der DNA-Masse in ng. Diese Zahlengleichheit gilt nur für dieses Aliquot; vor Anpassung eines anderen Volumens Kapitel 13 beachten.
+3. **OLS linear** als dokumentierte Ausgangsauswertung auswählen. Eine aussagekräftige `Calibration ID` und das tatsächliche `Calibration date` eintragen; vorbelegte Beispielwerte ersetzen.
+4. `Significance level α`, `Determination-limit factor k` und `Future replicate determinations m` wählen und dokumentieren. Startwerte sind α = 0,05, k = 3 und m = 1. m auf die Zahl unabhängiger Bestimmungen setzen, die ein künftig berichteter Mittelwert repräsentiert; m ist nicht automatisch 3, nur weil die Firmware drei Sensorablesungen mittelt. Den vorgesehenen Wiederholungsplan dokumentieren.
+5. Nach Abschluss aller Einstellungen einschließlich Kennung und Datum `Calculate selected model` drücken, damit wissenschaftliche JSON-Datei und Bericht diese Angaben enthalten. Eingelesene Zeilenzahl, Zahl der Konzentrationsstufen, Signalmaßstab und Referenzbereich bestätigen, bevor statistische Ergebnisse interpretiert werden.
+
+Die Auswahl `Amount in assay tube` verwendet Referenzzahlen unmittelbar, ohne Multiplikation mit dem Probenvolumen. Sie wandelt ein Massenergebnis nicht in die Konzentration der ursprünglichen Probe um. Einheiten und Interpretation ausdrücklich festlegen; für das Standardverfahren mit 1 µL und ONE die obigen Einstellungen verwenden. Einen abweichenden Konzentrations- oder Massenbezug klären, bevor Steigungen oder Grenzen verglichen oder Koeffizienten exportiert werden.
+
+### Ergebnisse und Grenzen beurteilen
+
+Abschnitt 4 enthält Gleichung, Steigung, Achsenabschnitt, Residualstandardabweichung und Grenzen. Die Kalibrierkurve in Abschnitt 7 und die Residuen in Abschnitt 8 auf Krümmung, veränderliche Streuung und einzelne Abweichungen prüfen. Abschnitte 9 und 10 zeigen Wiederholbarkeit auf den Konzentrationsstufen, rückgerechnete Konzentrationen und einzelne Residuen. Die aus den angepassten Standards berechnete Wiederfindung beschreibt die Anpassung; sie ersetzt keine separat angesetzten Kontrollproben.
+
+Abschnitt 11 bietet ein Grubbs-Screening, eine näherungsweise Prüfung der Residuen auf Normalverteilung, den Mandel-Test zum Vergleich linearer und quadratischer Regression sowie Steigungsvergleiche benachbarter Konzentrationsstufen. Ein signifikantes Mandel-Ergebnis weist auf Krümmung innerhalb dieses Datensatzes hin; ein nicht signifikantes Ergebnis allein beweist keine Linearität. Hinweise anhand der Vorbereitungsunterlagen untersuchen und bei begründetem Anlass Messungen wiederholen. Der voreingestellte Schwellenwert von 10 % Abweichung bei lokalen Steigungen ist benutzerdefiniert und keine formale DIN-Annahmegrenze. Verdächtige Ausreißer werden nicht automatisch entfernt.
+
+`Compare all models` füllt den Vergleich in Abschnitt 6; ein Modell im Auswahlfeld wählen, um seine Ausgaben zu prüfen. Die gewichteten Modelle 1/c, 1/c² und 1/s² dienen der ergänzenden Untersuchung. Ein Modell nicht allein nach R² auswählen. v7.3 unterdrückt bei gewichteten Anpassungen die für OLS vorgesehenen Konfidenz- und Vorhersagebänder sowie die als DIN bezeichneten Grenzen. Die Eignung einer Gewichtung begründen; der RC2-Mehrpunktimport akzeptiert nur OLS.
+
+Abschnitt 12 unterscheidet **NWG (decision limit), EG (detection limit) und BG (determination limit)** in der implementierten OLS-Kalibrierkurvenrechnung. Die englischen Begriffe sind hier zur eindeutigen Zuordnung zur App beibehalten. EG verwendet die Annahme α = β; BG hängt außerdem von k und m ab. Angezeigte Methode, Einstellungen, Referenzbezug und Einheiten gemeinsam mit den Ergebnissen aufbewahren. Grenzen aus einer Kalibrierung über einen weiten Bereich nahe null besonders sorgfältig beurteilen; unabhängige Proben niedriger Konzentration und Blindproben prüfen, bevor eine Berichtsgrenze übernommen wird. Ein Selbsttest der Implementierung belegt nicht, dass der Kalibrierversuchsplan sämtliche Anforderungen einer Norm erfüllt.
+
+Abschnitt 14 ist ein separater Rechner für Zweipunktkalibrierung und Blindwert-Sigma. Er verwendet wiederholte Blindwert- und Standardsignale und zeigt 3σ, 6σ und 10σ jeweils geteilt durch die Steigung. Diese Schätzwerte unterscheiden sich von den dokumentierten Gerätefaktoren 3,3σ und 10σ sowie von der Kalibrierkurvenrechnung. Das Probensignal dieses Rechners muss denselben Signalbezug wie seine Blindwert- und Standardeingaben haben. Dieser Abschnitt ersetzt nicht die routinemäßige Zweipunktkalibrierung am Gerät; sein JSON ist keine freigegebene RC2-Kalibrierdatei.
+
+### Charakterisierungsnachweis speichern
+
+Mit `Save scientific JSON` oder `Save JSON` den wissenschaftlichen Datensatz des ausgewählten Modells herunterladen. `Print / save report as PDF` verwenden und die Druckausgabe des Browsers speichern. Auf dem iPad lässt sich die Druckvorschau als PDF öffnen oder an Dateien teilen; die genaue Bedienung hängt vom Browser ab. Nach abschließenden Änderungen neu berechnen und prüfen, ob vorgesehenes Modell, Kennung, Datum, Einheiten und Auditstatus in der gespeicherten Ausgabe erscheinen.
+
+Rohmessungen, vorbereitete CSV, Einstellungen, wissenschaftliche JSON-Datei, PDF-Bericht, HTML-Version und Annahmeentscheidung gemeinsam archivieren. **Die wissenschaftliche JSON-Datei ist ein Auswertungsnachweis, kein unmittelbar kompatibler RC2-Import.** Vor einer Übertragung an die Firmware den nächsten Abschnitt beachten.
+
+## Optionaler Mehrpunktimport für Entwicklungsarbeiten
+
+Der Mehrpunktimport ist eine optionale Entwicklungsfunktion. Er gehört weder zur Routineanalyse noch ist er Voraussetzung für die Auswertung einer Konzentrationsreihe in der Calibration Suite. Der mitgelieferte Importer erwartet die folgenden mathematischen Felder. Ihr Vorhandensein ist notwendig, belegt jedoch keine analytische Eignung.
+
+| Position | Erforderliche Feldnamen |
+|---|---|
+| Oberste Ebene | calibration_mode gleich multipoint; calibration_model gleich OLS; residual_sd_signal |
+| Objekt multipoint | intercept_signal, slope_signal_per_x, n_replicates, mean_concentration, sxx_concentration2, t_factor_two_sided |
+
+Außerdem Kalibrierkennung, akzeptierten Bereich, Status, Alpha, Konzentrationsbezug, Einheiten und Grenzberechnung dokumentieren. Für den üblichen Bezug auf die ursprüngliche Lösung beträgt der zugehörige `dilution_factor` 201. Fehlt der Verdünnungsfaktor, setzt der Importer ihn auf 1; dadurch können die zusätzlichen In-Assay-Ausgaben falsch sein, obwohl die Hauptkonzentration stimmt.
+
+**Der v7.3-Export verwendet OLS linear, mean_reference und sxx_reference2 und legt seinen t-Faktor in einem anderen Objekt ab. Die Datei lässt sich nicht einfach umbenennen und laden.** Die ältere wissenschaftliche JSON-Datei aus v7.2 entspricht den mathematischen Anforderungen eher, enthält aber nicht die für den dokumentierten Ablauf benötigten Metadaten zu Verdünnung, Bereich und Status. Ihr separater DIYNAFLUOR-Konfigurationsexport ist für eine andere Anwendung bestimmt und darf die QuantiFluorONE-Konfiguration nicht ersetzen.
+
+Ein geprüfter Exporter oder Konvertierungsablauf ist als optionale Entwicklungsaufgabe vermerkt. Sein Fehlen verhindert weder die Gerätecharakterisierung in der Calibration Suite noch die Routineanalyse mit Zweipunktkalibrierung am Gerät. Den Ablauf nicht durch beiläufiges Ändern von Koeffizienten oder Umkennzeichnen des vorläufigen Beispiels als freigegeben reparieren.
+
+Für ein nachweislich kompatibles Modell die JSON-Datei im sicheren Modus übertragen, den Datenhost trennen, mit eigenständiger Stromversorgung neu starten, `LOAD MP CAL` verwenden und bestätigen. Parameter in `CAL STATUS` prüfen; Kennung und Einheiten aus JSON verifizieren, da die RC2-Statusseiten nicht alle Metadaten anzeigen. Für diesen Mehrpunktablauf den vorgesehenen Blindwert mit START aufnehmen und vor der Annahme von Proben eine unabhängige Kontrollprobe prüfen.
+
+## Kalibrierunterlagen
+
+Gemeinsam aufbewahren: Kalibrierrohdaten, zugewiesene Werte und Ansatzprotokolle, Modell- und Berichtsversion, Annahmeentscheidung, gegebenenfalls exportierte Betriebs-JSON mit passendem Gerätezustand, Sensoreinstellungen, Blindwertstudie und unabhängige Kontrollergebnisse. Beispiel- und abgelöste Dateien eindeutig kennzeichnen und von der aktuellen Betriebskalibrierung trennen.

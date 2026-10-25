@@ -1,0 +1,87 @@
+---
+document-status: "Zur Durchsicht"
+lang: de-DE
+---
+
+# Messprinzipien {#sec-principles}
+
+Das Fluorometer berechnet aus der Fluoreszenz eines Farbstoff-DNA-Ansatzes eine dsDNA-Massenkonzentration. Die Messung hängt gemeinsam von Reagenz, Röhrchen, optischer Anordnung, Sensoreinstellungen, Blindwert und Kalibrierung ab. Das Verständnis dieser Zusammenhänge hilft, ein belastbares Konzentrationsergebnis von einer durch Probenvorbereitung oder Gerätezustand beeinflussten Anzeige zu unterscheiden.
+
+## Fluoreszenz und selektiver DNA-Nachweis
+
+Ein Fluorophor absorbiert Anregungslicht und gibt einen Teil dieser Energie als Licht längerer Wellenlänge ab. Der Abstand zwischen Anregungs- und Emissionsmaximum heißt Stokes-Verschiebung. Promega nennt für das QuantiFluor ONE dsDNA-System Maxima von ungefähr 504 nm für die Anregung und 531 nm für die Emission. Der DNA-bindende Farbstoff spricht bevorzugt auf dsDNA an; der Assay ist für deren Quantifizierung in aufgereinigten Proben ausgelegt.
+
+Innerhalb eines geeigneten Arbeitsbereichs steigt die Fluoreszenz mit der eingesetzten DNA-Menge. Der Zusammenhang hängt auch von Farbstoffbindung, Probenzusammensetzung, Temperatur, Beleuchtung und Geometrie ab. Absorbierende oder fluoreszierende Verunreinigungen, Fluoreszenzlöschung, unzureichendes Mischen und Detektorsättigung können die Antwort verändern. Die Selektivität für dsDNA ersetzt daher nicht die Beurteilung der Probenmatrix.
+
+## Anregungs- und Detektionsweg
+
+Die eingebaute LED mit nominell 485 nm liefert durch den Filter Ex470BP-40 blaues Anregungslicht. Die Fluoreszenz des Ansatzes gelangt durch den Filter Em532BP-40 zum TSL2591. Die Detektorachse steht im Winkel von 90° zur Anregungsachse; dadurch wird die direkte Beleuchtung durch den Anregungsstrahl verringert. Gestreutes Anregungslicht und Umgebungslicht können den Sensor dennoch erreichen. Deshalb werden sowohl Filter als auch Lichtabschirmung benötigt.
+
+Die LED-Wellenlänge muss nicht mit dem Anregungsmaximum des Farbstoffs übereinstimmen, um ein Signal zu erzeugen. Die nutzbare Anregung ergibt sich aus der Überlappung von LED-Spektrum, Durchlässigkeit des Anregungsfilters und Farbstoffabsorption. Die Detektion hängt entsprechend von Farbstoffemission, Durchlässigkeit des Emissionsfilters und spektraler Empfindlichkeit des Sensors ab. Nennangaben einzelner Komponenten beschreiben nicht die gesamte optische Antwort.
+
+Der Röhrchenhalter legt Einsetztiefe und optische Position fest. Für Blindwert, Standard, Kontrolle und Probe denselben Röhrchentyp verwenden und reproduzierbar einsetzen. Änderungen an LED, Filtern, Detektor, Halter oder Sensoreinstellungen können Kalibriersteigung oder Hintergrund verändern.
+
+## Von Sensorwerten zur relativen Fluoreszenz
+
+Der TSL2591 liefert die Kanäle FULL und IR. RC2 berechnet für jede Sensorablesung ein projektspezifisches sichtbares Signal:
+
+**VIS = max(FULL − IR, 0)**
+
+Dies ist ein abgeleitetes Gerätesignal und kein unabhängig aufgelöstes Emissionsspektrum. Ein Messzyklus besteht aus drei Sensorablesungen desselben Röhrchens. Die Firmware berechnet daraus Mittelwert und Standardabweichung. Diese beschreiben die kurzfristige Wiederholbarkeit des Sensors, nicht drei unabhängig angesetzte Assays.
+
+Die blindwertkorrigierte Antwort lautet:
+
+**RFU = mittleres VIS der Probe − mittleres VIS des aktiven Reagenzblindwerts**
+
+RFU steht für relative Fluoreszenzeinheiten. Diese sind geräteabhängig und weder eine SI-Einheit noch eine absolute optische Leistung. Der Reagenzblindwert erfasst unter den gewählten Bedingungen Beiträge von Reagenz, Röhrchen und Gerätehintergrund. Im dokumentierten ONE-Verfahren enthält er 200 µL Reagenz ohne zugesetztes DNA-Aliquot.
+
+Ein negativer blindwertkorrigierter Wert bedeutet, dass das Probensignal unter dem gespeicherten Blindwertsignal liegt. Er bedeutet nicht, dass eine negative physikalische DNA-Menge vorhanden ist. Den Rohwert aufbewahren und die Regeln zur Ergebnisangabe in Kapitel 10 anwenden.
+
+## Zweipunktkalibrierung für die Routineanalyse
+
+Der Reagenzblindwert legt den Endpunkt ohne DNA fest; ein bekannter oberer Standard bestimmt die Antwortskala. Bei blindwertkorrigierten RFU hat das Routine-Zweipunktmodell einen Arbeitsachsenabschnitt von null:
+
+**Steigung = RFU des Standards / Konzentration des Standards**
+
+**Probenkonzentration = RFU der Probe / Steigung**
+
+Die bestätigte ONE Lambda DNA-Stammlösung enthält **400 µg/mL = 400 ng/µL**. Durch Zugabe von 1 µL dieser Lösung zu 200 µL Reagenz werden 400 ng DNA in ein nominelles Gesamtvolumen von 201 µL eingebracht. Der Kalibriereintrag 400 ng/µL bezieht sich auf die Stammlösung vor der Reagenzzugabe.
+
+Die Zweipunktkalibrierung stellt die aktuelle Antwortskala ein, prüft aber nicht unabhängig die Linearität zwischen den Endpunkten. Eine gesonderte Konzentrationsreihe, ausgewertet in der Calibration Suite, liefert für jedes neue Gerät beziehungsweise jede neue Konfiguration Regressionsdiagnostik und relevante Leistungsmerkmale. Für ein allgemeines lineares Charakterisierungsmodell gilt: Antwort = Achsenabschnitt + Steigung × Konzentration. Im Routinebetrieb wird weiterhin die Zweipunktkalibrierung am Gerät verwendet.
+
+Der aktive Blindwert gehört zur Kalibrierung. Wird er in RC2 mit der normalen START-Funktion ersetzt, verliert das Zweipunktmodell seine Gültigkeit. Ein Prüfblindwert, der mit A wie eine Probe gemessen wird, kann die gespeicherte Basislinie kontrollieren, ohne sie zu ersetzen. Kapitel 8 beschreibt das Vorgehen.
+
+## DNA-Masse und Konzentrationsbezug
+
+Die DNA-Masse entspricht der Konzentration multipliziert mit dem zugesetzten Volumen der DNA-Lösung. Bei einem Aliquot von 1 µL stimmen die Zahlenwerte der Konzentration der ursprünglichen Lösung in ng/µL und der eingebrachten DNA-Masse in ng überein. Es handelt sich dennoch um unterschiedliche Größen.
+
+| Größe beim oberen Standard | Wert |
+|---|---|
+| DNA-Konzentration der Stammlösung | 400 ng/µL |
+| Aliquot der Stammlösung | 1 µL |
+| Zugesetzte DNA-Masse | 400 ng |
+| Reagenzvolumen | 200 µL |
+| Nominelles Gesamtvolumen des Assays | 201 µL |
+| DNA-Konzentration im fertigen Ansatz | Ungefähr 1,99 ng/µL |
+
+Unbekannte Proben werden ebenfalls mit 1 µL Probe und 200 µL Reagenz angesetzt. Die Hauptkonzentrationsangabe der Firmware bezieht sich auf die ursprüngliche Lösung. **Dieses Ergebnis nicht mit 201 multiplizieren.** Das gesonderte In-Assay-Feld der Firmware beschreibt die Konzentration im fertigen Röhrchen. Wurde die Ausgangsprobe vor Entnahme des 1-µL-Aliquots gezielt vorverdünnt, das Hauptergebnis ausschließlich mit dem dokumentierten Vorverdünnungsfaktor multiplizieren.
+
+Eine Konzentration in ng/µL beschreibt die DNA-Masse pro Volumen. Die Umrechnung in Molekülzahlen oder fmol erfordert zusätzlich eine geeignete Fragmentlänge und eine Annahme zur Molekülmasse. Die Fluorometrie allein bestimmt diese Größen nicht. Dieses Handbuch legt keine allgemeingültige DNA-Einsatzmenge für nachfolgende PCR- oder Sequenzierverfahren fest.
+
+## Kontrollen und analytische Grenzen
+
+Eine unabhängig angesetzte Kontrollprobe prüft, ob eine bekannte Lösung innerhalb vorab festgelegter Grenzen wiedergefunden wird. Der obere Kalibrierstandard allein kann die von ihm definierte Kalibrierung nicht unabhängig prüfen. Blindwertprüfungen beurteilen den Hintergrund; Kontrollproben prüfen die gemeinsame Antwort von Vorbereitung, Reagenz und Gerät. Beides mit den Chargenunterlagen aufbewahren.
+
+LOD und LOQ beschreiben Nachweis- und Bestimmungsgrenzen für ein angegebenes Verfahren und einen bestimmten Datensatz. Sie sind keine festen Eigenschaften des Sensors oder Farbstoffs. In der dokumentierten RC2-Routine mit zehn Blindproben liefern zehn unabhängig angesetzte Reagenzblindwert-Röhrchen eine Standardabweichung der Messzyklus-Mittelwerte. Mit den vorgegebenen Faktoren gilt:
+
+**LOD-Schätzwert = 3,3 × Blindwert-Standardabweichung / Steigung**
+
+**LOQ-Schätzwert = 10 × Blindwert-Standardabweichung / Steigung**
+
+Das sind blindwertbasierte Schätzungen und keine vollständige Auswertung der Kalibrierkurve nach DIN 32645. Die Einheit der Grenzen folgt aus der Kalibriersteigung. Wiederholtes Ablesen eines einzelnen Röhrchens ersetzt keine unabhängig angesetzten Blindproben. Kapitel 11 nennt die ermittelten Grenzen und ihren Konzentrationsbezug.
+
+Ein hohes R² beschreibt den Regressionszusammenhang, belegt aber weder eine korrekte Probenvorbereitung noch die Abwesenheit systematischer Abweichungen oder die Eignung bei niedrigen Konzentrationen. Residuen, Wiederfindung, Streuung unabhängiger Ansätze, Blindwertverhalten und vorgesehene Probenmatrix beurteilen. Eine Übereinstimmung mit dem Quantus liefert Vergleichsdaten; sie macht dieses Gerät nicht zu einer fehlerfreien Definition der tatsächlichen Konzentration.
+
+## Quellen und weitere praktische Schritte
+
+Assayeigenschaften und Vorbereitung folgen [Promega TM405](https://www.promega.com/resources/protocols/technical-manuals/101/quantifluor-one-dsdna-system-protocol/) (R1). Das [RC2-Firmwarearchiv](../../../../software/quantifluorone_firmware/QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip) legt Signalberechnung und Kalibrierverhalten fest. Kapitel 14 führt die Quellen zusammen; Kapitel 6–11 erläutern Betrieb und analytische Belege.

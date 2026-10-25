@@ -1,0 +1,143 @@
+---
+document-status: "Zur Durchsicht durch den Autor"
+---
+
+# Erster Start und Bedienung des Geräts {#sec-startup}
+
+Dieses Kapitel dient dazu, den Start des aufgebauten Geräts, die Sensorerkennung und die Aufzeichnung von Messungen mit der vorgesehenen Kalibrierung zu prüfen. Hardwareprüfung und erfolgreicher Softwarestart gehen der analytischen Qualifizierung voraus. Probenergebnisse dürfen erst freigegeben werden, wenn die Anforderungen an Kalibrierung und Qualitätskontrolle erfüllt sind.
+
+## Erster Start
+
+1. Die Montageprüfung einschließlich bestätigter Versorgungs- und Adapteranschlüsse abschließen. Die zurückgestellte Prüfung der Befestigungsmittel bleibt auf der To-do-Liste des Projekts vermerkt.
+2. Die USB-Datenverbindung zum Computer trennen und mit eigenständiger Stromversorgung starten.
+3. Die Startanzeige `QuantiFluorONE v1.0 RC2` bestätigen.
+4. Das Menü öffnen und `CAL STATUS` prüfen. Nach einer bereinigten Neuinstallation ohne historische Zustandsdaten sollte keine aktive Kalibrierung angezeigt werden.
+5. Bei einem neuen Gerät einen Prüfblindwert messen und in Details Sensorkanal, Verstärkung und Integrationszeit dokumentieren. Dies ist eine Installationsprüfung, keine Kalibrierung.
+6. Lichtabschirmung und wiederholte Blindwertantwort prüfen, bevor die im Betriebsprotokoll beschriebene Kalibrierung erfolgt.
+
+Die Standardkonfiguration verwendet die Verstärkung `max`, eine Integrationszeit von 600 ms und drei aufeinanderfolgende Sensorablesungen je Messzyklus. Sofern kein Kanal vorgegeben ist, durchsucht der Code alle vier PCA9546-Zweige und verlangt genau einen passenden Sensor. Außerdem besteht eine konfigurierbare Ausweichmöglichkeit für einen direkt angeschlossenen Sensor; dies entspricht nicht dem dokumentierten Aufbau mit Multiplexer. Wird Kanal `-1` gemeldet, die Ursache klären, bevor das Gerät als Standardkonfiguration behandelt wird.
+
+Die frühere Betriebsanweisung sieht eine Aufwärmzeit von 20 Minuten vor. Diese als Betriebsbedingung des Projekts beibehalten und dokumentieren. Ob sie ausreicht, anhand der Stabilität von Blindwert und Kontrollprobe beurteilen; die Anwendung erzwingt diese Zeit nicht und zeigt keinen Countdown an.
+
+## Bedienelemente
+
+![Bedienelemente der Vorderseite für RC2. Die Beispielanzeige zeigt eine vorläufige Kalibrierung und veranschaulicht die Bedienoberfläche; sie ist kein freigegebenes analytisches Ergebnis.](../../../figures/qfo_getting_started_menu_navigation.jpeg){width=90%}
+
+| Taste | Messbildschirm | Menü oder Kalibrierbildschirm |
+|---|---|---|
+| SELECT | Menü aus Live öffnen | Gewählte Aktion öffnen oder bestätigen |
+| START | Neuen Reagenzblindwert aufnehmen | Den von der Zweipunkt- oder Zehnblindwertroutine angeforderten Blindwert messen |
+| A | Gewählte Probe messen | Nach Aufforderung den oberen Standard messen |
+| B | Zwischen Live, Details und RAW wechseln | Zurück oder abbrechen |
+| UP oder DOWN | Probenkennung in Live auswählen | Menüeintrag oder Konzentration des oberen Standards auswählen |
+| RIGHT | Aus Live oder Details nach RAW wechseln; aus RAW zu Live zurückkehren | Keine allgemeine Menüfunktion |
+| LEFT | RAW-Seite wechseln | Seite des Kalibrierergebnisses oder Kalibrierstatus wechseln |
+
+**Zur Live-Ansicht zurückkehren:** Aus Details zweimal B drücken, aus RAW einmal B. Alternativ führt RIGHT aus Details nach RAW und ein weiteres RIGHT nach Live. Aus dem Menü einmal B drücken; aus CAL STATUS zweimal B drücken, da der erste Tastendruck ins Menü führt. In einem laufenden Kalibrierdialog bedeutet B Abbruch; eine beabsichtigte Kalibrierung zunächst regulär abschließen. Das Foto und die Tastentabelle in diesem Abschnitt zeigen die Tastenpositionen.
+
+Die Hinweise auf dem jeweiligen Bildschirm beachten. UP/DOWN ändert die Probenkennung nur in Live. SELECT öffnet das Menü aus Live; aus Details oder RAW zunächst zu Live zurückkehren. Die internen Tastennamen `gain` und `itime` sind historisch bedingt: B und A ändern in dieser Anwendung weder Detektorverstärkung noch Integrationszeit.
+
+## Menüfunktionen
+
+Für den Routinebetrieb wird die Zweipunktkalibrierung am Gerät verwendet. Ein Mehrpunktimport oder eine vorläufige Kalibrierung ist dafür nicht erforderlich. Die erstmalige Charakterisierung jedes neuen Geräts beziehungsweise jeder neuen Konfiguration mit einer Konzentrationsreihe und der Calibration Suite wird in Kapitel 8 beschrieben.
+
+| Eintrag | Zweck | Folge |
+|---|---|---|
+| 2-PT CAL | Blindwert und einen oberen Standard aufnehmen | Speichern ersetzt die aktive Kalibrierung |
+| 10-BLANK L/Q | Unabhängig angesetzte Blindproben auswerten | Aktive Zweipunktkalibrierung erforderlich; gespeicherte Schätzwerte gehören zu dieser Kalibrierung |
+| LOAD MP CAL | Kompatible OLS-Kalibrierung im JSON-Format importieren | Ersetzt die aktive Kalibrierung und verknüpft sie mit den aktuellen Sensoreinstellungen |
+| CAL STATUS | Kalibrierparameter ansehen | LEFT wechselt zwischen zwei Seiten |
+| CLEAR CAL | Aktives Modell nach Bestätigung entfernen | Konzentrationen sind erst nach erneuter Kalibrierung wieder verfügbar |
+
+Ein erfolgreicher Import bestätigt, dass die erforderlichen mathematischen Felder gelesen werden können. Er prüft weder die Assayidentität noch unabhängige Referenzwerte oder die analytische Freigabe. RC2 akzeptiert vorläufige Mehrpunktdaten; vor deren Verwendung muss der Anwender die Eignung des Modells feststellen.
+
+## Blindwertmessungen nach Kalibriertyp unterscheiden
+
+**In RC2 macht START auf dem Messbildschirm eine aktive Zweipunktkalibrierung ungültig.** Die Anwendung nimmt einen neuen Blindwert auf, deaktiviert das Modell und versucht, die gespeicherte Kalibrierdatei zu löschen. Sie ersetzt nicht lediglich den Blindwert unter Beibehaltung der Zweipunktsteigung.
+
+| Beabsichtigte Aufgabe | Vorgehen |
+|---|---|
+| Neue Zweipunktkalibrierung erstellen | 2-PT CAL öffnen; angeforderten Blindwert mit START aufnehmen, 400 ng/µL wählen, oberen Standard mit A messen, prüfen und mit SELECT speichern |
+| Gespeicherte Zweipunktkalibrierung mit zugehörigem gespeichertem Blindwert weiterverwenden | Kalibrierung und unveränderte Bedingungen prüfen, dann unabhängige Kontrollprobe mit A messen. START nicht routinemäßig voranstellen |
+| Neuen Blindwert prüfen, ohne den gespeicherten Zweipunktblindwert zu ersetzen | Röhrchenkennung auswählen oder handschriftlich zuordnen (Abschnitt 7.6) und mit A messen. Prüfung im Ablauf der Qualitätskontrolle bewerten |
+| Zweipunktblindwert bewusst ersetzen | Vollständige neue Zweipunktkalibrierung einschließlich des oberen Standards durchführen |
+| Freigegebenes Mehrpunktmodell verwenden | Modell und Messbedingungen bestätigen, erforderlichen neuen Blindwert mit START aufnehmen und unabhängige Kontrollprobe prüfen |
+
+Eine neue Blindwertmessung bei aktivem Mehrpunktmodell behält das importierte Modell bei. Sie verändert die Signalbasis und erfordert weiterhin eine Kontrollprüfung. Das gespeicherte Modell muss für dieselbe Signaldefinition und dieselben Assaybedingungen erstellt worden sein.
+
+## Zweipunktdialog durchführen
+
+- [ ] 1. Aus Live SELECT drücken, `2-PT CAL` auswählen und öffnen.
+- [ ] 2. Reagenzblindwert einsetzen, Lichtabschirmung schließen und START drücken.
+- [ ] 3. Auf `HIGH STANDARD` mit UP/DOWN `400 ng/uL` auswählen und SELECT drücken.
+- [ ] 4. Das inkubierte Röhrchen des oberen Standards einsetzen und A drücken. Beim bestätigten ONE-Standard enthält es 1 µL Stammlösung mit 400 ng/µL und 200 µL Reagenz; dies entspricht 400 ng DNA in 201 µL.
+- [ ] 5. Beide Ergebnisseiten mit LEFT prüfen. Standardkonzentration, Blindwert, Standardsignal, Steigung und QC-Hinweise beurteilen.
+- [ ] 6. Nur bei annehmbarem Ergebnis mit SELECT speichern; andernfalls mit B abbrechen.
+- [ ] 7. Eine separat angesetzte Kontrollprobe prüfen, bevor unbekannte Proben freigegeben werden.
+
+Der Code meldet bei der Prüfung Warnungen zu `CV`, `SNR` und `SAT`, kann die Kalibrierung aber auch mit diesen Warnungen speichern. Warnungen müssen untersucht werden; sie stellen keine automatische Annahmeentscheidung dar. Ein gespeicherter Status `ACTIVE` ersetzt keine unabhängige Qualitätskontrolle.
+
+## Probenkennungen vorbereiten
+
+Eine Anpassung der Probenliste am Computer ist **optional**. Für wechselnde oder zusätzliche Proben genügt ein handschriftliches Messprotokoll, das jede Messung eindeutig dem beschrifteten Röhrchen zuordnet.
+
+**Ohne Bearbeitung der Konfigurationsdatei:**
+
+- [ ] Röhrchen mit der tatsächlichen Probenkennung beschriften.
+- [ ] In Live eine vorhandene Gerätekennung mit UP/DOWN auswählen. Sie dient in diesem Ablauf als gespeicherte Gerätekennung und muss nicht mit der tatsächlichen Probenkennung übereinstimmen.
+- [ ] Vor jedem Druck auf A eine fortlaufende Messnummer, tatsächliche Probenkennung, angezeigte Gerätekennung und Uhrzeit notieren. Nach der Messung Konzentration, Status sowie Wiederholungen oder Vorverdünnungen ergänzen.
+- [ ] Jede erneute Messung als eigene Protokollzeile erfassen. Auch Prüfblindwerte und Kontrollen aufnehmen; Geräteneustarts und Fehler vermerken.
+- [ ] Bei der späteren CSV-Prüfung die Zuordnung anhand der Reihenfolge der Zeilen mit row_type = sample, Gerätekennung, Ergebnis und Sitzung prüfen. CSV und Protokoll gemeinsam aufbewahren.
+
+Die Messnummer wird im handschriftlichen Protokoll geführt; RC2 erzeugt dafür keine eigene CSV-Spalte. Dieselbe Gerätekennung kann mehrfach verwendet werden, wenn die Zuordnung jeder einzelnen Messung vollständig protokolliert ist. Die Gerätekennung darf später nicht ohne dieses Protokoll als tatsächliche Probenidentität interpretiert werden. Die Auswahl springt nach einer Messung nicht automatisch zur nächsten Kennung.
+
+**Optional vorbereitete Probenliste:**
+
+Im sicheren Modus das Array `samples.list` in `quantifluorone_config.json` mit einem Texteditor für unformatierten Text bearbeiten. Beispielsweise das Array `["BlankCheck", "QC1", "Sample01", "Sample02"]` verwenden. Gültige JSON-Syntax und die übrige Konfiguration beibehalten.
+
+Der gewählte Probenindex wird in `quantifluorone_state.json` gespeichert, nicht in einem Konfigurationsfeld `samples.selected_index`. Nach dem Bearbeiten neu starten und die gewünschte Kennung in Live ausdrücklich auswählen. Eindeutige Kennungen verwenden und Kommas, Anführungszeichen sowie Zeilenumbrüche vermeiden: Der CSV-Schreiber von RC2 maskiert diese Zeichen nicht.
+
+Ein Muster für das handschriftliche Zuordnungsprotokoll steht in Abschnitt 9.1.
+
+## Messansichten lesen
+
+Jeder Probenmesszyklus erfasst drei aufeinanderfolgende FULL- und IR-Werte. VIS wird für jede Ablesung als FULL minus IR berechnet und auf mindestens null begrenzt. Angezeigter Mittelwert und Standardabweichung beschreiben wiederholte Sensorablesungen desselben Röhrchens, nicht drei unabhängig angesetzte Assays.
+
+| Ansicht | Angaben |
+|---|---|
+| Live | Probenkennung, Konzentration und Status, Vorhersageintervall oder Grenzen, VIS-Mittelwert und SD, Blindwert und RFU |
+| Details | FULL-, IR- und VIS-Statistik, RFU, Konzentration, Sensorkanal, Verstärkung und Integrationszeit |
+| RAW | Einzelablesungen auf zwei Seiten, VIS-Statistik und Hinweis zum Spitzenwert |
+| Kalibrierstatus | Zweipunktstandard, RFU, Steigung und QC oder Mehrpunktmodell, Koeffizienten, Bereich, Grenzen und statistische Parameter |
+
+Die Kalibrierkennung ist in JSON gespeichert, wird aber auf den Kalibrierstatusseiten von RC2 nicht angezeigt. Sie anhand der archivierten Kalibrierdatei und des Probenserienprotokolls zuordnen. Die Oberfläche kürzt Texte entsprechend der Bildschirmgröße; vollständige Kennungen und Metadaten bei Bedarf in den Dateien prüfen.
+
+Auch bei Bereichsüberschreitung oder vorläufigem Status kann eine numerische Konzentration erscheinen. Vor der Ergebnisangabe Status und gültigen Bereich prüfen. Eine Zahlenanzeige ist kein Kennzeichen einer analytischen Freigabe.
+
+## Daten aufzeichnen und prüfen
+
+| Datei auf CIRCUITPY | Funktion |
+|---|---|
+| quantifluorone_config.json | Konfiguration für Hardware, Messung, Probenliste und Assay |
+| quantifluorone_state.json | Gespeicherter Blindwert und Auswahlzustände der Oberfläche |
+| quantifluorone_calibration.json | Aktive gespeicherte Kalibrierung |
+| quantifluorone_multipoint.json | Quell-JSON für einen bewusst ausgeführten Mehrpunktimport |
+| quantifluorone_log_v100rc2.csv | Fortlaufend angehängte Messdatensätze |
+
+**Messdaten werden automatisch gespeichert:** Bei aktiviertem `measurement.csv_logging: true` hängt RC2 nach jedem erfolgreich abgeschlossenen Probenmesszyklus mit A eine Zeile an `quantifluorone_log_v100rc2.csv` im Hauptverzeichnis von CIRCUITPY an. Eine neue Datei erhält automatisch ihre Kopfzeile. Es ist kein zusätzlicher Druck auf SELECT oder eine andere Speichertaste erforderlich. Alle drei Sensorablesungen und ihre Statistik gehören zu dieser einen Messzeile. Ein mit A gemessener Prüfblindwert oder eine Kontrollprobe wird ebenfalls mit row_type = sample aufgezeichnet.
+
+Voraussetzung ist ein normaler Start ohne angeschlossenen USB-Datenhost, beispielsweise an einer Powerbank, und aktivierte CSV-Protokollierung. Die mitgelieferte Konfiguration aktiviert diese. Bei deaktivierter Protokollierung, fehlenden Schreibrechten oder Schreibfehlern ist eine Messanzeige kein Speichernachweis. Die Live-Ansicht zeigt die internen Meldungen CSV saved, FS read-only oder CSV error nicht als zuverlässige Speicherbestätigung an.
+
+Das CSV-Feld `t_s` ist die monoton laufende Betriebszeituhr in Sekunden, kein UTC- oder Kalenderzeitstempel. Datum der Probenserie, Geräteidentität und Neustarts gesondert dokumentieren. Zeitwerte beginnen beim Geräteneustart erneut; Zeilen mehrerer Sitzungen können an dieselbe Datei angehängt werden.
+
+Die Live-Ansicht zeigt CSV-Schreibfehler nicht durchgängig an. Deshalb die Protokollierung bei der Installation prüfen, indem die Datei ausgelesen und auf die erwarteten neuen Zeilen kontrolliert wird. Diesen Prüfnachweis aufbewahren, wenn während der eigentlichen Probenserie kein Computerzugriff möglich ist.
+
+- [ ] 1. Messaufnahme abschließen und keine weiteren Messungen durchführen.
+- [ ] 2. Mit dem Computer verbinden und in den sicheren Modus wechseln.
+- [ ] 3. CSV, aktuelle Kalibrier-JSON, Konfiguration und gegebenenfalls die zugehörige Kalibrierquelldatei in den datierten Ordner der Probenserie kopieren.
+- [ ] 4. Probenkennungen, Zeilenzahl, Firmware, Sensoreinstellungen, Kalibrierstatus, Ergebnismarkierungen und Einheiten prüfen.
+- [ ] 5. Vor dem Trennen sicher auswerfen. Für weitere Messungen zur eigenständigen Stromversorgung zurückkehren und neu starten.
+
+## Bereit für analytische Arbeiten
+
+Mit der Probenanalyse beginnen, wenn das Gerät fehlerfrei startet, die erwarteten Sensoreinstellungen dokumentiert sind, Lichtabschirmung und Blindwertstabilität die Anforderungen erfüllen, die Protokollierung geprüft wurde und eine geeignete Kalibrierung durch eine unabhängige Kontrollprobe bestätigt ist. Kalibrierung und Probenserienprotokoll gemeinsam aufbewahren. Ausführliche Kalibrierung, Assayvorbereitung und Annahmekriterien folgen in den Betriebskapiteln.

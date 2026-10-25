@@ -1,0 +1,77 @@
+---
+document-status: "Zur Durchsicht durch den Autor"
+---
+
+# Analytische Leistungsfähigkeit und Grenzen {#sec-performance}
+
+Die angegebenen Leistungsmerkmale beschreiben die untersuchte QuantiFluor ONE-Gerätekonfiguration mit 1 µL DNA-Lösung und 200 µL Reagenz sowie routinemäßiger Zweipunktkalibrierung. Die Nachweise umfassen einen Quantus-Vergleich, unabhängige Reagenzblindwertansätze und technische Sensorwiederholungen. Sie belegen keine identische Leistung jedes Nachbaus, eines anderen Farbstoffs oder einer geänderten Optik.
+
+## Erstmalige Charakterisierung und Routinebetrieb
+
+Jedes neue Gerät beziehungsweise jede geänderte Konfiguration mit einer Reihe zugewiesener Konzentrationen und der Calibration Suite charakterisieren, um Regression und relevante Leistungsmerkmale zu dokumentieren. Daten und Schlussfolgerungen als Grundlage des akzeptierten Arbeitsbereichs aufbewahren. Dies ist von der Routineanalyse mit Zweipunktkalibrierung getrennt.
+
+Der vorläufige Entwicklungsdatensatz ist keine Kalibrierung, die für jede Probenserie geladen werden muss. Routinekontrollen prüfen die fortbestehende Eignung des etablierten Verfahrens. Betroffene Charakterisierungsmerkmale erneut prüfen, wenn Konfigurationsänderungen oder ungeklärte QC-Befunde die Eignung infrage stellen.
+
+## Aufbau des Vergleichs
+
+Für die Studie wurden nominelle Lambda-DNA-Kalibrierstandards mit 400 ng/µL für DIY-Gerät und Quantus separat vorbereitet. Der DIY-Standard ergab am Quantus 395 ng/µL. Sein zugewiesener Wert von 400 ng/µL blieb für die DIY-Zweipunktkalibrierung erhalten.
+
+Es wurden 15 Wertepaare aufgezeichnet. Der obere DIY-Zweipunkt-Kalibrierpunkt wurde im Vergleich dargestellt, aber von der unabhängigen Regression ausgeschlossen; es verbleiben **14 gepaarte Ergebnisse**. Unabhängig bedeutet hier unabhängig von diesem angepassten Kalibrierpunkt. Es bedeutet nicht, dass jedes Ergebnis aus einer separat extrahierten Probe oder einem unabhängig vorbereiteten Assayansatz stammt.
+
+Der Quantus stellt eine externe Vergleichsskala bereit. Er wird nicht als rückführbares Referenzverfahren oder fehlerfreie Definition der wahren Konzentration behandelt. Die Übereinstimmung beurteilt die Vergleichbarkeit unter den geprüften Bedingungen; sie belegt allein keine analytische Richtigkeit.
+
+## Antwortverhalten über den untersuchten Bereich
+
+Die gespeicherte Vergleichsauswertung liefert ohne oberen Kalibrierpunkt eine Steigung von ungefähr **1,003**, einen Achsenabschnitt von ungefähr **−1,64 ng/µL** und **R² = 0,999387** für DIY-Konzentration gegen Quantus-Konzentration. Diese Werte stützen einen näherungsweise linearen Zusammenhang im untersuchten Intervall.
+
+![Zweipunktkalibrierte DIY-Ergebnisse im Vergleich zum Quantus. Das Quadrat kennzeichnet den von der Regression ausgeschlossenen oberen Kalibrierpunkt. Fehlerbalken beschreiben die drei technischen Sensorablesungen; das schattierte Band beschreibt die Unsicherheit des angepassten mittleren Zusammenhangs.](../../../figures/two_point_calibrated_diy_results_with_sd_and_confidence_band.png){width=90%}
+
+Ein hohes R² beweist nicht, dass ein Verfahren unter allen Bedingungen linear ist. Bei der Charakterisierung Residuen und unabhängig zugewiesene Konzentrationen prüfen. Technische Wiederholungen an einem Röhrchen ersetzen keine unabhängigen Assayansätze zur Bewertung von Vorbereitungsstreuung oder mangelnder Modellanpassung.
+
+Eine Darstellung von RFU gegen Konzentrationen, die aus denselben RFU und derselben Kalibriergleichung berechnet wurden, prüft rechnerische Konsistenz. Die nahezu perfekte Anpassung folgt mathematisch und ist kein unabhängiger Nachweis analytischer Linearität.
+
+## Übereinstimmung mit dem Vergleichsgerät
+
+| Kennzahl | Gerundetes Ergebnis und Geltungsbereich |
+|---|---|
+| Wertepaare ohne oberen Kalibrierpunkt | 14 |
+| Mittlere Differenz DIY minus Quantus | Ungefähr −1,2 ng/µL |
+| Mittlere absolute Differenz | 2,71 ng/µL |
+| Wurzel der mittleren quadratischen Differenz | 3,62 ng/µL |
+| Mittlere absolute relative Differenz | 3,79 % für die Teilmenge mit Quantus-Konzentration ab der primären LOQ |
+| Näherungsweise 95-%-Übereinstimmungsgrenzen | −8,14 bis +5,83 ng/µL |
+
+![Bland–Altman-Vergleich der 14 Wertepaare ohne Kalibrierpunkt. Die Differenzen sind gegen den Mittelwert beider Geräteergebnisse aufgetragen. Die gestrichelten Linien zeigen näherungsweise Übereinstimmungsgrenzen, keine Annahmegrenzen einzelner Proben.](../../../figures/quantus_diy_bland_altman_v2.png){width=90%}
+
+Die 3,79 % sind eine mittlere absolute relative Differenz für die genannte Teilmenge. Sie sind weder allgemeiner Maximalfehler noch Konfidenzintervall oder garantierte Genauigkeitsspezifikation eines anderen Geräts. Die Übereinstimmungsgrenzen beschreiben diesen Datensatz und dürfen nicht automatisch als QC-Grenzen übernommen werden.
+
+## Blindwertleistung und Ergebnisangabe im unteren Bereich
+
+Zehn unabhängig angesetzte Reagenzblindwerte wurden jeweils in einem Messzyklus mit drei Sensorablesungen gemessen. Die primäre Studie berichtet ein mittleres VIS-Signal von 9.557,563 Counts und eine Standardabweichung der Messzyklus-Mittelwerte von 126,514 Counts. Daraus ergeben sich folgende blindwertbasierte Grenzen:
+
+| Konzentrationsbezug | LOD-Schätzwert | LOQ-Schätzwert |
+|---|---|---|
+| Ursprüngliche DNA-Lösung | 7,902 ng/µL | 23,946 ng/µL |
+| Fertiger Assay bei 201-facher Verdünnung | 0,03931 ng/µL | 0,11913 ng/µL |
+
+Für die praktische Verwendung lauten die gerundeten Werte ungefähr **8 ng/µL LOD und 24 ng/µL LOQ bezogen auf die ursprüngliche Probe**. Sie folgen aus der dokumentierten blindwertbasierten Berechnung und der untersuchten Kalibriersteigung. Nicht ungeprüft auf ein anderes Gerät oder eine andere Konfiguration übertragen.
+
+Zwei weitere unabhängige Blindwertansätze wurden jeweils in elf Messzyklen untersucht. Ihre bestätigenden Schätzwerte betragen 7,027 und 21,294 ng/µL. Dies sind 22 Messzyklen an zwei Ansätzen, keine 22 unabhängigen Blindwertansätze.
+
+![Vorhandene Zusammenfassungen der primären und bestätigenden Blindwertgrenzen. Die unterschiedliche Zahl unabhängiger Ansätze ist ausdrücklich angegeben. Die Balken zeigen bereits berechnete Schätzwerte und keine neue Berechnung aus den Blindwertrohdaten.](../../../figures/blank_based_lod_loq_summary.png){width=85%}
+
+Die Blindwert-Sigma-Schätzungen unterscheiden sich von einer vollständigen Grenzberechnung aus der Kalibrierkurve nach DIN 32645. Bei Angabe von LOD oder LOQ stets die Berechnungsmethode nennen. Eine angezeigte Grenze belegt weder die Präzision der Probenvorbereitung noch eine annehmbare Wiederfindung auf diesem Niveau.
+
+## Wiederholbarkeit und praktischer Arbeitsbereich
+
+Drei aufeinanderfolgende Ablesungen eines Messzyklus charakterisieren die kurzfristige Sensorwiederholbarkeit. Sie enthalten keine getrennte Pipettierung, Extraktion oder Probenstreuung. Unabhängig vorbereitete Röhrchen verwenden, um die Assaypräzision zu beurteilen.
+
+Das dokumentierte Kalibrierintervall beträgt 0–400 ng/µL bezogen auf die ursprüngliche Probe. Die primäre LOQ legt einen quantitativen Berichtsbereich von ungefähr 24–400 ng/µL nahe, sofern Blindwert, QC und weitere Annahmebedingungen erfüllt sind. Der Blindwertendpunkt bleibt Teil der Kalibrierung, obwohl er kein quantitatives Probenergebnis ist.
+
+Proben oberhalb des Bereichs oder bei Sättigung benötigen eine Vorverdünnung und einen neuen Assay. Ergebnisse unterhalb LOQ benötigen die festgelegte eingeschränkte Ergebnisangabe. Matrixeffekte, DNA-Fragmentgröße, Reagenzzustand, Temperatur, Röhrchensitz und optische Änderungen können die Antwort beeinflussen und sind für die vorgesehene Anwendung zu beurteilen.
+
+## Nachweise und Dateien zur Reproduktion
+
+[Gepaarte Vergleichsdaten](../../../../validation/quantus_diy_two_point_comparison.csv), [gespeicherte Statistik](../../../../validation/validation_statistics.csv), [Blindwertzusammenfassung](../../../../validation/blank_performance_summary.csv), [Zusammenfassung technischer Wiederholungen](../../../../validation/diy_triplicate_concentration_summary.csv) und [ursprüngliches Messprotokoll](../../../../validation/quantifluorone_log_v100rc2.csv) aufbewahren.
+
+Das [Auswertungsskript](../../../../validation/validation_and_analytical_performance.py) reproduziert mit den angegebenen [Abhängigkeiten](../../../../validation/requirements.txt) wesentliche Vergleichskennzahlen und grundlegende Abbildungen. Es berechnet die Blindwertgrenzen nicht erneut aus den ursprünglichen Blindproben und erzeugt nicht sämtliche beschrifteten Abbildungen technischer Wiederholungen dieses Kapitels vollständig neu. Bei Erweiterung der Charakterisierung auch die ergänzenden Ansatz- und Abbildungserstellungsunterlagen aufbewahren.

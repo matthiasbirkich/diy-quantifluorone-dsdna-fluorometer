@@ -1,0 +1,119 @@
+---
+document-status: "Zur Durchsicht durch den Autor"
+---
+
+# Ergebnisse Qualitätskontrolle und Datenverwaltung {#sec-results-qc}
+
+Ein quantitatives dsDNA-Ergebnis nur freigeben, wenn die Kalibrierung geeignet ist, Serienblindwert und unabhängige Kontrollprobe die Anforderungen erfüllen, das Signal gültig ist und das Ergebnis im festgelegten quantitativen Bereich liegt. Eine Zahlenanzeige oder die Kennzeichnung ACTIVE allein reicht nicht aus.
+
+## Annahmekriterien vor der Probenserie festlegen
+
+Vorgesehenen Konzentrationsbereich, Blindwert-Annahmeintervall, QC-Sollwert und zulässige Abweichung, Erwartungen an Wiederholungen sowie Anlässe für eine Neukalibrierung festlegen. Diese Kriterien mit der Leistungsfähigkeit des Verfahrens, unabhängigen Sollwerten und bisherigen Kontrolldaten begründen. Grenzen nicht erst nach Betrachtung der aktuellen Ergebnisse festlegen.
+
+Für Kontrolllösungen die Wiederfindung als **100 × gemessene Konzentration / zugewiesene Konzentration** berechnen. Denselben Konzentrationsbezug verwenden und dokumentierte Vorverdünnungen entsprechend berücksichtigen. Eine unabhängig aus derselben Stammlösung vorbereitete Kontrollprobe prüft Vorbereitung und Geräteverhalten; sie bestätigt die zugewiesene Konzentration der Stammlösung nicht unabhängig.
+
+Eine bestandene Kontrolle im mittleren Bereich ist eine nützliche Routineprüfung. Kontrollen niedriger und hoher Konzentration ergänzen, wenn die Anwendung dies erfordert. Einordnung und Häufigkeit der Kontrollen gehören in den Laborplan. Bei einem späteren QC-Fehler den Zeitraum seit der letzten bestandenen Kontrolle dokumentieren, um die betroffenen Ergebnisse einzugrenzen.
+
+## Wiederholungsmessungen unterscheiden
+
+| Messanordnung | Was die Streuung beschreibt | Interpretation |
+|---|---|---|
+| Drei Sensorablesungen in einem Messzyklus | Kurzfristige Messwiederholbarkeit für ein Röhrchen | Die angezeigte VIS-SD hat die Einheit Signalcounts, nicht Konzentration |
+| Wiederholte Messzyklen desselben Röhrchens | Wiederholbarkeit einschließlich Handhabungs- und Zeiteinflüssen | Keine unabhängig wiederholte Pipettierung enthalten |
+| Unabhängig angesetzte Assayröhrchen | Gemeinsame Streuung von Vorbereitung und Messung | Jede Konzentration dokumentieren; bei geeigneter Fragestellung Mittelwert und SD berechnen |
+| Unabhängige Proben oder Extraktionen | Probenahme- beziehungsweise Extraktionsstreuung und anschließende analytische Streuung | Von der Gerätepräzision getrennt betrachten |
+
+Drei technische Sensorablesungen nicht als drei unabhängige Kalibrier- oder Probenansätze zählen. Nahe null kann die relative Streuung irreführend sein; absolute Differenzen gemeinsam mit Blindwertverhalten und geltenden Grenzen beurteilen. Systematische Trends ebenso wie einzelne Abweichungen untersuchen.
+
+## Grenzen auf den richtigen Konzentrationsbezug anwenden
+
+Das dokumentierte Kalibrierintervall beträgt 0–400 ng/µL bezogen auf die ursprüngliche Probe. Der Blindwert ist ein Endpunkt der Kalibrierung; daraus folgt nicht, dass jede Konzentration oberhalb von null quantitativ berichtbar ist.
+
+Die vorhandene Zusammenfassung der primären Blindwertstudie nennt ungefähr **8 ng/µL LOD und 24 ng/µL LOQ bezogen auf die ursprüngliche Probe**. Bei 201-facher Assayverdünnung entspricht dies etwa **0,04 und 0,12 ng/µL im Assay**. Diese Werte beschreiben die untersuchte Konfiguration und die blindwertbasierte Berechnung. Sie sind keine garantierten Grenzen für jedes neue Gerät oder jede neu gespeicherte Kalibrierung.
+
+Grenzen verwenden, die für die tatsächliche Konfiguration ermittelt und mit Methode, Blindprobenplan und Berechnungsbezug dokumentiert wurden. Die [Zusammenfassung der Blindwertleistung](../../../../validation/blank_performance_summary.csv) unterscheidet zehn unabhängige Blindwertröhrchen von wiederholten Messzyklen an zwei Röhrchen.
+
+| Ergebniskategorie | Ergebnisangabe |
+|---|---|
+| Unterhalb der geltenden LOD | Unterhalb des Nachweis-Schätzwerts unter Angabe von Methode und Grenze berichten; null DNA nicht als erwiesene Tatsache angeben |
+| Ab LOD, aber unterhalb LOQ | Nachgewiesen, aber nicht quantifiziert, oder unterhalb LOQ gemäß Laborkonvention berichten |
+| Ab LOQ und innerhalb des akzeptierten Arbeitsbereichs | Quantitativ berichten, wenn alle übrigen Prüfungen bestanden sind |
+| Oberhalb des Bereichs oder gesättigt | Ursprüngliche Probe vorverdünnen und vollständigen Assay wiederholen |
+| Ungültige oder inkompatible Kalibrierung, fehlgeschlagene Blindwert-/QC-Prüfung oder ungeklärter Erfassungsfehler | Ergebnis zurückhalten oder verwerfen und den Grund dokumentieren |
+
+Sind keine Grenzen verfügbar, sie nicht aus dem bloßen Vorhandensein einer Steigung oder eines R² ableiten. Geeignete Grenzen und eine akzeptierte untere Berichtsgrenze festlegen, bevor niedrige Konzentrationen quantitativ angegeben werden. RC2 kann negative blindwertkorrigierte Konzentrationen anzeigen. Diese Rohwerte aufbewahren und die Berichtsregel anwenden, statt sie als physikalisch negative DNA zu beschreiben.
+
+## Charakterisierungsstatistik und Routineergebnisse unterscheiden
+
+Die Routineanalyse verwendet die Zweipunktkalibrierung und benötigt weder eine vorläufige Kalibrierung noch ein angezeigtes Mehrpunkt-Vorhersageintervall. Regressionskennzahlen der gesonderten Charakterisierungsreihe dokumentieren die Geräteleistung; sie erfordern nicht, dass dieses Modell die routinemäßige Zweipunktkalibrierung ersetzt.
+
+Bei der optionalen Verwendung eines kompatiblen importierten Mehrpunktmodells für Entwicklungsarbeiten berechnet RC2 ein näherungsweises inverses OLS-Vorhersageintervall. Dafür dienen importierte Residualstandardabweichung, Steigung, Zahl der Kalibrierbeobachtungen, mittlere Konzentration, Quadratsumme und t-Faktor. Die Varianz enthält eine künftige Bestimmung. Dies ist kein vollständiges Messunsicherheitsbudget; Unsicherheit des Standards, Probenmatrix, Extraktion, manuelle Vorverdünnung und unabhängig angesetzte Probenwiederholungen werden nicht automatisch vollständig berücksichtigt.
+
+Die SD der drei Geräteablesungen und das Modell-Vorhersageintervall sind verschiedene Größen. Eine VIS-SD nicht als Konzentrationsunsicherheit ausgeben. Werden Ergebnis und Intervall mit einem Probenvorverdünnungsfaktor multipliziert, vermerken, dass diese Skalierung allein die Unsicherheit der Verdünnung nicht einschließt.
+
+Die Faktoren 3,3 und 10 der Blindwert-Menüroutine unterscheiden sich außerdem von den Faktoren des Blindwert-Screenings der Suite v7.3 und ihren gesonderten, als DIN bezeichneten Kalibrierkurvengrenzen. Tatsächlich verwendete Berechnung dokumentieren. NWG, EG und BG der Suite nicht ohne dokumentierte Definition den Firmwarebezeichnungen LOD/LOQ gleichsetzen.
+
+## Annehmen wiederholen verdünnen oder verwerfen
+
+| Beobachtung | Entscheidung | Erforderliche Maßnahme |
+|---|---|---|
+| Geeignete Kalibrierung, bestandene Blindwert-/QC-Prüfung, konsistente Ergebnisse im quantitativen Bereich | Annehmen | Ergebnis, Bezug, geltende Grenzen und Vorverdünnung dokumentieren |
+| Blasen, schlechter Röhrchensitz oder anderes erkanntes Röhrchenproblem | Messung wiederholen | Ursache beheben; frühere Aufzeichnung beibehalten |
+| Unabhängige Wiederholungsansätze bleiben uneinheitlich | Vorbereitung wiederholen | Pipettierung, Mischung, Zeitablauf und Probenhomogenität untersuchen |
+| Konzentration oberhalb des Bereichs oder Sättigung | Verdünnen und wiederholen | Ursprüngliche Probe vorverdünnen und neuen Assay ansetzen |
+| Erhöhter oder instabiler Prüfblindwert | Serie zurückhalten | Verunreinigung, Reagenz, Temperatur, Lichtabschirmung und Kalibrierung prüfen |
+| Unabhängige Kontrollprobe besteht nicht | Betroffene Ergebnisse zurückhalten | Ursache beheben; Kontrolle und betroffene unbekannte Proben bei Bedarf wiederholen |
+| Falsche Probenidentität, Einheit, Volumen, Modell oder Konzentrationsbezug | Verwerfen | Betroffene Vorbereitungs- und Kalibrierschritte korrekt wiederholen |
+| Unterhalb der geltenden LOQ | Ergebnis mit Einschränkung angeben | Festgelegte Nachweis- beziehungsweise Quantifizierungskategorie verwenden |
+
+Eine abweichende Gerätekennung ist bei vollständig dokumentierter handschriftlicher Zuordnung nach Abschnitt 9.1 kein Identitätsfehler. Fehlt eine sichere Zuordnung zum tatsächlich gemessenen Röhrchen, die Identität klären und erforderlichenfalls erneut messen; die Originalaufzeichnung nicht überschreiben.
+
+Besteht die Prüfblindwertmessung einer beibehaltenen Zweipunktkalibrierung nicht, vor einer Zustandsänderung die Ursache untersuchen. Zum Ersetzen des Kalibrierblindwerts ist eine vollständige neue Zweipunktkalibrierung erforderlich. START nicht drücken und anschließend unter der Annahme eines weiterhin aktiven alten Modells unbekannte Proben messen. Abschnitt 8.4 beschreibt die Prüfung mit A ohne Ersetzen des gespeicherten Blindwerts.
+
+## CSV unter Berücksichtigung ihrer Grenzen lesen
+
+Das [RC2-Beispielmessprotokoll](../../../../validation/quantifluorone_log_v100rc2.csv) enthält historische und vorläufige Messungen sowie spätere Arbeiten. Eine im Repository vorhandene Zeile ist deshalb nicht automatisch ein freigegebenes Ergebnis.
+
+| Feldgruppe | Bedeutung |
+|---|---|
+| t_s, firmware_version, row_type, sample_id | Betriebszeitsekunden, Softwarekennung, Ereignistyp und gewählte Gerätekennung |
+| sensor_channel, gain, integration_time_ms | Messkonfiguration |
+| full_1 bis vis_3, Mittelwerte und SD | Rohe und abgeleitete Signalablesungen sowie Statistik innerhalb des Messzyklus |
+| blank_mean, blank_sd, rfu | Aktive oder ereignisbezogene Blindwertangaben und korrigiertes Signal |
+| Kalibrierfelder, Bereich, Steigung und Achsenabschnitt | Modellmetadaten der jeweiligen Zeile |
+| concentration_ng_uL | Hauptkonzentration auf dem Bezug der ursprünglichen Lösung gemäß Kalibrierung |
+| concentration_in_assay_ng_uL | Hauptwert geteilt durch den gespeicherten Assayverdünnungsfaktor |
+| pi_low_ng_uL, pi_high_ng_uL | Grenzen des Modellintervalls, sofern verfügbar |
+| Grenzfelder, result_flag, qc | Gespeicherte Grenzen und ausgewählte Bereichs- beziehungsweise Kalibrierhinweise |
+
+Kalibrieraufnahme und Blindwertstudie sind keine gewöhnlichen Zeilen unbekannter Proben. Während der Kalibrieraufnahme können einige Felder des aktiven Modells noch das vorherige Modell beschreiben. Ereignisse anhand von `row_type` unterscheiden und die endgültig gespeicherte Kalibrier-JSON als Nachweis des angenommenen neuen Modells aufbewahren.
+
+Das Feld `qc` kann eine gespeicherte Kalibrierwarnung oder den Status IMPORTED enthalten. Es ist nicht die Bestanden-/Nicht-bestanden-Bewertung jedes unabhängigen Kontrollröhrchens. Tatsächliche QC-Sollwerte, Wiederfindung und Annahme gesondert dokumentieren. `result_flag` beschreibt vor allem den konfigurierten Bereich; es ordnet nicht automatisch jedes Ergebnis unterhalb LOD oder LOQ einer Kategorie zu.
+
+Das Protokoll liefert keinen UTC-Zeitstempel, keine eindeutige Geräteidentität, Reagenzcharge, gezielten Vorverdünnungsfaktor oder vollständige Anwenderentscheidungen. Diese Angaben im Probenserienprotokoll aufbewahren. Nicht voraussetzen, dass alle vom Anwender geprüften Metadaten automatisch durch RC2 gespeichert werden.
+
+Mit A gemessene Prüfblindwerte und Kontrollproben stehen ebenso wie unbekannte Proben unter `row_type = sample`. Ihre tatsächliche Rolle ergibt sich aus Kennung und Zuordnungsprotokoll. Die automatische Speicherung und ihre Prüfung sind in Abschnitten 7.8 und 9.4 beschrieben.
+
+## Mindestangaben im Probenserienprotokoll
+
+- [ ] Datum der Serie, Startzeit, ausführende Person und Geräteidentität.
+- [ ] Firmware- und Suiteversion; relevante Konfiguration und Sensoreinstellungen.
+- [ ] Kalibrierkennung, Ansatzdatum, Bereich, Modell, Grenzen und Berechnungsmethode.
+- [ ] Reagenz-/Standardidentität, Assayvolumina, Blindwertvorbereitung und Inkubationsbedingungen.
+- [ ] Kennungen der Prüfblindwerte und unabhängigen Kontrollen, Sollwerte, Annahmeintervalle und Ergebnisse.
+- [ ] Tatsächliche Proben- und Assaywiederholungskennung, angezeigte Gerätekennung und Messreihenfolge; bei handschriftlicher Zuordnung fortlaufende Messnummer.
+- [ ] Vorbereitung und Faktor einer Vorverdünnung sowie Berechnung der endgültigen Konzentration.
+- [ ] Rohprotokoll und passende Kalibrier-, Konfigurations- und Zustandsdateien.
+- [ ] Freigegebenes, eingeschränkt berichtetes oder verworfenes Ergebnis; Gründe für Wiederholungen oder Ausschlüsse.
+
+## Archivieren ohne Nachweise zu überschreiben
+
+- [ ] Messaufnahme beenden und keine weiteren Röhrchen messen.
+- [ ] Datenhost anschließen und in den sicheren Modus wechseln (Abschnitt 6.3).
+- [ ] CSV und zugehörige Dateien in einen datierten Geräte-/Probenserienordner kopieren.
+- [ ] Neue Messzeilen, Anzahl, Reihenfolge und Gerätekennungen mit dem Zuordnungsprotokoll abgleichen; bei Neustarts die Sitzungen getrennt prüfen.
+- [ ] Originalprotokoll unverändert aufbewahren. Berechnungen und angenommene Ergebnisse in einem gesonderten Auswertungsnachweis führen; fehlgeschlagene oder wiederholte Messungen nicht aus der Rohdatei löschen.
+- [ ] Modellquelldaten und Bericht gemeinsam mit der Betriebs-JSON archivieren.
+- [ ] Jedes endgültige Ergebnis der tatsächlich bei der Messung verwendeten Kalibrierung und dem zugehörigen Blindwertzustand zuordnen.
+
+Eine Zweipunktkennung wie `QF1-2PT` wird von der Firmware wiederverwendet und identifiziert eine Serie nicht eindeutig. Aufeinanderfolgende Kalibrierungen über datiertes Archiv und Ansatzprotokoll unterscheiden.

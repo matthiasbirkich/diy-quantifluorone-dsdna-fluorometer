@@ -1,0 +1,89 @@
+---
+document-status: "Zur Durchsicht durch den Autor"
+---
+
+# Literatur Konstruktionsquellen und Danksagung {#sec-references}
+
+Dieses Kapitel nennt Assayanleitungen, wissenschaftliche Literatur, Konstruktionsquellen und Projektnachweise, auf denen das Handbuch beruht. R1–R5 unterscheiden das etablierte ONE-Verfahren von der literaturgestützten SYBR-Safe-Übertragung. Hardware- und Softwarequellen verweisen auf die Ursprungsprojekte; zugehörige Repository-Unterlagen bewahren die mit diesem Aufbau gelieferten Versionen und Lizenzen.
+
+## Assays und wissenschaftliche Literatur
+
+**R1. Promega Corporation.** QuantiFluor ONE dsDNA System Technical Manual, TM405, überarbeitet Oktober 2022. Abschnitte 1–3 behandeln Assayeigenschaften, den Lambda-DNA-Standard mit 400 µg/mL und den Einröhrchenansatz; Abschnitt 7 behandelt Handhabung und Entsorgung. Dies ist das mitgelieferte ONE-Protokoll für Kapitel 2, 3, 8 und 9. [Herstellerprotokoll](https://www.promega.com/resources/protocols/technical-manuals/101/quantifluor-one-dsdna-system-protocol/).
+
+**R2. Promega Corporation.** Quantus Fluorometer Operating Manual, TM396, überarbeitet November 2024. Beschreibt das kommerzielle Vergleichsgerät und dessen vom Hersteller festgelegte Bedienung. Die Anweisungen ersetzen nicht die DIY-Firmwarebedienung. [Herstellerhandbuch](https://www.promega.com/resources/protocols/technical-manuals/101/quantus-fluorometer-operating-manual-protocol/).
+
+**R3. Anderson W, Antaw F, Kenny S, Rupani H, Khamis R, Constantin N, Kumar V, Gemmell A, Bell C, Trau M und Korbie D.** DIYNAFLUOR: An Affordable DIY Plug-and-Play Nucleic Acid Fluorometer for eDNA Quantification in Resource Limited Settings. bioRxiv-Preprint, Version vom 16. Dezember 2024. [DOI 10.1101/2024.12.16.626200](https://doi.org/10.1101/2024.12.16.626200). Die mitgelieferte Version war nicht durch Peer Review begutachtet. Ihr Methodenteil Low Cost SYBR Safe Assays liefert die Vorbereitung in Kapitel 13; ihre Ergebnisse beschreiben die DIYNAFLUOR-Leistung. Dieses Handbuch fasst das Verfahren zusammen und übernimmt oder bearbeitet keine Abbildungen des Preprints.
+
+**R4. Thermo Fisher Scientific.** SYBR Safe DNA Gel Stain User Guide, MAN0002338, MP33100, Revision A.0. Dokumentiert Produktformulierungen, Anregung und Emission bei DNA-Bindung, Handhabung und Gelfärbeanwendungen. Belegt nicht die Leistung des Lösungsassays auf diesem Gerät. [Herstellerleitfaden](https://assets.thermofisher.com/TFS-Assets/LSG/manuals/sybr_safe_dna_gel_stain_man.pdf). Abgerufen am 23. Oktober 2026.
+
+**R5. Thermo Fisher Scientific.** SYBR Safe DNA Gel Stain Frequently Asked Questions. Nennt nutzbare blaue Anregungswellenlängen und behandelt optische Filter für die Sichtbarmachung. Dies sind spektrale Entwurfsgrundlagen, keine quantitative Gerätequalifizierung. [Hersteller-FAQ](https://www.thermofisher.com/order/catalog/product/S33102/faqs). Abgerufen am 23. Oktober 2026.
+
+**R6. Lakowicz JR.** Principles of Fluorescence Spectroscopy, dritte Auflage. Springer, 2006. [DOI 10.1007/978-0-387-46312-4](https://doi.org/10.1007/978-0-387-46312-4). Allgemeine Fluoreszenztheorie und instrumentelle Einflüsse.
+
+**R7. Valeur B und Berberan-Santos MN.** Molecular Fluorescence: Principles and Applications, zweite Auflage. Wiley-VCH, 2012. [DOI 10.1002/9783527650002](https://doi.org/10.1002/9783527650002). Allgemeine Fluoreszenzmechanismen und Messprinzipien.
+
+**R8. Singer VL, Jones LJ, Yue ST und Haugland RP.** Characterization of PicoGreen Reagent and Development of a Fluorescence-Based Solution Assay for Double-Stranded DNA Quantitation. Analytical Biochemistry 249, 228–238, 1997. [DOI 10.1006/abio.1997.2177](https://doi.org/10.1006/abio.1997.2177). Hintergrund zur farbstoffbasierten dsDNA-Quantifizierung; kein ONE- oder SYBR-Safe-Betriebsprotokoll.
+
+## Quellen zur Kalibrierung und Grenzberechnung
+
+**R9. DIN 38402-51:2017-05.** Deutsche Einheitsverfahren zur Wasser-, Abwasser- und Schlammuntersuchung – Allgemeine Angaben – Teil 51: Kalibrierung von Analysenverfahren – Lineare Kalibrierfunktion A 51. [DOI 10.31030/2657448](https://doi.org/10.31030/2657448).
+
+**R10. DIN 32645:2008-11.** Chemische Analytik – Nachweis-, Erfassungs- und Bestimmungsgrenze unter Wiederholbedingungen – Begriffe, Verfahren, Auswertung. [DOI 10.31030/1465413](https://doi.org/10.31030/1465413).
+
+Diese Ausgaben sind die im Projekt verwendeten methodischen Quellen. Eine Konformitätsaussage erfordert eine Beurteilung anhand des jeweils maßgeblichen lizenzierten Normtexts. Die RC2-Schätzungen aus zehn Blindproben und die gesonderten Kalibrierkurvenrechnungen der Calibration Suite müssen mit ihren tatsächlichen Methoden bezeichnet werden, wie in Kapitel 8–11 erläutert.
+
+## Offene Hardware und Software
+
+**R11. ioRodeo.** [Open Colorimeter Plus firmware](https://github.com/iorodeo/open_colorimeter_plus_firmware). Technische Grundlage der Controllersoftware-Architektur und des offenen optischen Messgeräteansatzes.
+
+**R12. ioRodeo.** [Fixed-current radial 16 mA LED board, Revision ver_0p1_rev_3](https://github.com/iorodeo/i_control_led/tree/main/fixed/5V_regulator/radial_16mA/production/ver_0p1_rev_3). Eingebaute Revision mit für die Integration rückseitig montierter, wellenlängenspezifischer radialer LED. Lokale [Konstruktions- und Bestückungsunterlagen](../../../../hardware/pcb/LED_board_iorodeo/README.md) enthalten KiCad-, Gerber- und Bohrdateien, Stückliste, Positionsdateien und die mitgelieferte CC-BY-4.0-Lizenz. Eine adressierbare I²C-LED-Treibervariante ist nicht die eingebaute Platine.
+
+**R13. ioRodeo.** [Fluorometer tube holder](https://github.com/iorodeo/fluorometer_tube_holder). Mechanische Konstruktionsquelle, die zur Halterentwicklung beigetragen hat.
+
+**R14. Trau Lab.** [DIYNAFLUOR-Repository](https://github.com/traulab/DIYNAFLUOR). Code, mechanische Dateien, Stückliste und Aufbauanleitung zum Fluorometerkonzept aus R3. Die vorliegende Konstruktion passt das optische Konzept an eingebaute Platine, Filter, Röhrchen und PyBadge-Gehäuse an.
+
+**R15. Adafruit Industries.** [PyBadge, Produkt 4200](https://www.adafruit.com/product/4200), [TSL2591, Produkt 1980](https://www.adafruit.com/product/1980) und [PCA9546, Produkt 5664](https://www.adafruit.com/product/5664). Controller, Detektor und Busmultiplexer. Die [PyBadge-Konstruktionsnachweise](../../../../hardware/pcb/pybadge_4200/README.md) benennen mitgelieferte Controllerdateien und ihre Herkunft.
+
+**R16. Adafruit Industries und CircuitPython-Mitwirkende.** [CircuitPython für PyBadge](https://circuitpython.org/board/pybadge/). Dokumentierte Projekt-Laufzeitumgebung ist 9.1.1. Archivierte Installationsdateien und Prüfsummen aus Kapitel 6 verwenden; nicht voraussetzen, dass eine neuere Laufzeitumgebung austauschbar ist.
+
+**R17. SparkFun Electronics.** [Qwiic-to-Grove-Adapter PRT-15109](https://www.sparkfun.com/products/15109). Adapteridentifikation. Tatsächliche Pinzuordnung entsprechend der Kabelplanprüfung bestätigen.
+
+**R18. Wright L.** [PySpectrometer2](https://github.com/leswright1977/PySpectrometer2). Grundlage des im Projekt verwendeten Spektrometers zur Prüfung der Filterdurchlassbereiche. Die normierten Projektkurven sind keine Kalibrierungen der absoluten Transmission.
+
+**R19. Neemoo.** Bandpassfilter Ex470BP-40 und Em532BP-40. [Erfasste Lieferantenanzeige](https://de.aliexpress.com/item/1005010613836251.html). Lieferantenseiten können sich ändern; Identität der gekauften Filter und Projektmessnachweise aufbewahren. Die Beschaffungsidentifikation ist keine unabhängige optische Zertifizierung.
+
+## Projektsoftware und analytische Nachweise
+
+**R20. Birkicht M.** [DIY QuantiFluorONE dsDNA Fluorometer Repository](https://github.com/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer). Hardwareintegration, geänderte mechanische Konstruktionen, Firmware, Kalibrierwerkzeuge, Dokumentation und Messnachweise. Die Quellenprüfung für dieses Handbuch begann beim Commit e9de6b394860beec91f53efd38cc55459f0cb216; dieses Handbuch berücksichtigt die nachfolgenden redaktionellen Korrekturen aus den Projektprüfverzeichnissen.
+
+**R21. ZoidTechnology.** [Torch-Bearer-Tools](https://github.com/ZoidTechnology/Torch-Bearer-Tools). Werkzeuge unter GPL-3.0: Flameeye-Android-Patcher und serielle Python-Schnittstelle. Diese Lizenz begründet keine Weitergaberechte an der separaten Herstelleranwendung.
+
+**R22. Birkicht M.** [Modifiziertes Torch-Bearer-Tools-Repository](https://github.com/matthiasbirkich/Torch-Bearer-Tools). Fork mit Y2-Android-Korrekturen sowie Windows-Messwerterfassung und Spektralexport. Der Autor berichtet erfolgreiche LED-Messungen mit diesem Softwareweg.
+
+[RC2-Releasearchiv](../../../../software/quantifluorone_firmware/QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip), [Softwareprüfsummen](../../../../software/SHA256SUMS.txt) und [Hinweise zur Calibration Suite](../../../../software/calibration_suite/README.md) legen den dokumentierten Softwarekontext fest. Das Releasearchiv bleibt unverändert erhalten. Einschränkungen der Mehrpunkt-JSON-Kompatibilität verhindern weder Routine-Zweipunktanalysen noch die Charakterisierung außerhalb des Geräts.
+
+Kapitel 11 verlinkt gepaarte Quantus-Vergleichsdaten, gespeicherte Kennzahlen, Blindwertzusammenfassungen und ursprüngliche Messprotokolle. Diese Nachweise gemeinsam mit ihrem Ansatz- und Kalibrierkontext aufbewahren. Die dargestellten Abbildungen fassen die geprüfte Konfiguration zusammen; sie ersetzen keine Rohdaten und belegen keine gleichwertige Leistung eines anderen Geräts.
+
+Der [Hardware-Dateiindex](../../hardware_file_index.csv) ordnet CAD- und PCB-Dateien ihren Repository-Pfaden zu. [Bibliografie](../../../references/references.bib), [Hardwarequellen](../../../references/hardware_sources.yml), [Quellenregister](../../../references/source_register.csv) und [Normenregister](../../../references/standards_register.md) liefern maschinenlesbare oder ergänzende Herkunftsnachweise.
+
+## Zusätzliche Möglichkeit zur Aufnahme von LED-Spektren
+
+Neben PySpectrometer2 [R18] kann das **Torch-Bearer-Y2-Spektrometer** Anregungs-LED-Spektren mit den ZoidTechnology-Werkzeugen [R21] und Matthias Birkichts modifiziertem Fork [R22] aufnehmen. Die jeweiligen Anweisungen zum Android-Patcher oder zu Python/Windows in diesen Repositories befolgen.
+
+- [ ] LED-Identität und Betriebsstrom dokumentieren.
+- [ ] Optische Anordnung, Belichtung, Softwareversion und verwendete Kalibrierung festhalten.
+- [ ] Sättigung vermeiden und Spektralexport aufbewahren.
+
+Die ursprüngliche Android-Anwendung ist über den [archivierten Herstellerdownload vom 3. April 2025](https://web.archive.org/web/20250403122614id_/https://www.torchbearer.tech/api/support/download/latest/android) zugänglich. Vor dem Patchen prüfen, ob die heruntergeladene APK die vom ursprünglichen Patcher benötigte Flameeye-Version 1.6.4 ist. Der Verweis dient dem Download und ist keine Erlaubnis zur Weitergabe der Herstelleranwendung.
+
+Diese Möglichkeit unterstützt die Prüfung von LED-Maximum und Filterüberlappung. Sie beruht auf praktischer Erfahrung des Autors; sie ersetzt nicht die bestehenden Filtermessnachweise und belegt weder absolute Transmission und Sperrwirkung noch die Empfindlichkeit des Fluorometers.
+
+## Technische Beiträge und Danksagung
+
+Dipl.-Ing. Matthias Birkicht, Leibniz-Zentrum für Marine Tropenforschung (ZMT) GmbH, entwickelte Projektintegration und Dokumentation. Die geänderten Druckteile und ihre mechanische Integration entstanden gemeinsam mit Florian Bock, 3D-Haven, Bremerhaven, Deutschland. Die Anpassungen berücksichtigen eingebaute Filter, Detektor, rückseitig montierte LED-Platine und PyBadge-Gehäuse.
+
+Das Projekt dankt den Entwicklern und Mitwirkenden von ioRodeo, DIYNAFLUOR, Adafruit, CircuitPython, PySpectrometer2 und ZoidTechnology. Joanne Long von ioRodeo spendete einen fluorometrischen Halter für 0,2-mL-Röhrchen für vergleichende Untersuchungen am Open Colorimeter Plus. Dieser gespendete Halter ist vom E4941-Halter der dokumentierten Konfiguration zu unterscheiden. Florian Bock gilt außerdem Dank für die gemeinsame mechanische Entwicklung.
+
+## Lizenzen und Weitergabe
+
+Die [MIT-Lizenz](../../../../LICENSE) des Repositorys begleitet Projektsoftware und zugehörige Dokumentation. [Hinweise zu Drittmaterialien](../../../../THIRD_PARTY_NOTICES.md), ursprüngliche Lizenzdateien, Quellennachweise und Binärprüfsummen bei der Weitergabe beibehalten. Übernommene Hardwarekonstruktionen und andere Inhalte Dritter behalten ihre jeweils mitgelieferten Bedingungen; die Repository-Lizenz ersetzt diese Hinweise nicht. Produktnamen identifizieren verwendete Komponenten und bedeuten keine Empfehlung des Projekts durch deren Hersteller.

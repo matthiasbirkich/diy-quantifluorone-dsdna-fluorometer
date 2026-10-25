@@ -1,0 +1,86 @@
+---
+document-status: "Zur Durchsicht durch den Autor"
+---
+
+# Wartung und Fehlersuche {#sec-maintenance}
+
+Die Fehlersuche mit Probenidentität, Vorbereitung, Stromversorgung, Kalibrierzustand und mechanischer Passung beginnen. Originaldaten und Einstellungen vor Änderungen der Hardware oder einer Software-Neuinstallation sichern. Nach einer Korrektur, die Optik, Assaybedingungen oder Blindwertzustand verändert, die passenden Kalibrier- und Kontrollprüfungen durchführen.
+
+## Regelmäßige Pflege
+
+- [ ] Nach Gebrauch das Probenröhrchen entnehmen.
+- [ ] Optischen Bereich trocken und staubfrei halten. Vor jeder Serie Röhrchensitz, Filterhalt, Kabel und Lichtabschirmung prüfen.
+- [ ] Außenseite abwischen, ohne Flüssigkeit in Elektronik oder Filtertaschen gelangen zu lassen.
+- [ ] Vor Öffnen des Gehäuses oder Versetzen von Platinen USB und gegebenenfalls Akku trennen.
+- [ ] Filter nur an den Kanten anfassen. Geeignetes Optikpapier oder einen sauberen Optikblasebalg verwenden.
+- [ ] Detektoroberflächen nicht abschaben und Filterbeschichtungen nicht mit scheuernden Materialien behandeln. Vor Verwendung eines Reinigungsmittels Material- und Beschichtungsverträglichkeit prüfen.
+- [ ] Platinen abstützen und Kabel zugentlasten, damit Steckverbinder keine mechanischen Lasten tragen.
+- [ ] Aufgeblähte, beschädigte oder ungewöhnlich heiße Akkus außer Betrieb nehmen.
+- [ ] Wartungsarbeiten dokumentieren, die die Messantwort verändern könnten.
+
+## Start und Verbindungen
+
+| Beobachtung | Prüfung | Maßnahme |
+|---|---|---|
+| Dunkle Anzeige oder kein Start | Netzschalter, USB-Versorgung, Kabel und optionaler Akku | Mit bekannt funktionierendem USB-Datenkabel prüfen; vor Software-Neuinstallation im stromlosen Zustand auf Kurzschluss untersuchen |
+| Kein Computerlaufwerk | Datenfähigkeit des Kabels, USB-Anschluss und Reset-Modus | Klären, ob CIRCUITPY oder UF2-Bootlaufwerk benötigt wird; Abschnitt 6.3 beachten |
+| Bootlaufwerk erscheint bei Dateipflege | Reset-Doppelklick zu schnell | Einmal Reset drücken und zeitlich langsamere Folge für den sicheren Modus verwenden |
+| Konfiguration oder Modul fehlt | Hauptverzeichnis und vollständiger Releaseinhalt | Laufwerk sichern; bei unvollständigen Dateien dokumentierte bereinigte Installation wiederholen |
+| TSL2591 not found | Vorgeschalteter Adapter, Multiplexerversorgung, nachgeschaltetes Kabel und Detektoranschluss | Verbindungen stromlos prüfen; nach Korrektur neu starten |
+| Need exactly one TSL2591 | Zahl passender Sensoren auf gescannten Zweigen und eingestellter Kanal | Dokumentierten Aufbau mit einem Detektor herstellen oder konfigurierten Kanal korrigieren |
+| LED-Platine fehlt im I²C-Scan | Platine ist Konstantstromtreiber ohne I²C-Adresse | Fehlen ist erwartungsgemäß; bei dunkler LED Versorgung und LED-Polarität prüfen |
+| Schwerwiegender Anwendungsfehler | Fehlertyp, Arbeitsschritt und serieller Traceback | Fehler vor Reset dokumentieren und Ursache beheben |
+
+Interne Steckverbinder nicht unter Spannung verbinden oder trennen. Pinidentität und Versorgungspolarität anhand des tatsächlichen Aufbaus und der Konstruktionsunterlagen bestätigen; Aderfarben allein reichen nicht aus. Offene Kabel- und Steckerdetails aus der Aufbauprüfung müssen am Gerät bestätigt werden.
+
+## Signale und Probenhandhabung
+
+| Beobachtung | Mögliche Ursache | Maßnahme |
+|---|---|---|
+| Blindwert ändert sich mit Raumlicht | Spalt an Röhrchenöffnung, Filtertasche, Naht oder Kabelausgang | Geschlossenen Strahlengang prüfen, Abschirmung korrekt einsetzen und vor Kalibrierung erneut prüfen |
+| Dauerhaft gesättigtes Signal | Emissionsfilter fehlt oder ist verschoben, Lichteintritt oder zu starke Probenfluoreszenz | Optik prüfen; ursprüngliche Probe bei Konzentration oberhalb des Bereichs vorverdünnen |
+| Geringe Antwort eines bekannten Standards | LED-Polarität oder Versorgung, Ausrichtung, Filteridentität, Detektorposition oder Reagenz-/Ansatzfehler | Optische Reihenfolge, Vorbereitung und Referenzröhrchen prüfen, bevor die Verstärkung geändert wird |
+| Hohe Streuung im Messzyklus oder Drift | Blasen, unvollständige Mischung, Bewegung, wechselnde Temperatur oder instabiler Röhrchensitz | Erkannte Ursache beheben und wiederholen; früheres Ergebnis aufbewahren |
+| Röhrchen klemmt oder verschiebt das Modul | Druckrückstände, schlechte Passung oder beschädigtes Röhrchen | Hindernis entfernen oder Teil ersetzen; Röhrchen nicht mit Kraft einsetzen |
+| Unerwartet hohes Probenergebnis | Identitätsfehler, Verunreinigung, falsches Volumen oder inkompatible Kalibrierung | Aufzeichnungen prüfen und frischen unabhängigen Assay ansetzen |
+| Negativer blindwertkorrigierter Schätzwert | Probensignal unter gespeichertem Blindwert oder unpassende Signalbasis | Prüfblindwert und Kontrollen prüfen; Rohwert aufbewahren und Berichtsregel anwenden |
+
+FULL- und IR-Kanal des Detektors gehen in das berechnete VIS-Signal ein. Bei ungewöhnlichem Verhalten alle drei prüfen. Eine kleine technische SD schließt falsche Konzentration, Verunreinigung oder Ansatzfehler nicht aus.
+
+## Kalibrierung und Kontrollen
+
+| Beobachtung | Bedeutung oder Prüfung | Maßnahme |
+|---|---|---|
+| Kalibrierung verschwindet nach START | Normales Ersetzen des Blindwerts macht das Zweipunktmodell in RC2 ungültig | Bei beabsichtigtem Blindwertersatz vollständige Zweipunktkalibrierung wiederholen (Abschnitt 8.3) |
+| Gespeicherte Zweipunktkalibrierung soll erhalten bleiben | Frischer Prüfblindwert ohne Zustandsersatz nötig | Prüfblindwert mit A messen und mit QC beurteilen; Kennung wählen oder handschriftlich zuordnen (Abschnitte 8.4 und 9.3) |
+| PROV wird angezeigt | Historischer beziehungsweise vorläufiger Mehrpunktzustand ist aktiv | Zum vorgesehenen Routine-Zweipunktablauf zurückkehren; Ausgabe des vorläufigen Modells nicht als Routinekalibrierung annehmen |
+| Standardsignal ungültig | Nichtpositives oder unzureichendes blindwertkorrigiertes Signal | Standardidentität, Pipettierung, Reagenz und Optik prüfen; erneut ansetzen und kalibrieren |
+| CV, SNR oder SAT bei Kalibrierprüfung | Firmwarewarnung, auch wenn Speichern möglich ist | Ursache untersuchen und vor Probenanalyse geeignete Kalibrierung und Kontrollprüfung erzielen |
+| Unabhängige Kontrolle besteht nicht | Kalibrierung, Blindwert oder Assaybedingungen möglicherweise ungeeignet | Betroffene Ergebnisse zurückhalten; Ursache untersuchen, QC und erforderliche Kalibrierung/Assays wiederholen |
+| Grenzen fehlen nach Neukalibrierung | Neue Zweipunktkalibrierung setzt gespeicherte Blindwert-Grenzschätzungen zurück | Geeignete Grenzen für diese Kalibrierung ermitteln oder dokumentierte akzeptierte Verfahrensgrenze anwenden |
+
+Historische Beispielsteigung oder Blindwertcounts nicht als allgemeine Bestanden-/Nicht-bestanden-Schwellen verwenden. Kontrollsollwerte und Annahmeintervalle für tatsächliches Gerät und Assay führen. Eine nicht bestandene Kontrolle ist Anlass zur Untersuchung, nicht zum nachträglichen Erweitern ihres Annahmeintervalls.
+
+## Dateien und Datenwiederherstellung
+
+| Beobachtung | Prüfung | Maßnahme |
+|---|---|---|
+| Konzentrationen angezeigt, aber CSV unverändert | USB-Datenhost beim Start angeschlossen und Protokollierungseinstellung | Ohne Datenhost mit eigenständiger Stromversorgung normal neu starten; neue Testmessung mit A ausführen und CSV-Zeile am Computer prüfen (Abschnitt 7.8) |
+| Speichern der Kalibrierung schlägt fehl | Schreibrechte des Geräts und freier Speicher | Daten sichern, dokumentierten Schreibzugriff herstellen und Kalibrierung/Speichern wiederholen |
+| Probenname fehlt oder passt nicht | Auswahl in Live, Konfigurationsliste und gespeicherter Index | Passende Gerätekennung wählen oder jede Messung im handschriftlichen Protokoll zuordnen (Abschnitt 9.1). Bereits abweichend beschriftete Zeilen dokumentieren; Originaldatei nicht überschreiben |
+| CSV-Zeilen zerfallen in zusätzliche Spalten | Kommas oder Zeilenumbrüche in Probenkennungen | Einfache Kennungen ohne CSV-Trenn- und Anführungszeichen verwenden; beschädigte Quelldatei aufbewahren und Abweichung dokumentieren |
+| Scheinbare Zeitsprünge | Neustarts der Betriebszeituhr oder angehängte Sitzungen | Sitzungen aus den Seriennotizen rekonstruieren; t_s ist keine UTC-Zeit |
+| Mehrpunkt-JSON bei Entwicklung abgewiesen | Modellbezeichnung, Feldnamen und Schema stimmen nicht überein | Dokumentierte RC2-Anforderungen prüfen; v7.3-Export ist nicht direkt kompatibel |
+
+Der Mehrpunktimport ist eine optionale Entwicklungsfunktion. Er ist weder zur Charakterisierung einer Reihe in der Calibration Suite noch zur Routineanalyse mit Zweipunktkalibrierung erforderlich. Nicht zur Behebung eines Importproblems unbeteiligte Konfigurationsdateien verändern.
+
+## Gerät wieder für Messungen freigeben
+
+- [ ] 1. Fehler, betroffenen Zeitraum der Probenserie, Korrekturarbeiten und ersetzte Teile dokumentieren.
+- [ ] 2. Mechanische Passung, Lichtabschirmung und vorgesehene Sensoreinstellungen erneut prüfen.
+- [ ] 3. Blindwertverhalten prüfen und die zur Kalibrierung passende Blindwertaktion wählen. Bei Erhalt einer Zweipunktkalibrierung den Prüfblindwert mit A wie eine Probe messen (Abschnitt 8.4).
+- [ ] 4. Nach einer Änderung, die die aktive Kalibrierung ungültig macht, neu kalibrieren. Bei neuer Konfiguration betroffene Charakterisierungsmerkmale erneut prüfen.
+- [ ] 5. Unabhängig angesetzte Kontrollprobe mit A messen und die Protokollierung durch Prüfung der neuen CSV-Zeile bestätigen (Abschnitt 9.7).
+- [ ] 6. Proben erst nach bestandenen geltenden Prüfungen wieder mit freizugebenden Ergebnissen messen; betroffene Proben bei Bedarf wiederholen.
+
+Die Schraubenliste bleibt eine zurückgestellte Aufbauaufgabe, bis das Gerät geprüft werden kann. Eine vorläufige Schraubenangabe ohne diese Prüfung nicht zu einer bestätigten Wartungsanweisung machen.
