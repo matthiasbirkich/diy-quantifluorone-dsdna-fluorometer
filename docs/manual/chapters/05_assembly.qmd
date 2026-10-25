@@ -1,0 +1,141 @@
+---
+document-status: "Author review"
+---
+
+# Instrument Assembly {#sec-assembly}
+
+Assemble the mechanical and optical parts with USB and battery disconnected. Use the component and file tables in the preceding chapter to identify each part. Keep the filters in their protective packaging until the printed parts have been cleaned and checked.
+
+## Assembly sequence
+
+| Stage | Work | Check before proceeding |
+|---:|---|---|
+| 1 | Inspect printed parts | No debris; tube and filter test pieces fit |
+| 2 | Fit the main body to the enclosure | Mounting holes align without distorting either part |
+| 3 | Assemble excitation housing and LED holder | LED, excitation aperture and tube position align |
+| 4 | Fit emission filter, baffle and detector | Active detector area faces the emission aperture |
+| 5 | Mount controller and multiplexer | Boards supported; controls and connectors accessible |
+| 6 | Connect and route cables | Supply and signal connections checked; no cable strain |
+| 7 | Fit optical cover | Tube accessible; optical path protected from room light |
+| 8 | Complete pre-power inspection | All checklist items pass |
+| 9 | Install software and perform first power-up | Instrument starts and the detector is found |
+
+Use the combined E LED-board and vial holder confirmed for the documented build. The fastener schedule remains subject to the build review. Use a confirmed matching assembly for those joints before tightening hardware or committing to a full print set.
+
+## Stage 1 Inspect the printed parts
+
+1. Identify A, B, C, D, the combined E holder, F and the controller enclosure and cover using their file names and locating features.
+2. Remove support material and loose print debris from the tube bore, filter pockets, screw holes and cable openings.
+3. Insert an empty E4941 tube gently. It must reach the mechanical stop and remain upright without excessive force.
+4. Check each filter pocket with a clean 8 x 8 x 1 mm test piece where available. Do not grind or drill a pocket with an optical filter installed.
+5. Test the board seats without power. The TSL2591 and LED PCB must fit without bending.
+6. Inspect the empty optical housing against a lamp for gaps and thin regions that admit light. Remove all debris before fitting filters.
+
+**Check:** The tube is removable without pulling the holder or wiring. All locating faces seat without forcing them.
+
+## Stage 2 Mount the main body
+
+1. Place main body A on the enclosure mounting surface.
+2. Align its mounting holes and check clearance for the tube and both optical sides.
+3. Use the matching mounting hardware without allowing screw ends to contact electronics.
+4. Tighten gradually and check that the tube remains vertical and reaches its stop.
+
+**Check:** The holder does not rock or shift during tube insertion and removal. Verify screw length against the actual joint before tightening.
+
+## Stage 3 Assemble the excitation side
+
+If a compatible board with the specified excitation LED already fitted is used, omit the soldering action in step 3. Check LED polarity, mounting position and alignment before installing the board. Chapter 4 describes this procurement option.
+
+1. Identify the anode and cathode of the 485 nm radial LED from the component information and PCB markings.
+2. Dry-fit the LED and selected E holder with excitation housing B. Align the LED with the excitation opening and tube position before soldering.
+3. Solder the LED into the radial LED-board position with the correct polarity. Limit heating and trim leads so they cannot touch another conductor or mounting hardware.
+4. Handle Ex470BP-40 by its edges. Insert it into the excitation-side pocket without twisting or loading the coated optical surface.
+5. Refit B and the E holder. Retain the board and filter with the intended locating features; do not use the filter as a structural spacer.
+6. Confirm that no lead, screw or printed edge blocks the aperture.
+
+**Check:** The optical sequence is **LED → Ex470BP-40 → sample tube**. The LED points toward the tube centre. Use the combined E holder; the excitation-side screw schedule still needs confirmation.
+
+The available disassembled photographs show the loose LED board and the emission-filter region. They do not show every excitation-filter seating step. A dedicated close-up is still needed for an unambiguous photographic record of this stage.
+
+## Stage 4 Assemble the detection side
+
+1. Identify emission housing C and baffle D by function and file name. Check the aperture and detector locating faces before installing the filter.
+2. Handle Em532BP-40 by its edges and seat it in the detector-side filter pocket.
+3. Check that the filter covers the complete optical aperture and is retained without pressure on its clear surface.
+4. Position the single TSL2591 so its active optical area faces the emission filter. Mount the board flat without bowing it.
+5. Fit the baffle using the locating features of the matching parts. The central opening must remain aligned with the active detector area.
+6. Leave room to connect the sensor cable without moving the detector.
+
+**Check:** The optical sequence is **sample tube → Em532BP-40 → TSL2591**. The detection axis is at 90 degrees to the excitation axis. Both axes interrogate the same tube region.
+
+![Disassembled instrument with the emission-filter region exposed and the detector assembly placed alongside it. The photograph provides orientation; the filter identity must be checked from its packaging or documented installation.](../../figures/open_instrument_wiring.jpg){width=80%}
+
+![Detector-side assembly fitted to the main body. The photograph shows the Em marking and the retained detector assembly; do not infer screw lengths from the image.](../../figures/detection_side_filter_sensor.jpg){width=60%}
+
+## Stage 5 Install the controller and multiplexer
+
+1. Place the PyBadge in its enclosure with the battery disconnected.
+2. Check that no printed edge holds down a button or presses on the display.
+3. Confirm access to the USB Micro port, reset control, power switch and battery connector.
+4. Mount the PCA9546 where its upstream and downstream ports remain accessible.
+5. Support the radial LED board and sensor mechanically. Cables must not hold boards in position.
+6. Check that solder joints and screw ends cannot contact adjacent boards.
+
+**Check:** Controls move freely, boards remain supported and connectors can be reached without pulling the wires.
+
+## Stage 6 Connect and route the cables
+
+With power disconnected, connect the intended upstream chain **PyBadge → PRT-15109 adapter → PCA9546 upstream port**. Connect the TSL2591 to a downstream multiplexer port. The existing firmware description states that it scans downstream channels for the sensor. Record the actual chosen port so the physical build remains reproducible.
+
+The LED board requires the documented power connection and has no I2C address. Its connection point and the adapter pin mapping must be confirmed against the physical build and schematic before first power-up. The current [cable map](../../../hardware/wiring/qfo_cable_map.csv) still marks these details as unconfirmed; it is not a complete wiring instruction.
+
+| Device | Address | Expected detection |
+|---|---|---|
+| PCA9546 | `0x70` | Upstream I2C bus |
+| TSL2591 | `0x29` | Selected downstream bus |
+| Fixed-current LED board | None | No addressed I2C response |
+
+1. Verify connector identity, supply polarity and signal correspondence before inserting plugs. Wire colours alone do not establish pin identity.
+2. Hold each connector body, align it and insert without levering the socket.
+3. Route cables along enclosure walls, leaving service loops near detachable modules.
+4. Keep cables clear of the tube opening, filter apertures, buttons and enclosure screw joints.
+5. Add strain relief without pulling on JST-SH sockets.
+6. Record port assignments, cable lengths and the LED-board supply connection in the cable map.
+
+**Check:** No cable is stretched or trapped when the cover closes. Do not power an assembly with an unresolved supply or adapter connection.
+
+## Stage 7 Fit the optical cover
+
+Fit cover F and the intended light-excluding parts. Check the tube opening, filter pockets, enclosure seams and cable exits for light paths. The tube must still reach its stop and be removable without disturbing the optics.
+
+**Check:** All optical parts remain seated when the shield is fitted. The shield must be in its measurement position during blank, calibration and sample measurements.
+
+## Stage 8 Complete the pre-power inspection
+
+- [ ] USB and LiPo are disconnected during inspection.
+- [ ] LED polarity and the radial-board revision have been checked.
+- [ ] Supply and adapter pin assignments have been verified.
+- [ ] No exposed lead, solder joint or screw end can short another conductor.
+- [ ] Ex470BP-40 is on the excitation side and Em532BP-40 is on the detector side.
+- [ ] The single TSL2591 faces the emission aperture.
+- [ ] Boards and filters are retained without distortion.
+- [ ] Tube insertion and removal do not move the optical assembly.
+- [ ] All plugs are seated and cables remain clear of optical openings.
+- [ ] Display, buttons, reset and USB port are accessible.
+- [ ] The enclosure closes without pinching cables.
+- [ ] No loose screw, wire clipping or print debris remains inside.
+
+## Stage 9 Perform the first power-up
+
+Install the documented software release using the software-installation chapter. For the initial hardware check, use a known-good USB data cable and leave the optional LiPo disconnected.
+
+1. Switch on and confirm that the display starts.
+2. Check detection of the PCA9546 at `0x70` and the TSL2591 at `0x29` on a downstream channel using the supported software or diagnostic procedure.
+3. Confirm LED operation without looking directly into the LED or excitation aperture. Do not expect the LED board to appear as an I2C device.
+4. Fit an empty tube and the light shield. Observe the effect of changing room illumination while keeping the shield closed. A substantial response requires investigation of light leakage before calibration.
+5. Measure the intended reagent blank repeatedly with the shield closed. Investigate instability, saturation or mechanical sensitivity before proceeding to calibration.
+6. Record the completed configuration, wiring and any departures from the supplied build.
+
+An empty-tube check tests hardware and shielding. Use the specified reagent blank for analytical calibration. Hardware startup alone does not establish readiness to report dsDNA concentrations; calibration and independent quality-control checks follow in the operating chapters.
+
+After replacing the LED, either filter, the detector or the sample holder, repeat the relevant hardware checks and establish a suitable calibration before reporting new sample results.

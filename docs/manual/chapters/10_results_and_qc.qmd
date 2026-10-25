@@ -1,0 +1,109 @@
+---
+document-status: "Author review"
+---
+
+# Results Quality Control and Data Management {#sec-results-qc}
+
+Accept a quantitative dsDNA result only when its calibration is suitable, batch blank and independent control pass, the signal is valid and the result lies within the established quantitative range. A numerical display or an ACTIVE calibration label alone is insufficient.
+
+## Establish acceptance criteria before the batch
+
+Define the intended concentration range, blank acceptance interval, QC target and allowed deviation, replicate expectations and circumstances requiring recalibration. Use method performance, independent targets and historical control data to justify these criteria. Do not create limits after inspecting the current results.
+
+For control solutions, calculate recovery as **100 × measured concentration / assigned concentration**, using the same concentration basis and applying any recorded predilution appropriately. A control prepared independently from the same stock tests preparation and instrument behavior but does not independently confirm the stock's assigned concentration.
+
+A passing mid-range control is a useful routine check; add low and high controls when the application requires them. Control placement and frequency belong to the laboratory plan. Record the interval since the last passing QC when deciding which results are affected by a later failure.
+
+## Distinguish the repeat measurements
+
+| Measurement design | What its spread describes | Interpretation |
+|---|---|---|
+| Three sensor readings in one cycle | Short-term measurement repeatability for one tube | The displayed VIS SD is in signal counts, not concentration units |
+| Repeated cycles on one tube | Repeatability including handling and time effects | Does not include independently repeated pipetting |
+| Independently prepared assay tubes | Combined preparation and measurement variation | Record each concentration; calculate mean and SD when appropriate |
+| Independent samples or extractions | Sampling/extraction plus later analytical variation | Keep distinct from instrumental precision |
+
+Do not count three technical sensor readings as three independent calibration or sample preparations. Near zero, relative spread can become misleading; evaluate absolute differences together with blank behavior and applicable limits. Investigate systematic trends as well as isolated deviations.
+
+## Apply limits on the correct basis
+
+The documented original-sample calibration interval is 0–400 ng/µL. The blank is an endpoint of calibration, not an assertion that every concentration above zero is quantitatively reportable.
+
+The existing primary blank-study summary reports approximately **8 ng/µL LOD and 24 ng/µL LOQ on the original-sample basis**, equivalent to about **0.04 and 0.12 ng/µL in the assay** for the 201-fold assay dilution. These describe the evaluated configuration and blank-based calculation. They are not guaranteed limits for every new device or a newly saved calibration.
+
+Use limits that have been established for the actual configuration and recorded with their method, blank design and calculation basis. The [blank-performance summary](../../../validation/blank_performance_summary.csv) distinguishes ten independent blank tubes from repeated cycles on two tubes.
+
+| Result category | Reporting action |
+|---|---|
+| Below the applicable LOD | Report below the detection estimate using the stated method and limit; do not report zero DNA as an established fact |
+| At or above LOD but below LOQ | Report detected but not quantified, or below LOQ according to the laboratory convention |
+| At or above LOQ and inside the accepted working range | Report quantitatively if all other checks pass |
+| Above range or saturated | Predilute the original sample and repeat the complete assay |
+| Invalid or incompatible calibration, failed blank/QC, or unresolved acquisition error | Hold or reject the result and document the reason |
+
+If limits are unavailable, do not infer them from the presence of a slope or R². Establish suitable limits and an accepted lower reporting boundary before claiming low-level quantitative results. RC2 may display negative blank-corrected concentrations; retain these raw results in the record and apply the reporting convention rather than describing them as physically negative DNA.
+
+## Distinguish characterization statistics from routine results
+
+Routine analysis uses the two-point calibration and does not require a provisional calibration or a displayed multipoint prediction interval. Regression statistics from the separate characterization series document instrument performance; they do not require that model to replace the routine two-point calibration.
+
+For the optional development use of a compatible imported multipoint model, RC2 calculates an approximate inverse OLS prediction interval using the imported residual SD, slope, number of calibration observations, mean concentration, sum of squares and t factor. Its variance includes one future determination. It is not a complete measurement-uncertainty budget and does not automatically account for standard uncertainty, sample matrix, extraction, manual predilution or independently prepared sample replicates.
+
+The on-device three-reading SD and the model prediction interval are different quantities. Do not present a VIS SD as a concentration uncertainty. If the reported result and interval are multiplied by a sample predilution factor, note that this scaling alone does not include uncertainty in that dilution.
+
+The menu blank-study factors 3.3 and 10 also differ from the Suite v7.3 blank-screening factors and its separate DIN-labelled calibration-curve limits. Record the calculation actually used. NWG, EG and BG in the suite must not be silently mapped to firmware LOD/LOQ labels without documenting the intended definition.
+
+## Accept repeat dilute or reject
+
+| Observation | Decision | Required action |
+|---|---|---|
+| Suitable calibration, passing blank/QC, consistent results, within quantitative range | Accept | Record result, basis, applicable limits and predilution |
+| Bubbles, poor seating or another identified tube problem | Repeat measurement | Correct the cause; retain the earlier record |
+| Independent preparation replicates remain inconsistent | Repeat preparation | Investigate pipetting, mixing, timing and sample homogeneity |
+| Above-range concentration or saturation | Dilute and repeat | Predilute original sample and prepare a new assay |
+| Elevated or unstable blank check | Hold batch | Check contamination, reagent, temperature, optical shielding and calibration |
+| Independent control fails | Hold affected results | Correct the cause; repeat control and affected unknowns as needed |
+| Wrong sample identity, unit, volume, model or concentration basis | Reject | Repeat the applicable preparation and calibration steps correctly |
+| Below applicable LOQ | Qualify result | Use the stated detection/quantification category |
+
+When a retained two-point blank check fails, investigate before changing state. Replacing that blank requires a complete new two-point calibration; do not press START and continue measuring unknowns under the assumption that the former model remains active.
+
+## Read the CSV with its limitations
+
+The [RC2 example measurement log](../../../validation/quantifluorone_log_v100rc2.csv) contains historical and provisional measurements as well as later work. A row's existence in the repository does not make it an accepted result.
+
+| Field group | Meaning |
+|---|---|
+| `t_s`, `firmware_version`, `row_type`, `sample_id` | Runtime seconds, software identity, event type and selected sample label |
+| `sensor_channel`, `gain`, `integration_time_ms` | Measurement configuration |
+| `full_1` through `vis_3`, means and SDs | Raw and derived signal readings and within-cycle statistics |
+| `blank_mean`, `blank_sd`, `rfu` | Active or event-related blank information and corrected signal |
+| Calibration fields, range, slope and intercept | Model metadata present in that row |
+| `concentration_ng_uL` | Principal concentration on the calibration's original-solution basis |
+| `concentration_in_assay_ng_uL` | Principal result divided by the stored assay dilution factor |
+| `pi_low_ng_uL`, `pi_high_ng_uL` | Model interval endpoints where available |
+| Limit fields, `result_flag`, `qc` | Stored limits and selected range/calibration indications |
+
+Calibration acquisition and blank-study events are not ordinary unknown-sample rows. During calibration acquisition, some active-model fields may still describe the previous model. Distinguish event rows by `row_type` and retain the final saved calibration JSON as the record of the accepted new model.
+
+The `qc` field can contain the saved calibration warning or IMPORTED status. It is not the pass/fail assessment of every independent QC tube. Record actual QC targets, recovery and acceptance separately. `result_flag` primarily describes the configured range; it does not automatically classify every result below LOD or LOQ.
+
+The log does not provide a UTC timestamp, unique instrument identity, reagent lot, deliberate predilution factor or complete operator decisions. Retain these in the batch record. Do not assume that every metadata item checked by the operator is recorded automatically by RC2.
+
+## Minimum batch record
+
+- Batch date, start time, operator and instrument identity.
+- Firmware and suite versions; relevant configuration and sensor settings.
+- Calibration ID, preparation date, range, model, limits and calculation method.
+- Reagent/standard identification, assay volumes, blank preparation and incubation conditions.
+- Blank-check and independent control IDs, targets, acceptance intervals and results.
+- Original sample identity, assay replicate identity and measurement order.
+- Predilution preparation, factor and final concentration calculation.
+- Raw log and matching calibration/configuration/state files.
+- Accepted, qualified or rejected result and reason for repeats or exclusions.
+
+## Archive without overwriting evidence
+
+Stop acquisition, enter safe mode with the data host connected and copy the files to a dated instrument/batch folder. Verify row counts and expected sample IDs. Preserve the original log rather than editing it to hide failed or repeated measurements; keep calculations and accepted results in a separate analysis record.
+
+Archive model source data and the report alongside the operational JSON. A two-point ID such as `QF1-2PT` is reused by the firmware and is not a unique batch identifier; use the dated archive and preparation record to distinguish successive calibrations. Link every final result to the specific calibration and blank state that applied when it was measured.

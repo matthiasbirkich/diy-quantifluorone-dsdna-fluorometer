@@ -1,21 +1,26 @@
-# Standards Register
+# Standards register
 
-| Standard | Edition | Use in this repository | Limitation |
-|---|---:|---|---|
-| DIN 38402-51 | 2017-05 | Reference for linear calibration, calibration design, and interpretation of a linear calibration function | The repository cites the standard but does not reproduce protected text. A licensed copy is required for formal conformity assessment. |
-| DIN 32645 | 2008-11 | Reference for decision, detection, and quantification limits under repeatability conditions | Calibration Suite 7.2 Stable documents its multipoint calculation as the indirect calibration-curve method summarized in CLB1. Formal conformity requires a documented code-to-standard review using a licensed copy. |
+| Standard | Edition cited | Scope |
+|---|---|---|
+| DIN 38402-51 | 2017-05 | Linear calibration and assessment of the calibration function |
+| DIN 32645 | 2008-11 | Decision, detection and determination limits under repeatability conditions |
 
-## Project implementation summary
+These are the editions referenced by the project. Formal conformity requires
+review against the applicable licensed standard, not merely a software self-test.
 
-### Two-point firmware
+## Instrument screening estimates
 
-```text
-LOD estimate = 3 × s_blank / slope
-LOQ estimate = 10 × s_blank / slope
-```
+The shipped ONE configuration uses LOD = 3.3 × blank SD / slope and
+LOQ = 10 × blank SD / slope, based on ten independent reagent-blank tubes.
+These are screening estimates, distinct from a calibration-curve assessment.
 
-These are blank-based workshop and instrument-evaluation estimates.
+## Calibration Suite v7.3
 
-### Calibration Suite 7.2 Stable
+The OLS calculation distinguishes NWG, EG and BG, records alpha, k and the
+number of future determinations, and includes an embedded openDIN self-test.
+DIN-labelled limits and OLS uncertainty bands are suppressed for weighted
+models. See the [audit notes](../../software/calibration_suite/V7.3_STANDARDS_AUDIT_NOTES.md)
+and [calibration chapter](../manual/chapters/08_calibration.qmd).
 
-The suite uses the residual standard deviation, calibration slope and design, Student-t factors, significance level, number of future determinations, and quantification factor `k`. The LOQ is solved iteratively. The software report records the selected settings and calculation description.
+The on-device two-point method remains the routine measurement route.
+v7.3 scientific JSON is not directly compatible with the RC2 importer.

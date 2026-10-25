@@ -1,0 +1,10 @@
+# About this manual {.unnumbered .unlisted}
+
+[Project repository](https://github.com/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer) — hardware files, firmware, calibration tools and supporting records.
+
+This manual covers construction, software installation, calibration, routine dsDNA analysis, quality control and maintenance of the DIY QuantiFluorONE instrument. Chapters 1–12 describe the established ONE configuration and its supporting evidence. Chapter 13 describes the literature-based SYBR Safe transfer procedure and the verification required before its use. Chapter 14 consolidates references and design sources.
+
+The routine ONE assay uses 1 µL sample plus 200 µL ready-to-use reagent with an on-device two-point calibration. Initial characterization with the Calibration Suite is performed for each new instrument or configuration; a provisional calibration is not required for routine sample batches.
+
+The manual is issued for author review on 24 October 2026. The fastener schedule, cable connection details and physical installation checks remain subject to the recorded build review. Read those qualifications before reproducing the instrument. The SYBR Safe transfer has not yet been verified on this device.
+

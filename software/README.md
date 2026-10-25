@@ -29,4 +29,4 @@ Installation order:
 4. copy the complete contents of the extracted stable RC2 release to the root of
    `CIRCUITPY`.
 
-See `docs/markdown/07_software_installation.md`.
+See `docs/manual/chapters/06_software_installation.qmd`.

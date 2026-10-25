@@ -5,7 +5,7 @@ Included files:
 - `update-bootloader-arcade_pybadge-v3.15.0.uf2`
 - `bootloader-arcade_pybadge-v3.15.0.bin`
 
-## Recommended workshop update file
+## Recommended update file
 
 Use the UF2 updater for the normal USB drag-and-drop workflow:
 
@@ -23,4 +23,4 @@ Use the UF2 updater for the normal USB drag-and-drop workflow:
 
 `bootloader-arcade_pybadge-v3.15.0.bin` is retained for open-science archiving
 and technical recovery. **Do not copy this `.bin` file directly to
-`PYBADGEBOOT` or `BADGEBOOT`.** It is not the normal workshop installation file.
+`PYBADGEBOOT` or `BADGEBOOT`.** It is not the normal installation file.

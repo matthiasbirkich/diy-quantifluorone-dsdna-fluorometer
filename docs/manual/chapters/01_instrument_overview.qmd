@@ -1,0 +1,48 @@
+---
+document-status: "Author review"
+---
+
+# Instrument Overview and Intended Use {#sec-overview}
+
+The DIY QuantiFluorONE dsDNA Fluorometer measures the mass concentration of double-stranded DNA using the Promega QuantiFluor ONE dsDNA assay. This manual explains how to reproduce the documented instrument, install its software, establish its performance, calibrate it and measure samples. It is intended for laboratory users who can handle DNA samples and small-volume pipetting, and for builders familiar with basic electronics and mechanical assembly.
+
+The routine assay uses **1 µL of DNA-containing sample plus 200 µL of ready-to-use QuantiFluor ONE reagent**. Samples are measured against an on-device two-point calibration. The principal result is the DNA concentration of the sample solution before reagent addition, expressed in ng/µL.
+
+## The documented instrument
+
+An Adafruit PyBadge controls one TSL2591 detector through a PCA9546 I2C multiplexer. A nominal 485 nm LED illuminates the assay tube through an Ex470BP-40 excitation filter. Fluorescence reaches the detector through an Em532BP-40 emission filter on an axis at 90° to the excitation beam. Printed parts locate the tube, filters and electronics, and exclude ambient light.
+
+The installed LED driver is the ioRodeo fixed-current radial 16 mA board, revision `ver_0p1_rev_3`. The documented mechanical configuration uses the combined **E LED Board + Vial Halter**. Chapter 4 identifies the components and links to their CAD, printing and PCB files; Chapter 5 explains assembly. The documented software is the QuantiFluorONE v1.0.0 RC2 release on CircuitPython 9.1.1.
+
+![Completed instrument with controller, display, controls and covered optical module. The display shows a historical provisional measurement; its PROV label and prediction interval are not the required state for routine two-point operation.](../../figures/assembled_instrument_front.jpg){width=65%}
+
+## From construction to routine analysis
+
+Three stages establish readiness. First, assemble the instrument and verify electrical connections, optical alignment, light exclusion, software operation and data saving. Second, characterize each new instrument or changed configuration with a concentration series evaluated in the Calibration Suite. Retain the regression diagnostics and performance evidence used to define the working range. Third, perform the on-device two-point calibration and verify an independently prepared control before accepting routine samples.
+
+The characterization series is performed initially for each new instrument or configuration. It is not repeated for every sample batch. Routine measurements do not require loading a provisional calibration or importing a multipoint model. Later changes or unresolved quality-control findings may require relevant characterization to be repeated.
+
+A stored two-point calibration can be reused when its configuration, corresponding blank and control checks remain suitable. The ordinary START action replaces the blank and invalidates an active two-point calibration in RC2. Chapter 8 explains how to retain a calibration, check a blank without replacing it, or perform a complete new calibration.
+
+## How to use this manual
+
+| Task | Chapters |
+|---|---|
+| Understand the instrument and its measurement | 1–3 |
+| Select parts and assemble the instrument | 4–5 |
+| Install software and check startup | 6–7 |
+| Calibrate and measure DNA samples | 8–9 |
+| Evaluate results and retain data | 10–11 |
+| Maintain the instrument and resolve faults | 12 |
+| Assess the alternative SYBR Safe assay | 13 |
+| Find references and design provenance | 14 and source registers |
+
+The [project repository](https://github.com/matthiasbirkich/diy-quantifluorone-dsdna-fluorometer) contains the design sources, firmware, supporting software, photographs and analytical records. Links in this manual identify the files relevant to each task. Preserve the release archive and record the repository revision used for a build; files on the main branch may change as the design develops.
+
+## Intended use and limits
+
+The instrument is intended for research, teaching and development. It is not a medical or clinical diagnostic device. A fluorescence result estimates dsDNA mass concentration under the established assay conditions. It does not identify a species, establish DNA integrity or fragment length, prove sample purity, or demonstrate suitability for a particular downstream reaction.
+
+Reported performance applies to the tested instrument configuration and procedure. The reagent manufacturer's nominal assay range is not automatically the quantitative range of every reproduced device. Chapter 11 describes the existing evidence, including the Quantus comparison and blank-based limits. Use an accepted range and controls established for the actual instrument.
+
+SYBR Safe is a separate assay option. It requires its own preparation procedure, optical assessment, characterization and calibration. A different LED or filter may be needed. Do not transfer QuantiFluor ONE calibration coefficients or performance limits to that assay.

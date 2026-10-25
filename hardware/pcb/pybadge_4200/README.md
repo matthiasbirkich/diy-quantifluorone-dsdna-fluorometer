@@ -70,4 +70,4 @@ See license.txt for additional details.
 
 The PyBadge may be purchased as an assembled module. The PCB source files are
 included for open-hardware traceability and are not presented as a practical
-workshop assembly route for the densely populated controller board.
+manual assembly route for the densely populated controller board.

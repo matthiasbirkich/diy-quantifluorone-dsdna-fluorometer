@@ -1,0 +1,86 @@
+---
+document-status: "Author review"
+---
+
+# Measurement Principles {#sec-principles}
+
+The fluorometer converts the fluorescence of a dye–DNA assay into a dsDNA mass concentration. The complete measurement depends on the reagent, sample tube, optical arrangement, sensor settings, blank and calibration. Understanding these relationships helps distinguish a valid concentration result from a display value affected by preparation or instrument conditions.
+
+## Fluorescence and selective DNA detection
+
+A fluorophore absorbs excitation light and emits some of that energy as light at longer wavelengths. The separation between excitation and emission maxima is called the Stokes shift. Promega specifies excitation and emission maxima of approximately 504 nm and 531 nm for the QuantiFluor ONE dsDNA system. Its DNA-binding dye responds preferentially to dsDNA; the assay is designed to quantify dsDNA in purified samples.
+
+Within a suitable working range, fluorescence increases with DNA input. The relationship also depends on dye binding, sample composition, temperature, illumination and geometry. Absorbing or fluorescent contaminants, quenching, inadequate mixing and detector saturation can alter the response. Selectivity for dsDNA does not remove the need to assess the sample matrix.
+
+## Excitation and detection paths
+
+The installed nominal 485 nm LED provides blue excitation through the Ex470BP-40 filter. Fluorescence from the tube passes through the Em532BP-40 filter to the TSL2591. The detector axis is at 90° to the excitation axis, reducing direct illumination by the excitation beam. Scattered excitation and ambient light can still reach the sensor, which is why both filters and the light shield are necessary.
+
+The LED wavelength need not equal the dye's excitation maximum to generate a signal. Useful excitation depends on the overlap of the LED spectrum, excitation-filter transmission and dye absorption. Detection depends on the overlap of dye emission, emission-filter transmission and sensor response. Nominal component labels alone do not establish the complete optical response.
+
+The tube holder fixes insertion depth and optical position. Use the same tube type and reproducible seating for blank, standard, control and sample. Changes to the LED, filters, detector, holder or sensor settings can change the calibration slope or background.
+
+## From sensor readings to relative fluorescence
+
+The TSL2591 reports FULL and IR channels. For each sensor reading, RC2 calculates a project-defined visible signal:
+
+**VIS = max(FULL − IR, 0)**
+
+This is a derived instrument signal, not an independently resolved emission spectrum. One measurement cycle contains three sensor readings from the same tube. The firmware calculates their mean and standard deviation. These describe short-term sensor repeatability; they are not three independent assay preparations.
+
+The blank-corrected response is:
+
+**RFU = mean VIS of sample − mean VIS of the active reagent blank**
+
+RFU denotes relative fluorescence units. It is instrument-dependent and is not an SI unit or an absolute optical power. The reagent blank includes the reagent, tube and instrument background under the chosen conditions. For the documented ONE protocol it contains 200 µL reagent without an added DNA aliquot.
+
+A negative blank-corrected response means that the sample's signal was below the retained blank signal. It does not mean that a negative physical amount of DNA is present. Preserve the raw value and apply the reporting rules in Chapter 10.
+
+## Two-point calibration for routine analysis
+
+The reagent blank defines the zero-DNA endpoint and a known high standard defines the response scale. With blank-corrected RFU, the routine two-point model has a zero working intercept:
+
+**Slope = RFU of standard / concentration of standard**
+
+**Sample concentration = RFU of sample / slope**
+
+The confirmed ONE Lambda DNA stock is **400 µg/mL = 400 ng/µL**. Adding 1 µL of this stock to 200 µL reagent introduces 400 ng DNA into a nominal total volume of 201 µL. The calibration entry of 400 ng/µL refers to the stock solution before reagent addition.
+
+Two-point calibration establishes the current response scale but does not independently test linearity between its endpoints. A separate concentration series, evaluated in the Calibration Suite, establishes regression diagnostics and relevant performance measures for each new instrument or configuration. For a general linear characterization model, response = intercept + slope × concentration. Routine operation continues to use the on-device two-point calibration.
+
+The active blank belongs to the calibration. In RC2, pressing ordinary START to replace that blank invalidates a two-point model. A check blank measured as a sample with A can assess the retained baseline without replacing it. Chapter 8 provides the operational steps.
+
+## DNA mass and concentration basis
+
+DNA mass equals concentration multiplied by the volume of DNA solution added. With a 1 µL aliquot, numerical values of original-solution concentration in ng/µL and DNA input in ng are equal, although they describe different quantities.
+
+| Quantity for the high standard | Value |
+|---|---|
+| Stock DNA concentration | 400 ng/µL |
+| Stock aliquot | 1 µL |
+| DNA mass added | 400 ng |
+| Reagent volume | 200 µL |
+| Nominal total assay volume | 201 µL |
+| DNA concentration in the prepared assay | Approximately 1.99 ng/µL |
+
+Unknowns use the same 1 µL sample plus 200 µL reagent procedure. The principal firmware concentration is on the original-solution basis. **Do not multiply that result by 201.** The firmware's separate in-assay field describes concentration in the prepared tube. If the original sample was deliberately prediluted before the 1 µL aliquot was taken, multiply the principal result only by that recorded predilution factor.
+
+A concentration in ng/µL describes DNA mass per volume. Conversion to numbers of molecules or fmol additionally requires an appropriate fragment length and molecular-mass assumption. Fluorometry alone does not determine those quantities, and this manual sets no universal DNA-input requirement for downstream PCR or sequencing.
+
+## Controls and analytical limits
+
+An independently prepared control tests whether a known solution is recovered within predefined limits. The high calibration standard alone cannot provide an independent test of the calibration it defines. Blank checks assess background; controls assess the combined response of preparation, reagent and instrument. Retain both with the batch record.
+
+LOD and LOQ describe detection and quantification limits for a stated method and dataset. They are not fixed properties of the sensor or dye. In the documented RC2 ten-blank routine, ten independently prepared reagent-blank tubes provide a standard deviation of cycle means. With the supplied factors:
+
+**LOD estimate = 3.3 × blank standard deviation / slope**
+
+**LOQ estimate = 10 × blank standard deviation / slope**
+
+These are blank-based screening estimates, not a complete calibration-curve assessment under DIN 32645. The limit units follow the calibration slope. Repeated readings of one tube do not replace independently prepared blanks. Chapter 11 reports the evaluated instrument's limits and their concentration basis.
+
+A high regression R² describes the fitted relationship but does not establish correct sample preparation, absence of bias or suitability at low concentrations. Assess residuals, recovery, independent preparation variability, blank behaviour and the intended matrix. Agreement with a Quantus provides comparison evidence; it does not make that instrument an error-free definition of the true concentration.
+
+## Sources and practical continuation
+
+Assay properties and preparation follow [Promega TM405](https://www.promega.com/resources/protocols/technical-manuals/101/quantifluor-one-dsdna-system-protocol/) (R1). The [RC2 firmware archive](../../../software/quantifluorone_firmware/QuantiFluorONE_Firmware_1.0.0-rc2-stable.zip) defines the signal calculation and calibration behaviour. Chapter 14 consolidates sources; Chapters 6–11 provide operation and analytical evidence.

@@ -4,26 +4,31 @@ All notable changes to the DIY-QuantiFluorONE-dsDNA-Fluorometer will be document
 
 ## [Unreleased]
 
-No unreleased changes at this time.
+### Documentation revision prepared 2026-10-24
+- Added the independent fourteen-chapter assembly and operating manual, PDF and Word editions.
+- Updated navigation, metadata, Calibration Suite instructions and SYBR Safe transfer guidance.
+- Retired superseded documentation and consolidated source paths.
+- Preserved the supported firmware archive and analytical raw records.
+- Physical build checks and assay qualification remain listed in the manual TODO.
 
 ## [1.0.0] - 2026-08-10
 
 ### Added
-- Final workshop booklet for the 2026 eDNA workshop within the STABLE Project.
+- Fourteen-chapter instrument manual.
 - Validated analytical-performance documentation for the documented hardware and assay configuration.
-- Final hardware, software, calibration, validation, references, and workshop documentation structure.
+- Final hardware, software, calibration, validation, references, and instrument documentation structure.
 - MIT License and completed citation metadata.
-- Prominent workshop entry points through the GitHub Markdown documentation and downloadable PDF booklet.
+- Prominent manual entry points through the GitHub Markdown documentation and downloadable PDF manual.
 - Source and provenance references for ioRodeo, DIYNAFLUOR, Adafruit, Promega, PySpectrometer2, standards, optical filters, and related hardware.
 
 ### Changed
-- Consolidated the workshop documentation into the final 14-chapter structure.
+- Consolidated the instrument documentation into the final 14-chapter structure.
 - Updated project metadata and repository documentation for release `v1.0.0`.
 - Updated analytical status terminology to distinguish operational calibration status from method-performance status.
 - Updated the documented optical geometry to one TSL2591 sensor fixed at 90° to the excitation axis.
 - Simplified the repository structure and removed obsolete development scaffolds and redundant directories.
 - Updated the software layout to one supported QuantiFluorONE firmware package under `software/`.
-- Updated the Calibration Suite and calibration-transfer documentation to the validated workflow.
+- Updated Calibration Suite and calibration-transfer documentation; see current compatibility limitations.
 - Updated references, acknowledgements, third-party attribution, and mechanical-source documentation.
 
 ### Verified
@@ -39,7 +44,7 @@ No unreleased changes at this time.
 - Renamed the project from `QuantiFluorONE` to `DIY-QuantiFluorONE-dsDNA-Fluorometer`.
 - Introduced the controlled short name `DIY-QFO` and repository slug `diy-quantifluorone-dsdna-fluorometer`.
 - Clarified the distinction between the DIY instrument and the Promega QuantiFluor® ONE dsDNA System.
-- Updated document titles, metadata, identifiers, booklet sources, and citation metadata.
+- Updated document titles, metadata, identifiers, manual sources, and citation metadata.
 
 ## [0.1.1-draft.1] - 2026-08-02
 

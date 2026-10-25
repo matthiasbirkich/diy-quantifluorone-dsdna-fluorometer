@@ -54,6 +54,9 @@ This point is shown in the comparison figures but excluded from the independent 
 - Quantus was used as a commercial comparison instrument, not as a traceable reference method.
 - Agreement with Quantus is therefore evidence of comparability, not by itself proof of analytical validity.
 - The three TSL2591 readings within one measurement cycle are technical sensor repeats, not independently prepared assay replicates.
-- Negative blank-corrected firmware values are displayed and reported as zero or below LOD.
+- RC2 can retain negative blank-corrected concentration estimates in its display/log. Preserve them in the raw data and apply the stated below-LOD reporting convention; do not report a physically negative DNA concentration.
 - The primary LOD and LOQ estimates are based on ten independently prepared blank tubes.
 - The current Python script reproduces the Quantus–DIY regression and agreement statistics. The LOD/LOQ summary figure uses precomputed blank-based values and does not recalculate those limits from the original blank measurements.
+## Documentation review note
+
+The paired CSV filename has been corrected from `quantusquantus_diy_two_point_comparison.csv` to `quantus_diy_two_point_comparison.csv`, matching the analysis script. Recalculation from that CSV agrees with the rounded comparison summaries, but several stored fine-precision values differ by less than 0.001 in their corresponding numeric units. The author considers these differences rounding effects without practical relevance; no additional reconciliation task is required for the handbook.

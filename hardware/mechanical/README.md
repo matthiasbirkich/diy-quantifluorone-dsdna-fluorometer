@@ -20,7 +20,7 @@ ioRodeo Open Colorimeter Plus project.
 - F_Cover_Fluorometer_Optics
 
 The filenames correspond directly to the engraved letters on the printed
-parts used throughout the workshop documentation.
+parts used throughout the assembly and operating manual.
 
 ## PyBadge Enclosure
 

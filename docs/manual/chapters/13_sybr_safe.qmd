@@ -1,0 +1,98 @@
+---
+document-status: "Author review"
+---
+
+# Alternative Assay with SYBR Safe {#sec-sybr-safe}
+
+SYBR Safe provides a literature-based alternative to the QuantiFluor ONE assay. Anderson and colleagues describe its use for DNA quantification on DIYNAFLUOR in the supplied December 2024 preprint [R3]. This chapter gives that preparation method and the changes needed to evaluate it on the DIY QuantiFluorONE instrument. **SYBR Safe has not yet been analytically verified on this instrument.** Establish its working range, controls and limits before reporting routine concentrations.
+
+**Sample availability determines the aliquot.** The 10 µL volume below belongs to the published DIYNAFLUOR reference procedure; it is not a minimum sample-volume requirement of this instrument. A smaller aliquot may be developed when sample is scarce. Its reagent preparation, calibration basis and reporting limits must be established for that volume. Do not increase sample consumption solely to reproduce the publication.
+
+The manufacturer supplies SYBR Safe primarily as a gel stain [R4]. Its solution-based use here follows the DIYNAFLUOR research procedure. It is not an interchangeable replacement for ready-to-use ONE reagent, and the 1 µL plus 200 µL ONE protocol does not apply.
+
+## Why the existing optics suit SYBR Safe
+
+The installed **485 nm LED, Ex470BP-40 excitation filter and Em532BP-40 emission filter are spectrally well matched to SYBR Safe**. Retain this hardware for the first characterization series. An LED or filter replacement is an optimization option if measurements identify a problem, rather than a prerequisite for changing the assay.
+
+DNA-bound SYBR Safe has excitation maxima near 280 nm and 502 nm and an emission maximum near 530 nm [R4]. The visible excitation band is broad enough for blue excitation: Thermo Fisher identifies 470 nm LEDs and 488 nm excitation as usable for visualization [R5]. The installed 485 nm LED therefore provides a suitable excitation wavelength in principle. The overlap of its actual spectrum with the excitation filter and dye absorption determines the useful excitation intensity; proximity to the absorption maximum alone does not quantify efficiency.
+
+Ex470BP-40 has a nominal centre of 470 nm and a nominal 40 nm bandwidth, commonly expressed as approximately 450–490 nm. It transmits the blue excitation band while reducing longer-wavelength LED output. **Those limits describe a passband, not a guarantee of zero transmission above 490 nm.** Filter edges are gradual; transmission at 485 nm and blocking in the fluorescence band matter for actual performance.
+
+Em532BP-40 has a nominal centre of 532 nm and a 40 nm bandwidth, giving nominal half-maximum edges near 512 and 552 nm. The 530 nm emission maximum lies close to its centre, only 2 nm away. This is a strong spectral reason to retain the installed emission filter. The project's normalized measurements report approximate half-maximum intervals of 450–490 nm for the excitation specimen and 518–555 nm for the emission specimen. These measurements check band position and shape, rather than absolute transmission or out-of-band blocking. See the [excitation-filter record](../../figures/qfo_ex470bp40_spectral_verification.jpeg) and [emission-filter record](../../figures/qfo_em532bp40_spectral_verification.jpeg).
+
+The nominal separation between 490 nm and 512 nm is 22 nm. This separation supports rejection of excitation light, together with the 90° geometry and light shield. It does not ensure that no scattered LED light reaches the detector. Residual background depends on filter blocking, spectral tails, reflections and light leaks and must be checked with the matched assay blank.
+
+| Component | Reason to retain it | Change only if measurements indicate a need |
+|---|---|---|
+| 485 nm radial LED | Lies within the usable blue excitation region | Check preparation, alignment and output before trying another blue LED |
+| Ex470BP-40 | Passes blue excitation and reduces longer-wavelength LED output | Assess useful throughput and residual excitation leakage |
+| Em532BP-40 | Detection band includes the 530 nm fluorescence maximum near its centre | Assess blocking and blank-corrected response before changing the band |
+| LED board and holder | Preserve the documented current and optical geometry | A substitute must match current, polarity, LED position and mechanical fit |
+
+The published DIYNAFLUOR uses a 470 nm LED with 470 ± 15 nm excitation and 525 ± 15 nm emission filters [R3]. Both instruments use nominal 90° fluorescence detection, but their holders, optical distances and illumination and collection arrangements differ. The source, filter bands and geometry together determine background and response. This provides a comparison configuration, not evidence that its components improve this instrument or that its sensitivity transfers unchanged. Do not choose a 502 nm LED merely to match the absorption maximum: the existing excitation filter can attenuate it and excitation rejection becomes more demanding. A preassembled LED board remains an option under the compatibility checks in Chapter 4. Optical changes require renewed characterization and calibration.
+
+## Materials and published dye preparation
+
+Use the **10,000X SYBR Safe concentrate**, such as the DMSO concentrate described in the manufacturer's guide, rather than a ready-to-use gel-staining solution [R4]. Use LTE buffer with 10 mM Tris and 0.1 mM EDTA at pH 8.0, and suitable thin-walled 0.5 mL PCR tubes. The publication used Axygen tubes; adopting the documented E4941 tube on this instrument is a transfer choice that requires checking.
+
+The published preparation [R3] has two dilution stages:
+
+1. Dilute the 10,000X concentrate 1:50 in LTE to obtain a 200X dye stock. For example, combine 2 µL concentrate with 98 µL LTE; mix thoroughly.
+2. For the master mix, combine 1 µL of the 200X stock with 199 µL LTE per nominal preparation unit. Scale volumes together for the complete batch and allow for pipetting losses.
+3. Dispense 190 µL master mix per assay tube, then add 10 µL DNA solution or blank buffer.
+
+The stated dilution sequence gives 1X dye in the master mix and approximately 0.95X after the 190 µL portion receives 10 µL DNA solution. These factors are calculated from the published volumes; do not silently replace the sequence with a different dye concentration.
+
+Prepare dye stocks and master mix with traceable labels and protection from light. Follow the manufacturer's instructions for the purchased concentrate and establish any holding time for diluted solutions before using stored mixtures. Apply Chapter 2 to reagent handling, sample hazards and disposal; the product name does not remove the need for appropriate precautions.
+
+A 10 ng/µL high-standard solution can be prepared from the confirmed 400 ng/µL ONE lambda DNA stock by mixing 5 µL stock with 195 µL LTE, giving 200 µL total. This substitutes the stock source used in the publication; record that choice and verify the transferred assay. Prepare controls separately.
+
+## Published tube preparation and measurement timing
+
+| Tube | Master mix | Added solution | Purpose |
+|---|---|---|---|
+| Calibration blank | 190 µL | 10 µL LTE | Zero-DNA endpoint with matched final volume |
+| High standard | 190 µL | 10 µL lambda DNA at 10 ng/µL in LTE | 100 ng DNA in 200 µL; 0.5 ng/µL in assay |
+| Independent control | 190 µL | 10 µL independently prepared control in the selected range | Check recovery without using the calibration anchor alone |
+| Unknown | 190 µL | 10 µL sample or recorded predilution | Determine concentration after method verification |
+
+Mix by vortexing, briefly centrifuge to collect liquid and remove bubbles, and incubate for **1 minute at room temperature** before measuring, following the publication [R3]. Keep timing, tube seating and light protection consistent. This differs from the five-minute ONE procedure. A fresh SYBR Safe blank contains both dye master mix and 10 µL LTE; do not use the ONE blank preparation for this assay.
+
+## Configuration for the published reference procedure
+
+The published 10 µL aliquot gives a total-volume-to-sample-volume factor of **20**, compared with 201 for the ONE method. The high-standard setting is **10 ng/µL on the original-solution basis**, corresponding to 100 ng DNA and 0.5 ng/µL in the assay. Do not choose 400 ng/µL or reuse the ONE slope.
+
+RC2 reads assay metadata from `quantifluorone_config.json`. Source inspection identifies the following settings for a transfer trial. They are a configuration specification, not an already qualified SYBR Safe software release.
+
+| Setting in the assay object | Value for this preparation |
+|---|---|
+| `name` | SYBR Safe DNA assay |
+| `sample_volume_uL` | 10.0 |
+| `reagent_volume_uL` | 190.0 |
+| `total_volume_uL` | 200.0 |
+| `dilution_factor` | 20.0 |
+| `reported_concentration_basis` | original_sample |
+
+Back up the entire ONE configuration, calibration, state and log before a transfer trial. Use the file-maintenance procedure in Chapter 6, identify the SYBR Safe installation clearly, and remove the old operational calibration and blank state before establishing the new assay. Configuration edits do not convert a saved ONE calibration. Restart so the application reads the intended settings; confirm the actual installed files and archived record.
+
+The supplied standard selection list includes 10 ng/µL. After characterizing the new assay, use the on-device two-point dialog with the matched SYBR Safe blank and the 10 ng/µL high-standard solution. Check the saved calibration's standard concentration, slope, range and dilution factor of 20, then verify a separately prepared control and file persistence. RC2 reuses the identifier QF1-2PT and retains ONE branding; neither uniquely identifies this dye. Keep separate dated assay archives and do not rely on the screen banner to distinguish configurations.
+
+Under this calibration, the principal concentration is the DNA solution concentration before assay addition. The in-assay value is that result divided by 20. For example, 4 ng/µL original solution corresponds to 0.2 ng/µL in the assay. Apply an additional factor only for a deliberate sample predilution. When returning to ONE, restore its matching configuration and establish or verify its matching calibration and blank; do not mix assay records.
+
+## Adaptation when sample volume is limited
+
+The published 10 µL procedure is a reproducible reference, not the only possible assay design. A smaller aliquot, for example 1 µL if it can be pipetted reliably, can be investigated while retaining a liquid volume compatible with the optical holder. This is an adaptation to develop and characterize, not an already verified low-volume protocol.
+
+Choose the sample and master-mix volumes explicitly and control the final dye concentration, buffer composition, mixing and incubation. Merely changing 10 µL to 1 µL changes DNA mass input and can also change assay chemistry. Prepare blanks, standards, controls and unknowns with the chosen matching volumes. Perform initial characterization and establish a fresh two-point calibration for that procedure.
+
+Calculate the assay dilution factor as total assay volume divided by sample volume and enter the actual values in the configuration. The factor 20 and the settings table above apply only to the published 10 µL in 200 µL preparation. Do not reuse those settings for a smaller aliquot. Report original-sample and in-assay limits separately. Where the sample is sufficient, larger aliquots can be evaluated as an option; they are not assumed for routine use.
+
+## Verification before routine use
+
+Evaluate a concentration series on the actual optical configuration, including independently prepared low-level samples and controls. Assess blank variation, recovery, residuals, response stability, saturation and sample-matrix effects. Keep gain, integration time, tube type and assay volumes fixed. If the Calibration Suite is used for characterization, verify its reference-value basis explicitly: its concentration parser multiplies concentration by the entered sample volume. With a 10 µL aliquot, mass and concentration are no longer numerically equal as they are in the 1 µL ONE procedure.
+
+For the literature's 20-fold assay dilution, 0.5 ng/µL in-assay corresponds to 10 ng/µL in the original solution. The preprint reports in-assay LOD and LOQ estimates of 0.014 and 0.048 ng/µL, respectively [R3]. These are DIYNAFLUOR results, not limits established for this device. Do not adopt them as reporting thresholds here.
+
+**Sensitivity and application scope must be measured on this instrument.** The ONE configuration has a 0–400 ng/µL calibration interval and a blank-based LOD near 8 ng/µL on the original-solution basis, equivalent to about 0.04 ng/µL in the assay. A higher SYBR Safe LOD cannot be inferred from the dye name or from DIYNAFLUOR results obtained with different optics and geometry. Compare limits on the same concentration basis and at the actual sample volume. Suitability for laboratory or eDNA samples depends on concentration, matrix and the required quantification limit; calibration alone does not establish sufficient sensitivity.
+
+SYBR Safe can also respond to RNA [R4]. The RNA-spiking result in the preprint does not establish universal selectivity in arbitrary extracts. Where RNA or extraction reagents may contribute, assess their effect and any sample treatment separately. Once the procedure is accepted, use its own two-point calibration, controls and limits in the routine workflow. Retain raw signals and preparation records so a change of dye remains traceable.

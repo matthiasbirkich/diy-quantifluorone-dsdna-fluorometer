@@ -1,11 +1,11 @@
 {
   "package_name": "DIY-QuantiFluorONE-dsDNA-Fluorometer",
-  "generated": "2026-08-10",
-  "status": "final",
-  "release_version": "1.0.0",
-  "active_booklet_chapters": 14,
+  "generated": "2026-10-24",
+  "status": "manual revision prepared for publication",
+  "archived_release_version": "1.0.3",
+  "active_manual_chapters": 14,
   "qmd_source_of_truth": true,
-  "markdown_mirror": "docs/markdown",
-  "workshop_booklet_source": "workshop_booklet",
-  "repository_release": "v1.0.0"
+  "manual_source": "docs/manual",
+  "manual_pdf": "docs/manual/downloads/DIY_QuantiFluorONE_Manual.pdf",
+  "manual_word": "docs/manual/downloads/DIY_QuantiFluorONE_Manual.docx"
 }

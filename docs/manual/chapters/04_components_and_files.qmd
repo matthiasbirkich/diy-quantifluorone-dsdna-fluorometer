@@ -1,0 +1,77 @@
+---
+document-status: "Author review"
+---
+
+# Components Tools and Reproduction Files {#sec-components}
+
+This chapter identifies the components and files used to build the QuantiFluor ONE configuration. The instrument contains one TSL2591 detector, a 485 nm excitation LED and separate excitation and emission filters. Keep this configuration unchanged when using calibration and performance information established for it.
+
+![Electronic, optical and mechanical components of the instrument. Use the tables below to identify parts before assembly.](../../figures/qfo_complete_component_set.jpg){width=90%}
+
+## Electronics and optics
+
+| Quantity | Component | Identification and function |
+|---:|---|---|
+| 1 | Adafruit PyBadge | Product 4200; controller, display and buttons; documented runtime CircuitPython 9.1.1 |
+| 1 | Adafruit PCA9546 | Product 5664; four-channel I2C multiplexer; upstream address `0x70` |
+| 1 | Adafruit TSL2591 STEMMA QT | Product 1980; fluorescence detector; address `0x29` on the selected downstream channel |
+| 1 | ioRodeo fixed-current radial LED board | `radial_16mA`, revision `ver_0p1_rev_3`; nominal LED current 16 mA |
+| 1 | Radial excitation LED | 5 mm; 485 nm; article 1030055 in the project BOM |
+| 1 | Excitation filter | Neemoo Ex470BP-40; 8 x 8 x 1 mm; between LED and tube |
+| 1 | Emission filter | Neemoo Em532BP-40; 8 x 8 x 1 mm; between tube and detector |
+| As required | Sample tubes | Promega E4941 thin-walled 0.5 mL PCR tubes |
+| 1 | Upstream adapter | SparkFun PRT-15109 Qwiic-to-Grove adapter |
+| As required by routing | Internal cables | Four-conductor JST-SH STEMMA QT / Qwiic cables |
+| 1 | USB data cable | USB Micro connection to the PyBadge |
+| Optional | Portable power | Suitable USB powerbank or compatible 3.7 V LiPo battery |
+
+The LED board has no I2C address. Its SDA and SCL connections pass the bus through; firmware does not select an LED address. The multiplexer selects the sensor bus branch.
+
+Use the [master BOM](../../../bom/master_bom.csv) for the recorded procurement list. Its costs are historical entries rather than current quotations. Cable quantities, fasteners and optional battery capacity must be reconciled with the final build before ordering a complete kit; the review register records the remaining discrepancies.
+
+## Optional preassembled LED board
+
+To avoid soldering during instrument assembly, the LED driver board may be ordered fully assembled, including the specified excitation LED, through a PCB assembly service such as PCBWay or JLCPCB, provided that the required components and assembly options are available. Before ordering, verify the board revision, LED wavelength, drive current, polarity and mechanical fit with the documented optical module. Assembly of the excitation LED must be explicitly included in the order, with its required rear-side mounting position and alignment. The supplied SMD assembly files alone do not establish that the radial LED is included.
+
+## Mechanical parts and files
+
+STEP files are editable CAD exchange files. STL files are meshes for slicing and printing. The following links identify the actual repository files; a filename alone does not establish that two revisions have identical geometry.
+
+| Part | STEP design | STL for printing | Selection note |
+|---|---|---|---|
+| A Main body and tube holder | [A v13](../../../hardware/mechanical/step/A_Main_Body_modified_v13.step) | [A mesh](../../../hardware/mechanical/stl/A_Main_Body_modified.stl) | Tube insertion and optical alignment |
+| B Excitation housing | [B design](../../../hardware/mechanical/step/B_Excitation_Housing_modified.step) | [B mesh](../../../hardware/mechanical/stl/B_Excitation_Housing_modified.stl) | LED-side filter housing |
+| C Emission housing | [C v3](../../../hardware/mechanical/step/C_Emission_Housing_modified_v3.step) | [C mesh](../../../hardware/mechanical/stl/C_Emission_Housing_modified.stl) | Detector-side housing |
+| D Emission baffle | [D design](../../../hardware/mechanical/step/D_Emission_Baffle.step) | [D mesh](../../../hardware/mechanical/stl/D_Emission_Baffle.stl) | Detector aperture and light exclusion |
+| E Combined LED board and vial holder | [Installed E design](../../../hardware/mechanical/step/E_LED%20Board%20%2B%20Vial%20Halter.step) | Export from STEP | Confirmed by the author as the holder used in the documented build |
+| E Thin holder alternative | [Thin version](../../../hardware/mechanical/step/E_LED_Board_holder_thin.step) | [Thin mesh](../../../hardware/mechanical/stl/E_LED_Board_holder_thin.stl) | Retained alternative; not the holder used in the documented build |
+| E Alternative holder | [Alternative design](../../../hardware/mechanical/step/E_LED_Board_holder_alternative.step) | [Alternative mesh](../../../hardware/mechanical/stl/E_LED_Board_holder_alternative.stl) | Retained alternative; not an additional required part |
+| F Optical cover | [F design](../../../hardware/mechanical/step/F_Cover_Fluorometer_Optics.step) | [F mesh](../../../hardware/mechanical/stl/F_Cover_Fluorometer_Optics.stl) | Light shielding |
+| Controller enclosure | [Enclosure v1r4](../../../hardware/mechanical/step/colorimeter_enclosure_v1r4.step) | Export from STEP | No corresponding enclosure STL is included in the inspected directory |
+| Controller cover | [Cover v1r4](../../../hardware/mechanical/step/pybadge_cover_v1r4.step) | Export from STEP | No corresponding controller-cover STL is included in the inspected directory |
+
+The combined LED-board and vial-holder model is the standard E part, confirmed by the author on 23 October 2026. No matching STL for this combined model is present in the inspected directory. The thin and alternative E meshes belong to different models and must not be substituted as its printing files. All variants remain listed in the [file index](../hardware_file_index.csv).
+
+The seven optical STEP/STL pairs can be opened or parsed and have matching overall dimensions within 0.01 mm after accounting for axis order. This is a file consistency check; it does not establish identical surfaces, printability or fit with the physical instrument.
+
+![CAD overview of the optical module on the enclosure. The assembly shows the relative locations of the tube holder and optical housings.](../../figures/optical_module_overview_cad.jpeg){width=65%}
+
+## PCB and fabrication files
+
+For the installed ioRodeo radial board, the repository supplies the [KiCad schematic](../../../hardware/pcb/LED_board_iorodeo/kicad/radial_16mA.kicad_sch), [KiCad PCB](../../../hardware/pcb/LED_board_iorodeo/kicad/radial_16mA.kicad_pcb), [fabrication ZIP](../../../hardware/pcb/LED_board_iorodeo/i_control_led_radial_16mA_v0p1_r3.zip), [assembly BOM](../../../hardware/pcb/LED_board_iorodeo/BOM_JLCPCB_radial_16mA.xlsx) and [component placement file](../../../hardware/pcb/LED_board_iorodeo/CPL_JLCPCB_radial_16mA.xlsx). The ZIP contains Gerber layers and plated and non-plated drill files. The wavelength-specific radial LED is fitted separately.
+
+The PyBadge is used as an assembled commercial controller. Its [Eagle schematic](../../../hardware/pcb/pybadge_4200/eagle/Adafruit_PyBadge.sch) and [PCB source](../../../hardware/pcb/pybadge_4200/eagle/Adafruit_PyBadge.brd) document the controller design; reproducing that PCB is not a required assembly step.
+
+Keep the [LED-board source and licence notes](../../../hardware/pcb/LED_board_iorodeo/README.md), [PyBadge source notes](../../../hardware/pcb/pybadge_4200/README.md) and [third-party notices](../../../THIRD_PARTY_NOTICES.md) with redistributed design files. Source presence does not replace a fabrication or electrical design review.
+
+## Fasteners and tools
+
+The current master BOM lists four M2.5 x 20 screws with matching nuts for the controller cover and four M3 x 20 screws with matching nuts for mounting the optical holder to the enclosure. The older assembly text additionally lists two M2 x 6, two M3 x 35 and two M3 x 40 screws with their associated nuts; it assigns M3 x 40 screws twice during the excitation assembly. The exact joints and quantities require confirmation. Do not use screw length to force mismatched printed parts together.
+
+Prepare suitable screwdrivers, small pliers, flush cutters, a soldering iron and solder for the radial LED, a multimeter, a magnifier, clean tweezers for filter edges and nonabrasive optical cleaning materials. A computer and a known-good USB data cable are required for software installation. Access to a slicer and 3D printer is needed when making the mechanical parts locally.
+
+Check printed parts with an empty E4941 tube and, where available, an 8 x 8 x 1 mm non-optical test piece. Confirm filter-pocket dimensions before inserting the actual filters. Printing material, layer height, orientation, infill and supports must be documented for the accepted build; these settings are not yet specified by the existing source files.
+
+## Configuration changes and SYBR Safe
+
+Record the LED, LED board revision, filters, tube type, detector and printed-part versions used in each instrument. The existing QuantiFluor ONE configuration uses a 485 nm LED with Ex470BP-40 and Em532BP-40 filters. Chapter 13 assesses this combination as a starting point for SYBR Safe and explains when another LED or filter set may be needed. Optical changes require a separate calibration and assessment of blank, range and analytical performance.

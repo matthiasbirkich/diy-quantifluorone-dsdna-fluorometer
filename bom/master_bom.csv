@@ -6,7 +6,7 @@ LED driver,1,ioRodeo fixed-current radial LED board,ioRodeo,radial_16mA ver_0p1_
 Excitation source,1,5 mm Ice Blue/Cyan LED,LEDs and More,1030055,Excitation source,485 nm; 30°; 12000 mcd; 3.2 V,1.00EUR
 Excitation filter,1,Neemoo Ex470BP-40,Neemoo,Ex470BP-40,Excitation filtering,8 x 8 x 1 mm,10.00 EUR
 Emission filter,1,Neemoo Em532BP-40,Neemoo,Em532BP-40,Emission filtering,8 x 8 x 1 mm,10.00 EUR
-Sample vessel,50,Promega E4941 thin-walled 0.5 mL PCR tube,Promega,E4941,Sample container,Workshop tube format,10.00 EUR
+Sample vessel,50,Promega E4941 thin-walled 0.5 mL PCR tube,Promega,E4941,Sample container,Documented tube format,10.00 EUR
 Cable,1,STEMMA QT / Qwiic JST SH cable,Various,JST SH 4-pin,Power and I2C cabling,10cm,3.00 EUR
 Adapter,1,SparkFun Qwiic-to-Grove adapter cable,SparkFun,PRT-15109,Adapter between board ecosystems,Upstream adapter from PyBadge,3.00 EUR
 Mechanical,1,PyBadge enclosure set,Project CAD,v1r4,Enclosure for controller,STEP files included,12.50 EUR

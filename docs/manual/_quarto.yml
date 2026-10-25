@@ -1,0 +1,40 @@
+project:
+  type: book
+  output-dir: _book
+lang: en
+book:
+  title: "DIY QuantiFluorONE dsDNA Fluorometer"
+  subtitle: "Assembly and Operating Manual"
+  author:
+    - name: "Dipl.-Ing. Matthias Birkicht"
+      affiliations:
+        - name: "Centre for Tropical Marine Research"
+  date: "2026-10-24"
+  output-file: "DIY_QuantiFluorONE_Assembly_and_Operating_Manual"
+  chapters:
+    - index.qmd
+    - chapters/01_instrument_overview.qmd
+    - chapters/02_safety.qmd
+    - chapters/03_measurement_principles.qmd
+    - chapters/04_components_and_files.qmd
+    - chapters/05_assembly.qmd
+    - chapters/06_software_installation.qmd
+    - chapters/07_startup_and_controls.qmd
+    - chapters/08_calibration.qmd
+    - chapters/09_routine_analysis.qmd
+    - chapters/10_results_and_qc.qmd
+    - chapters/11_performance.qmd
+    - chapters/12_maintenance_and_troubleshooting.qmd
+    - chapters/13_sybr_safe.qmd
+    - chapters/14_references.qmd
+format:
+  docx:
+    reference-doc: reference.docx
+    toc: true
+    toc-depth: 1
+    number-sections: true
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    theme: cosmo

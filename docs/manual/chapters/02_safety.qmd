@@ -1,0 +1,57 @@
+---
+document-status: "Author review"
+---
+
+# Safety and Laboratory Requirements {#sec-safety}
+
+Prepare a clean, dry work area before assembly or measurement. Read the instructions and applicable safety data sheets for the actual reagents, samples, cleaning products and optional battery. The laboratory is responsible for assessing its materials and procedures, providing suitable protective equipment, identifying emergency arrangements and assigning waste streams.
+
+## Separate construction from sample handling
+
+Carry out printing, drilling, trimming and soldering away from the clean assay area. Remove print debris and metal fragments before installing electronics or optical parts. Secure workpieces, use eye protection when cutting or drilling, and provide suitable extraction when soldering. Let the soldering iron and freshly soldered parts cool before handling them.
+
+Inspect printed parts for sharp edges, cracks and poor fit. Do not force a tube, filter or circuit board into position. Handle glass filters by their edges and avoid bending or scratching them. Keep screws and loose components away from the electronics during assembly.
+
+## Electrical power and batteries
+
+Switch the instrument off and **disconnect USB power and the optional battery** before opening the enclosure, changing wiring or moving boards. The switch alone is not a substitute for disconnecting power during internal work. Never hot-plug internal connectors.
+
+Check connector orientation, supply polarity and pin correspondence against the documented hardware before applying power. Do not infer pin assignments from wire colour alone. Use intact cables and the documented USB supply arrangement. Keep conductive tools away from powered boards and provide strain relief so cable movement cannot pull on connectors.
+
+If using a LiPo battery, use a compatible battery and connector and follow the battery and controller manufacturers' charging instructions. Do not puncture, crush, short-circuit or use a swollen, damaged or unusually hot battery. Stop using the instrument if wiring, the enclosure or a power source becomes abnormally hot or shows damage.
+
+## Optical exposure
+
+The documented excitation source is a visible blue LED. Avoid looking directly into the powered LED or viewing it through magnifying optics. Keep the optical module closed during normal measurements. Disconnect power before aligning or replacing the LED or filters, and use indirect observation for any necessary functional check.
+
+The filter set separates excitation from fluorescence; it does not establish an eye-safety classification for an exposed assembly. A change of LED, drive current or optics requires a fresh assessment. The separate SYBR Safe chapter must be followed when considering optical substitutions.
+
+## Reagents and biological samples
+
+Wear suitable laboratory clothing, gloves and eye protection when preparing assays. Avoid skin and eye contact with reagents, do not mouth-pipette, and keep reagent containers closed when not in use. Do not assume that a DNA-binding dye is harmless because it is used in small amounts. Promega TM405 instructs users to treat the ONE dye as a potential mutagen because it binds nucleic acids and notes that it contains an irritant that facilitates entry of organic compounds into tissues. Consult the safety data sheet for the exact product and formulation.
+
+Treat the sample's biological and chemical hazards separately from those of the dye. Environmental extracts and purified DNA preparations may contain extraction chemicals or other contaminants. Use the containment and waste route required for the actual material. This manual does not establish that a sample has been rendered biologically inactive.
+
+Keep liquids away from the PyBadge, USB connection, battery and internal boards. Close tubes before insertion and inspect their exterior for droplets. If liquid enters the enclosure, stop work, disconnect power if it is safe to do so and follow the laboratory's spill procedure. Inspect and dry the affected assembly before returning it to service; verify its function and calibration as appropriate.
+
+## Clean handling and reliable pipetting
+
+Use a clean assay area, DNA-free tubes and tips, and pipettes suitable for 1 µL and 200 µL transfers. Change tips between samples and standards, and replace contaminated gloves. Keep stocks separate from sample preparation where practical. Avoid carrying high-concentration DNA into the reagent blank or reagent stock.
+
+Bring assay components to room temperature before preparation. Mix DNA solutions and prepared assays consistently, avoid bubbles and protect dye-containing tubes from light. The QuantiFluor ONE procedure uses a five-minute incubation at room temperature in the dark. Chapter 9 gives the complete preparation and measurement sequence.
+
+## Storage and disposal
+
+Follow the product label and manufacturer instructions for reagent and standard storage. Keep containers labelled with product identity and relevant lot and preparation information. Protect the dye from light and do not confuse the ready-to-use ONE reagent with a concentrated dye from another kit.
+
+Collect used assays, tips and tubes in the laboratory's designated waste streams for their combined chemical and biological contents. Do not assume that drain disposal is permitted. Dispose of batteries and electronic components through their appropriate collection routes.
+
+## Before work begins
+
+- [ ] Work area is clean and dry, and construction tools are separated from assay preparation.
+- [ ] Reagent and sample hazards, protective equipment, spill response and waste routes are defined.
+- [ ] Power sources, cables, enclosure and any battery are intact.
+- [ ] Optical shielding is installed and internal connectors are secure.
+- [ ] Suitable pipettes, clean consumables and traceable sample labels are available.
+
+The assay handling instructions are based on Promega's QuantiFluor ONE dsDNA System Technical Manual TM405, including its Handling and Disposal section. The applicable safety data sheets and local assessment remain the sources for product-specific hazard classification and emergency measures.

@@ -6,14 +6,10 @@ communication_language: de
 
 release_version: 1.0.0
 release_date: 2026-08-10
-repository_visibility: private
+repository_visibility: public
 
 author: "Dipl.-Ing. Matthias Birkicht"
 
-workshop_title: "eDNA Workshop 2026"
-workshop_context: "STABLE Project (2025–2027) – Higher Education Partnership for a Sustainable Blue Economy"
-workshop_location: "Malaysia"
-workshop_date: "[To be confirmed]"
 
 primary_page_size: A4
 optional_page_size: A5
@@ -21,3 +17,7 @@ optional_page_size: A5
 optical_detection_geometry: "Single TSL2591 fluorescence sensor positioned at 90 degrees to the excitation axis"
 reference_sensor_present: false
 measurement_response: "Blank-corrected 90-degree fluorescence signal"
+
+institute: "Centre for Tropical Marine Research"
+manual_source: "docs/manual"
+manual_date: "2026-10-24"

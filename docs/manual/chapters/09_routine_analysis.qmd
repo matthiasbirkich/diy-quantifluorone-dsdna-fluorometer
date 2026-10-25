@@ -1,0 +1,102 @@
+---
+document-status: "Author review"
+---
+
+# Routine dsDNA Analysis with QuantiFluor ONE {#sec-routine-analysis}
+
+This protocol uses **1 µL of sample plus 200 µL of ready-to-use QuantiFluor ONE reagent** in a Promega E4941 thin-walled 0.5 mL PCR tube. Measure these prepared samples against the on-device two-point calibration after the instrument has been characterized and a quality-control plan established. No provisional or imported multipoint calibration is required for this routine procedure. The instrument reports concentration of the DNA solution before reagent addition.
+
+## Prepare the batch
+
+Use clean DNA-free tubes and tips, fresh gloves, a P2 or P10 pipette suitable for 1 µL transfers, a 200 µL pipette, a tube rack and a timer. Prepare sufficient reagent, the confirmed ONE stock standard when recalibration is required, an independent control solution and any required sample dilutions.
+
+Record the batch date, operator, instrument, firmware, reagent and standard identity, calibration ID, working range, applicable LOD/LOQ and the pre-established blank/QC acceptance intervals. Record actual clock times separately; the device CSV contains runtime seconds rather than UTC.
+
+1. Start the instrument on standalone power and allow the documented 20-minute warm-up.
+2. Confirm mechanical integrity, light shielding, sensor settings and available power.
+3. Check the intended two-point calibration. Keep its stored blank or perform a complete two-point recalibration; do not replace that blank with START and then proceed as if its model were still active.
+4. Prepare traceable IDs for blanks, controls, each sample and each independently prepared replicate.
+5. Arrange tubes in measurement order and keep the laboratory record aligned with the selected instrument IDs.
+
+## Prepare and incubate the tubes
+
+| Tube | Preparation | Purpose |
+|---|---|---|
+| Reagent blank or blank check | 200 µL ONE reagent; no DNA addition | Calibration blank, independent blank study or batch blank check, according to the chosen action |
+| High standard when required | 200 µL reagent + 1 µL confirmed 400 ng/µL stock | 400 ng two-point calibration anchor |
+| Control | 200 µL reagent + 1 µL control solution | Independent check against a known target |
+| Unknown | 200 µL reagent + 1 µL sample solution | Standard sample assay |
+| Diluted unknown | 200 µL reagent + 1 µL deliberately prediluted sample | Assay within the established range; record the predilution factor |
+
+1. Bring assay components to room temperature and mix DNA solutions before pipetting.
+2. Label tubes and dispense 200 µL reagent into each.
+3. Add 1 µL standard, control or sample to the appropriate tubes, changing tips for every transfer. Add no DNA solution to the reagent blank.
+4. Close and mix thoroughly by vortexing or the manufacturer's pipette-mixing approach. Avoid introducing bubbles.
+5. Incubate for **5 minutes at room temperature protected from light**. Use timed groups for a large batch so incubation is consistent.
+6. Inspect tubes for bubbles, external droplets and fingerprints. Clean the exterior or prepare a replacement tube if necessary.
+
+Promega permits other sample volumes on the Quantus, where the entered volume is used for calculation. This DIY procedure fixes the sample aliquot at 1 µL. Do not increase it to 2 or 20 µL while retaining the same calibration and simply expect the displayed concentration to remain correct. A changed volume needs a documented compatible calibration and evaluation of assay geometry and response.
+
+## Establish the batch baseline and verify a control
+
+| Active route | Blank action | Next action |
+|---|---|---|
+| New two-point calibration | Measure its blank inside `2-PT CAL` | Complete the high-standard measurement, review and save |
+| Retained two-point calibration | Measure a fresh blank-check tube with A under its own ID | Evaluate the check using the retained blank and model |
+
+Measure the independent control with A. Evaluate its recovery and any blank deviation against the limits established before the batch. Do not accept unknowns while these checks fail. If a retained two-point calibration needs a replacement blank, repeat the complete two-point calibration and control.
+
+## Measure the unknown samples
+
+1. Return to Live and choose the correct sample ID with UP/DOWN.
+2. Insert the incubated tube to its reproducible stop and close the light shield.
+3. Press A and leave the instrument and tube undisturbed during all three readings.
+4. Read the concentration, result status and signal statistics. Use Details and RAW when investigating unusual readings.
+5. Record any repetition, independent replicate or sample predilution. Do not substitute a new tube under an unrelated ID.
+6. Repeat the control after a long interruption, suspected drift or other event defined in the laboratory plan. Include an end-of-batch control where required.
+7. Keep affected results on hold if QC no longer passes.
+
+The high calibration standard cannot also serve as the sole independent control proving that calibration correct. Use a separate preparation at a different concentration; an independently assigned material is preferable when available.
+
+## Repeat or dilute when necessary
+
+For an isolated unstable reading, inspect bubbles, mixing, tube seating, external contamination and light exclusion. Correct an identified cause and repeat the measurement without deleting its original record. If separately prepared assay tubes disagree, investigate preparation and make fresh replicates when needed.
+
+For above-range or saturated results, dilute the original sample with a suitable DNA-free diluent, record the preparation volumes and repeat the entire 1 µL assay. Do not dilute an already prepared dye-containing assay and apply the ordinary calibration without evaluating that altered procedure.
+
+The firmware can treat saturation as a fatal acquisition error. Record the error and restart after correcting the cause; do not assume the previous display is a valid new result.
+
+## Calculate and release the result
+
+For an undiluted original sample, the displayed original-solution concentration is already the reportable concentration if calibration, range and QC requirements pass. **Do not multiply it by 201.** That factor describes dilution within the standard assay and is already implicit in the concentration calibration.
+
+For a deliberately prediluted sample, multiply the displayed concentration by the predilution factor. For example, a 1:10 predilution measured as 30 ng/µL corresponds to 300 ng/µL in the original sample. Record the factor as total diluted volume divided by sample volume; avoid ambiguous dilution notation.
+
+The corresponding CSV field `concentration_in_assay_ng_uL` describes the prepared assay and is not interchangeable with the original-sample result. Interpret LOD/LOQ and any interval on the same concentration basis. For prediluted samples, the effective original-sample limits also increase by the predilution factor.
+
+## Complete and archive the batch
+
+1. Review blanks, controls, sample IDs, repeats, range flags, limits and dilution calculations.
+2. Hold or reject results that do not meet the pre-established conditions.
+3. Retrieve CSV and calibration/configuration/state files using safe mode and the backup procedure.
+4. Confirm that the expected measurements were actually written and archive them with the laboratory record.
+5. Remove used tubes, clean the instrument exterior without introducing liquid and dispose of consumables under laboratory rules.
+6. Store reagent and standard according to the ONE kit instructions.
+
+![Instrument on standalone power alongside prepared sample tubes. The photograph illustrates the measurement arrangement.](../../figures/measuring_setup.jpg){width=85%}
+
+## Bench checklist
+
+- [ ] Instrument warmed up, closed and operating from a supply that permits logging.
+- [ ] Correct calibration and corresponding blank procedure selected.
+- [ ] Reagent blank/check and independent control accepted.
+- [ ] Tubes labelled, mixed and incubated for 5 minutes in the dark at room temperature.
+- [ ] Exactly 1 µL sample added to 200 µL reagent for this procedure.
+- [ ] Correct sample ID selected before each A measurement.
+- [ ] Range, limits, replicate behavior and result flags reviewed.
+- [ ] Only deliberate sample predilution applied to the reported concentration.
+- [ ] Expected CSV rows and calibration record archived.
+
+## Protocol source
+
+Promega Corporation, QuantiFluor ONE dsDNA System, TM405, revised October 2022, Section 3, printed page 4. The supplied PDF has this procedure on PDF page 5. The blank, 400 ng standard, mixing and five-minute incubation are drawn from that procedure. The fixed 1 µL sample aliquot and RC2 controls are the project-specific implementation.

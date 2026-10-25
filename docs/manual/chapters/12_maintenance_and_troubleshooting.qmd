@@ -1,0 +1,82 @@
+---
+document-status: "Author review"
+---
+
+# Maintenance and Troubleshooting {#sec-maintenance}
+
+Start fault finding with sample identity, preparation, power, calibration state and mechanical fit. Preserve the original data and settings before changing hardware or reinstalling software. A correction that changes optics, assay conditions or blank state must be followed by the appropriate calibration and control checks.
+
+## Routine care
+
+Remove the sample tube after use. Keep the optical compartment dry and free of dust, and inspect tube seating, filter retention, cables and the light shield before a batch. Wipe the exterior without allowing liquid into electronics or filter pockets.
+
+Disconnect USB and the optional battery before opening the enclosure or moving boards. Handle filters by their edges and use suitable optical tissue or a clean optical blower. Do not scrape detector surfaces or use abrasive material on filter coatings. Check material and coating compatibility before using a cleaning solvent.
+
+Keep boards supported and strain-relieve cables so connectors are not carrying mechanical loads. If a battery is swollen, damaged or unusually hot, take it out of service. Record maintenance that might change the measurement response.
+
+## Startup and connections
+
+| Observation | Checks | Action |
+|---|---|---|
+| Dark display or no startup | Power switch, USB supply, cable and optional battery | Test with a known-good USB data cable; inspect for a short with power disconnected before reinstalling software |
+| No computer drive | Data-capable cable, USB port and reset mode | Confirm whether `CIRCUITPY` or the UF2 boot drive is intended |
+| Boot drive appears during file maintenance | Reset double-click was too fast | Reset once and use the slower safe-mode sequence |
+| Missing configuration or module | Root-directory layout and complete release contents | Back up the drive; repeat the documented clean installation if files are incomplete |
+| `TSL2591 not found` | Upstream adapter, mux supply, downstream cable and detector connection | Inspect connections without power; restart after correction |
+| `Need exactly one TSL2591` | Number of matching sensors on scanned branches and configured channel | Restore the documented single-detector setup or correct the configured channel |
+| LED board absent from I2C scan | Board is a fixed-current driver without an I2C address | This absence is expected; check supply and LED polarity if it remains dark |
+| Fatal application error | Error type, stage and serial traceback | Record the error before resetting; correct the underlying cause |
+
+Do not hot-plug internal connectors. Confirm pin identity and supply polarity from the actual assembly and design records rather than wire colour alone. The unresolved cable/connector details in the build review require physical confirmation.
+
+## Signals and sample handling
+
+| Observation | Possible cause | Action |
+|---|---|---|
+| Blank changes with room light | Gap at tube opening, filter pocket, seam or cable exit | Check the closed optical path and refit the shield; recheck before calibration |
+| Persistently saturated signal | Missing/displaced emission filter, light leak or excessive sample fluorescence | Inspect the optics; predilute the original sample when its concentration is above range |
+| Low response from a known standard | LED polarity/supply, alignment, filter identity, detector position or reagent/preparation error | Verify the optical sequence, preparation and reference tube before changing gain |
+| High within-cycle spread or drift | Bubbles, incomplete mixing, movement, changing temperature or unstable tube seating | Correct an identified cause and repeat; retain the earlier result |
+| Tube sticks or shifts the module | Print debris, poor fit or damaged tube | Remove the obstruction or replace the part; do not force the tube |
+| Unexpectedly high sample result | Identity error, contamination, wrong volume or incompatible calibration | Check records and make a fresh independently prepared assay |
+| Negative blank-corrected estimate | Sample signal below the retained blank or baseline mismatch | Inspect the blank check and controls; retain the raw estimate and apply the reporting convention |
+
+The detector's FULL and IR channels contribute to the calculated VIS signal. Inspect all three when diagnosing unusual behavior. A small technical SD does not rule out wrong concentration, contamination or a preparation error.
+
+## Calibration and controls
+
+| Observation | Meaning or check | Action |
+|---|---|---|
+| Calibration disappears after START | Ordinary blank replacement invalidates the two-point model in RC2 | Repeat the complete two-point calibration if replacing the blank was intended |
+| Stored two-point calibration should be retained | A fresh blank check is needed without replacing state | Measure the blank-check tube with A under a traceable ID and evaluate it with QC |
+| `PROV` displayed | Historical/provisional multipoint state is active | Return to the intended routine two-point workflow; do not accept provisional model output as routine calibration |
+| Standard signal invalid | Nonpositive or insufficient blank-corrected signal | Check standard identity, pipetting, reagent and optics; prepare and calibrate again |
+| `CV`, `SNR` or `SAT` in calibration review | Firmware warning, even if saving is possible | Investigate and obtain an acceptable calibration/control before sample analysis |
+| Independent control fails | Calibration, blank or assay conditions may be unsuitable | Hold affected results; investigate and repeat QC and the necessary calibration/assays |
+| Limits unavailable after recalibration | New two-point calibration resets the saved blank-limit estimates | Establish suitable limits for that calibration or apply a documented accepted method boundary |
+
+Do not use the historical example slope or blank counts as universal pass/fail thresholds. Maintain control targets and acceptance intervals for the actual instrument and assay. A failed control is a reason to investigate, not a reason to widen its acceptance interval after measurement.
+
+## Files and data recovery
+
+| Observation | Check | Action |
+|---|---|---|
+| Concentrations display but CSV is unchanged | USB data-host connection at startup and logging setting | Restart on standalone power and verify newly saved test rows |
+| Calibration save fails | Device write access and available storage | Back up data, restore the documented write arrangement and repeat calibration/save |
+| Wrong sample names | Live-screen selection, configuration list and saved index | Select the correct ID before A; document any already mislabelled rows without overwriting evidence |
+| CSV rows split into extra columns | Commas or line breaks in sample IDs | Use simple IDs without CSV separator/quote characters; preserve and document the damaged source file |
+| Apparent time jumps | Runtime clock restarts or several sessions appended | Reconstruct sessions from batch notes; `t_s` is not UTC |
+| Multipoint JSON rejected during development | Model label, field names and schema mismatch | Check the documented RC2 contract; v7.3 export is not directly compatible |
+
+Multipoint import is an optional development capability. It is not required to characterize a series in the Calibration Suite or to analyze routine samples with two-point calibration. Avoid changing unrelated configuration files to repair an import problem.
+
+## Return the instrument to service
+
+1. Record the fault, affected batch interval, corrective work and any replaced part.
+2. Recheck mechanical fit, optical shielding and the intended sensor settings.
+3. Verify blank behavior and use the correct blank action for the calibration route.
+4. Recalibrate after a change that invalidates the active calibration, and repeat relevant characterization for a new configuration.
+5. Measure an independently prepared control and verify logging.
+6. Resume reportable samples only when the applicable checks pass; repeat affected samples where required.
+
+The screw schedule remains a deferred build task until the instrument can be inspected. Do not turn a provisional screw entry into a confirmed maintenance instruction without that check.

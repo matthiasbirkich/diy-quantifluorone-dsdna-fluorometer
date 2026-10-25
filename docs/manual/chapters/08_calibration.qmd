@@ -1,0 +1,160 @@
+---
+document-status: "Author review"
+---
+
+# Calibration and Calibration Management {#sec-calibration}
+
+Calibrate the completed instrument using the same assay, tube type, optical configuration and sensor settings that will be used for samples. Routine sample analysis uses the on-device two-point calibration. A separate multipoint concentration series evaluated in the Calibration Suite characterizes a newly built instrument or a changed configuration. The preserved provisional dataset is a development/characterization record, not a required operational calibration for routine samples.
+
+## Choose the calibration route
+
+| Route | Requirements | Operational decision |
+|---|---|---|
+| New two-point calibration | Reagent blank and confirmed 400 ng/µL ONE stock standard | Use the on-device procedure below; verify an independent control |
+| Stored two-point calibration | Unchanged conditions, retained matching blank and passing independent control | Reuse deliberately; START on the measurement screen invalidates this model |
+| Multipoint series for instrument characterization | Independently assigned concentrations spanning the intended range | Evaluate regression and analytical performance in the Calibration Suite for each new instrument or changed configuration; routine samples still use two-point calibration |
+| No suitable calibration | Hardware inspection only | Record signals, but do not report sample concentrations |
+
+The routine workflow does not require importing a multipoint or provisional calibration. Characterization is performed initially for each new instrument or changed configuration; it need not be repeated for every sample batch. Retain its data and conclusions as the basis for the working range and performance claims. Repeat relevant characterization if configuration changes or QC findings undermine that basis.
+
+## Prepare the calibration tubes
+
+Use Promega QuantiFluor ONE Lambda DNA stock at **400 µg/mL = 400 ng/µL**, confirmed for this instrument's procedure. QuantiFluor ONE reagent is ready to use. The separate QuantiFluor dsDNA kit has different reagent preparation and stock-standard instructions and is not a substitute protocol.
+
+| Tube | Reagent | DNA addition | DNA mass and concentration basis |
+|---|---|---|---|
+| Reagent blank | 200 µL ONE reagent | None | No intentionally added dsDNA; 200 µL total |
+| High standard | 200 µL ONE reagent | 1 µL ONE stock at 400 ng/µL | 400 ng DNA; 201 µL total; approximately 1.99 ng/µL in assay |
+| Independent control | 200 µL ONE reagent | 1 µL of a separately prepared control | Target expressed as concentration of the control solution before reagent addition |
+
+The blank follows the manufacturer's single-tube TM405 procedure. Adding 1 µL of DNA-free buffer is a different blank preparation. If a matched-buffer blank is introduced, document and evaluate that choice; do not silently alternate between blank preparations.
+
+Allow components to reach room temperature. Mix each DNA-containing tube thoroughly, avoiding bubbles, and incubate for **5 minutes at room temperature protected from light**. Use the same preparation and timing conditions for calibration, controls and samples.
+
+The calibration setting **400 ng/µL** represents the concentration of the 1 µL stock aliquot. It does not mean that the finished assay tube contains 400 ng/µL. The corresponding sample output is expressed on the same original-solution basis.
+
+## Perform the on-device two-point calibration
+
+1. Start on standalone power after the documented warm-up and mechanical checks. A USB data host prevents the intended firmware-side saving workflow.
+2. From Live, press SELECT, choose `2-PT CAL` and open it.
+3. Insert the reagent blank fully, close the light shield and press START when the calibration dialog requests it.
+4. On `HIGH STANDARD`, select **400 ng/uL** with UP/DOWN. Press SELECT to continue.
+5. Replace the blank with the incubated high-standard tube, close the shield and press A.
+6. Review both result pages using LEFT. Confirm the concentration setting, signals, slope and QC indications.
+7. If preparation, signal or QC is unacceptable, cancel with B and investigate before repeating the calibration.
+8. Save an acceptable calibration with SELECT.
+9. Open `CAL STATUS`, record the two-point parameters and measure an independently prepared control with A.
+10. Verify persistence after a restart and archive the saved calibration and matching state files with the batch record.
+
+One calibration measurement consists of three sensor readings of the same tube. The slope is the blank-corrected standard signal divided by 400 ng/µL. This two-point procedure does not independently test linearity between its endpoints.
+
+The firmware displays `CV`, `SNR` or `SAT` warnings but does not prevent every warned result from being saved. Investigate warnings and confirm a control. Avoid imposing old example RFU or slope values as universal acceptance limits; those depend on the actual optical configuration and blank.
+
+## Reuse or replace a stored calibration
+
+Before reuse, compare the archived calibration with the instrument, LED/filter set, sensor channel, gain, integration time, assay volumes, reagent condition and temperature history. Measure a fresh blank-check tube with A under a traceable ID and check an independent control using the retained calibration. The laboratory must define acceptance intervals before the batch.
+
+Do not press START on the measurement screen merely as a preliminary step when retaining a two-point calibration. START replaces blank state and invalidates that model. If a new calibration blank is required, repeat the complete two-point procedure with the high standard.
+
+Replacing optics, the tube holder or detector, changing sensor settings or assay volumes, or observing unresolved blank/QC drift requires renewed assessment and calibration. The firmware checks some stored sensor settings; it cannot detect reagent changes, optical replacement, contamination or temperature equivalence.
+
+## Estimate blank-based limits on the device
+
+The `10-BLANK L/Q` routine requires an active two-point calibration. Prepare **ten independent reagent-blank tubes** using the same blank preparation. Ten cycles on one tube measure a different component of variation and must not be described as ten independent blanks.
+
+1. Select `10-BLANK L/Q` from the menu.
+2. Insert a fresh blank for each requested position, close the shield and press START inside this routine.
+3. Complete all ten tubes, then review the results.
+4. Save with SELECT if the study is acceptable and archive its CSV rows and updated calibration JSON.
+
+This menu routine does not call the ordinary blank-replacement action. The routine retains the two-point calibration while estimating limits from the standard deviation of the ten cycle means.
+
+With the shipped configuration, the calculations are **LOD = 3.3 × blank SD / slope** and **LOQ = 10 × blank SD / slope**. The slope uses original-solution concentration units, so the resulting limits have that basis too. Record the actual factors, blank count, preparation and settings.
+
+These are blank-based screening estimates, not a complete DIN 32645 calibration-curve assessment. A fresh two-point calibration clears the earlier saved limits; do not assume that the new model has inherited them. Do not infer limits from a single tube's three-reading SD.
+
+## Characterize a new instrument or configuration
+
+Use independently assigned standard concentrations across the intended working range, with independently prepared assay replicates where practical. Record assigned concentrations, blank preparation, signal definition, tube identities, reagent information and sensor settings.
+
+Use original-solution concentration in ng/µL for the 1 µL sample aliquot and blank-corrected RFU as the response when creating a model for RC2. Do not regress measured RFU against concentrations calculated from that same RFU and then claim independent linearity. Do not import a model fitted to uncorrected VIS as if it were an RFU model: RC2 subtracts its active blank before applying the slope and intercept.
+
+Open the [Calibration Suite v7.3 in the browser](https://matthiasbirkich.github.io/diy-quantifluorone-dsdna-fluorometer/software/calibration_suite/Open_Fluorometer_Calibration_Suite_v7.3.html) for model diagnostics, retaining its complete report. The [HTML source and offline copy](../../../software/calibration_suite/Open_Fluorometer_Calibration_Suite_v7.3.html) and [v7.3 Standards Audit Notes](../../../software/calibration_suite/V7.3_STANDARDS_AUDIT_NOTES.md) remain in the repository. The web link launches the application; the source link opens GitHub's file view. To work offline, download the actual HTML file and open the saved file in a browser.
+
+With the standard 1 µL aliquot, verify that the suite reference values remain numerically the intended original concentrations. The supplied suite parser multiplies concentration by sample volume when its concentration basis is selected; using another volume changes the numerical scale. Changing an axis label does not change this calculation.
+
+Inspect residuals, replicate spread, recovery and the linear-versus-quadratic diagnostic alongside the calibration plot. A high R² alone is insufficient. Retain suspected outliers and investigate technical causes rather than deleting them to improve the fit. The suite also offers weighted fits, but RC2 imports only an OLS model.
+
+## Use the Calibration Suite v7.3
+
+Use this workflow when characterizing a new instrument, assay or optical configuration. It is not an additional step before every routine sample. The instructions below refer to the supplied v7.3 application and its Standards Audit Notes; the controls are named as they appear on screen.
+
+### Start and check the application
+
+The suite opens with an embedded example already calculated. **These are demonstration data, not measurements from the instrument being characterized.** Confirm the version badge reads `v7.3 Standards-Audit`. The built-in openDIN self-test runs at startup; use `Run openDIN standards self-test` to repeat it and inspect the eight checks in section 13. They cover slope, intercept, R², residual SD, Qx, NWG, EG and BG. The self-test uses its own fixed reference dataset and settings, independently of the selected sample dataset.
+
+A PASS checks the implemented reference calculation against the embedded expected values. It does not qualify the instrument, establish a working range or certify conformity with a standard. If the test fails or a compatibility error appears, retain the message and resolve the software problem before relying on the results.
+
+### Prepare the calibration CSV
+
+Use a header row and one row per measured assay replicate. Retain independently assigned reference concentrations and the corresponding blank-corrected RFU cycle means. The firmware's three sensor readings within one cycle do not represent three independently prepared assays. Its routine concentration log must be supplemented with independently assigned references before it becomes calibration input; do not use the instrument's calculated concentrations as the reference values.
+
+The following column layout is suitable for the standard ONE procedure. Semicolon-separated columns and decimal points avoid ambiguity. These two rows illustrate the format only; prepare a complete series spanning the selected range, with blanks and replicates as designed.
+
+| level_id | replicate | reference_ng_uL | sample_volume_uL | RFU |
+|---|---|---|---|---|
+| Blank | 1 | 0 | 1 | 2 |
+| Std45 | 1 | 45 | 1 | 563 |
+
+Use the exact headers shown, including `RFU`; do not rename them to descriptive phrases. The application reads a supplied signal column directly. Optional `VIS` and `blank_VIS` columns do not cause it to calculate RFU by subtraction. Calculate and verify RFU beforehand if it is not already available. Keep the blank preparation and signal definition consistent throughout the series. A measured blank-corrected blank can fluctuate around zero; retain its recorded value.
+
+The parser accepts semicolons, commas or tabs and requires a header and at least three usable numeric rows. That parser minimum is not an adequate characterization design by itself. Avoid quoted fields containing delimiters because this simple parser splits fields at the delimiter. Check the imported row count: unusable numeric rows can be omitted. Store the raw measurements separately from the prepared import file.
+
+### Import data and set the analysis
+
+1. In section 1, `Import and settings`, choose the prepared file using `Calibration CSV`. Alternatively replace all demonstration text in section 3, `Imported calibration data`, with the complete CSV text. File import calculates immediately; after pasting, press `Calculate selected model`.
+2. For the ONE method set `Sample volume [µL]` to **1**, `Reference values represent` to **Original sample concentration**, `x-axis unit` to **ng/µL** and `y-axis unit` to **RFU**. A `sample_volume_uL` column overrides the global sample-volume value for each row; verify that every value is 1. The reference concentration times 1 µL is numerically equal to DNA mass in ng. This numerical equivalence is specific to this aliquot; see Chapter 13 before adapting another volume.
+3. Select **OLS linear** for the documented characterization baseline. Enter a meaningful `Calibration ID` and actual `Calibration date`; replace the prefilled example values.
+4. Select and record `Significance level α`, `Determination-limit factor k` and `Future replicate determinations m`. The startup defaults are α = 0.05, k = 3 and m = 1. Set m to the number of independent determinations represented by a future reported mean; it is not automatically 3 because the firmware averages three sensor readings. Record the intended repeatability design.
+5. Press `Calculate selected model` after completing all settings, including ID and date, so the scientific JSON and report reflect them. Confirm the imported row count, number of levels, signal scale and reference range before interpreting any statistics.
+
+Selecting `Amount in assay tube` uses reference numbers directly, without multiplying them by sample volume. It does not convert a mass result to original-sample concentration. Choose units and interpretation explicitly; for the standard 1 µL ONE workflow use the settings above. Resolve a different concentration or mass basis before comparing slopes, limits or exporting coefficients.
+
+### Review the results and limits
+
+Read section 4 for the equation, slope, intercept, residual SD and limits. Review the calibration curve in section 7 and residuals in section 8 for curvature, changing spread and isolated deviations. Sections 9 and 10 show level repeatability, back-calculated concentrations and individual residuals. Recovery calculated from the fitted standards describes the fit; it does not replace separately prepared control samples.
+
+Section 11 provides Grubbs screening, an approximate residual-normality diagnostic, the Mandel linear-versus-quadratic test and adjacent-level slope comparisons. A significant Mandel result indicates evidence for curvature within that dataset; a non-significant result alone does not prove linearity. Investigate flags using preparation records and repeat measurements where justified. The default 10% deviation threshold for local slopes is user-defined, not a formal DIN acceptance threshold. Suspected outliers are not removed automatically.
+
+`Compare all models` populates the comparison in section 6; choose a model in the selector to inspect its outputs. Weighted models 1/c, 1/c² and 1/s² are exploratory alternatives. Do not select a model solely for its R². v7.3 suppresses OLS-style confidence/prediction bands and DIN-labelled limits for weighted fits. Document why any weighting is appropriate; the RC2 multipoint importer accepts only OLS.
+
+Section 12 separates **NWG (decision limit), EG (detection limit) and BG (determination limit)** for the implemented OLS calibration-curve calculation. EG uses the assumption α = β; BG also depends on k and m. Retain the displayed method, settings, reference basis and units with the results. Limits estimated from a wide-range calibration require particular care near zero; assess independent low-level samples and blanks before adopting a reporting threshold. An implementation self-test does not establish that the calibration design satisfies all requirements of a standard.
+
+Section 14 is a separate two-point and blank-sigma calculator. It uses repeated blank and standard signals and shows 3σ, 6σ and 10σ divided by slope. These estimates differ from the instrument's documented 3.3σ and 10σ screening factors and from the calibration-curve calculation. The sample signal for that calculator must have the same signal basis as its blank and standard inputs. This section does not replace the on-device routine two-point calibration, and its JSON is not an approved RC2 calibration file.
+
+### Save the characterization record
+
+Use `Save scientific JSON` or `Save JSON` to download the selected model's scientific record. Use `Print / save report as PDF` and save the browser's print output. On iPad, the print preview can be opened or shared to Files as a PDF; the exact controls depend on the browser. Recalculate after final edits and confirm the intended model, ID, date, units and audit status appear in the saved output.
+
+Archive raw measurements, the prepared CSV, settings, scientific JSON, PDF report, HTML release and acceptance decision together. **The scientific JSON is an analysis record, not a directly compatible RC2 import;** see the next section before any firmware transfer.
+
+## Optional multipoint import for development
+
+Multipoint import is an optional development capability, not part of routine sample analysis or a prerequisite for evaluating a concentration series in the Calibration Suite. The supplied importer expects the following mathematical fields. Their presence is necessary but does not establish analytical suitability.
+
+| Location | Required field names |
+|---|---|
+| Top level | `calibration_mode` equal to `multipoint`; `calibration_model` equal to `OLS`; `residual_sd_signal` |
+| `multipoint` object | `intercept_signal`, `slope_signal_per_x`, `n_replicates`, `mean_concentration`, `sxx_concentration2`, `t_factor_two_sided` |
+
+Document calibration ID, accepted range, status, alpha, concentration basis, units and limit method as well. For the standard original-solution basis, the relevant `dilution_factor` is 201. The importer defaults a missing dilution factor to 1, which can make the secondary in-assay outputs incorrect even when the principal concentration is correct.
+
+**The v7.3 export uses OLS linear, mean_reference and sxx_reference2, and places its t factor in another object. It is not a file that can simply be renamed and loaded.** The older v7.2 scientific JSON is closer to the mathematical contract but omits dilution/range/status metadata needed for the documented workflow. Its separate DIYNAFLUOR configuration export targets another application and must not replace QuantiFluorONE configuration.
+
+A verified exporter or conversion workflow is recorded as an optional development follow-up. Its absence does not prevent instrument characterization in the Calibration Suite or routine analysis with the on-device two-point calibration. Do not repair the workflow by casually editing coefficients or relabelling the provisional example as approved.
+
+For a verified compatible model, transfer its JSON in safe mode, disconnect the data host, restart on standalone power, use `LOAD MP CAL` and confirm. Review parameters in `CAL STATUS`; verify ID and units from JSON because the RC2 status pages do not display every metadata field. Acquire the intended blank with START for this multipoint workflow and verify an independent control before accepting samples.
+
+## Calibration record
+
+Keep raw calibration data, assigned values and preparation records, model/report version, acceptance decision, exported operational JSON, matching state, sensor settings, blank-study data and independent control results together. Mark example and superseded files clearly so they cannot be mistaken for the current operational calibration.
